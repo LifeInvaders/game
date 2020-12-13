@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1b857613-ebae-4d79-a5d9-ad48f749374c" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Scripts/NetworkController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UIControls.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/KeyControls.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1lWrzbug7lHFbGht3RcS8k3MC6i" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/tp/tp2-harrys.kedjnane/Exercices/Exercices.sln" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <set />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <set />
+      </option>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1b857613-ebae-4d79-a5d9-ad48f749374c" name="Default Changelist" comment="" />
+      <created>1607723960010</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1607723960010</updated>
+      <workItem from="1607723974783" duration="4399000" />
+      <workItem from="1607730746753" duration="2951000" />
+      <workItem from="1607873688227" duration="1714000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="WindowStateProjectService">
+    <state x="1149" y="626" width="428" height="478" key="FileChooserDialogImpl" timestamp="1607729536979">
+      <screen x="0" y="0" width="2736" height="1824" />
+    </state>
+    <state x="1149" y="626" width="428" height="478" key="FileChooserDialogImpl/0.0.2736.1824@0.0.2736.1824" timestamp="1607729536979" />
+    <state x="949" y="614" width="828" height="502" key="IDE.errors.dialog" timestamp="1607724028123">
+      <screen x="0" y="0" width="2736" height="1824" />
+    </state>
+    <state x="949" y="614" width="828" height="502" key="IDE.errors.dialog/0.0.2736.1824@0.0.2736.1824" timestamp="1607724028123" />
+    <state x="1130" y="533" width="462" height="619" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1607732128057">
+      <screen x="0" y="0" width="2736" height="1824" />
+    </state>
+    <state x="1130" y="533" width="462" height="619" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.2736.1824@0.0.2736.1824" timestamp="1607732128057" />
+  </component>
+</project>
