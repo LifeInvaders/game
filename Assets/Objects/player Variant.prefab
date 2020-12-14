@@ -158,10 +158,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookSensitivity: 1
   minXLook: -45
-  maxXLook: 114.12
+  maxXLook: 60
   camAnchor: {fileID: 637066531}
   invertXRotation: 0
-  Target: {fileID: 4353876372182140554}
+  Player: {fileID: 0}
 --- !u!114 &1117722492
 MonoBehaviour:
   m_ObjectHideFlags: 0

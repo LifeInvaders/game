@@ -822,12 +822,11 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="CameraControler.cs" t="Include" />
-          <e p="Cameras.cs" t="Include" />
           <e p="Photon" t="Include">
             <e p="Launcher.cs" t="Include" />
             <e p="PlayerInputFields.cs" t="Include" />
           </e>
-          <e p="Player.cs" t="Include" />
+          <e p="PlayerControler.cs" t="Include" />
         </e>
       </e>
       <e p="BitpackersASMDEF.csproj" t="IncludeRecursive" />

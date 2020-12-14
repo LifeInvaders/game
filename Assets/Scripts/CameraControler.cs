@@ -8,36 +8,37 @@ public class CameraControler : MonoBehaviour
     public float minXLook, maxXLook;
     public Transform camAnchor;
     public bool invertXRotation;
-    public Transform Target;
+    public PlayerControler Player;
     private float curXRot;
-    private Transform Obstruction;
-    private float zoomSpeed = 2f;
+
+    private PlayerControler _playerControler;
+
+    
+    // private float zoomSpeed = 2f;
+
+    
     private void Start()
     {
-        Obstruction = Target; 
+        
+        _playerControler = Player.GetComponent<PlayerControler>();
         Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void LateUpdate()
     {
-        // ViewObstructed();
-        float x = Input.GetAxis("Mouse X");
-        float y = Input.GetAxis("Mouse Y");
-
-        transform.eulerAngles += Vector3.up * (x * lookSensitivity);
-        if (invertXRotation)
-            curXRot += y * lookSensitivity;
-        else
-            curXRot -= y * lookSensitivity;
-
-        curXRot = Mathf.Clamp(curXRot, minXLook, maxXLook);
-
-        Vector3 clampedAngle = camAnchor.eulerAngles;
-        clampedAngle.x = curXRot;
-        camAnchor.eulerAngles = clampedAngle;
+        if (!_playerControler.returnClimbing())
+        {
+            transform.eulerAngles += Vector3.up * (Input.GetAxis("Mouse X") * lookSensitivity);
+            curXRot += Input.GetAxis("Mouse Y") * lookSensitivity * (invertXRotation ? 1 : (-1));
+        
+            Vector3 clampedAngle = camAnchor.eulerAngles;
+            clampedAngle.x = Mathf.Clamp(curXRot, minXLook, maxXLook);;
+            camAnchor.eulerAngles = clampedAngle; 
+        }
+        
     }
 
-    private void ViewObstructed()
+    /*private void ViewObstructed()
     {
         
         RaycastHit hit;
@@ -63,5 +64,5 @@ public class CameraControler : MonoBehaviour
             }
         }
         
-    }
+    }*/
 }
