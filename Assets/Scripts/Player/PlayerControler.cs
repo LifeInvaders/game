@@ -11,6 +11,8 @@ public class PlayerControler : MonoBehaviour
     private float moveSpeed;
     public Rigidbody rig;
     private Animator anim;
+    private CapsuleCollider capsule;
+    public float jumpspeed = 5;
     private bool climbing = false;
     private bool canRotate = true, canMove = true;
     public float speedClimbing = 1;
@@ -19,6 +21,7 @@ public class PlayerControler : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        capsule = GetComponent<CapsuleCollider>();
     }
     
     public bool CanRotate()
@@ -30,7 +33,7 @@ public class PlayerControler : MonoBehaviour
     {
         transform.Translate( Vector3.up * (speedClimbing * Time.deltaTime));
     }
-
+    
     private void SetAnim(float x, float z)
     {
         anim.SetFloat("Speed Front", Mathf.Abs(z)*moveSpeed);
@@ -39,6 +42,18 @@ public class PlayerControler : MonoBehaviour
         anim.SetBool("Mirror",x>=0);
         
     }
+    
+    private bool IsGrounded()
+    {
+        float val = 1f;
+        Vector3 vc = Vector3.down;
+        RaycastHit hit;
+        
+        Debug.DrawRay(transform.position, vc * val, Color.red, 2f);
+        // Physics.Raycast(transform.position, Vector3.down, .3f);
+        return Physics.Raycast(transform.position, vc * val);
+    }
+    
     private void Move()
     {
         float x = Input.GetAxis("Horizontal");
@@ -53,6 +68,19 @@ public class PlayerControler : MonoBehaviour
             Vector3 dir = (right * x + forward * z) * moveSpeed;
             dir.y = rig.velocity.y;
             rig.velocity = dir;
+            if (Input.GetButtonDown("Jump"))
+            {
+                bool ground = IsGrounded();
+                    Debug.Log(ground);
+                if (ground)
+                {
+                    anim.SetBool("jump", true);
+                    rig.AddForce(new Vector3(0,jumpspeed,0),ForceMode.Impulse);
+                    anim.SetBool("jump", false);
+                }
+                
+            }
+            
         }
         else
             Climbing();
@@ -121,12 +149,13 @@ public class PlayerControler : MonoBehaviour
             SetLadder(ref capsule, ref col);
             return;
         }
-
+        
         if (col.gameObject.CompareTag("Banc"))
         {
             SetBanc(ref capsule, ref col);
             return;
         }
+        
     }
     
     

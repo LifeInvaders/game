@@ -25,19 +25,29 @@
     <list default="true" id="46a1a071-8782-48e9-959d-e99716af206a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.game/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.game/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.game/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.game/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.game/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.game/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player Mouvements/Climbing Ladder.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player Mouvements/Climbing Ladder.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player Mouvements/Climbing To Top.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player Mouvements/Climbing To Top.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Idle.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Idle.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Jumping Down (1).fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Jumping Down (1).fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Jumping Down.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Jumping Down.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player Mouvements/dying/Stealth Assassination.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Player Mouvements/dying/Stealth Assassination.fbx.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Animations/Player animation.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Player animation.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/Cannon.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/Cannon.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/Canon.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/Canon.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/Canon.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/Canon.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/Lantern1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/Lantern1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/Lantern2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/Lantern2.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/SM_Prop_Cannon_01_Separate.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/SM_Prop_Cannon_01_Separate.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/Wall Light.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/Wall Light.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Objects/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Objects/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Objects/Player.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Objects/Player.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Objects/player Variant.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Objects/player Variant.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/test2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/test2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraControler.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraControler.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerControler.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerControler.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerControler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerControler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,13 +58,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/../../../Epita/Programmes/Unity Project/GameClient/Assets/Scripts/Player/Player.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../Epita/Programmes/Unity Project/GameClient/Assets/Scripts/Player/CameraControler.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Objects/BancScript.cs" root0="FORCE_HIGHLIGHTING" />
-  </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/CameraControler.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerControler.cs" />
     </changedPaths>
   </component>
@@ -66,6 +72,7 @@
   <component name="PropertiesComponent">
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -106,7 +113,13 @@
       <updated>1607880987554</updated>
       <workItem from="1607881019764" duration="10021000" />
       <workItem from="1607965651014" duration="10647000" />
-      <workItem from="1608044716136" duration="3505000" />
+      <workItem from="1608044716136" duration="5587000" />
+      <workItem from="1608399304939" duration="3697000" />
+      <workItem from="1608414709132" duration="5634000" />
+      <workItem from="1608420565187" duration="36000" />
+      <workItem from="1608420938598" duration="383000" />
+      <workItem from="1608588744663" duration="1817000" />
+      <workItem from="1608642223244" duration="11052000" />
     </task>
     <task id="LOCAL-00001" summary="few corrections for cannonball animation">
       <created>1607889465775</created>
@@ -122,7 +135,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607971103848</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add few objects prefab + import death animations">
+      <created>1608072831651</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1608072831651</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -146,24 +166,7 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="few corrections for cannonball animation" />
     <MESSAGE value="camera + ladders fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="camera + ladders fix" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="670" y="198" key="RiderGenerateDialog" timestamp="1607982827709">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="670" y="198" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1607982827709" />
-    <state x="461" y="164" key="SettingsEditor" timestamp="1607881304821">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1607881304821" />
-    <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog" timestamp="1607889769474">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1607889769474" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1607971117165">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1607971117165" />
+    <MESSAGE value="add few objects prefab + import death animations" />
+    <option name="LAST_COMMIT_MESSAGE" value="add few objects prefab + import death animations" />
   </component>
 </project>
