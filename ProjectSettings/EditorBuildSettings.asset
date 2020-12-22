@@ -49,5 +49,5 @@ EditorBuildSettings:
     path: Assets/Photon/PhotonUnityNetworking/Demos/PunCockpit/PunCockpit-Scene.unity
     guid: 9d6d60c803e244e51ba945a84b88757d
   m_configObjects:
-    com.unity.input.settings: {fileID: 11400000, guid: 98012acdb73ecab509a84b1beec0cdc2,
+    com.unity.input.settings: {fileID: 11400000, guid: 5df84e60a56eb3f49a2bd60053bc3045,
       type: 2}
