@@ -23,32 +23,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46a1a071-8782-48e9-959d-e99716af206a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.game/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.game/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.game/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.game/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Idle.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Idle.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Jumping Down (1).fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Jumping Down (1).fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Jumping Down.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Jumping Down.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player Mouvements/dying/Stealth Assassination.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Player Mouvements/dying/Stealth Assassination.fbx.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Animations/Player animation.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Player animation.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/Cannon.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/Cannon.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/Canon.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/Canon.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/Canon.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/Canon.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/Lantern1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/Lantern1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/Lantern2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/Lantern2.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/SM_Prop_Cannon_01_Separate.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/SM_Prop_Cannon_01_Separate.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/Wall Light.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/Wall Light.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Objects/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/Player.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Objects/Player.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/player Variant.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/player Variant.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/test2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/test2.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerControler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerControler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +97,7 @@
       <workItem from="1608420565187" duration="36000" />
       <workItem from="1608420938598" duration="383000" />
       <workItem from="1608588744663" duration="1817000" />
-      <workItem from="1608642223244" duration="11052000" />
+      <workItem from="1608642223244" duration="16768000" />
     </task>
     <task id="LOCAL-00001" summary="few corrections for cannonball animation">
       <created>1607889465775</created>
@@ -142,7 +120,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608072831651</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added multiple animations, dynamics lights, jump player (not fully implemented)">
+      <created>1608657555439</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1608657555440</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,6 +152,7 @@
     <MESSAGE value="few corrections for cannonball animation" />
     <MESSAGE value="camera + ladders fix" />
     <MESSAGE value="add few objects prefab + import death animations" />
-    <option name="LAST_COMMIT_MESSAGE" value="add few objects prefab + import death animations" />
+    <MESSAGE value="added multiple animations, dynamics lights, jump player (not fully implemented)" />
+    <option name="LAST_COMMIT_MESSAGE" value="added multiple animations, dynamics lights, jump player (not fully implemented)" />
   </component>
 </project>
