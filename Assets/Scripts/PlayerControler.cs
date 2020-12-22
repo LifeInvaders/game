@@ -5,19 +5,36 @@ using System.Collections.Generic;
 using UnityEngine;
 // using UnityEngine.EventSystems;
 
-public class Player : MonoBehaviour
+public class PlayerControler : MonoBehaviour
 {
     // Start is called before the first frame update
     private float moveSpeed;
     public Rigidbody rig;
     private Animator anim;
     private bool climbing = false;
-    private float speedClimbing = 1;
+    public float speedClimbing = 1;
+
+    public bool returnClimbing()
+    {
+        return climbing;
+    }
     void Start()
     {
         anim = GetComponent<Animator>();
     }
+    private void Climbing()
+    {
+        transform.Translate( Vector3.up * (speedClimbing * Time.deltaTime));
+    }
 
+    private void SetAnim(float x, float z)
+    {
+        anim.SetFloat("Speed Front", Mathf.Abs(z)*moveSpeed);
+        // Je set les animations de marche latérale
+        anim.SetFloat("Speed Side", Mathf.Abs(x)*moveSpeed);
+        anim.SetBool("Mirror",x>=0);
+        
+    }
     private void Move()
     {
         float x = Input.GetAxis("Horizontal");
@@ -27,32 +44,15 @@ public class Player : MonoBehaviour
         {
             var right = transform.right;
             var forward = transform.forward;
-            anim.SetFloat("Speed Front", Mathf.Abs(z)*moveSpeed);
-                  
-            // Je set les animations de marche latérale
-            if (x>=0)
-            {
-                anim.SetFloat("Speed Side", x*moveSpeed);
-                anim.SetBool("Mirror",false);
-            }
-            else
-            {
-                anim.SetFloat("Speed Side", -x*moveSpeed);
-                anim.SetBool("Mirror",true);
-            }
+            SetAnim(x,z);
             // CharacterController chr =
             Vector3 dir = (right * x + forward * z) * moveSpeed;
             dir.y = rig.velocity.y;
             rig.velocity = dir;
-            // rig.AddForce(dir);
-            // if (Input.GetKeyDown(KeyCode.Space))
-            // {
-            //     rig.AddForce(Vector3.up * 10 * moveSpeed, ForceMode.Impulse);
-            // }  
         }
         else
         {
-            transform.Translate( Vector3.up * speedClimbing * Time.deltaTime);
+            Climbing();
         }
     }
     // Update is called once per frame
@@ -63,21 +63,31 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.tag == "Echelle")
+        if (col.gameObject.CompareTag("Echelle"))
         {
+            CapsuleCollider capsule = GetComponent<CapsuleCollider>();
             GetComponent<Rigidbody>().useGravity = false;
-            climbing = true;
-            
+            capsule.center = new Vector3(capsule.center.x,1.63f,capsule.center.z);
+                climbing = true;
+            // transform.rotation = Quaternion.LookRotation(col.gameObject.transform.rotation)
+            // Quaternion.RotateTowards(transform.rotation, , Time.deltaTime);
             anim.SetFloat("Speed Front", 0);
             anim.SetFloat("Speed Side", 0);
-            
+
             anim.SetBool("Echelle",true);
+            
+            transform.eulerAngles = col.gameObject.transform.eulerAngles;
+            
+            
         }
     }
     private void OnTriggerExit(Collider col)
     {
-        if (col.gameObject.tag == "Echelle")
+        if (col.gameObject.CompareTag("Echelle"))
         {
+            
+            CapsuleCollider capsule = GetComponent<CapsuleCollider>();
+            capsule.center = new Vector3(capsule.center.x,0.9f,capsule.center.z);
             GetComponent<Rigidbody>().useGravity = true;
             climbing = false;
             anim.SetBool("Echelle",false);
