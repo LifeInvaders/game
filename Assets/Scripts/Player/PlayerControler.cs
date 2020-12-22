@@ -17,7 +17,7 @@ public class PlayerControler : MonoBehaviour
     private bool canRotate = true, canMove = true;
     public float speedClimbing = 1;
 
-    
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -45,13 +45,9 @@ public class PlayerControler : MonoBehaviour
     
     private bool IsGrounded()
     {
-        float val = 1f;
-        Vector3 vc = Vector3.down;
-        RaycastHit hit;
-        
-        Debug.DrawRay(transform.position, vc * val, Color.red, 2f);
+        // Debug.DrawRay(capsule.bounds.center, Vector3.down * (capsule.bounds.extents.y+0.1f), Color.red, 2f);
         // Physics.Raycast(transform.position, Vector3.down, .3f);
-        return Physics.Raycast(transform.position, vc * val);
+        return Physics.Raycast(capsule.bounds.center, Vector3.down,capsule.bounds.extents.y+0.1f);
     }
     
     private void Move()
@@ -70,15 +66,12 @@ public class PlayerControler : MonoBehaviour
             rig.velocity = dir;
             if (Input.GetButtonDown("Jump"))
             {
-                bool ground = IsGrounded();
-                    Debug.Log(ground);
-                if (ground)
+                if (IsGrounded())
                 {
                     anim.SetBool("jump", true);
                     rig.AddForce(new Vector3(0,jumpspeed,0),ForceMode.Impulse);
                     anim.SetBool("jump", false);
                 }
-                
             }
             
         }
@@ -115,6 +108,7 @@ public class PlayerControler : MonoBehaviour
         
         // transform.Translate(Vector3.up*0.9f+Vector3.forward);
         transform.Translate(Vector3.forward *1.3f);
+        transform.eulerAngles = Vector3.zero;
     }
     private void SetBanc(ref CapsuleCollider capsule, ref Collider col)
     {
