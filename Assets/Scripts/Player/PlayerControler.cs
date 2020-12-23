@@ -40,13 +40,12 @@ public class PlayerControler : MonoBehaviour
         // Je set les animations de marche latérale
         anim.SetFloat("Speed Side", Mathf.Abs(x)*moveSpeed);
         anim.SetBool("Mirror",x>=0);
+        anim.SetBool("running", moveSpeed>3);
         
     }
     
     private bool IsGrounded()
     {
-        // Debug.DrawRay(capsule.bounds.center, Vector3.down * (capsule.bounds.extents.y+0.1f), Color.red, 2f);
-        // Physics.Raycast(transform.position, Vector3.down, .3f);
         return Physics.Raycast(capsule.bounds.center, Vector3.down,capsule.bounds.extents.y+0.1f);
     }
     
@@ -64,6 +63,7 @@ public class PlayerControler : MonoBehaviour
             Vector3 dir = (right * x + forward * z) * moveSpeed;
             dir.y = rig.velocity.y;
             rig.velocity = dir;
+            
             if (Input.GetButtonDown("Jump"))
             {
                 if (IsGrounded())
@@ -78,11 +78,7 @@ public class PlayerControler : MonoBehaviour
         else
             Climbing();
     }
-    // Update is called once per frame
-    private void Jump()
-    {
-        
-    }
+    
 
     private void SetLadder(ref CapsuleCollider capsule, ref Collider col)
     {
@@ -177,12 +173,11 @@ public class PlayerControler : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftControl))
         {
             moveSpeed = 6;
-            anim.SetBool("running", true);
         }
         else
         {
             moveSpeed = 3;
-            anim.SetBool("running", false);
+
         }
         Move();
     }
