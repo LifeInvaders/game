@@ -821,6 +821,9 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="NPC" t="Include">
+            <e p="NPC.cs" t="Include" />
+          </e>
           <e p="Objects" t="Include">
             <e p="BancScript.cs" t="Include" />
           </e>
