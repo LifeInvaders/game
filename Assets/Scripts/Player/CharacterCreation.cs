@@ -10,10 +10,10 @@ namespace Player
             ChangeSkin();
         }
 
-        private sreturn new string(charArray);tatic string _charID()
+        private static string _charID()
         {
         char[] charArray = {Rank, Gender, Variant, SkinColor};
-        
+        return new string(charArray);
         }
         private void ChangeSkin()
         {

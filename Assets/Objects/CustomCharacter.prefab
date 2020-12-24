@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 8669158114210025465}
   m_Layer: 8
   m_Name: 2M1A
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 5710604325048630149}
   m_Layer: 8
   m_Name: 1F1B
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -388,7 +388,7 @@ GameObject:
   - component: {fileID: 5459920623734364166}
   m_Layer: 8
   m_Name: 1M2A
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -519,7 +519,7 @@ GameObject:
   - component: {fileID: 4844580721019201902}
   m_Layer: 8
   m_Name: 1F1A
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -650,7 +650,7 @@ GameObject:
   - component: {fileID: 8500268388490207363}
   m_Layer: 8
   m_Name: 0M2C
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -781,7 +781,7 @@ GameObject:
   - component: {fileID: 5582193503119197272}
   m_Layer: 8
   m_Name: 2M4C
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -912,7 +912,7 @@ GameObject:
   - component: {fileID: 3756806753646179226}
   m_Layer: 8
   m_Name: 0M4B
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1043,7 +1043,7 @@ GameObject:
   - component: {fileID: 5254286158879303920}
   m_Layer: 8
   m_Name: 0M3A
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1174,7 +1174,7 @@ GameObject:
   - component: {fileID: 3859054897483393486}
   m_Layer: 8
   m_Name: 0M2B
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1305,7 +1305,7 @@ GameObject:
   - component: {fileID: 3839281145865018481}
   m_Layer: 8
   m_Name: 2M2B
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1466,7 +1466,7 @@ GameObject:
   - component: {fileID: 7382320886787781504}
   m_Layer: 8
   m_Name: 1M1B
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1597,7 +1597,7 @@ GameObject:
   - component: {fileID: 3773359325972040139}
   m_Layer: 8
   m_Name: 0M1B
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1728,7 +1728,7 @@ GameObject:
   - component: {fileID: 2292859923349275302}
   m_Layer: 8
   m_Name: 0F4A
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1859,7 +1859,7 @@ GameObject:
   - component: {fileID: 3463707400913849863}
   m_Layer: 8
   m_Name: 1M4B
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1990,7 +1990,7 @@ GameObject:
   - component: {fileID: 4600648131873038187}
   m_Layer: 8
   m_Name: 0M4C
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2121,7 +2121,7 @@ GameObject:
   - component: {fileID: 1490869272224966849}
   m_Layer: 8
   m_Name: 0M1A
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2252,7 +2252,7 @@ GameObject:
   - component: {fileID: 475969277024037287}
   m_Layer: 8
   m_Name: 2F4C
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2383,7 +2383,7 @@ GameObject:
   - component: {fileID: 4139148845003936623}
   m_Layer: 8
   m_Name: 1M3C
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2514,7 +2514,7 @@ GameObject:
   - component: {fileID: 4090877642894845292}
   m_Layer: 8
   m_Name: 0F1B
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2645,7 +2645,7 @@ GameObject:
   - component: {fileID: 7581132016714135392}
   m_Layer: 8
   m_Name: 2M1C
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2776,7 +2776,7 @@ GameObject:
   - component: {fileID: 5120633807490488191}
   m_Layer: 8
   m_Name: 0F2C
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2907,7 +2907,7 @@ GameObject:
   - component: {fileID: 8080133325694564867}
   m_Layer: 8
   m_Name: 0F3A
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3778,7 +3778,7 @@ GameObject:
   - component: {fileID: 4353876372170825132}
   m_Layer: 8
   m_Name: 1M1A
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6699,7 +6699,7 @@ GameObject:
   - component: {fileID: 1117722492}
   - component: {fileID: 785839903387962774}
   m_Layer: 0
-  m_Name: PlayerVar2
+  m_Name: CustomCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7229,7 +7229,7 @@ GameObject:
   - component: {fileID: 751953224612339361}
   m_Layer: 8
   m_Name: 1M3B
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7360,7 +7360,7 @@ GameObject:
   - component: {fileID: 5804348612188607469}
   m_Layer: 8
   m_Name: 1M2B
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7491,7 +7491,7 @@ GameObject:
   - component: {fileID: 3277326107777348965}
   m_Layer: 8
   m_Name: 0M1C
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7622,7 +7622,7 @@ GameObject:
   - component: {fileID: 7361675817069782903}
   m_Layer: 8
   m_Name: 1M1C
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7753,7 +7753,7 @@ GameObject:
   - component: {fileID: 3471864839002092522}
   m_Layer: 8
   m_Name: 0M2A
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7884,7 +7884,7 @@ GameObject:
   - component: {fileID: 7016669788845805547}
   m_Layer: 8
   m_Name: 1M4A
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8015,7 +8015,7 @@ GameObject:
   - component: {fileID: 7703513310167841021}
   m_Layer: 8
   m_Name: 2M4B
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8146,7 +8146,7 @@ GameObject:
   - component: {fileID: 8755792581273131838}
   m_Layer: 8
   m_Name: 1F2A
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8277,7 +8277,7 @@ GameObject:
   - component: {fileID: 1211099593876729147}
   m_Layer: 8
   m_Name: 0M4A
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8408,7 +8408,7 @@ GameObject:
   - component: {fileID: 3454982269858086139}
   m_Layer: 8
   m_Name: 0F3B
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8539,7 +8539,7 @@ GameObject:
   - component: {fileID: 2791356593587273670}
   m_Layer: 8
   m_Name: 1F2C
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8670,7 +8670,7 @@ GameObject:
   - component: {fileID: 8358779651424005949}
   m_Layer: 8
   m_Name: 1M3A
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8801,7 +8801,7 @@ GameObject:
   - component: {fileID: 4878254310832299637}
   m_Layer: 8
   m_Name: 1F1C
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8932,7 +8932,7 @@ GameObject:
   - component: {fileID: 3694503877982873242}
   m_Layer: 8
   m_Name: 0F4B
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9063,7 +9063,7 @@ GameObject:
   - component: {fileID: 9097043865250276466}
   m_Layer: 8
   m_Name: 1F4A
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9194,7 +9194,7 @@ GameObject:
   - component: {fileID: 4178462104615952832}
   m_Layer: 8
   m_Name: 0M3B
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9325,7 +9325,7 @@ GameObject:
   - component: {fileID: 6215075674707002044}
   m_Layer: 8
   m_Name: 1F4B
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9456,7 +9456,7 @@ GameObject:
   - component: {fileID: 677955154750536415}
   m_Layer: 8
   m_Name: 2M2C
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9587,7 +9587,7 @@ GameObject:
   - component: {fileID: 3404023081227024398}
   m_Layer: 8
   m_Name: 0M3C
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9718,7 +9718,7 @@ GameObject:
   - component: {fileID: 8539991181057819556}
   m_Layer: 8
   m_Name: 2M4A
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9849,7 +9849,7 @@ GameObject:
   - component: {fileID: 4958359223069769976}
   m_Layer: 8
   m_Name: 1F4C
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9980,7 +9980,7 @@ GameObject:
   - component: {fileID: 8848738597482275235}
   m_Layer: 8
   m_Name: 0F2A
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10111,7 +10111,7 @@ GameObject:
   - component: {fileID: 4300735275174862360}
   m_Layer: 8
   m_Name: 0F4C
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10242,7 +10242,7 @@ GameObject:
   - component: {fileID: 112943917589997745}
   m_Layer: 8
   m_Name: 0F3C
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10373,7 +10373,7 @@ GameObject:
   - component: {fileID: 2410964668609154981}
   m_Layer: 8
   m_Name: 1F3B
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10504,7 +10504,7 @@ GameObject:
   - component: {fileID: 4337359384495866487}
   m_Layer: 8
   m_Name: 0F1A
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10635,7 +10635,7 @@ GameObject:
   - component: {fileID: 7142376016384771697}
   m_Layer: 8
   m_Name: 0F2B
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10766,7 +10766,7 @@ GameObject:
   - component: {fileID: 4347108186908929857}
   m_Layer: 8
   m_Name: 0F1C
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10897,7 +10897,7 @@ GameObject:
   - component: {fileID: 8238513391867034803}
   m_Layer: 8
   m_Name: 1F2B
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11134,7 +11134,7 @@ GameObject:
   - component: {fileID: 1266036503259392881}
   m_Layer: 8
   m_Name: 2F4A
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11265,7 +11265,7 @@ GameObject:
   - component: {fileID: 8580384880369363100}
   m_Layer: 8
   m_Name: 2M3A
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11396,7 +11396,7 @@ GameObject:
   - component: {fileID: 658210074792406938}
   m_Layer: 8
   m_Name: 2M3C
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11527,7 +11527,7 @@ GameObject:
   - component: {fileID: 6636173898959439288}
   m_Layer: 8
   m_Name: 2M2A
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11658,7 +11658,7 @@ GameObject:
   - component: {fileID: 2188779703113161859}
   m_Layer: 8
   m_Name: 2F4B
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11789,7 +11789,7 @@ GameObject:
   - component: {fileID: 4858675040993976093}
   m_Layer: 8
   m_Name: 1M4C
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11920,7 +11920,7 @@ GameObject:
   - component: {fileID: 7838264178320450080}
   m_Layer: 8
   m_Name: 1M2C
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12051,7 +12051,7 @@ GameObject:
   - component: {fileID: 7911085855181152009}
   m_Layer: 8
   m_Name: 1F3A
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12182,7 +12182,7 @@ GameObject:
   - component: {fileID: 7814280523793600924}
   m_Layer: 8
   m_Name: 2M3B
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12313,7 +12313,7 @@ GameObject:
   - component: {fileID: 1763588988869351282}
   m_Layer: 8
   m_Name: 2M1B
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12444,7 +12444,7 @@ GameObject:
   - component: {fileID: 6420586663826613203}
   m_Layer: 8
   m_Name: 1F3C
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

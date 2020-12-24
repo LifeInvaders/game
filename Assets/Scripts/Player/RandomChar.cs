@@ -1,29 +1,32 @@
-using System;
 using UnityEngine;
+using System.Linq;
+using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
 namespace Player
 {
     public class RandomChar : MonoBehaviour
     {
-        private void Awake()
+        public void Update()
         {
             RandomCharacter();
         }
-
-        public string randomID = "0M1A";
-        public void RandomCharacter()
+        
+        private void RandomCharacter()
         {
-            Transform[] transformList = GetComponentsInChildren<Transform>();
+            Transform[] transformList = GetComponentsInChildren<Transform>(includeInactive: true)
+                .Where(child => child.gameObject != gameObject)
+                .ToArray();
             foreach (Transform child in transformList)
             {
                 if (child.gameObject.activeSelf)
                     child.gameObject.SetActive(false);
             }
-            Transform randModel = transformList[Random.Range(0, transformList.Length)];
-            randModel.gameObject.SetActive(true);
+            GameObject randModel = transformList[Random.Range(0, transformList.Length)].gameObject;
+            randModel.SetActive(true);
             ref string rID = ref randomID;
             rID = randModel.name;
         }
+        public string randomID = "0M1A";
     }
 }
