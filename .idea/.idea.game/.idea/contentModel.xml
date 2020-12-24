@@ -836,6 +836,7 @@
             <e p="MeleeAttackSystem.cs" t="Include" />
             <e p="PlayerControler.cs" t="Include" />
             <e p="PlayerDatabase.cs" t="Include" />
+            <e p="RandomChar.cs" t="Include" />
           </e>
         </e>
       </e>

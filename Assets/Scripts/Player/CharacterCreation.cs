@@ -1,6 +1,5 @@
-using System;
 using UnityEngine;
-using static PlayerDatabase;
+using static Player.PlayerDatabase;
 
 namespace Player
 {
@@ -11,10 +10,10 @@ namespace Player
             ChangeSkin();
         }
 
-        private static string _charID()
+        private sreturn new string(charArray);tatic string _charID()
         {
         char[] charArray = {Rank, Gender, Variant, SkinColor};
-        return new string(charArray);
+        
         }
         private void ChangeSkin()
         {
