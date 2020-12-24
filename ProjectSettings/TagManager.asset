@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - Banc
   - Floor
+  - Skin
   layers:
   - Default
   - TransparentFX
