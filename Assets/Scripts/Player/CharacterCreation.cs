@@ -1,3 +1,6 @@
+using System;
+using JetBrains.Annotations;
+using UnityEditor;
 using UnityEngine;
 using static Player.PlayerDatabase;
 
@@ -5,16 +8,27 @@ namespace Player
 {
     public class CharacterCreation : MonoBehaviour
     {
+
         private void Awake()
         {
-            ChangeSkin();
+            ResetValues();
         }
-
+        
         private static string _charID()
         {
-        char[] charArray = {Rank, Gender, Variant, SkinColor};
-        return new string(charArray);
+            char[] charArray = {_tempRank, _tempGender, _tempVariant, _tempSkinColor};
+            return new string(charArray);
         }
+        
+        public void ResetValues()
+        {
+            _tempRank = Rank;
+            _tempGender = Gender;
+            _tempVariant = Variant;
+            _tempSkinColor = SkinColor;
+            ChangeSkin();
+        }
+        
         private void ChangeSkin()
         {
             string searchName = _charID();
@@ -27,28 +41,43 @@ namespace Player
             }
         }
 
-        public void ChangeData(int value)
+        public void ChangeDataPassRef(int value)
         {
             switch (value)
             {
                 case 0:
-                    Rank = (Rank + 1 > '2') ? '0' : (char) (Rank + 1);
-                    break;
-                case 1:
-                    Gender = (Gender == 'F') ? 'M' : 'F';
+                    ChangeDataRef(ref _tempRank, '0', '2');
                     break;
                 case 2:
-                    Variant = (Variant + 1 > '4') ? '1' : (char) (Variant + 1);
+                    ChangeDataRef(ref _tempVariant, '1', '4');
                     break;
                 case 3:
-                    SkinColor = (SkinColor + 1 > 'C') ? 'A' : (char) (SkinColor + 1);
+                    ChangeDataRef(ref _tempSkinColor, 'A', 'C');
                     break;
                 default:
-                    Debug.Log("wrong value");
+                    _tempGender = _tempGender == 'M' ? 'F' : 'M';
+                    ChangeSkin();
                     break;
             }
-            ChangeSkin();
         }
 
+        public void ChangeDataRef(ref char info, char min, char max)
+        {
+            info = info + 1 > max ? (char) (min + 1 - (max - info) - 1) : (char) (info + 1);
+            ChangeSkin();
+        }
+        
+        public void ApplyChanges()
+        {
+            Rank = _tempRank;
+            Gender = _tempGender;
+            Variant = _tempVariant;
+            SkinColor = _tempSkinColor;
+        }
+
+        private static char _tempRank;
+        private static char _tempGender;
+        private static char _tempVariant;
+        private static char _tempSkinColor;
     }   
 }

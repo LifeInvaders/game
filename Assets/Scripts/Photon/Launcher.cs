@@ -47,6 +47,7 @@ namespace Com.MyCompany.MyGame
         {
             Debug.Log("PUN Basics Tutorial/Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.");
             Debug.Log("Max player is " + maxPlayersPerRoom);
+            PhotonNetwork.LoadLevel("Lobby");
         }
 
         
