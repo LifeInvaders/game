@@ -28,6 +28,10 @@ public class PlayerControler : MonoBehaviour
     {
         return canRotate;
     }
+    public bool Running()
+    {
+        return moveSpeed>3;
+    }
     
     private void Climbing()
     {
@@ -41,7 +45,6 @@ public class PlayerControler : MonoBehaviour
         anim.SetFloat("Speed Side", Mathf.Abs(x)*moveSpeed);
         anim.SetBool("Mirror",x>=0);
         anim.SetBool("running", moveSpeed>3);
-        
     }
     
     private bool IsGrounded()
