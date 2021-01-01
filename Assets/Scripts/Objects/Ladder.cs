@@ -16,6 +16,11 @@ public class Ladder : MonoBehaviour
             
             other.gameObject.GetComponent<Animator>().SetBool("Echelle",true);
             other.gameObject.transform.eulerAngles = transform.eulerAngles;
+            if (gameObject.transform.transform.eulerAngles.x != 0)
+            {
+                // other.gameObject.GetComponent<CapsuleCollider>().center += Vector3.forward * 0.1f;
+            }
+            
         }
         
     }
