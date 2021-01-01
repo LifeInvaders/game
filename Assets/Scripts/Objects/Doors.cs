@@ -34,9 +34,9 @@ public class Doors : MonoBehaviour
         yield return new WaitForSeconds(5);
         
         opened = true;
-        Debug.Log($"{left_door.eulerAngles} {right_door.eulerAngles}");
+        // Debug.Log($"{left_door.eulerAngles} {right_door.eulerAngles}");
         left_door.eulerAngles += Vector3.up * (-90);
         right_door.eulerAngles += Vector3.up * 90;
-        Debug.Log($"{left_door.eulerAngles} {right_door.eulerAngles}");
+        // Debug.Log($"{left_door.eulerAngles} {right_door.eulerAngles}");
     }
 }

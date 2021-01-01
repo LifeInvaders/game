@@ -10,8 +10,9 @@ public class Patrol : MonoBehaviour
     private int destPoint = 0;
     private NavMeshAgent agent;
     private Animator anim;
-
-
+    
+    
+    
     void Start () {
         agent = GetComponent<NavMeshAgent>();
 

@@ -879,10 +879,17 @@
           <e p="NPC" t="Include">
             <e p="NPC.cs" t="Include" />
             <e p="Patrol.cs" t="Include" />
+            <e p="Talking.cs" t="Include" />
           </e>
           <e p="Objects" t="Include">
-            <e p="BancScript.cs" t="Include" />
+            <e p="Banc.cs" t="Include" />
             <e p="doors.cs" t="Include" />
+            <e p="Ladder.cs" t="Include" />
+          </e>
+          <e p="parkour" t="Include">
+            <e p="EndParkour.cs" t="Include" />
+            <e p="StartParkour.cs" t="Include" />
+            <e p="WaterParkour.cs" t="Include" />
           </e>
           <e p="Photon" t="Include">
             <e p="Launcher.cs" t="Include" />
@@ -890,9 +897,9 @@
           </e>
           <e p="Player" t="Include">
             <e p="CameraControler.cs" t="Include" />
-            <e p="LadderControler.cs" t="Include" />
             <e p="Player.cs" t="Include" />
             <e p="PlayerControler.cs" t="Include" />
+            <e p="PlayerTalking.cs" t="Include" />
           </e>
         </e>
       </e>

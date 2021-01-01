@@ -9,47 +9,67 @@ public class PlayerControler : MonoBehaviour
 {
     // Start is called before the first frame update
     private float moveSpeed;
+    public float walkSpeed = 6;
+    public float runSpeed = 3;
+    
     public Rigidbody rig;
     private Animator anim;
     private CapsuleCollider capsule;
     public float jumpspeed = 5;
-    private bool climbing = false;
-    private bool canRotate = true, canMove = true;
+    private bool canRotate = true;
+    private bool canMove = true;
     public float speedClimbing = 1;
 
-
+    public void SetMoveBool(bool state)
+    {
+        canMove = state;
+    }
+    public void SetRotateBool(bool state)
+    {
+        canRotate = state;
+    }
     void Start()
     {
         anim = GetComponent<Animator>();
         capsule = GetComponent<CapsuleCollider>();
     }
     
+
+    public void SetJumpSpeed(float speed)
+    {
+        jumpspeed = speed;
+    }
+
+    public void SetWalkSpeed(float speed)
+    {
+        walkSpeed = speed;
+    }
+
+    public void SetRunSpeed(float speed)
+    {
+        runSpeed = speed;
+    }
     public bool CanRotate()
     {
         return canRotate;
     }
     public bool Running()
     {
-        return moveSpeed>3;
+        return moveSpeed>walkSpeed;
     }
-    
-    private void Climbing()
-    {
-        transform.Translate( Vector3.up * (speedClimbing * Time.deltaTime));
-    }
-    
+
     private void SetAnim(float x, float z)
     {
         anim.SetFloat("Speed Front", Mathf.Abs(z)*moveSpeed);
         // Je set les animations de marche latérale
         anim.SetFloat("Speed Side", Mathf.Abs(x)*moveSpeed);
-        anim.SetBool("Mirror",x>=0);
-        anim.SetBool("running", moveSpeed>3);
+        anim.SetBool("Mirror",x<0);
+        anim.SetBool("running", moveSpeed>walkSpeed);
     }
     
     private bool IsGrounded()
     {
-        return Physics.Raycast(capsule.bounds.center, Vector3.down,capsule.bounds.extents.y+0.1f);
+        return Physics.Raycast(capsule.bounds.center, Vector3.down,capsule.bounds.extents.y+0.2f);
     }
     
     private void Move()
@@ -57,7 +77,7 @@ public class PlayerControler : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
         // float y = Input.GetAxis("Jump");
-        if (!climbing && canMove)
+        if (canMove)
         {
             var right = transform.right;
             var forward = transform.forward;
@@ -67,47 +87,13 @@ public class PlayerControler : MonoBehaviour
             dir.y = rig.velocity.y;
             rig.velocity = dir;
             
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetButtonDown("Jump") && IsGrounded())
             {
-                if (IsGrounded())
-                {
-                    anim.SetBool("jump", true);
-                    rig.AddForce(new Vector3(0,jumpspeed,0),ForceMode.Impulse);
-                    anim.SetBool("jump", false);
-                }
+                anim.SetBool("jump", true);
+                rig.AddForce(new Vector3(0,jumpspeed,0),ForceMode.Impulse);
+                anim.SetBool("jump", false);
             }
-            
         }
-        else
-            Climbing();
-    }
-    
-
-    private void SetLadder(ref CapsuleCollider capsule, ref Collider col)
-    {
-        /*Set Ladder animation*/
-        GetComponent<Rigidbody>().useGravity = false;
-        // capsule.center = new Vector3(capsule.center.x,1.63f,capsule.center.z);
-
-        climbing = true;
-        canRotate = false;
-            
-        anim.SetBool("Echelle",true);
-            
-        transform.eulerAngles = col.gameObject.transform.eulerAngles;
-    }
-    private void UnsetLadder(ref CapsuleCollider capsule, ref Collider col)
-    {
-        /*Go back to normal animation*/
-        // capsule.center = new Vector3(capsule.center.x,0.9f,capsule.center.z);
-        GetComponent<Rigidbody>().useGravity = true;
-        canRotate = true;
-        climbing = false;
-        anim.SetBool("Echelle",false);
-        
-        // transform.Translate(Vector3.up*0.9f+Vector3.forward);
-        transform.Translate(Vector3.forward *1.3f);
-        transform.eulerAngles = Vector3.zero;
     }
     private void SetBanc(ref CapsuleCollider capsule, ref Collider col)
     {
@@ -137,15 +123,9 @@ public class PlayerControler : MonoBehaviour
     {
         /*Regarde avec quel objet il est en collision, et applique les animations et modification adaptées*/
         CapsuleCollider capsule = GetComponent<CapsuleCollider>();
-        if (col.gameObject.CompareTag("Echelle"))
-        {
-            SetLadder(ref capsule, ref col);
-            return;
-        }
-        
         if (col.gameObject.CompareTag("Banc"))
         {
-            SetBanc(ref capsule, ref col);
+            // SetBanc(ref capsule, ref col);
             return;
         }
         
@@ -155,18 +135,11 @@ public class PlayerControler : MonoBehaviour
     private void OnTriggerExit(Collider col)
     {
         CapsuleCollider capsule = GetComponent<CapsuleCollider>();
-        if (col.gameObject.CompareTag("Echelle"))
-        {
-            UnsetLadder(ref capsule, ref col);
-            return;
-        }
-
         if (col.gameObject.CompareTag("Banc"))
         {
-            UnsetBench(ref capsule, ref col);
+            // UnsetBench(ref capsule, ref col);
             return;
         }
-        
     }
     
     
@@ -174,14 +147,10 @@ public class PlayerControler : MonoBehaviour
     void Update()
     {
         if (Input.GetKey(KeyCode.LeftControl))
-        {
-            moveSpeed = 6;
-        }
+            moveSpeed = runSpeed;
         else
-        {
-            moveSpeed = 3;
-
-        }
+            moveSpeed = walkSpeed;
+        
         Move();
     }
 }

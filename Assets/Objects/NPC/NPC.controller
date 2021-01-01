@@ -17,7 +17,7 @@ AnimatorStateMachine:
     m_Position: {x: 380, y: -310, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4311026692330655103}
-    m_Position: {x: 380, y: -450, z: 0}
+    m_Position: {x: 300, y: -530, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1179846321626510368}
     m_Position: {x: 420, y: -620, z: 0}
@@ -196,7 +196,7 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
     m_Mirror: 0
-  m_BlendParameter: Speed left
+  m_BlendParameter: Speed Side
   m_BlendParameterY: Speed Front
   m_MinThreshold: -0.012
   m_MaxThreshold: 0.375
@@ -217,13 +217,13 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Blend
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
