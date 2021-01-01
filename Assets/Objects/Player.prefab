@@ -26,11 +26,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 541207285}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.40999985, y: 1.6399999, z: -1.6399994}
+  m_LocalPosition: {x: 0.4, y: 0.02, z: -1.64}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4353876372182140554}
-  m_RootOrder: 2
+  m_Father: {fileID: 5385329896635185002}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &541207288
 Camera:
@@ -3756,7 +3756,7 @@ GameObject:
   - component: {fileID: 1117722492}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3774,7 +3774,7 @@ Transform:
   m_Children:
   - {fileID: 4353876372182210592}
   - {fileID: 4353876372182210084}
-  - {fileID: 541207286}
+  - {fileID: 5385329896635185002}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3842,9 +3842,10 @@ MonoBehaviour:
   lookSensitivity: 1
   minXLook: -45
   maxXLook: 60
-  camAnchor: {fileID: 0}
+  camAnchor: {fileID: 5385329896635185002}
   invertXRotation: 0
   Player: {fileID: 1117722492}
+  camera: {fileID: 541207286}
 --- !u!114 &1117722492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3857,6 +3858,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aa58ba8c4f81dc0fa36295b16c11e23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  walkSpeed: 2
+  runSpeed: 6
   rig: {fileID: 1117722491}
   jumpspeed: 5
   speedClimbing: 1
@@ -4252,3 +4255,34 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &4393341158212779125
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5385329896635185002}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5385329896635185002
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4393341158212779125}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.62, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 541207286}
+  m_Father: {fileID: 4353876372182140554}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

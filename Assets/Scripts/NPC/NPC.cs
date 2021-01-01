@@ -5,15 +5,15 @@ using UnityEngine.AI;
 
 public class NPC : MonoBehaviour
 {
-    private Rigidbody rig;
     private Animator anim;
     private NavMeshAgent agent;
-    public Transform goal;
+    public GameObject iaPoints;
+    private Transform[] positions;
     void Start()
     {
+        positions = iaPoints.GetComponentsInChildren<Transform>();
         agent = GetComponent<NavMeshAgent>();
         agent.autoBraking = false;
-        rig = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         
         anim.SetBool("walk",true);
@@ -23,12 +23,13 @@ public class NPC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!agent.pathPending && agent.remainingDistance < 0.5f)
+            GotoNextPoint();
         
-        agent.destination = goal.position;
-
-        // agent.destination = new Vector3(transform.position.x + Random.Range(-5, 5), 0,
-        //     transform.position.x + Random.Range(-20, 20));
     }
-    
 
+    private void GotoNextPoint()
+    {
+        agent.destination = positions[Random.Range(0, positions.Length)].position;
+    }
 }
