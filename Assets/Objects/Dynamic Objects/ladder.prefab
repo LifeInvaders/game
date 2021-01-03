@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 2246041024498489066}
   m_Layer: 0
   m_Name: trigger
-  m_TagString: Echelle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

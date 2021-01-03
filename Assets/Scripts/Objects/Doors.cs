@@ -27,23 +27,21 @@ public class Doors : MonoBehaviour
         if (_opened && other.gameObject.CompareTag("Player") && other.gameObject.GetComponent<PlayerControler>().Running())
         {
             _opened = false;
-            Debug.Log($"{_leftDoor.eulerAngles} {_rightDoor.eulerAngles}");
             _leftDoor.eulerAngles -= Vector3.up * -90;
             _rightDoor.eulerAngles -= Vector3.up * 90;
             // _obstacle.carving = true;
-            StartCoroutine(ExampleCoroutine());
+            StartCoroutine(WaitCoroutine());
         }
     }
-    IEnumerator ExampleCoroutine()
+    IEnumerator WaitCoroutine()
     {
         
         yield return new WaitForSeconds(5);
         
         _opened = true;
-        // Debug.Log($"{left_door.eulerAngles} {right_door.eulerAngles}");
+
         _leftDoor.eulerAngles += Vector3.up * (-90);
         _rightDoor.eulerAngles += Vector3.up * 90;
-        // _obstacle.carving = false;
-        // Debug.Log($"{left_door.eulerAngles} {right_door.eulerAngles}");
+
     }
 }
