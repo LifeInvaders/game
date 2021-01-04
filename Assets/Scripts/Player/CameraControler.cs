@@ -18,7 +18,10 @@ public class CameraControler : MonoBehaviour
     
     // private float zoomSpeed = 2f;
 
-    
+    public void ResetCamera()
+    {
+        camera.localPosition = new Vector3(0.4f, 0, -1.64f);
+    }
     private void Start()
     {
         
@@ -54,6 +57,11 @@ public class CameraControler : MonoBehaviour
             Vector3 clampedAngle = camAnchor.eulerAngles;
             clampedAngle.x = Mathf.Clamp(curXRot, minXLook, maxXLook);;
             camAnchor.eulerAngles = clampedAngle;
+        }
+
+        if (Input.GetButtonDown("CamPos"))
+        {
+            camera.localPosition = new Vector3(-camera.transform.localPosition.x,camera.transform.localPosition.y,camera.transform.localPosition.z);
         }
         
     } 

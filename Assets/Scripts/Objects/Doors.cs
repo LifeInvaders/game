@@ -2,41 +2,46 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Doors : MonoBehaviour
 {
-    private Transform left_door;
+    private Transform _leftDoor;
 
-    private Transform right_door;
+    private Transform _rightDoor;
 
-    private bool opened = true;
+    private NavMeshObstacle _obstacle;
+
+    private bool _opened = true;
     // Start is called before the first frame update
     private void Start()
     {
-        left_door = transform.Find("left door");
-        right_door = transform.Find("right door");
+        _leftDoor = transform.Find("left door");
+        _rightDoor = transform.Find("right door");
+
+        // _obstacle = GetComponent<NavMeshObstacle>();
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (opened && other.gameObject.CompareTag("Player") && other.gameObject.GetComponent<PlayerControler>().Running())
+        if (_opened && other.gameObject.CompareTag("Player") && other.gameObject.GetComponent<PlayerControler>().Running())
         {
-            opened = false;
-            Debug.Log($"{left_door.eulerAngles} {right_door.eulerAngles}");
-            left_door.eulerAngles -= Vector3.up * -90;
-            right_door.eulerAngles -= Vector3.up * 90;
-            StartCoroutine(ExampleCoroutine());
+            _opened = false;
+            _leftDoor.eulerAngles -= Vector3.up * -90;
+            _rightDoor.eulerAngles -= Vector3.up * 90;
+            // _obstacle.carving = true;
+            StartCoroutine(WaitCoroutine());
         }
     }
-    IEnumerator ExampleCoroutine()
+    IEnumerator WaitCoroutine()
     {
         
         yield return new WaitForSeconds(5);
         
-        opened = true;
-        // Debug.Log($"{left_door.eulerAngles} {right_door.eulerAngles}");
-        left_door.eulerAngles += Vector3.up * (-90);
-        right_door.eulerAngles += Vector3.up * 90;
-        // Debug.Log($"{left_door.eulerAngles} {right_door.eulerAngles}");
+        _opened = true;
+
+        _leftDoor.eulerAngles += Vector3.up * (-90);
+        _rightDoor.eulerAngles += Vector3.up * 90;
+
     }
 }

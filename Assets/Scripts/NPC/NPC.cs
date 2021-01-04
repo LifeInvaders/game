@@ -13,7 +13,7 @@ public class NPC : MonoBehaviour
     {
         positions = iaPoints.GetComponentsInChildren<Transform>();
         agent = GetComponent<NavMeshAgent>();
-        agent.autoBraking = false;
+        // agent.autoBraking = false;
         anim = GetComponent<Animator>();
         
         anim.SetBool("walk",true);
