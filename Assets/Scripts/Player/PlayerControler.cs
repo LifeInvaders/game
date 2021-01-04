@@ -75,7 +75,6 @@ public class PlayerControler : MonoBehaviour
     {
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
-        // float y = Input.GetAxis("Jump");
         if (canMove)
         {
             var right = transform.right;
@@ -96,7 +95,7 @@ public class PlayerControler : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftControl))
+        if (Input.GetButton("Running"))
             moveSpeed = runSpeed;
         else
             moveSpeed = walkSpeed;

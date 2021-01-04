@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
+using Vector3 = UnityEngine.Vector3;
 
 public class Ladder : MonoBehaviour
 {
@@ -10,12 +12,26 @@ public class Ladder : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            var transformLocalPosition = other.gameObject.GetComponent<CameraControler>();
+            transformLocalPosition.camera.transform.localPosition = new Vector3(transformLocalPosition.camera.transform.localPosition.x, -0.5f, -2.5f);
+            
+            var eulerAngles = transformLocalPosition.camAnchor.transform.eulerAngles;
+            eulerAngles = new Vector3(0,eulerAngles.y,eulerAngles.z);
+            transformLocalPosition.camAnchor.transform.eulerAngles = eulerAngles;
+            
+            
             PlayerControler player = other.gameObject.GetComponent<PlayerControler>();
             other.gameObject.GetComponent<Rigidbody>().useGravity = false;
             player.SetRotateBool(false);
             player.SetMoveBool(false);
             other.gameObject.GetComponent<Animator>().SetBool("Echelle",true);
+            // other.gameObject.transform.position = new Vector3(transform.position.x,other.gameObject.transform.position.y,transform.position.z);
+
+
+            other.gameObject.transform.position = transform.parent.position;
             other.gameObject.transform.eulerAngles = transform.eulerAngles;
+            
+            
             if (gameObject.transform.transform.eulerAngles.x != 0)
             {
                 // other.gameObject.GetComponent<CapsuleCollider>().center += Vector3.forward * 0.1f;
@@ -33,6 +49,12 @@ public class Ladder : MonoBehaviour
         }
     }
 
+    private bool IsOnTop(GameObject player)
+    {
+        CapsuleCollider capsule = player.GetComponent<CapsuleCollider>();
+        Debug.DrawRay(capsule.bounds.max, Vector3.left, Color.red, 2f);
+        return !Physics.Raycast(capsule.bounds.max, Vector3.left,capsule.bounds.extents.y+0.2f);
+    }
     private bool IsGrounded(GameObject player)
     {
         CapsuleCollider capsule = player.GetComponent<CapsuleCollider>();
@@ -48,8 +70,22 @@ public class Ladder : MonoBehaviour
         playerGameObject.GetComponent<Animator>().SetBool("Echelle",false);
         
         playerGameObject.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+        playerGameObject.GetComponent<CameraControler>().ResetCamera();
+
     }
 
+    private void JumpFromLadder(GameObject playerGameObject)
+    {
+        playerGameObject.GetComponent<Animator>().enabled = true;
+        PlayerControler player = playerGameObject.GetComponent<PlayerControler>();
+        player.SetRotateBool(true);
+        player.SetMoveBool(true);
+        
+        playerGameObject.GetComponent<Animator>().SetBool("Echelle",false);
+        // playerGameObject.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y + 180, 0);
+        // playerGameObject.transform.Translate(Vector3.forward * 0.1f);
+        playerGameObject.GetComponent<Rigidbody>().AddForce(5 * Vector3.up + Vector3.back *2, ForceMode.Impulse);
+    }
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -61,6 +97,10 @@ public class Ladder : MonoBehaviour
            {
                ExitLadder(other.gameObject);
                other.gameObject.transform.Translate(Vector3.back * 1.3f);
+           }
+           else if (input < 0 && Input.GetButtonDown("Jump"))
+           {
+               // JumpFromLadder(other.gameObject);
            }
            else
            {
