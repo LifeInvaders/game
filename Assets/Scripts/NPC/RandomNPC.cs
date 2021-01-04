@@ -1,25 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class RandomNPC : MonoBehaviour
 {
-    private SkinnedMeshRenderer renderer;
+    private SkinnedMeshRenderer _renderer;
 
     public Mesh[] meshes;
 
     public Material[] materials;
-    // private Mesh meshes[];
-    // public Mesh mesh;
-    //
-    // public Material material;
-    // Start is called before the first frame update
+
+    private int _meshNb;
+    private int _materialNb;
+
     void Start()
     {
-        renderer = GetComponent<SkinnedMeshRenderer>();
-        renderer.sharedMesh = meshes[Random.Range(0,meshes.Length-1)];
-        renderer.sharedMaterial = materials[Random.Range(0, materials.Length - 1)];
+        _meshNb = Random.Range(0, meshes.Length - 1);
+        _materialNb = Random.Range(0, materials.Length - 1);
+        
+        _renderer = GetComponent<SkinnedMeshRenderer>();
+        _renderer.sharedMesh = meshes[_meshNb];
+        _renderer.sharedMaterial = materials[_materialNb];
+    }
+    /// <summary>
+    /// Return mesh and material number
+    /// </summary>
+    /// <returns></returns>
+    public (int, int) GetSkinNpc()
+    {
+        return (_meshNb,_materialNb);
     }
 
 
