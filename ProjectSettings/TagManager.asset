@@ -4,10 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Echelle
   - Bullet
-  - Banc
-  - Floor
+  - NPC
   layers:
   - Default
   - TransparentFX
