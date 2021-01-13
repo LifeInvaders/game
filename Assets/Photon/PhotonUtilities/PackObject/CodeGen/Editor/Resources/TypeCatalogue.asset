@@ -18,6 +18,10 @@ MonoBehaviour:
     vals:
     - hashcode: 1161234830446200393
       filepath: Assets\Photon\PhotonUtilities\PackObject\_GeneratedPackExtensions\Pack_TestPackObject.cs
+<<<<<<< refs/remotes/Upstream/main
       codegenFileWriteTime: 637451082398898296
+=======
+      codegenFileWriteTime: 637442781329343555
+>>>>>>> Working instanciation of characters in the same scene
       localFieldCount: 2
       totalFieldCount: 2
