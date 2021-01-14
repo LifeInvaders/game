@@ -31,17 +31,12 @@
 >>>>>>> Stashed changes
       <change beforePath="$PROJECT_DIR$/.idea/.idea.game/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.game/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Fx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player animation.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Player animation.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/FX.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Objects/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Objects/Player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUtilities/PackObject/CodeGen/Editor/Resources/TypeCatalogue.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUtilities/PackObject/CodeGen/Editor/Resources/TypeCatalogue.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUtilities/PackObject/_GeneratedPackExtensions/Pack_TestPackObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUtilities/PackObject/_GeneratedPackExtensions/Pack_TestPackObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolygonPirates.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PolygonPirates.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Photon/Launcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Photon/Launcher.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/test3/NavMesh.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/test3/NavMesh.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects/Banc.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/Banc.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,23 +47,64 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/NPC/NPC.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dovde/RiderProjects/game/Assets/Scripts/Objects/Ladder.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FAA55637-FCC1-4BBF-B146-E6835A4641D9/ad/1c053f88/Physics.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/53FA4D04-FF9E-437D-AC8E-1BA5C15E99CE/28/8c0d9abf/NativeInputSystem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dovde/RiderProjects/game/Assets/Scenes/test3.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Downloads/Cinemachine_ThirdPersonCamera/Assets/Scripts/PlayerMovementInputController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7D90B285-60B6-44CE-87B8-263EFCC36EED/66/e96eee44/AssetDatabase.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerTalking.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dovde/RiderProjects/game/Assets/Scripts/Objects/Banc.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/76DB40A9-3869-4C62-906F-9BBB72DB1A18/5b/16d91c75/NavMesh.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dovde/RiderProjects/game/Assets/Objects/NPC/Group NPC.prefab" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dovde/RiderProjects/game/Assets/Scripts/NPC/Patrol.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/NPC/NPC.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dovde/RiderProjects/game/Assets/Scripts/Player/CameraControler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dovde/RiderProjects/game/Assets/Objects/Player.prefab" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/29AD182F-AA3F-478C-9310-D6A2E7143C15/f7/6db80918/Component.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dovde/RiderProjects/game/Assets/Objects/Dynamic Objects/ladder.prefab" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dovde/RiderProjects/game/Assets/Objects/Player.prefab" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dovde/RiderProjects/game/Assets/Scripts/Player/PlayerControler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/29AD182F-AA3F-478C-9310-D6A2E7143C15/39/d599ff07/Quaternion.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/NPC/Patrol.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/29AD182F-AA3F-478C-9310-D6A2E7143C15/f7/933cd26e/Resources.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dovde/RiderProjects/game/Assets/Scripts/NPC/RandomNPC.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/CameraControler.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerControler.cs" />
-<<<<<<< Updated upstream
+      <option value="$PROJECT_DIR$/Assets/Samples/Cinemachine/2.6.3/Cinemachine Example Scenes/Shared/Models/UnityCharacter/Scripts/CharacterMovement.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Objects/doors.cs" />
+      <option value="$PROJECT_DIR$/.gitignore" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/parkour/start.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/parkour/Start.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/parkour/End.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/parkour/Water.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/parkour/WaterParkour.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/parkour/EndParkour.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/parkour/StartParkour.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/NPC/Talking.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerTalking.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/NPC/Patrol.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/NPC/NPC.cs" />
-=======
-      <option value="$PROJECT_DIR$/Assets/Scripts/Photon/Lobby.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Photon/Launcher.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/Target.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/MeleeAttack.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/MeleeAttackSystem.cs" />
->>>>>>> Stashed changes
+      <option value="$PROJECT_DIR$/Assets/Scripts/NPC/test.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/NPC/TestToto.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Objects/Doors.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Objects/Banc.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/NPC/RandomNPC.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerControler.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/CameraControler.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Objects/Ladder.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1lc0HUa28ntZOLTZRmQMrbjPy5x" />
@@ -77,6 +113,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34994584" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -87,10 +125,11 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="ReSharper" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor &amp; Play">
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
@@ -128,13 +167,18 @@
       <workItem from="1608588744663" duration="1817000" />
 <<<<<<< Updated upstream
       <workItem from="1608642223244" duration="21920000" />
-      <workItem from="1608718250166" duration="5408000" />
-=======
-      <workItem from="1608642223244" duration="16768000" />
-      <workItem from="1608680419095" duration="2890000" />
-      <workItem from="1608710951802" duration="2792000" />
-      <workItem from="1608744581768" duration="7967000" />
->>>>>>> Stashed changes
+      <workItem from="1608718250166" duration="17602000" />
+      <workItem from="1608916170692" duration="3215000" />
+      <workItem from="1609004825905" duration="3212000" />
+      <workItem from="1609106185524" duration="3156000" />
+      <workItem from="1609147991159" duration="18249000" />
+      <workItem from="1609367951162" duration="2368000" />
+      <workItem from="1609413621683" duration="8926000" />
+      <workItem from="1609496826617" duration="13399000" />
+      <workItem from="1609580622628" duration="15676000" />
+      <workItem from="1609610168506" duration="1713000" />
+      <workItem from="1609673433148" duration="14698000" />
+      <workItem from="1609781331927" duration="3196000" />
     </task>
     <task id="LOCAL-00001" summary="few corrections for cannonball animation">
       <created>1607889465775</created>
@@ -171,7 +215,84 @@
       <option name="project" value="LOCAL" />
       <updated>1608668994987</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="added lobby island">
+      <created>1608734985376</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1608734985376</updated>
+    </task>
+    <task id="LOCAL-00007" summary="add Doors + Patrol and general IA">
+      <created>1609177000440</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1609177000440</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Torch.prefab + Lobby.unity changed">
+      <created>1609177079691</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1609177079691</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Lobby changed (add parkour and football) + talking group NPC">
+      <created>1609507273033</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1609507273033</updated>
+    </task>
+    <task id="LOCAL-00010" summary="add brigde">
+      <created>1609518655365</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1609518655365</updated>
+    </task>
+    <task id="LOCAL-00011" summary="add bridge">
+      <created>1609518679095</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1609518679095</updated>
+    </task>
+    <task id="LOCAL-00012" summary="NPC prefabs">
+      <created>1609599638363</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1609599638363</updated>
+    </task>
+    <task id="LOCAL-00013" summary="update Doors NavMesh">
+      <created>1609604289104</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1609604289104</updated>
+    </task>
+    <task id="LOCAL-00014" summary="update ladder movements">
+      <created>1609696508917</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1609696508917</updated>
+    </task>
+    <task id="LOCAL-00015" summary="add the possibility to change Camera side + ladder changed">
+      <created>1609784474471</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1609784474471</updated>
+    </task>
+    <task id="LOCAL-00016" summary="update player anim + RandomNPC.cs + Patrol.cs">
+      <created>1609785064116</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1609785064116</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,6 +319,24 @@
     <MESSAGE value="add few objects prefab + import death animations" />
     <MESSAGE value="added multiple animations, dynamics lights, jump player (not fully implemented)" />
     <MESSAGE value="added jump controler (animations missing)" />
-    <option name="LAST_COMMIT_MESSAGE" value="added jump controler (animations missing)" />
+    <MESSAGE value="added lobby island" />
+    <MESSAGE value="add Doors + Patrol and general IA" />
+    <MESSAGE value="Torch.prefab + Lobby.unity changed" />
+    <MESSAGE value="Lobby changed (add parkour and football) + talking group NPC" />
+    <MESSAGE value="add brigde" />
+    <MESSAGE value="add bridge" />
+    <MESSAGE value="NPC prefabs" />
+    <MESSAGE value="update Doors NavMesh" />
+    <MESSAGE value="update ladder movements" />
+    <MESSAGE value="add the possibility to change Camera side + ladder changed" />
+    <MESSAGE value="update player anim + RandomNPC.cs + Patrol.cs" />
+    <option name="LAST_COMMIT_MESSAGE" value="update player anim + RandomNPC.cs + Patrol.cs" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="UNITY_DEBUG_RUN_CONFIGURATION">
+        <watch expression="this.gameObject.gameObject" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

@@ -4,19 +4,24 @@ using UnityEngine;
 
 public class CameraControler : MonoBehaviour
 {
+    private bool thirdPerson = true;
     public float lookSensitivity;
     public float minXLook, maxXLook;
     public Transform camAnchor;
     public bool invertXRotation;
     public PlayerControler Player;
     private float curXRot;
+    public Transform camera;
 
     private PlayerControler _playerControler;
 
     
     // private float zoomSpeed = 2f;
 
-    
+    public void ResetCamera()
+    {
+        camera.localPosition = new Vector3(0.4f, 0, -1.64f);
+    }
     private void Start()
     {
         
@@ -24,8 +29,26 @@ public class CameraControler : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+    private void ChangePOV()
+    {
+        if (thirdPerson)
+        {
+            thirdPerson = false;
+            Debug.Log($"{camAnchor.position}{camAnchor.localPosition}");
+            Debug.Log($"{camera.position}{camera.localPosition}");
+            camera.position = camAnchor.position + Vector3.forward * 0.1f;
+        }
+        else
+        {
+            thirdPerson = true;
+            camera.position = camAnchor.position + new Vector3(0.4f, 0.02f, -1.64f);
+        }
+    }
+
     private void LateUpdate()
     {
+        /*if (Input.GetKeyDown(KeyCode.V))
+            ChangePOV();*/
         if (_playerControler.CanRotate())
         {
             transform.eulerAngles += Vector3.up * (Input.GetAxis("Mouse X") * lookSensitivity);
@@ -33,36 +56,13 @@ public class CameraControler : MonoBehaviour
         
             Vector3 clampedAngle = camAnchor.eulerAngles;
             clampedAngle.x = Mathf.Clamp(curXRot, minXLook, maxXLook);;
-            camAnchor.eulerAngles = clampedAngle; 
+            camAnchor.eulerAngles = clampedAngle;
         }
-        
-    }
 
-    /*private void ViewObstructed()
-    {
-        
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, Target.position - transform.position, out hit, 4.5f))
+        if (Input.GetButtonDown("CamPos"))
         {
-            if (!hit.collider.gameObject.CompareTag("Player"))
-            {
-                Obstruction = hit.transform;
-                Obstruction.gameObject.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
-
-                if (Vector3.Distance(Obstruction.position, transform.position) >= 3f && Vector3.Distance(transform.position, Target.position) >= 1.5f)
-                {
-                    transform.Translate(Vector3.forward * (zoomSpeed * Time.deltaTime));
-                }
-            }
-            else
-            {
-                Obstruction.gameObject.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
-                if (Vector3.Distance(transform.position, Target.position) < 4.5f)
-                {
-                    transform.Translate(Vector3.back * (zoomSpeed * Time.deltaTime));
-                }
-            }
+            camera.localPosition = new Vector3(-camera.transform.localPosition.x,camera.transform.localPosition.y,camera.transform.localPosition.z);
         }
         
-    }*/
+    } 
 }

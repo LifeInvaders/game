@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Echelle
   - Bullet
+  - NPC
   - Banc
   - Floor
   - Skin
