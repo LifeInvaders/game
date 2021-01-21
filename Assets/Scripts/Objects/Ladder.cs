@@ -12,6 +12,7 @@ public class Ladder : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            Debug.Log("Ladder");
             var transformLocalPosition = other.gameObject.GetComponent<CameraControler>();
             transformLocalPosition.camera.transform.localPosition = new Vector3(transformLocalPosition.camera.transform.localPosition.x, -0.5f, -2.5f);
             
