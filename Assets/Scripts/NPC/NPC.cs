@@ -19,6 +19,13 @@ public class NPC : MonoBehaviour
         anim.SetBool("walk",true);
         
     }
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Player"));
+        {
+            Debug.Log("coucou");
+        }
+    }
 
     // Update is called once per frame
     void Update()

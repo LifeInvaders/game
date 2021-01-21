@@ -881,7 +881,6 @@
             <e p="Patrol.cs" t="Include" />
             <e p="RandomNPC.cs" t="Include" />
             <e p="Talking.cs" t="Include" />
-            <e p="TestToto.cs" t="Include" />
           </e>
           <e p="Objects" t="Include">
             <e p="Banc.cs" t="Include" />
