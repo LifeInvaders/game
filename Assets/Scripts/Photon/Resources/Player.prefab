@@ -1056,6 +1056,7 @@ MonoBehaviour:
   camAnchor: {fileID: 130397555846220552}
   invertXRotation: 0
   Player: {fileID: 130397555324141911}
+  camera: {fileID: 0}
 --- !u!114 &130397555324141911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1068,9 +1069,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aa58ba8c4f81dc0fa36295b16c11e23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rig: {fileID: 130397555324141904}
+  walkSpeed: 6
+  runSpeed: 3
   jumpspeed: 5
-  speedClimbing: 1
 --- !u!114 &6115253310730929224
 MonoBehaviour:
   m_ObjectHideFlags: 0

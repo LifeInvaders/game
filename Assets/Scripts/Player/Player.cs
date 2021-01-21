@@ -1,7 +1,7 @@
 ﻿using TreeEditor;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player2 : MonoBehaviour
 {
 
 	private Animator anim;
