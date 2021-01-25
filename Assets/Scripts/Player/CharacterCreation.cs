@@ -1,8 +1,4 @@
-using System;
-using JetBrains.Annotations;
-using UnityEditor;
 using UnityEngine;
-using static Player.PlayerDatabase;
 
 namespace Player
 {
@@ -14,7 +10,7 @@ namespace Player
             ResetValues();
         }
         
-        private static string _charID()
+        private string _charID()
         {
             char[] charArray = {_tempRank, _tempGender, _tempVariant, _tempSkinColor};
             return new string(charArray);
@@ -22,10 +18,10 @@ namespace Player
         
         public void ResetValues()
         {
-            _tempRank = Rank;
-            _tempGender = Gender;
-            _tempVariant = Variant;
-            _tempSkinColor = SkinColor;
+            _tempRank = instance.Rank;
+            _tempGender = instance.Gender;
+            _tempVariant = instance.Variant;
+            _tempSkinColor = instance.SkinColor;
             ChangeSkin();
         }
         
@@ -69,15 +65,16 @@ namespace Player
         
         public void ApplyChanges()
         {
-            Rank = _tempRank;
-            Gender = _tempGender;
-            Variant = _tempVariant;
-            SkinColor = _tempSkinColor;
+            PlayerDatabase.Instance.Rank = _tempRank;
+            instance.Gender = _tempGender;
+            instance.Variant = _tempVariant;
+            instance.SkinColor = _tempSkinColor;
         }
-
-        private static char _tempRank;
-        private static char _tempGender;
-        private static char _tempVariant;
-        private static char _tempSkinColor;
+        
+        private PlayerDatabase instance = PlayerDatabase.Instance;
+        private char _tempRank;
+        private char _tempGender;
+        private char _tempVariant;
+        private char _tempSkinColor;
     }   
 }
