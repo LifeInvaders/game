@@ -877,15 +877,21 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="NPC" t="Include">
-            <e p="NPC.cs" t="Include" />
+            <e p="GroupNPC.cs" t="Include" />
             <e p="Patrol.cs" t="Include" />
             <e p="RandomNPC.cs" t="Include" />
             <e p="Talking.cs" t="Include" />
+            <e p="WalkingNPC.cs" t="Include" />
           </e>
           <e p="Objects" t="Include">
             <e p="Banc.cs" t="Include" />
             <e p="doors.cs" t="Include" />
             <e p="Ladder.cs" t="Include" />
+            <e p="Powers" t="Include">
+              <e p="ChangeAppearance.cs" t="Include" />
+              <e p="PowerTools.cs" t="Include" />
+              <e p="SmokeBomb.cs" t="Include" />
+            </e>
           </e>
           <e p="parkour" t="Include">
             <e p="EndParkour.cs" t="Include" />
@@ -893,12 +899,12 @@
             <e p="WaterParkour.cs" t="Include" />
           </e>
           <e p="Photon" t="Include">
+            <e p="GameManager.cs" t="Include" />
             <e p="Launcher.cs" t="Include" />
             <e p="PlayerInputFields.cs" t="Include" />
           </e>
           <e p="Player" t="Include">
             <e p="CameraControler.cs" t="Include" />
-            <e p="Player.cs" t="Include" />
             <e p="PlayerControler.cs" t="Include" />
             <e p="PlayerTalking.cs" t="Include" />
           </e>
