@@ -92,10 +92,15 @@ public class PlayerControler : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
-            anim.SetBool("jump", true);
-            rig.AddForce(new Vector3(0, jumpspeed, 0), ForceMode.Impulse);
-            anim.SetBool("jump", false);
+            Jump();
         }
+    }
+
+    private void Jump()
+    {
+        anim.SetBool("jump", true);
+        rig.AddForce(new Vector3(0, jumpspeed, 0), ForceMode.Impulse);
+        anim.SetBool("jump", false);
     }
 
     void Update()
