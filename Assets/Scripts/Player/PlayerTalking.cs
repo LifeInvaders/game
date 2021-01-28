@@ -5,16 +5,6 @@ using UnityEngine;
 
 public class PlayerTalking : MonoBehaviour
 {
-    // private void OnTriggerEnter(Collider other)
-    // {
-    //     
-    //     if (other.gameObject.CompareTag("Player"))
-    //     {
-    //         other.gameObject.GetComponent<Animator>().SetBool("talking",true);
-    //         // other.gameObject.GetComponent<PlayerControler>().SetRotateBool(false);
-    //     }
-    //
-
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -24,12 +14,4 @@ public class PlayerTalking : MonoBehaviour
         }
     }
 
-    // private void OnTriggerExit(Collider other)
-    // {
-    //     if (other.gameObject.CompareTag("Player"))
-    //     {
-    //         other.gameObject.GetComponent<Animator>().SetBool("talking",false);
-    //         // other.gameObject.GetComponent<PlayerControler>().SetRotateBool(true);
-    //     }
-    // }
 }
