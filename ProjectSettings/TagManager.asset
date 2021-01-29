@@ -6,9 +6,7 @@ TagManager:
   tags:
   - Bullet
   - NPC
-  - Banc
-  - Floor
-  - Skin
+  - GroupNPC
   layers:
   - Default
   - TransparentFX
