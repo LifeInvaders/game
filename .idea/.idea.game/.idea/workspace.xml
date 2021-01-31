@@ -23,30 +23,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46a1a071-8782-48e9-959d-e99716af206a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.game.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.game.dir/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.game.dir/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.game.dir/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.game.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.game.dir/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.game/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.game/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.game/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.game/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/Lights/Torch.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/Lights/Torch.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/doors/Doors.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/doors/Doors.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/ladder.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/ladder.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/NPC/NPC walking Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Objects/NPC/NPC walking Variant.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/NPC/NPC.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Objects/NPC/NPC.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Lobby.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/test2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/test2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Fx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/FX.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/canon anim.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/canon anim.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Objects/NPC/NPC.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Objects/NPC/NPC.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Objects/Power.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUtilities/PackObject/CodeGen/Editor/Resources/TypeCatalogue.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUtilities/PackObject/CodeGen/Editor/Resources/TypeCatalogue.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PolygonPirates.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PolygonPirates.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Samples.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/test2.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/test3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/test3.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/test3/NavMesh.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/test3/NavMesh.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC/NPC.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPC/WalkingNPC.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC/NPC.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPC/WalkingNPC.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects/Banc.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/Banc.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects/Doors.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/Doors.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects/Ladder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/Ladder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerControler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerControler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerTalking.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerTalking.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC/WalkingNPC.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPC/WalkingNPC.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,20 +58,13 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FAA55637-FCC1-4BBF-B146-E6835A4641D9/ad/1c053f88/Physics.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/53FA4D04-FF9E-437D-AC8E-1BA5C15E99CE/28/8c0d9abf/NativeInputSystem.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/dovde/RiderProjects/game/Assets/Scripts/Objects/Banc.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/18652B59-14B1-4E07-A740-76A4608F13E3/41/c768f4e7/Input.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/Downloads/Cinemachine_ThirdPersonCamera/Assets/Scripts/PlayerMovementInputController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7D90B285-60B6-44CE-87B8-263EFCC36EED/66/e96eee44/AssetDatabase.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerTalking.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/76DB40A9-3869-4C62-906F-9BBB72DB1A18/5b/16d91c75/NavMesh.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/NPC/WalkingNPC.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/29AD182F-AA3F-478C-9310-D6A2E7143C15/f7/6db80918/Component.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.6.3/Runtime/Behaviours/CinemachineCollider.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/29AD182F-AA3F-478C-9310-D6A2E7143C15/39/d599ff07/Quaternion.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/NPC/Patrol.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/29AD182F-AA3F-478C-9310-D6A2E7143C15/f7/933cd26e/Resources.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/dov/RiderProjects/game/Assets/PolygonPirates.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/NPC/WalkingNPC.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.6.3/Runtime/Behaviours/CinemachineCollider.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/dov/RiderProjects/game/Assets/Objects/NPC/NPC.prefab" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/dov/RiderProjects/game/Assets/PolygonPirates.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerTalking.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -112,8 +97,11 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Objects/Banc.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Objects/Powers/SmokeBomb.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Objects/Doors.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/NPC/WalkingNPC.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Objects/Ladder.cs" />
+      <option value="$PROJECT_DIR$/Assets/Shaders/outline.shader" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/NPC/WalkingNPC.cs" />
+      <option value="$PROJECT_DIR$/Assets/Photon/PhotonUtilities/PackObject/CodeGen/TypeCatalogue.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/TargetSystem/CastTarget.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1lc0HUa28ntZOLTZRmQMrbjPy5x" />
@@ -122,7 +110,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.35372636" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.35377103" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
@@ -139,10 +127,10 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor &amp; Play">
-    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="44933">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="44933" />
       <option name="selectedOptions">
         <list />
       </option>
@@ -200,6 +188,9 @@
       <workItem from="1611663445769" duration="14190000" />
       <workItem from="1611733711909" duration="2692000" />
       <workItem from="1611779824134" duration="1208000" />
+      <workItem from="1612033071500" duration="2216000" />
+      <workItem from="1612036047797" duration="3576000" />
+      <workItem from="1612116732962" duration="8315000" />
     </task>
     <task id="LOCAL-00001" summary="few corrections for cannonball animation">
       <created>1607889465775</created>
@@ -320,7 +311,28 @@
       <option name="project" value="LOCAL" />
       <updated>1611258025189</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="fixed anim event for &quot;canon anim.anim&quot;">
+      <created>1612129363435</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1612129363435</updated>
+    </task>
+    <task id="LOCAL-00019" summary="add outline asset">
+      <created>1612129517137</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1612129517137</updated>
+    </task>
+    <task id="LOCAL-00020" summary="add handmade outline shaders">
+      <created>1612129559020</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1612129559020</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -359,7 +371,10 @@
     <MESSAGE value="add the possibility to change Camera side + ladder changed" />
     <MESSAGE value="update player anim + RandomNPC.cs + Patrol.cs" />
     <MESSAGE value="fix Player.prefab and GameManager.cs args" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix Player.prefab and GameManager.cs args" />
+    <MESSAGE value="fixed anim event for &quot;canon anim.anim&quot;" />
+    <MESSAGE value="add outline asset" />
+    <MESSAGE value="add handmade outline shaders" />
+    <option name="LAST_COMMIT_MESSAGE" value="add handmade outline shaders" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -367,40 +382,19 @@
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Objects/Powers/SmokeBomb.cs</url>
           <line>46</line>
-          <properties documentPath="C:\Users\dovde\RiderProjects\game\Assets\Scripts\Objects\Powers\SmokeBomb.cs" initialLine="44" containingFunctionPresentation="method 'Action'">
-            <startOffsets>
-              <option value="1431" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1473" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="C:\Users\dovde\RiderProjects\game\Assets\Scripts\Objects\Powers\SmokeBomb.cs" initialLine="44" containingFunctionPresentation="method 'Action'" />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Objects/Powers/SmokeBomb.cs</url>
           <line>30</line>
-          <properties documentPath="C:\Users\dovde\RiderProjects\game\Assets\Scripts\Objects\Powers\SmokeBomb.cs" initialLine="28" containingFunctionPresentation="method 'Action'">
-            <startOffsets>
-              <option value="739" />
-            </startOffsets>
-            <endOffsets>
-              <option value="780" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="C:\Users\dovde\RiderProjects\game\Assets\Scripts\Objects\Powers\SmokeBomb.cs" initialLine="28" containingFunctionPresentation="method 'Action'" />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/NPC/WalkingNPC.cs</url>
           <line>30</line>
-          <properties documentPath="C:\Users\dovde\RiderProjects\game\Assets\Scripts\NPC\WalkingNPC.cs" initialLine="35" containingFunctionPresentation="method 'OnCollisionEnter'">
-            <startOffsets>
-              <option value="970" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1073" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="C:\Users\dovde\RiderProjects\game\Assets\Scripts\NPC\WalkingNPC.cs" initialLine="35" containingFunctionPresentation="method 'OnCollisionEnter'" />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
