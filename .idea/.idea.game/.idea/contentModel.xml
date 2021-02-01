@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\dovde\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\dovde\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_game.-1182146299.00" t="ExcludeRecursive" />
-    <e p="C:\Users\dovde\RiderProjects\game" t="IncludeRecursive">
+    <e p="$USER_HOME$/.cache/JetBrains/Rider2020.3/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.cache/JetBrains/Rider2020.3/resharper-host/local/Transient/Rider/v203/SolutionCaches/_game.-1135721117.00" t="ExcludeRecursive" />
+    <e p="$APPLICATION_CONFIG_DIR$/scratches" t="IncludeRecursive" />
+    <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -33,7 +34,6 @@
         <e p="Photon" t="Include">
           <e p="PhotonChat" t="Include">
             <e p="Code" t="Include">
-              <e p="changes-chat.txt" t="Include" />
               <e p="ChannelCreationOptions.cs" t="Include" />
               <e p="ChannelWellKnownProperties.cs" t="Include" />
               <e p="ChatAppSettings.cs" t="Include" />
@@ -48,6 +48,7 @@
               <e p="ChatUserStatus.cs" t="Include" />
               <e p="IChatClientListener.cs" t="Include" />
               <e p="PhotonChat.asmdef" t="Include" />
+              <e p="changes-chat.txt" t="Include" />
             </e>
             <e p="Demos" t="Include">
               <e p="Common" t="Include">
@@ -68,20 +69,19 @@
             </e>
           </e>
           <e p="PhotonLibs" t="Include">
-            <e p="changes-library.txt" t="Include" />
-            <e p="netstandard2.0" t="Include">
-              <e p="Photon3Unity3D.xml" t="Include" />
-            </e>
             <e p="Photon3Unity3D.xml" t="Include" />
             <e p="WebSocket" t="Include">
               <e p="SocketWebTcp.cs" t="Include" />
               <e p="WebSocket.cs" t="Include" />
             </e>
+            <e p="changes-library.txt" t="Include" />
+            <e p="netstandard2.0" t="Include">
+              <e p="Photon3Unity3D.xml" t="Include" />
+            </e>
           </e>
           <e p="PhotonRealtime" t="Include">
             <e p="Code" t="Include">
               <e p="AppSettings.cs" t="Include" />
-              <e p="changes-realtime.txt" t="Include" />
               <e p="ConnectionHandler.cs" t="Include" />
               <e p="CustomTypesUnity.cs" t="Include" />
               <e p="Extensions.cs" t="Include" />
@@ -98,6 +98,7 @@
               <e p="RoomInfo.cs" t="Include" />
               <e p="SupportLogger.cs" t="Include" />
               <e p="WebRpc.cs" t="Include" />
+              <e p="changes-realtime.txt" t="Include" />
             </e>
             <e p="Demos" t="Include">
               <e p="DemoLoadBalancing" t="Include">
@@ -106,7 +107,6 @@
             </e>
           </e>
           <e p="PhotonUnityNetworking" t="Include">
-            <e p="changelog.txt" t="Include" />
             <e p="Code" t="Include">
               <e p="CustomTypes.cs" t="Include" />
               <e p="Editor" t="Include">
@@ -161,7 +161,7 @@
               <e p="DemoAsteroids" t="Include">
                 <e p="Scripts" t="Include">
                   <e p="AsteroidsGame.cs" t="Include" />
-                  <e p="game" t="Include">
+                  <e p="Game" t="Include">
                     <e p="Asteroid.cs" t="Include" />
                     <e p="AsteroidsGameManager.cs" t="Include" />
                     <e p="Bullet.cs" t="Include" />
@@ -332,8 +332,6 @@
               </e>
               <e p="WebRpcImplementationExample.cs" t="Include" />
             </e>
-            <e p="link.xml" t="Include" />
-            <e p="readme.txt" t="Include" />
             <e p="UtilityScripts" t="Include">
               <e p="Culling" t="Include">
                 <e p="CullArea.cs" t="Include" />
@@ -391,6 +389,9 @@
                 <e p="TextToggleIsOnTransition.cs" t="Include" />
               </e>
             </e>
+            <e p="changelog.txt" t="Include" />
+            <e p="link.xml" t="Include" />
+            <e p="readme.txt" t="Include" />
           </e>
           <e p="PhotonUtilities" t="Include">
             <e p="Animator" t="Include">
@@ -434,13 +435,13 @@
               <e p="NormCompress" t="Include">
                 <e p="NormCompress.cs" t="Include" />
               </e>
-              <e p="plugins" t="Include">
-                <e p="ByteConverter.xml" t="Include" />
-              </e>
               <e p="Utilities" t="Include">
                 <e p="ByteConverter.cs" t="Include" />
                 <e p="EmoCompressUtilsASMDEF.asmdef" t="Include" />
                 <e p="ZigZagExt.cs" t="Include" />
+              </e>
+              <e p="plugins" t="Include">
+                <e p="ByteConverter.xml" t="Include" />
               </e>
             </e>
             <e p="EditorTools" t="Include">
@@ -456,10 +457,6 @@
               <e p="FastBitMask64.cs" t="Include" />
             </e>
             <e p="PackObject" t="Include">
-              <e p="_GeneratedPackExtensions" t="Include">
-                <e p="Pack_TestPackObject.cs" t="Include" />
-                <e p="PackObject Extensions.txt" t="Include" />
-              </e>
               <e p="Attributes" t="Include">
                 <e p="PackObjectAttribute.cs" t="Include" />
                 <e p="SyncHalfFloatAttribute.cs" t="Include" />
@@ -486,6 +483,10 @@
               </e>
               <e p="PackObjectDatabase.cs" t="Include" />
               <e p="PackObjectSettings.cs" t="Include" />
+              <e p="_GeneratedPackExtensions" t="Include">
+                <e p="PackObject Extensions.txt" t="Include" />
+                <e p="Pack_TestPackObject.cs" t="Include" />
+              </e>
             </e>
             <e p="SettingsScriptableObject" t="Include">
               <e p="SettingsScriptableObject.cs" t="Include" />
@@ -496,11 +497,6 @@
                 <e p="FloatCrusherExtensions.cs" t="Include" />
               </e>
               <e p="FloatCrushDrawer.cs" t="Include" />
-              <e p="plugins" t="Include">
-                <e p="FloatCrusher.xml" t="Include" />
-                <e p="HalFloat.xml" t="Include" />
-                <e p="QuatCompress.xml" t="Include" />
-              </e>
               <e p="QuatCrusher.cs" t="Include" />
               <e p="RigidbodyCrusher.cs" t="Include" />
               <e p="RigidbodyCrusherDrawer.cs" t="Include" />
@@ -524,6 +520,11 @@
                 <e p="WorldBoundsGroup.cs" t="Include" />
                 <e p="WorldBoundsSelectAttribute.cs" t="Include" />
                 <e p="WorldBoundsSettings.cs" t="Include" />
+              </e>
+              <e p="plugins" t="Include">
+                <e p="FloatCrusher.xml" t="Include" />
+                <e p="HalFloat.xml" t="Include" />
+                <e p="QuatCompress.xml" t="Include" />
               </e>
             </e>
           </e>
@@ -566,8 +567,8 @@
                   </e>
                   <e p="BasicInventory.cs" t="Include" />
                   <e p="Interfaces" t="Include">
-                    <e p="IInventoryable.cs" t="Include" />
                     <e p="IInventorySystem.cs" t="Include" />
+                    <e p="IInventoryable.cs" t="Include" />
                   </e>
                   <e p="InventoryContactReactors.cs" t="Include" />
                   <e p="InventoryContactReactorsT.cs" t="Include" />
@@ -601,9 +602,9 @@
                   <e p="OwnedIVitals.cs" t="Include" />
                   <e p="SyncVitals.cs" t="Include" />
                   <e p="UI" t="Include">
-                    <e p="VitalsUISrcBase.cs" t="Include" />
                     <e p="VitalUI.cs" t="Include" />
                     <e p="VitalUIBase.cs" t="Include" />
+                    <e p="VitalsUISrcBase.cs" t="Include" />
                   </e>
                   <e p="VitalsContactReactor.cs" t="Include" />
                   <e p="VitalsSystem" t="Include">
@@ -637,8 +638,8 @@
                 <e p="MountMaskSelector.cs" t="Include" />
                 <e p="MountSelector.cs" t="Include" />
                 <e p="MountSettings.cs" t="Include" />
-                <e p="MountsManager.cs" t="Include" />
                 <e p="MountThrow.cs" t="Include" />
+                <e p="MountsManager.cs" t="Include" />
               </e>
               <e p="SyncAnimator" t="Include">
                 <e p="Classes" t="Include">
@@ -663,11 +664,11 @@
                   <e p="OculusAssist.cs" t="Include" />
                 </e>
                 <e p="AutoDisableOculusObjects.cs" t="Include" />
-                <e p="SimpleOculusAutomation.cs" t="Include" />
                 <e p="SimpleOVRDebug.cs" t="Include" />
                 <e p="SimpleOVRGrabbable.cs" t="Include" />
                 <e p="SimpleOVRGrabber.cs" t="Include" />
                 <e p="SimpleOVRInputSync.cs" t="Include" />
+                <e p="SimpleOculusAutomation.cs" t="Include" />
               </e>
               <e p="SyncState" t="Include">
                 <e p="AutoMountHitscan.cs" t="Include" />
@@ -786,21 +787,6 @@
               <e p="Example" t="Include">
                 <e p="BasicController.cs" t="Include" />
               </e>
-              <e p="GhostWorld" t="Include">
-                <e p="Enums" t="Include">
-                  <e p="Realm.cs" t="Include" />
-                </e>
-                <e p="Ghost.cs" t="Include" />
-                <e p="GhostCollider.cs" t="Include" />
-                <e p="GhostComponent.cs" t="Include" />
-                <e p="GhostWorld.cs" t="Include" />
-                <e p="Haunted.cs" t="Include" />
-                <e p="HauntedStatic.cs" t="Include" />
-                <e p="Interfaces" t="Include">
-                  <e p="IHauntedComponent.cs" t="Include" />
-                  <e p="IIncludeInGhost.cs" t="Include" />
-                </e>
-              </e>
               <e p="GUITools" t="Include">
                 <e p="CustomMaskEditors" t="Include">
                   <e p="MaskLogic.cs" t="Include" />
@@ -816,6 +802,21 @@
                 <e p="NameTypeDrawer.cs" t="Include" />
                 <e p="ShowIfInterfaceAttribute.cs" t="Include" />
                 <e p="ValueTypeAttribute.cs" t="Include" />
+              </e>
+              <e p="GhostWorld" t="Include">
+                <e p="Enums" t="Include">
+                  <e p="Realm.cs" t="Include" />
+                </e>
+                <e p="Ghost.cs" t="Include" />
+                <e p="GhostCollider.cs" t="Include" />
+                <e p="GhostComponent.cs" t="Include" />
+                <e p="GhostWorld.cs" t="Include" />
+                <e p="Haunted.cs" t="Include" />
+                <e p="HauntedStatic.cs" t="Include" />
+                <e p="Interfaces" t="Include">
+                  <e p="IHauntedComponent.cs" t="Include" />
+                  <e p="IIncludeInGhost.cs" t="Include" />
+                </e>
               </e>
               <e p="Networking" t="Include">
                 <e p="AutoDestroyUnspawned.cs" t="Include" />
@@ -843,59 +844,16 @@
             </e>
           </e>
         </e>
-        <e p="Samples" t="Include">
-          <e p="Cinemachine" t="Include">
-            <e p="2.6.3" t="Include">
-              <e p="Cinemachine Example Scenes" t="Include">
-                <e p="Scenes" t="Include">
-                  <e p="3rdPersonWithAimMode" t="Include">
-                    <e p="ActivateOnKeypress.cs" t="Include" />
-                  </e>
-                  <e p="Anywhere Door" t="Include">
-                    <e p="PlayerLookAt.cs" t="Include" />
-                    <e p="PlayerMovement.cs" t="Include" />
-                    <e p="ScreenCutoutShader.shader" t="Include" />
-                    <e p="TagChanger.cs" t="Include" />
-                  </e>
-                  <e p="CameraMagnets" t="Include">
-                    <e p="CameraMagnetProperty.cs" t="Include" />
-                    <e p="CameraMagnetTargetController.cs" t="Include" />
-                  </e>
-                  <e p="DualTarget" t="Include">
-                    <e p="MoveAimTarget.cs" t="Include" />
-                    <e p="PointAtAimTarget.cs" t="Include" />
-                  </e>
-                  <e p="Scripting" t="Include">
-                    <e p="ScriptingExample.cs" t="Include" />
-                  </e>
-                  <e p="Trigger volumes" t="Include">
-                    <e p="GenericTrigger.cs" t="Include" />
-                  </e>
-                </e>
-                <e p="Shared" t="Include">
-                  <e p="Models" t="Include">
-                    <e p="UnityCharacter" t="Include">
-                      <e p="Scripts" t="Include">
-                        <e p="CharacterMovement.cs" t="Include" />
-                        <e p="CharacterMovement2D.cs" t="Include" />
-                        <e p="CharacterMovementNoCamera.cs" t="Include" />
-                      </e>
-                    </e>
-                  </e>
-                  <e p="Scripts" t="Include">
-                    <e p="ActivateCameraWithDistance.cs" t="Include" />
-                    <e p="ActivateCamOnPlay.cs" t="Include" />
-                    <e p="ExampleHelpWindow.cs" t="Include" />
-                    <e p="InvokeEventFromInspector.cs" t="Include" />
-                    <e p="MixingCameraBlend.cs" t="Include" />
-                    <e p="PlayerMove.cs" t="Include" />
-                    <e p="PlayerMoveOnSphere.cs" t="Include" />
-                    <e p="PlayerMovePhysics.cs" t="Include" />
-                    <e p="SpawnInCircle.cs" t="Include" />
-                  </e>
-                </e>
-              </e>
+        <e p="QuickOutline" t="Include">
+          <e p="Readme.txt" t="Include" />
+          <e p="Resources" t="Include">
+            <e p="Shaders" t="Include">
+              <e p="OutlineFill.shader" t="Include" />
+              <e p="OutlineMask.shader" t="Include" />
             </e>
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="Outline.cs" t="Include" />
           </e>
         </e>
         <e p="Scripts" t="Include">
@@ -908,18 +866,13 @@
           </e>
           <e p="Objects" t="Include">
             <e p="Banc.cs" t="Include" />
-            <e p="doors.cs" t="Include" />
+            <e p="Doors.cs" t="Include" />
             <e p="Ladder.cs" t="Include" />
             <e p="Powers" t="Include">
               <e p="ChangeAppearance.cs" t="Include" />
               <e p="PowerTools.cs" t="Include" />
               <e p="SmokeBomb.cs" t="Include" />
             </e>
-          </e>
-          <e p="parkour" t="Include">
-            <e p="EndParkour.cs" t="Include" />
-            <e p="StartParkour.cs" t="Include" />
-            <e p="WaterParkour.cs" t="Include" />
           </e>
           <e p="Photon" t="Include">
             <e p="GameManager.cs" t="Include" />
@@ -931,25 +884,36 @@
             <e p="PlayerControler.cs" t="Include" />
             <e p="PlayerTalking.cs" t="Include" />
           </e>
+          <e p="TargetSystem" t="Include">
+            <e p="CastTarget.cs" t="Include" />
+          </e>
+          <e p="parkour" t="Include">
+            <e p="EndParkour.cs" t="Include" />
+            <e p="StartParkour.cs" t="Include" />
+            <e p="WaterParkour.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Shaders" t="Include">
+          <e p="outline.shader" t="Include" />
         </e>
       </e>
       <e p="BitpackersASMDEF.csproj" t="IncludeRecursive" />
       <e p="EmoCompressUtilsASMDEF.csproj" t="IncludeRecursive" />
-      <e p="game.sln" t="IncludeFlat" />
       <e p="HalfFloatASMDEF.csproj" t="IncludeRecursive" />
-      <e p="obj" t="ExcludeRecursive" />
-      <e p="packages" t="ExcludeRecursive" />
       <e p="PhotonChat.csproj" t="IncludeRecursive" />
       <e p="PhotonRealtime.csproj" t="IncludeRecursive" />
-      <e p="PhotonUnityNetworking.csproj" t="IncludeRecursive" />
       <e p="PhotonUnityNetworking.Demos.csproj" t="IncludeRecursive" />
       <e p="PhotonUnityNetworking.Editor.csproj" t="IncludeRecursive" />
-      <e p="PhotonUnityNetworking.Utilities.csproj" t="IncludeRecursive" />
       <e p="PhotonUnityNetworking.Utilities.Culling.Editor.csproj" t="IncludeRecursive" />
       <e p="PhotonUnityNetworking.Utilities.PhotonPlayer.Editor.csproj" t="IncludeRecursive" />
+      <e p="PhotonUnityNetworking.Utilities.csproj" t="IncludeRecursive" />
+      <e p="PhotonUnityNetworking.csproj" t="IncludeRecursive" />
       <e p="PunDemos.DemoHubEditor.csproj" t="IncludeRecursive" />
       <e p="PunDemos.DemoSlotcarEditor.csproj" t="IncludeRecursive" />
-      <e p="Temp\bin" t="ExcludeRecursive" />
+      <e p="Temp/bin" t="ExcludeRecursive" />
+      <e p="game.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
     </e>
   </component>
 </project>

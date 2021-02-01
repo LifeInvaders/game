@@ -30,7 +30,6 @@ namespace NPC
                 shoved = true;
                 Vector3 pos =GetComponent<CapsuleCollider>().ClosestPointOnBounds(other.gameObject.transform.position);
                 bool right = pos.normalized.x < 0;
-                Debug.Log(right);
                 bool forward = pos.normalized.z < 0;
                 // transform.position -= Vector3.right * pos.normalized.x * .4f;
 
