@@ -22,8 +22,8 @@ namespace TargetSystem
             if (Input.GetButton("Fire2"))
             {
                 if (Physics.Raycast(_camera.transform.position, _camera.transform.TransformDirection(Vector3.forward),
-                    out raycastHit) && (raycastHit.transform.gameObject.CompareTag("Player") ||
-                                        raycastHit.transform.gameObject.CompareTag("NPC")) && Vector3.Distance(raycastHit.transform.position,transform.position) < 12)
+                    out raycastHit,30f) && (raycastHit.transform.gameObject.CompareTag("Player") ||
+                                        raycastHit.transform.gameObject.CompareTag("NPC")))// && Vector3.Distance(raycastHit.transform.position,transform.position) < 12)
                 {
                     Outline playerOutline = raycastHit.transform.Find("Character").GetComponent<Outline>();
 

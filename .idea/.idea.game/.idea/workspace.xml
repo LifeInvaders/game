@@ -23,22 +23,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46a1a071-8782-48e9-959d-e99716af206a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.game.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.game.dir/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.game.dir/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.game.dir/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.game.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.game.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.game/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.game/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.game/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.game/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Fx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/FX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/canon anim.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/canon anim.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/NPC/NPC.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Objects/NPC/NPC.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/Power.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUtilities/PackObject/CodeGen/Editor/Resources/TypeCatalogue.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUtilities/PackObject/CodeGen/Editor/Resources/TypeCatalogue.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolygonPirates.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PolygonPirates.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/test2.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/test3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/test3.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC/WalkingNPC.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPC/WalkingNPC.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TargetSystem/CastTarget.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TargetSystem/CastTarget.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,11 +46,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/NPC/Patrol.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///home/dov/RiderProjects/game/Assets/PolygonPirates.meta" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/NPC/WalkingNPC.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.6.3/Runtime/Behaviours/CinemachineCollider.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/dov/RiderProjects/game/Assets/Objects/NPC/NPC.prefab" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/dov/RiderProjects/game/Assets/PolygonPirates.meta" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerTalking.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -127,10 +111,10 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor &amp; Play">
-    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="44933">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="44933" />
+      <option name="pid" />
       <option name="selectedOptions">
         <list />
       </option>
@@ -190,7 +174,8 @@
       <workItem from="1611779824134" duration="1208000" />
       <workItem from="1612033071500" duration="2216000" />
       <workItem from="1612036047797" duration="3576000" />
-      <workItem from="1612116732962" duration="8315000" />
+      <workItem from="1612116732962" duration="8793000" />
+      <workItem from="1612167298780" duration="1621000" />
     </task>
     <task id="LOCAL-00001" summary="few corrections for cannonball animation">
       <created>1607889465775</created>
@@ -332,7 +317,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612129559020</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="add select outline interface">
+      <created>1612130582148</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1612130582148</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -374,7 +366,8 @@
     <MESSAGE value="fixed anim event for &quot;canon anim.anim&quot;" />
     <MESSAGE value="add outline asset" />
     <MESSAGE value="add handmade outline shaders" />
-    <option name="LAST_COMMIT_MESSAGE" value="add handmade outline shaders" />
+    <MESSAGE value="add select outline interface" />
+    <option name="LAST_COMMIT_MESSAGE" value="add select outline interface" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
