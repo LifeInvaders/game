@@ -9,12 +9,13 @@ public class PlayerControler : MonoBehaviour
     private float moveSpeed;
     public float walkSpeed = 6;
     public float runSpeed = 3;
-    
+
     private Rigidbody rig;
     private Animator anim;
     private CapsuleCollider capsule;
     public float jumpspeed = 5;
     private bool canRotate = true;
+
     private bool canMove = true;
     // public float speedClimbing = 1;
 
@@ -22,17 +23,19 @@ public class PlayerControler : MonoBehaviour
     {
         canMove = state;
     }
+
     public void SetRotateBool(bool state)
     {
         canRotate = state;
     }
+
     void Start()
     {
         rig = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         capsule = GetComponent<CapsuleCollider>();
     }
-    
+
 
     public void SetJumpSpeed(float speed)
     {
@@ -48,58 +51,61 @@ public class PlayerControler : MonoBehaviour
     {
         runSpeed = speed;
     }
+
     public bool CanRotate()
     {
         return canRotate;
     }
+
     public bool Running()
     {
-        return moveSpeed>walkSpeed;
+        return moveSpeed > walkSpeed;
     }
 
     private void SetAnim(float x, float z)
     {
-        anim.SetFloat("Speed Front", Mathf.Abs(z)*moveSpeed);
+        anim.SetFloat("Speed Front", Mathf.Abs(z) * moveSpeed);
         // Je set les animations de marche latérale
-        anim.SetFloat("Speed Side", Mathf.Abs(x)*moveSpeed);
-        anim.SetBool("Mirror",x<0);
-        anim.SetBool("running", moveSpeed>walkSpeed);
+        anim.SetFloat("Speed Side", Mathf.Abs(x) * moveSpeed);
+        anim.SetBool("Mirror", x < 0);
+        anim.SetBool("running", moveSpeed > walkSpeed);
     }
-    
+
     private bool IsGrounded()
     {
-        return Physics.Raycast(capsule.bounds.center, Vector3.down,capsule.bounds.extents.y+0.2f);
+        return Physics.Raycast(capsule.bounds.center, Vector3.down, capsule.bounds.extents.y + 0.2f);
     }
 
     private void Move()
     {
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
-        if (canMove)
+
+        moveSpeed = Input.GetButton("Running") ? runSpeed : walkSpeed;
+        var right = transform.right;
+        var forward = transform.forward;
+        SetAnim(x, z);
+
+        Vector3 dir = (right * x + forward * z) * moveSpeed;
+        dir.y = rig.velocity.y;
+        rig.velocity = dir;
+
+        if (Input.GetButtonDown("Jump") && IsGrounded())
         {
-            var right = transform.right;
-            var forward = transform.forward;
-            SetAnim(x, z);
-
-            Vector3 dir = (right * x + forward * z) * moveSpeed;
-            dir.y = rig.velocity.y;
-            rig.velocity = dir;
-
-            if (Input.GetButtonDown("Jump") && IsGrounded())
-            {
-                anim.SetBool("jump", true);
-                rig.AddForce(new Vector3(0, jumpspeed, 0), ForceMode.Impulse);
-                anim.SetBool("jump", false);
-            }
+            Jump();
         }
     }
+
+    private void Jump()
+    {
+        anim.SetBool("jump", true);
+        rig.AddForce(new Vector3(0, jumpspeed, 0), ForceMode.Impulse);
+        anim.SetBool("jump", false);
+    }
+
     void Update()
     {
-        if (Input.GetButton("Running"))
-            moveSpeed = runSpeed;
-        else
-            moveSpeed = walkSpeed;
-        
-        Move();
+        if (canMove)
+            Move();
     }
 }

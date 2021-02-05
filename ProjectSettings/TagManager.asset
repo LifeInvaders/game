@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bullet
   - NPC
+  - GroupNPC
   layers:
   - Default
   - TransparentFX

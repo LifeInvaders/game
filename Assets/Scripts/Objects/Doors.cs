@@ -4,44 +4,43 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Doors : MonoBehaviour
+namespace Objects
 {
-    private Transform _leftDoor;
-
-    private Transform _rightDoor;
-
-    private NavMeshObstacle _obstacle;
-
-    private bool _opened = true;
-    // Start is called before the first frame update
-    private void Start()
+    public class Doors : MonoBehaviour
     {
-        _leftDoor = transform.Find("left door");
-        _rightDoor = transform.Find("right door");
+        private Transform _leftDoor;
 
-        // _obstacle = GetComponent<NavMeshObstacle>();
-    }
+        private Transform _rightDoor;
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (_opened && other.gameObject.CompareTag("Player") && other.gameObject.GetComponent<PlayerControler>().Running())
+        private NavMeshObstacle _obstacle;
+        private Animator _anim;
+        private bool _opened = true;
+
+        private NavMeshObstacle _navMeshObstacle;
+        // Start is called before the first frame update
+        private void Start()
         {
-            _opened = false;
-            _leftDoor.eulerAngles -= Vector3.up * -90;
-            _rightDoor.eulerAngles -= Vector3.up * 90;
-            // _obstacle.carving = true;
-            StartCoroutine(WaitCoroutine());
+            _leftDoor = transform.Find("left door");
+            _rightDoor = transform.Find("right door");
+            _anim = GetComponent<Animator>();
+            _navMeshObstacle = GetComponent<NavMeshObstacle>();
         }
-    }
-    IEnumerator WaitCoroutine()
-    {
-        
-        yield return new WaitForSeconds(5);
-        
-        _opened = true;
 
-        _leftDoor.eulerAngles += Vector3.up * (-90);
-        _rightDoor.eulerAngles += Vector3.up * 90;
-
+        private void OnTriggerExit(Collider other)
+        {
+            if (_opened && other.gameObject.CompareTag("Player") && other.gameObject.GetComponent<PlayerControler>().Running())
+            {
+                _opened = false;
+                _anim.Play("doors_animation");
+                _navMeshObstacle.enabled = true;
+                StartCoroutine(WaitCoroutine());
+            }
+        }
+        IEnumerator WaitCoroutine()
+        {
+            yield return new WaitForSeconds(5);
+            _opened = true;
+            _navMeshObstacle.enabled = false;
+        }
     }
 }
