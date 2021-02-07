@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace TargetSystem
 {
@@ -15,6 +16,9 @@ namespace TargetSystem
 
         private bool _isOutlinecamNotNull;
         private SelectedTarget _selectedTarget;
+
+        private bool _aiming = false;
+        private bool _selected = false;
 
         private void Start()
         {
@@ -39,30 +43,30 @@ namespace TargetSystem
             }
         }
 
-        private void Update()
-        {
-            if (Input.GetButton("Fire2"))
-            {
-                if (Physics.Raycast(_camera.transform.position, _camera.transform.TransformDirection(Vector3.forward),
-                        out raycastHit, 30f) && (raycastHit.transform.gameObject.CompareTag("Player") ||
-                                                 raycastHit.transform.gameObject.CompareTag("NPC"))
-                ) // && Vector3.Distance(raycastHit.transform.position,transform.position) < 12)
-                {
-                    if (!_selectedTarget.IsTarget())
-                    {
-                        Outlining(raycastHit.transform.Find("Character").GetComponent<Outline>());
-                    }
-                    if (Input.GetButtonDown("Fire1"))
-                    {
-                        _selectedTarget.UpdateSelectedTarget(_target, _outlinecam);
-                    }
-                }
-                else if (_target != null && !_selectedTarget.IsSelectedTarget(_target))
-                    RemoveCamTarget();
-            }
-            else if (_target != null && !_selectedTarget.IsSelectedTarget(_target))
-                RemoveCamTarget();
-        }
+        // private void FixedUpdate()
+        // {
+        //     if (_aiming)
+        //     {
+        //         if (Physics.Raycast(_camera.transform.position, _camera.transform.TransformDirection(Vector3.forward),
+        //                 out raycastHit, 30f) && (raycastHit.transform.gameObject.CompareTag("Player") ||
+        //                                          raycastHit.transform.gameObject.CompareTag("NPC"))
+        //         ) // && Vector3.Distance(raycastHit.transform.position,transform.position) < 12)
+        //         {
+        //             if (!_selectedTarget.IsTarget())
+        //             {
+        //                 Outlining(raycastHit.transform.Find("Character").GetComponent<Outline>());
+        //             }
+        //             if (_selected)
+        //             {
+        //                 _selectedTarget.UpdateSelectedTarget(_target, _outlinecam);
+        //             }
+        //         }
+        //         else if (_target != null && !_selectedTarget.IsSelectedTarget(_target))
+        //             RemoveCamTarget();
+        //     }
+        //     else if (_target != null && !_selectedTarget.IsSelectedTarget(_target))
+        //         RemoveCamTarget();
+        // }
 
         private void RemoveCamTarget()
         {
@@ -70,5 +74,46 @@ namespace TargetSystem
             _outlinecam = null;
             _target = null;
         }
+
+        private void Update()
+        {
+            if (!_aiming)
+            {
+                if (_target != null && !_selectedTarget.IsSelectedTarget(_target))
+                    RemoveCamTarget();
+            }
+            else
+            {
+                if (Physics.Raycast(_camera.transform.position, _camera.transform.TransformDirection(Vector3.forward),
+                        out raycastHit, 30f) && (raycastHit.transform.gameObject.CompareTag("Player") ||
+                                                 raycastHit.transform.gameObject.CompareTag("NPC"))
+                )
+                {
+                    if (!_selectedTarget.IsTarget())
+                    {
+                        Outlining(raycastHit.transform.Find("Character").GetComponent<Outline>());
+                    }
+
+                    if (_selected)
+                    {
+                        _selectedTarget.UpdateSelectedTarget(_target, _outlinecam);
+                    }
+                }
+                else if (_target != null && !_selectedTarget.IsSelectedTarget(_target))
+                    RemoveCamTarget();
+            }
+        }
+
+        public void OnAim(InputValue value)
+        {
+            _aiming = !_aiming;
+
+        }
+
+        public void OnSelect(InputValue value)
+        {
+            _selected = value.isPressed;
+        }
+
     }
 }

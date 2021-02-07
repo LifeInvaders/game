@@ -10,14 +10,13 @@ namespace TargetSystem
         private bool _isselectedtarget = false;
         private RaycastHit _raycastHit;
 
-        [SerializeField] private Camera camera;    
+        [SerializeField] private Camera camera;
         // Start is called before the first frame update
 
 
         // Update is called once per frame
         private void ResetOutline()
         {
-
             if (_selectedTarget != null)
             {
                 _outlineTarget.OutlineColor = Color.white;
@@ -38,11 +37,10 @@ namespace TargetSystem
 
         public bool IsSelectedTarget(GameObject target)
         {
-            
             return _selectedTarget != null && target.name == _selectedTarget.name;
         }
 
-        public void UpdateSelectedTarget(GameObject target,Outline outline)
+        public void UpdateSelectedTarget(GameObject target, Outline outline)
         {
             ResetOutline();
             if (IsSelectedTarget(target))
@@ -61,7 +59,7 @@ namespace TargetSystem
 
         private void Update()
         {
-            if (IsTarget() && Vector3.Distance(_selectedTarget.transform.position,transform.position) > 30)
+            if (IsTarget() && Vector3.Distance(_selectedTarget.transform.position, transform.position) > 30)
             {
                 UpdateSelectedTarget(_selectedTarget, _outlineTarget);
             }

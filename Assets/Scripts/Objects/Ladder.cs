@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using People.Player;
+using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
 namespace Objects
@@ -10,7 +11,6 @@ namespace Objects
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                Debug.Log("Ladder");
                 var transformLocalPosition = other.gameObject.GetComponent<CameraControler>();
                 transformLocalPosition.camera.transform.localPosition = new Vector3(transformLocalPosition.camera.transform.localPosition.x, -0.5f, -2.5f);
             
@@ -51,7 +51,6 @@ namespace Objects
         private bool IsOnTop(GameObject player)
         {
             CapsuleCollider capsule = player.GetComponent<CapsuleCollider>();
-            Debug.DrawRay(capsule.bounds.max, Vector3.left, Color.red, 2f);
             return !Physics.Raycast(capsule.bounds.max, Vector3.left,capsule.bounds.extents.y+0.2f);
         }
         private bool IsGrounded(GameObject player)
@@ -89,7 +88,7 @@ namespace Objects
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                float input = Input.GetAxis("Vertical");
+                float input = other.GetComponent<PlayerControler>().GetAxis().y;
                 if (input == 0)
                     other.gameObject.GetComponent<Animator>().enabled = false;
                 else if (input < 0 && IsGrounded(other.gameObject))
@@ -97,10 +96,10 @@ namespace Objects
                     ExitLadder(other.gameObject);
                     other.gameObject.transform.Translate(Vector3.back * 1.3f);
                 }
-                else if (input < 0 && Input.GetButtonDown("Jump"))
-                {
-                    // JumpFromLadder(other.gameObject);
-                }
+                // else if (input < 0 && Input.GetButtonDown("Jump"))
+                // {
+                //     // JumpFromLadder(other.gameObject);
+                // }
                 else
                 {
                     other.gameObject.GetComponent<Animator>().enabled = true;
