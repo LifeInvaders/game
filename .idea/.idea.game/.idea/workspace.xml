@@ -23,67 +23,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46a1a071-8782-48e9-959d-e99716af206a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/People.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.game/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.game/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.game/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.game/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player Mouvements/dying/Brutal Assassination.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player Mouvements/dying/Brutal Assassination.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player Mouvements/dying/Brutal death.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player Mouvements/dying/Brutal death.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player Mouvements/dying/Stealth Assassination (1).fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player Mouvements/dying/Stealth Assassination (1).fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player Mouvements/dying/Stealth Assassination.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player Mouvements/dying/Stealth Assassination.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player Mouvements/dying/sword death.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player Mouvements/dying/sword death.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player animation.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Player animation.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Joystick Pack/Examples/Ground.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Examples/Ground.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Joystick Pack/Examples/Player.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Examples/Player.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/Canon.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Objects/Dynamic Objects/Canon.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/NPC/NPC walking Variant.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/NPC/NPC walking Variant.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/NPC/NPC.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Objects/NPC/NPC.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/NPC/NPC.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Objects/NPC/NPC.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/UniversalRenderPipelineAsset.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Objects/UniversalRenderPipelineAsset.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Demos/DemoProcedural/Materials/Yellow.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Demos/DemoProcedural/Materials/Yellow.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUtilities/PackObject/CodeGen/Editor/Resources/TypeCatalogue.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUtilities/PackObject/CodeGen/Editor/Resources/TypeCatalogue.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/QuickOutline/Samples/Materials/Plane.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/QuickOutline/Samples/Materials/Plane.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Map.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Map.unity.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/test3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/test3.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/test3/NavMesh.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/test3/NavMesh.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC/GroupNPC.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/People/NPC/GroupNPC.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC/GroupNPC.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/People/NPC/GroupNPC.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC/Patrol.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/People/NPC/Patrol.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC/Patrol.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/People/NPC/Patrol.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC/RandomNPC.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/People/NPC/RandomNPC.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC/RandomNPC.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/People/NPC/RandomNPC.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC/Talking.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/People/NPC/Talking.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC/Talking.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/People/NPC/Talking.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC/WalkingNPC.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/People/NPC/WalkingNPC.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC/WalkingNPC.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/People/NPC/WalkingNPC.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects/Doors.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/Doors.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects/Ladder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/Ladder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects/Powers/SmokeBomb.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/Powers/SmokeBomb.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Photon/Resources/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Photon/Resources/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/People/Player.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/CameraControler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/People/Player/CameraControler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/CameraControler.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/People/Player/CameraControler.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerControler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/People/Player/PlayerControler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerControler.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/People/Player/PlayerControler.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerTalking.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/People/Player/PlayerTalking.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerTalking.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/People/Player/PlayerTalking.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Controler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Controler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Controler.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Controler.inputactions" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/TargetSystem/CastTarget.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TargetSystem/CastTarget.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TargetSystem/KillTarget.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TargetSystem/KillTarget.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/TargetSystem/SelectedTarget.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TargetSystem/SelectedTarget.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/parkour/EndParkour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/parkour/EndParkour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/parkour/StartParkour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/parkour/StartParkour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/parkour/WaterParkour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/parkour/WaterParkour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,9 +109,10 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/People/NPC/WalkingNPC.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/People/Player/PlayerControler.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Objects/Ladder.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/TargetSystem/SelectedTarget.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/TargetSystem/KillTarget.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/People/Player/CameraControler.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/People/Player/PlayerTalking.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/TargetSystem/KillTarget.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/TargetSystem/SelectedTarget.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/TargetSystem/CastTarget.cs" />
     </changedPaths>
   </component>
@@ -266,7 +215,9 @@
       <workItem from="1612604359133" duration="11769000" />
       <workItem from="1612694532242" duration="15702000" />
       <workItem from="1612724408016" duration="524000" />
-      <workItem from="1612725031083" duration="3986000" />
+      <workItem from="1612725031083" duration="5340000" />
+      <workItem from="1612772140190" duration="664000" />
+      <workItem from="1612772975782" duration="337000" />
     </task>
     <task id="LOCAL-00001" summary="few corrections for cannonball animation">
       <created>1607889465775</created>
@@ -436,7 +387,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612541362866</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Add new controller input">
+      <created>1612734976623</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1612734976623</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -482,7 +440,8 @@
     <MESSAGE value="update NPC + Add collisions between NPC and players" />
     <MESSAGE value="update test2 and test3 maps" />
     <MESSAGE value="add selected target system" />
-    <option name="LAST_COMMIT_MESSAGE" value="add selected target system" />
+    <MESSAGE value="Add new controller input" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add new controller input" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

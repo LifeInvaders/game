@@ -19,12 +19,22 @@ namespace TargetSystem
 
         private bool _aiming = false;
         private bool _selected = false;
-
+        /// <summary>
+        /// Set Aiming bool
+        /// </summary>
+        /// <param name="value"></param>
+        public void SetAiming(bool value)
+        {
+            _aiming = value;
+        }
         private void Start()
         {
             _selectedTarget = GetComponent<SelectedTarget>();
         }
-
+        /// <summary>
+        /// Surligne le joueur et désactive la surbrillance de l'autre joueur s'il a changé
+        /// </summary>
+        /// <param name="playerOutline"></param>
         private void Outlining(Outline playerOutline)
         {
             if (_target != null && _target.name != raycastHit.transform.gameObject.name)
@@ -67,7 +77,7 @@ namespace TargetSystem
         //     else if (_target != null && !_selectedTarget.IsSelectedTarget(_target))
         //         RemoveCamTarget();
         // }
-
+    
         private void RemoveCamTarget()
         {
             _outlinecam.enabled = false;
@@ -97,6 +107,7 @@ namespace TargetSystem
                     if (_selected)
                     {
                         _selectedTarget.UpdateSelectedTarget(_target, _outlinecam);
+                        _selected = false;
                     }
                 }
                 else if (_target != null && !_selectedTarget.IsSelectedTarget(_target))
