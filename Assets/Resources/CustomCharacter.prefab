@@ -6699,8 +6699,8 @@ GameObject:
   - component: {fileID: 1117722492}
   - component: {fileID: 785839903387962774}
   - component: {fileID: 790476227357285357}
-  - component: {fileID: 5845092771733581920}
   - component: {fileID: 1679106962576234046}
+  - component: {fileID: 7506934907375412820}
   m_Layer: 0
   m_Name: CustomCharacter
   m_TagString: Untagged
@@ -6793,6 +6793,7 @@ MonoBehaviour:
   camAnchor: {fileID: 637066531}
   invertXRotation: 0
   Player: {fileID: 1117722492}
+  camera: {fileID: 541207286}
 --- !u!114 &1117722492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6805,9 +6806,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aa58ba8c4f81dc0fa36295b16c11e23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rig: {fileID: 1117722491}
+  walkSpeed: 6
+  runSpeed: 3
   jumpspeed: 5
-  speedClimbing: 1
 --- !u!114 &785839903387962774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6824,10 +6825,10 @@ MonoBehaviour:
   attackRange: 0.5
   playerLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   npcLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
 --- !u!114 &790476227357285357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6847,26 +6848,11 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 0}
+  - {fileID: 7506934907375412820}
+  - {fileID: 1679106962576234046}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &5845092771733581920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4353876372182459986}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
 --- !u!114 &1679106962576234046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6915,9 +6901,28 @@ MonoBehaviour:
   - Type: 4
     SynchronizeType: 1
     Name: kill
+  - Type: 4
+    SynchronizeType: 0
+    Name: talking
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
+--- !u!114 &7506934907375412820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4353876372182459986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64179f3720bbfe947b7724caa67b7c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizeVelocity: 1
+  m_SynchronizeAngularVelocity: 0
+  m_TeleportEnabled: 0
+  m_TeleportIfDistanceGreaterThan: 3
 --- !u!1 &4353876372182460986
 GameObject:
   m_ObjectHideFlags: 0

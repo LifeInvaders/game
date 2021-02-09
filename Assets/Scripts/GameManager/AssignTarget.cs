@@ -6,38 +6,25 @@ using Random = System.Random;
 
 public class AssignTarget : MonoBehaviourPunCallbacks
 {
+
     void Start()
     {
-        
+        if (PhotonNetwork.LocalPlayer.IsMasterClient)
+            TargetAssigner();
     }
-
-    void Update()
-    {
-        
-    }
-    
-    public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer)
-    {
-        charList = GameObject.FindGameObjectsWithTag("Player");  //Update char list
-    }
-
     [PunRPC]
-    private void ChangeTarget(Photon.Realtime.Player hunter, Photon.Realtime.Player target)
-    {
-        if (PhotonNetwork.LocalPlayer.Equals(hunter)) //Since RPC goes to everyone, we filter on arrival
+    private void ChangeTarget(Photon.Realtime.Player target)
+    { 
+        foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))  //Test every Player character for correct target
         {
-            foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))  //Test every Player character for correct target
+            if (player.GetPhotonView().Owner.Equals(target))  //Test if character belongs to target
             {
-                if (player.GetPhotonView().Owner.Equals(target))  //Test if character belongs to target
-                {
-                    gameObject.GetComponent<InGameStats>().target = player;  //Set target in InGameStats
-                    //The below message should be a UI element!!!
-                    Debug.Log("Your target is: " + player.GetPhotonView().Owner.NickName);
-                    return;
-                }
+                gameObject.GetComponent<InGameStats>().target = player;  //Set target in InGameStats
+                //The below message should be a UI element!!!
+                Debug.Log("Your target is: " + player.GetPhotonView().Owner.NickName);
+                return;
             }
         }
-        Debug.Log("You don't have a target!!!"); //Error case
     }
     
     private Random _random = new Random();
@@ -54,7 +41,7 @@ public class AssignTarget : MonoBehaviourPunCallbacks
                                                                        !targetList[i].Equals(player))).ToArray();
             var target = targetFilter[_random.Next(targetFilter.Length)]; //Pick a random player in the filtered list
             targetList.Add(player, target);  //Add the hunter/target combo to the dictionary
-            photonView.RPC("ChangeTarget",RpcTarget.AllViaServer,player, target);
+            photonView.RPC("ChangeTarget",player,target);
             //RPC to everyone, let clients detect target
         }
     }

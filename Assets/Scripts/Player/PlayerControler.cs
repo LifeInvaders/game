@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+
 
 public class PlayerControler : MonoBehaviour
 {
@@ -31,6 +33,11 @@ public class PlayerControler : MonoBehaviour
 
     void Start()
     {
+        if (!gameObject.GetPhotonView().IsMine)
+        {
+            enabled = false;
+            return;
+        }
         rig = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         capsule = GetComponent<CapsuleCollider>();

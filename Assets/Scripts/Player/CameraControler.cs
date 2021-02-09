@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
 public class CameraControler : MonoBehaviour
@@ -24,7 +25,12 @@ public class CameraControler : MonoBehaviour
     }
     private void Start()
     {
-        
+        if (!gameObject.GetPhotonView().IsMine)
+        {
+            camera.gameObject.SetActive(false);
+            enabled = false;
+            return;
+        }
         _playerControler = Player.GetComponent<PlayerControler>();
         Cursor.lockState = CursorLockMode.Locked;
     }

@@ -819,6 +819,12 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="DebugBuild.cs" t="Include" />
+          <e p="GameManager" t="Include">
+            <e p="AssignTarget.cs" t="Include" />
+            <e p="InGameStats.cs" t="Include" />
+          </e>
+          <e p="MenuManager.cs" t="Include" />
           <e p="NPC" t="Include">
             <e p="GroupNPC.cs" t="Include" />
             <e p="Patrol.cs" t="Include" />
@@ -836,15 +842,27 @@
               <e p="SmokeBomb.cs" t="Include" />
             </e>
           </e>
+          <e p="parkour" t="Include">
+            <e p="EndParkour.cs" t="Include" />
+            <e p="StartParkour.cs" t="Include" />
+            <e p="WaterParkour.cs" t="Include" />
+          </e>
           <e p="Photon" t="Include">
             <e p="GameManager.cs" t="Include" />
+            <e p="InstantiateInLobby.cs" t="Include" />
+            <e p="JoinRandomGame.cs" t="Include" />
             <e p="Launcher.cs" t="Include" />
+            <e p="LobbyManager.cs" t="Include" />
             <e p="PlayerInputFields.cs" t="Include" />
+            <e p="ServerManager.cs" t="Include" />
           </e>
           <e p="Player" t="Include">
             <e p="CameraControler.cs" t="Include" />
+            <e p="CharacterCreation.cs" t="Include" />
+            <e p="MeleeAttackSystem.cs" t="Include" />
             <e p="PlayerControler.cs" t="Include" />
             <e p="PlayerDatabase.cs" t="Include" />
+            <e p="PlayerTalking.cs" t="Include" />
             <e p="RandomChar.cs" t="Include" />
           </e>
           <e p="SaveDatabase.cs" t="Include" />
