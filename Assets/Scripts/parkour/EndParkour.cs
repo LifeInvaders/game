@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using People.Player;
 using UnityEngine;
 
 public class EndParkour : MonoBehaviour

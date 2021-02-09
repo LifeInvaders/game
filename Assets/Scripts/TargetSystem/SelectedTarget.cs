@@ -10,14 +10,13 @@ namespace TargetSystem
         private bool _isselectedtarget = false;
         private RaycastHit _raycastHit;
 
-        [SerializeField] private Camera camera;    
-        // Start is called before the first frame update
+        [SerializeField] private Camera camera;
 
-
-        // Update is called once per frame
+        /// <summary>
+        /// Retire la surbrillance de l'objet sélectionné
+        /// </summary>
         private void ResetOutline()
         {
-
             if (_selectedTarget != null)
             {
                 _outlineTarget.OutlineColor = Color.white;
@@ -25,24 +24,37 @@ namespace TargetSystem
                 _outlineTarget = null;
             }
         }
-
+        /// <summary>
+        /// Retourne true si il a verrouilé une cible
+        /// </summary>
+        /// <returns></returns>
         public bool IsTarget()
         {
             return _isselectedtarget;
         }
-
+        /// <summary>
+        /// Retourne le Gameobject de la cible verouillée
+        /// </summary>
+        /// <returns></returns>
         public GameObject GetTarget()
         {
             return _selectedTarget;
         }
-
+        /// <summary>
+        /// Retourne true si traget est la cible verouillée
+        /// </summary>
+        /// <param name="target"></param>
+        /// <returns></returns>
         public bool IsSelectedTarget(GameObject target)
         {
-            
             return _selectedTarget != null && target.name == _selectedTarget.name;
         }
-
-        public void UpdateSelectedTarget(GameObject target,Outline outline)
+        /// <summary>
+        /// Met à jour la surbrillance du joueur sélectionné.
+        /// </summary>
+        /// <param name="target"></param>
+        /// <param name="outline"></param>
+        public void UpdateSelectedTarget(GameObject target, Outline outline)
         {
             ResetOutline();
             if (IsSelectedTarget(target))
@@ -61,7 +73,7 @@ namespace TargetSystem
 
         private void Update()
         {
-            if (IsTarget() && Vector3.Distance(_selectedTarget.transform.position,transform.position) > 30)
+            if (IsTarget() && Vector3.Distance(_selectedTarget.transform.position, transform.position) > 30)
             {
                 UpdateSelectedTarget(_selectedTarget, _outlineTarget);
             }
