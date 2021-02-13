@@ -53,31 +53,6 @@ namespace TargetSystem
             }
         }
 
-        // private void FixedUpdate()
-        // {
-        //     if (_aiming)
-        //     {
-        //         if (Physics.Raycast(_camera.transform.position, _camera.transform.TransformDirection(Vector3.forward),
-        //                 out raycastHit, 30f) && (raycastHit.transform.gameObject.CompareTag("Player") ||
-        //                                          raycastHit.transform.gameObject.CompareTag("NPC"))
-        //         ) // && Vector3.Distance(raycastHit.transform.position,transform.position) < 12)
-        //         {
-        //             if (!_selectedTarget.IsTarget())
-        //             {
-        //                 Outlining(raycastHit.transform.Find("Character").GetComponent<Outline>());
-        //             }
-        //             if (_selected)
-        //             {
-        //                 _selectedTarget.UpdateSelectedTarget(_target, _outlinecam);
-        //             }
-        //         }
-        //         else if (_target != null && !_selectedTarget.IsSelectedTarget(_target))
-        //             RemoveCamTarget();
-        //     }
-        //     else if (_target != null && !_selectedTarget.IsSelectedTarget(_target))
-        //         RemoveCamTarget();
-        // }
-    
         private void RemoveCamTarget()
         {
             _outlinecam.enabled = false;
@@ -123,7 +98,8 @@ namespace TargetSystem
 
         public void OnSelect(InputValue value)
         {
-            _selected = value.isPressed;
+            
+            _selected = value.isPressed && _aiming;
         }
 
     }

@@ -1170,8 +1170,8 @@ GameObject:
   - component: {fileID: 6115253310730929224}
   - component: {fileID: 5411232918545427671}
   - component: {fileID: 9213237454532272822}
-  - component: {fileID: 7621407868462534159}
   - component: {fileID: 1386113413853761593}
+  - component: {fileID: 936589974306397521}
   - component: {fileID: 3407748498409622259}
   - component: {fileID: 7178693715806526083}
   m_Layer: 0
@@ -1374,19 +1374,8 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
---- !u!114 &7621407868462534159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4441482292251406457}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3ddd0d525ad8314cb9029ca27dee380, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camera: {fileID: 130397555890715859}
+  - SynchronizeType: 0
+    LayerIndex: 1
 --- !u!114 &1386113413853761593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1400,6 +1389,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 130397555890715859}
+--- !u!114 &936589974306397521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4441482292251406457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3ddd0d525ad8314cb9029ca27dee380, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 130397555890715859}
 --- !u!114 &3407748498409622259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1439,8 +1441,8 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: 
+  m_DefaultControlScheme: Keyboard and Mouse
+  m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 130397555890715859}
 --- !u!1 &4441482292251406877

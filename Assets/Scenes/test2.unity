@@ -503,6 +503,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1008924195415891612, guid: e9ce085809840b74ab97ae66f7f7cc70,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4353876372182140554, guid: e9ce085809840b74ab97ae66f7f7cc70,
         type: 3}
       propertyPath: m_RootOrder
@@ -567,6 +572,16 @@ PrefabInstance:
         type: 3}
       propertyPath: viewIdField
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7084324961166937256, guid: e9ce085809840b74ab97ae66f7f7cc70,
+        type: 3}
+      propertyPath: m_DefaultActionMap
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7084324961166937256, guid: e9ce085809840b74ab97ae66f7f7cc70,
+        type: 3}
+      propertyPath: m_DefaultControlScheme
+      value: Mobile
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9ce085809840b74ab97ae66f7f7cc70, type: 3}
@@ -1976,7 +1991,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 90623549d4482f042ade35d8a0758e35, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
