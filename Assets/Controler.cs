@@ -173,6 +173,17 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
+                    ""name"": """",
+                    ""id"": ""5f4608b2-9a67-4109-b8eb-8e81ac47548c"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and Mouse"",
+                    ""action"": ""Select"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
                     ""name"": ""2D Vector"",
                     ""id"": ""1d76b694-209b-49a8-ac1d-815fccd2d7cd"",
                     ""path"": ""2DVector"",

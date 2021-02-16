@@ -23,20 +23,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46a1a071-8782-48e9-959d-e99716af206a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.game/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.game/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.game/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Controler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Controler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Controler.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Controler.inputactions" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/InputSystem.inputsettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/InputSystem.inputsettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/NPC/NPC.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Objects/NPC/NPC.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/test2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/test2.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/test3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/test3.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Photon/Resources/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Photon/Resources/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TargetSystem/CastTarget.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TargetSystem/CastTarget.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TargetSystem/SelectedTarget.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TargetSystem/SelectedTarget.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,33 +47,24 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Users/dovde/RiderProjects/game/ProjectSettings/ProjectSettings.asset" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/dovde/RiderProjects/game/Assets/Scripts/TargetSystem/CastTarget.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/dovde/RiderProjects/game/ProjectSettings/GraphicsSettings.asset" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FAA55637-FCC1-4BBF-B146-E6835A4641D9/ad/1c053f88/Physics.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@7.3.1/Runtime/UniversalRenderPipeline.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/53FA4D04-FF9E-437D-AC8E-1BA5C15E99CE/28/8c0d9abf/NativeInputSystem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RadarSystem/Radar.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/18652B59-14B1-4E07-A740-76A4608F13E3/41/c768f4e7/Input.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/Cinemachine_ThirdPersonCamera/Assets/Scripts/PlayerMovementInputController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7D90B285-60B6-44CE-87B8-263EFCC36EED/66/e96eee44/AssetDatabase.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/People/Player/PlayerTalking.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/76DB40A9-3869-4C62-906F-9BBB72DB1A18/5b/16d91c75/NavMesh.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dovde/RiderProjects/game/Assets/Controler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/People/NPC/WalkingNPC.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/29AD182F-AA3F-478C-9310-D6A2E7143C15/f7/6db80918/Component.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.6.3/Runtime/Behaviours/CinemachineCollider.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/TargetSystem/KillTarget.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/29AD182F-AA3F-478C-9310-D6A2E7143C15/39/d599ff07/Quaternion.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/People/NPC/Patrol.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/29AD182F-AA3F-478C-9310-D6A2E7143C15/f7/933cd26e/Resources.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@7.3.1/Runtime/UniversalAdditionalCameraData.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/dovde/RiderProjects/game/Assets/Scenes/test2.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FAA55637-FCC1-4BBF-B146-E6835A4641D9/ad/1c053f88/Physics.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@7.3.1/Runtime/UniversalRenderPipeline.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/dovde/RiderProjects/game/ProjectSettings/EditorBuildSettings.asset" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/53FA4D04-FF9E-437D-AC8E-1BA5C15E99CE/28/8c0d9abf/NativeInputSystem.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RadarSystem/Radar.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/dovde/RiderProjects/game/Assets/Scripts/TargetSystem/SelectedTarget.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/18652B59-14B1-4E07-A740-76A4608F13E3/41/c768f4e7/Input.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/dovde/RiderProjects/game/Assets/InputSystem.inputsettings.asset" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/People/Player/PlayerTalking.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/dovde/RiderProjects/game/Assets/Scripts/Photon/Resources/Player.prefab" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.6.3/Runtime/Behaviours/CinemachineCollider.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/dovde/RiderProjects/game/ProjectSettings/QualitySettings.asset" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/TargetSystem/KillTarget.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/dovde/RiderProjects/game/Assets/Controler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Controler.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -234,7 +216,9 @@
       <workItem from="1612725031083" duration="5340000" />
       <workItem from="1612772140190" duration="664000" />
       <workItem from="1612772975782" duration="7007000" />
-      <workItem from="1613236680815" duration="3814000" />
+      <workItem from="1613236680815" duration="3875000" />
+      <workItem from="1613291061940" duration="1587000" />
+      <workItem from="1613421502943" duration="1155000" />
     </task>
     <task id="LOCAL-00001" summary="few corrections for cannonball animation">
       <created>1607889465775</created>
@@ -418,7 +402,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612774230038</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="add Gamepad controler">
+      <created>1613250907862</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1613250907862</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -440,7 +431,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="camera + ladders fix" />
     <MESSAGE value="add few objects prefab + import death animations" />
     <MESSAGE value="added multiple animations, dynamics lights, jump player (not fully implemented)" />
     <MESSAGE value="added jump controler (animations missing)" />
@@ -465,7 +455,8 @@
     <MESSAGE value="add selected target system" />
     <MESSAGE value="Add new controller input" />
     <MESSAGE value="fixed inputs bug + update New input controler 1.02" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed inputs bug + update New input controler 1.02" />
+    <MESSAGE value="add Gamepad controler" />
+    <option name="LAST_COMMIT_MESSAGE" value="add Gamepad controler" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
