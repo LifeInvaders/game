@@ -1,8 +1,9 @@
 ﻿using System.Collections;
+using People.Player;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace NPC
+namespace People
 {
     public class WalkingNPC : MonoBehaviour
     {
