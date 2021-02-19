@@ -1,8 +1,9 @@
 using System.IO;
+using Photon.Pun;
 using Player;
 using UnityEngine;
 
-public class SaveDatabase
+public class SaveDatabase : MonoBehaviour
 {
     public int startMethod; //0 = save on launch, 1 = load on launch, nothing = call function manually
 
@@ -14,7 +15,7 @@ public class SaveDatabase
             Load();
     }
     
-    private void Save()
+    public void Save()
     {
         string savePath = Application.persistentDataPath + "SaveData";
         if (!Directory.Exists(savePath))
@@ -27,7 +28,7 @@ public class SaveDatabase
         }
     }
 
-    private void Load()
+    public void Load()
     {
         string savePath = Application.persistentDataPath + "SaveData/_save.dat";
         if (!File.Exists(savePath)) return;

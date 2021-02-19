@@ -18,10 +18,10 @@ namespace Player
         
         public void ResetValues()
         {
-            _tempRank = instance.Rank;
-            _tempGender = instance.Gender;
-            _tempVariant = instance.Variant;
-            _tempSkinColor = instance.SkinColor;
+            _tempRank = PlayerDatabase.Instance.Rank;
+            _tempGender = PlayerDatabase.Instance.Gender;
+            _tempVariant = PlayerDatabase.Instance.Variant;
+            _tempSkinColor = PlayerDatabase.Instance.SkinColor;
             ChangeSkin();
         }
         
@@ -66,12 +66,11 @@ namespace Player
         public void ApplyChanges()
         {
             PlayerDatabase.Instance.Rank = _tempRank;
-            instance.Gender = _tempGender;
-            instance.Variant = _tempVariant;
-            instance.SkinColor = _tempSkinColor;
+            PlayerDatabase.Instance.Gender = _tempGender;
+            PlayerDatabase.Instance.Variant = _tempVariant;
+            PlayerDatabase.Instance.SkinColor = _tempSkinColor;
         }
         
-        private PlayerDatabase instance = PlayerDatabase.Instance;
         private char _tempRank;
         private char _tempGender;
         private char _tempVariant;

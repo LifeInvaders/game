@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
+using Photon.Pun;
 
 namespace TargetSystem
 {
@@ -14,6 +15,8 @@ namespace TargetSystem
 
         void Start()
         {
+            if (PhotonNetwork.IsConnected && !gameObject.GetPhotonView().IsMine)
+                enabled = false;
             _animator = GetComponent<Animator>();
             _selectedTarget = GetComponent<SelectedTarget>();
             _casttarget = GetComponent<CastTarget>();
