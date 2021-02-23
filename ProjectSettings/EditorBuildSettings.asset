@@ -11,9 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PhotonScene.unity
     guid: 17f6974d5b87a0e4292cd15b266120f9
-  - enabled: 0
-    path: Assets/Scenes/CharacterCreation.unity
-    guid: 41cb10a3a5280a34b8eac7dec4d1c296
   - enabled: 1
     path: Assets/Resources/Lobby.unity
     guid: 0e73f8b14e4b2bf44a02ef4622a6eaa1

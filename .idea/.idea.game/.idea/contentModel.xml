@@ -856,6 +856,9 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="DebugBuild.cs" t="Include" />
+          <e p="Editor" t="Include">
+            <e p="Tools.cs" t="Include" />
+          </e>
           <e p="GameManager" t="Include">
             <e p="AssignTarget.cs" t="Include" />
             <e p="InGameStats.cs" t="Include" />
@@ -871,6 +874,7 @@
               <e p="SmokeBomb.cs" t="Include" />
             </e>
           </e>
+          <e p="Options.cs" t="Include" />
           <e p="parkour" t="Include">
             <e p="EndParkour.cs" t="Include" />
             <e p="StartParkour.cs" t="Include" />
