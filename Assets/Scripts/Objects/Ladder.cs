@@ -106,7 +106,6 @@ namespace Objects
                     other.gameObject.transform.Translate(Vector3.up * (Time.deltaTime) * input);
                 }
             }
-            
         }
     }
 }
