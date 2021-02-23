@@ -41,6 +41,7 @@ namespace Player
         //Character customization settings
        #region PlayerCharacter
 
+       public string Nickname = "Player";
        public char Rank = '0';
        public char Gender = 'M';
        public char Variant = '1';

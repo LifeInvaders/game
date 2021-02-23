@@ -8,11 +8,8 @@ namespace UI
 {
     public class SceneLoader : MonoBehaviour
     {
-        public void SceneLoaderID(int sceneID)
-        {
-            string[] sceneList = {"PhotonScene", "CharacterCreation"};
-            SceneManager.LoadScene(sceneList[sceneID]);
-        }
+        public void SceneLoaderName(string sceneName) => SceneManager.LoadScene(sceneName);
+        public void SceneLoaderID(int sceneID) => SceneManager.LoadScene(sceneID);
     }
 }
 
