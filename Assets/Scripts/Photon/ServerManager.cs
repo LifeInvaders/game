@@ -2,14 +2,15 @@
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ServerManager : MonoBehaviourPunCallbacks
 {
-
-    [SerializeField]private string nickName;
+    [SerializeField] private InputField nickName;
     private void Start()
     {
-        PhotonNetwork.NickName = nickName;
+        PhotonNetwork.NickName = Player.PlayerDatabase.Instance.Nickname;
+        nickName.text = Player.PlayerDatabase.Instance.Nickname;
         PhotonNetwork.AutomaticallySyncScene = true;
         if (!PhotonNetwork.ConnectUsingSettings())
             Debug.Log("Unable to connect to servers. Try again later.");
@@ -21,7 +22,16 @@ public class ServerManager : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.LoadLevel("Lobby");
     }
-    
+
+    public void SetNickname()
+    {
+        if (!string.IsNullOrEmpty(nickName.text))
+        {
+            PhotonNetwork.NickName = nickName.text;
+            Player.PlayerDatabase.Instance.Nickname = nickName.text;
+        }
+    }
+
     public void QuickJoin()
     {
         PhotonNetwork.JoinRandomRoom();

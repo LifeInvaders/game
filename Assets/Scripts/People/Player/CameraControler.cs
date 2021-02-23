@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
+using Photon.Pun;
 
 namespace People.Player
 {
@@ -26,9 +27,18 @@ namespace People.Player
             camera.transform.localPosition = new Vector3(0.4f, 0, -1.64f);
         }
 
-        private void Start()
+        private void Awake()
         {
             camera = GetComponentInChildren<Camera>();
+            if (PhotonNetwork.IsConnected && !gameObject.GetPhotonView().IsMine)
+            {
+                camera.gameObject.SetActive(false);
+                enabled = false;
+            }
+        }
+
+        private void Start()
+        {
             _playerControler = GetComponent<PlayerControler>();
             Cursor.lockState = CursorLockMode.Locked;
         }

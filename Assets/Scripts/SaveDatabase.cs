@@ -17,10 +17,10 @@ public class SaveDatabase : MonoBehaviour
     
     public void Save()
     {
-        string savePath = Application.persistentDataPath + "SaveData";
+        string savePath = Application.persistentDataPath + "/SaveData";
         if (!Directory.Exists(savePath))
             Directory.CreateDirectory(savePath);
-        using (Stream stream = File.Open(savePath + "_save.dat", FileMode.Create)) 
+        using (Stream stream = File.Open(savePath + "/_save.dat", FileMode.Create)) 
         {
             var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
             binaryFormatter.Serialize(stream, PlayerDatabase.Instance);
@@ -30,9 +30,9 @@ public class SaveDatabase : MonoBehaviour
 
     public void Load()
     {
-        string savePath = Application.persistentDataPath + "SaveData/_save.dat";
+        string savePath = Application.persistentDataPath + "/SaveData/_save.dat";
         if (!File.Exists(savePath)) return;
-        using (Stream stream = File.Open(Application.persistentDataPath + "SaveData/_save.dat", FileMode.Open))
+        using (Stream stream = File.Open(Application.persistentDataPath + "/SaveData/_save.dat", FileMode.Open))
         {
             var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
 

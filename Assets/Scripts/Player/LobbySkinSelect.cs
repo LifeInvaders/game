@@ -6,26 +6,26 @@ using Player;
 using UnityEngine;
 
 public class LobbySkinSelect : MonoBehaviour
-{ 
-    PlayerDatabase instance = PlayerDatabase.Instance;
+{
     void Start()
     {
         if (!PhotonNetwork.IsConnected)
         {
-            char[] charArray = {instance.Rank, instance.Gender, instance.Variant, instance.SkinColor};
-            ApplySkin(charArray);
+            char[] charArray = {PlayerDatabase.Instance.Rank, PlayerDatabase.Instance.Gender, PlayerDatabase.Instance.Variant, PlayerDatabase.Instance.SkinColor};
+            string searchName = new string(charArray);
+            ApplySkin(searchName);
         }
         else if (gameObject.GetPhotonView().IsMine)
         {
-            char[] charArray = {instance.Rank, instance.Gender, instance.Variant, instance.SkinColor};
-            gameObject.GetPhotonView().RPC("ApplySkin",RpcTarget.All, charArray);
+            char[] charArray = {PlayerDatabase.Instance.Rank, PlayerDatabase.Instance.Gender, PlayerDatabase.Instance.Variant, PlayerDatabase.Instance.SkinColor};
+            string searchName = new string(charArray);
+            gameObject.GetPhotonView().RPC("ApplySkin",RpcTarget.AllBufferedViaServer, searchName);
         }
     }
 
     [PunRPC]
-    private void ApplySkin(char[] name)
+    private void ApplySkin(string searchName)
     {
-        string searchName = name.ToString();
         foreach (Transform child in transform)
         {
             if (child.gameObject.name == searchName)
