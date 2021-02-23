@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\dovde\AppData\local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\dovde\AppData\local\JetBrains\Rider2020.3\resharper-host\local\Transient\Rider\v203\SolutionCaches\_game.-1182146299.00" t="ExcludeRecursive" />
-    <e p="C:\Users\dovde\RiderProjects\game" t="IncludeRecursive">
+    <e p="C:\Projects\Life Invaders\game" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -856,62 +854,16 @@
             <e p="Outline.cs" t="Include" />
           </e>
         </e>
-        <e p="Samples" t="Include">
-          <e p="Cinemachine" t="Include">
-            <e p="2.6.3" t="Include">
-              <e p="Cinemachine Example Scenes" t="Include">
-                <e p="Scenes" t="Include">
-                  <e p="3rdPersonWithAimMode" t="Include">
-                    <e p="ActivateOnKeypress.cs" t="Include" />
-                  </e>
-                  <e p="Anywhere Door" t="Include">
-                    <e p="PlayerLookAt.cs" t="Include" />
-                    <e p="PlayerMovement.cs" t="Include" />
-                    <e p="ScreenCutoutShader.shader" t="Include" />
-                    <e p="TagChanger.cs" t="Include" />
-                  </e>
-                  <e p="CameraMagnets" t="Include">
-                    <e p="CameraMagnetProperty.cs" t="Include" />
-                    <e p="CameraMagnetTargetController.cs" t="Include" />
-                  </e>
-                  <e p="DualTarget" t="Include">
-                    <e p="MoveAimTarget.cs" t="Include" />
-                    <e p="PointAtAimTarget.cs" t="Include" />
-                  </e>
-                  <e p="Scripting" t="Include">
-                    <e p="ScriptingExample.cs" t="Include" />
-                  </e>
-                  <e p="Trigger volumes" t="Include">
-                    <e p="GenericTrigger.cs" t="Include" />
-                  </e>
-                </e>
-                <e p="Shared" t="Include">
-                  <e p="Models" t="Include">
-                    <e p="UnityCharacter" t="Include">
-                      <e p="Scripts" t="Include">
-                        <e p="CharacterMovement.cs" t="Include" />
-                        <e p="CharacterMovement2D.cs" t="Include" />
-                        <e p="CharacterMovementNoCamera.cs" t="Include" />
-                      </e>
-                    </e>
-                  </e>
-                  <e p="Scripts" t="Include">
-                    <e p="ActivateCameraWithDistance.cs" t="Include" />
-                    <e p="ActivateCamOnPlay.cs" t="Include" />
-                    <e p="ExampleHelpWindow.cs" t="Include" />
-                    <e p="InvokeEventFromInspector.cs" t="Include" />
-                    <e p="MixingCameraBlend.cs" t="Include" />
-                    <e p="PlayerMove.cs" t="Include" />
-                    <e p="PlayerMoveOnSphere.cs" t="Include" />
-                    <e p="PlayerMovePhysics.cs" t="Include" />
-                    <e p="SpawnInCircle.cs" t="Include" />
-                  </e>
-                </e>
-              </e>
-            </e>
-          </e>
-        </e>
         <e p="Scripts" t="Include">
+          <e p="DebugBuild.cs" t="Include" />
+          <e p="Editor" t="Include">
+            <e p="Tools.cs" t="Include" />
+          </e>
+          <e p="GameManager" t="Include">
+            <e p="AssignTarget.cs" t="Include" />
+            <e p="InGameStats.cs" t="Include" />
+          </e>
+          <e p="MenuManager.cs" t="Include" />
           <e p="Objects" t="Include">
             <e p="Banc.cs" t="Include" />
             <e p="Doors.cs" t="Include" />
@@ -922,6 +874,7 @@
               <e p="SmokeBomb.cs" t="Include" />
             </e>
           </e>
+          <e p="Options.cs" t="Include" />
           <e p="parkour" t="Include">
             <e p="EndParkour.cs" t="Include" />
             <e p="StartParkour.cs" t="Include" />
@@ -944,12 +897,28 @@
           </e>
           <e p="Photon" t="Include">
             <e p="GameManager.cs" t="Include" />
+            <e p="InstantiateInLobby.cs" t="Include" />
+            <e p="JoinRandomGame.cs" t="Include" />
             <e p="Launcher.cs" t="Include" />
+            <e p="LobbyManager.cs" t="Include" />
+            <e p="NicknameAbovePlayer.cs" t="Include" />
             <e p="PlayerInputFields.cs" t="Include" />
+            <e p="ServerManager.cs" t="Include" />
+          </e>
+          <e p="Player" t="Include">
+            <e p="CharacterCreation.cs" t="Include" />
+            <e p="LobbySkinSelect.cs" t="Include" />
+            <e p="MeleeAttackSystem.cs" t="Include" />
+            <e p="PlayerDatabase.cs" t="Include" />
+            <e p="RandomChar.cs" t="Include" />
           </e>
           <e p="RadarSystem" t="Include">
             <e p="Radar.cs" t="Include" />
           </e>
+          <e p="RebindKeys.cs" t="Include" />
+          <e p="SaveDatabase.cs" t="Include" />
+          <e p="SceneLoader.cs" t="Include" />
+          <e p="StagingRoom.cs" t="Include" />
           <e p="TargetSystem" t="Include">
             <e p="CastTarget.cs" t="Include" />
             <e p="KillEvents.cs" t="Include" />
@@ -960,6 +929,80 @@
         <e p="Shaders" t="Include">
           <e p="outline.shader" t="Include" />
           <e p="shader.shader" t="Include" />
+        </e>
+        <e p="TextMesh Pro" t="Include">
+          <e p="Examples &amp; Extras" t="Include">
+            <e p="Fonts" t="Include">
+              <e p="Anton OFL.txt" t="Include" />
+              <e p="Bangers - OFL.txt" t="Include" />
+              <e p="Oswald-Bold - OFL.txt" t="Include" />
+            </e>
+            <e p="Scripts" t="Include">
+              <e p="Benchmark01.cs" t="Include" />
+              <e p="Benchmark01_UGUI.cs" t="Include" />
+              <e p="Benchmark02.cs" t="Include" />
+              <e p="Benchmark03.cs" t="Include" />
+              <e p="Benchmark04.cs" t="Include" />
+              <e p="CameraController.cs" t="Include" />
+              <e p="ChatController.cs" t="Include" />
+              <e p="DropdownSample.cs" t="Include" />
+              <e p="EnvMapAnimator.cs" t="Include" />
+              <e p="ObjectSpin.cs" t="Include" />
+              <e p="ShaderPropAnimator.cs" t="Include" />
+              <e p="SimpleScript.cs" t="Include" />
+              <e p="SkewTextExample.cs" t="Include" />
+              <e p="TeleType.cs" t="Include" />
+              <e p="TextConsoleSimulator.cs" t="Include" />
+              <e p="TextMeshProFloatingText.cs" t="Include" />
+              <e p="TextMeshSpawner.cs" t="Include" />
+              <e p="TMP_DigitValidator.cs" t="Include" />
+              <e p="TMP_ExampleScript_01.cs" t="Include" />
+              <e p="TMP_FrameRateCounter.cs" t="Include" />
+              <e p="TMP_PhoneNumberValidator.cs" t="Include" />
+              <e p="TMP_TextEventCheck.cs" t="Include" />
+              <e p="TMP_TextEventHandler.cs" t="Include" />
+              <e p="TMP_TextInfoDebugTool.cs" t="Include" />
+              <e p="TMP_TextSelector_A.cs" t="Include" />
+              <e p="TMP_TextSelector_B.cs" t="Include" />
+              <e p="TMP_UiFrameRateCounter.cs" t="Include" />
+              <e p="TMPro_InstructionOverlay.cs" t="Include" />
+              <e p="VertexColorCycler.cs" t="Include" />
+              <e p="VertexJitter.cs" t="Include" />
+              <e p="VertexShakeA.cs" t="Include" />
+              <e p="VertexShakeB.cs" t="Include" />
+              <e p="VertexZoom.cs" t="Include" />
+              <e p="WarpTextExample.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Fonts" t="Include">
+            <e p="LiberationSans - OFL.txt" t="Include" />
+          </e>
+          <e p="Resources" t="Include">
+            <e p="LineBreaking Following Characters.txt" t="Include" />
+            <e p="LineBreaking Leading Characters.txt" t="Include" />
+          </e>
+          <e p="Shaders" t="Include">
+            <e p="TMP_Bitmap-Custom-Atlas.shader" t="Include" />
+            <e p="TMP_Bitmap-Mobile.shader" t="Include" />
+            <e p="TMP_Bitmap.shader" t="Include" />
+            <e p="TMP_SDF Overlay.shader" t="Include" />
+            <e p="TMP_SDF SSD.shader" t="Include" />
+            <e p="TMP_SDF-Mobile Masking.shader" t="Include" />
+            <e p="TMP_SDF-Mobile Overlay.shader" t="Include" />
+            <e p="TMP_SDF-Mobile SSD.shader" t="Include" />
+            <e p="TMP_SDF-Mobile.shader" t="Include" />
+            <e p="TMP_SDF-Surface-Mobile.shader" t="Include" />
+            <e p="TMP_SDF-Surface.shader" t="Include" />
+            <e p="TMP_SDF.shader" t="Include" />
+            <e p="TMP_Sprite.shader" t="Include" />
+            <e p="TMPro.cginc" t="Include" />
+            <e p="TMPro_Mobile.cginc" t="Include" />
+            <e p="TMPro_Properties.cginc" t="Include" />
+            <e p="TMPro_Surface.cginc" t="Include" />
+          </e>
+          <e p="Sprites" t="Include">
+            <e p="EmojiOne Attribution.txt" t="Include" />
+          </e>
         </e>
       </e>
       <e p="BitpackersASMDEF.csproj" t="IncludeRecursive" />
@@ -980,5 +1023,7 @@
       <e p="PunDemos.DemoSlotcarEditor.csproj" t="IncludeRecursive" />
       <e p="Temp\bin" t="ExcludeRecursive" />
     </e>
+    <e p="C:\Users\mrhar\AppData\local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\mrhar\AppData\local\JetBrains\Rider2020.3\resharper-host\local\Transient\Rider\v203\SolutionCaches\_game.-2096735507.00" t="ExcludeRecursive" />
   </component>
 </project>

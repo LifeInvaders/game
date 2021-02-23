@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
+using Photon.Pun;
 
 namespace People.Player
 {
@@ -29,6 +30,15 @@ namespace People.Player
         public void SetRotateBool(bool state)
         {
             _canRotate = state;
+        }
+
+        private void Awake()
+        {
+            if (PhotonNetwork.IsConnected && !gameObject.GetPhotonView().IsMine)
+            {
+                gameObject.GetComponent<PlayerInput>().enabled = false;
+                enabled = false;
+            }
         }
 
         void Start()

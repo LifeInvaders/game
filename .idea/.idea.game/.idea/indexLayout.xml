@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelUserStore">
-    <attachedFolders />
+    <attachedFolders>
+      <Path>../../../Users/mrhar/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.cinemachine@2.6.3</Path>
+    </attachedFolders>
     <explicitIncludes>
       <Path>Library/PackageCache/com.unity.cinemachine@2.6.3</Path>
       <Path>Library/PackageCache/com.unity.collab-proxy@1.2.16</Path>
@@ -23,7 +25,6 @@
       <Path>.github</Path>
       <Path>.idea</Path>
       <Path>Library</Path>
-      <Path>Temp</Path>
       <Path>UIElementsSchema</Path>
       <Path>obj</Path>
     </explicitExcludes>
