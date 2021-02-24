@@ -2157,7 +2157,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7113331263401805986
 Transform:
   m_ObjectHideFlags: 0
@@ -6939,9 +6939,9 @@ MonoBehaviour:
     SynchronizeType: 1
     Name: talking
   m_SynchronizeLayers:
-  - SynchronizeType: 0
+  - SynchronizeType: 1
     LayerIndex: 0
-  - SynchronizeType: 0
+  - SynchronizeType: 1
     LayerIndex: 1
 --- !u!114 &7506934907375412820
 MonoBehaviour:

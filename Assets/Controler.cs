@@ -27,7 +27,7 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Running"",
+                    ""name"": ""Run"",
                     ""type"": ""Value"",
                     ""id"": ""7b9ab7c7-f80c-4139-a8fa-fb7f4fe5e1c5"",
                     ""expectedControlType"": ""Button"",
@@ -67,7 +67,7 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Mouvement"",
+                    ""name"": ""Movement"",
                     ""type"": ""Value"",
                     ""id"": ""3b20a15f-882a-412e-8e86-7018bd8f5813"",
                     ""expectedControlType"": ""Vector2"",
@@ -102,7 +102,7 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard and Mouse"",
-                    ""action"": ""Running"",
+                    ""action"": ""Run"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -146,7 +146,7 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Mouvement"",
+                    ""action"": ""Movement"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -157,7 +157,7 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard and Mouse"",
-                    ""action"": ""Mouvement"",
+                    ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -168,7 +168,7 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard and Mouse"",
-                    ""action"": ""Mouvement"",
+                    ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -179,7 +179,7 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard and Mouse"",
-                    ""action"": ""Mouvement"",
+                    ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -190,7 +190,7 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard and Mouse"",
-                    ""action"": ""Mouvement"",
+                    ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -241,12 +241,12 @@ public class @Controler : IInputActionCollection, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
-        m_Player_Running = m_Player.FindAction("Running", throwIfNotFound: true);
+        m_Player_Run = m_Player.FindAction("Run", throwIfNotFound: true);
         m_Player_Camera = m_Player.FindAction("Camera", throwIfNotFound: true);
         m_Player_Aim = m_Player.FindAction("Aim", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_Select = m_Player.FindAction("Select", throwIfNotFound: true);
-        m_Player_Mouvement = m_Player.FindAction("Mouvement", throwIfNotFound: true);
+        m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_CamAnchor = m_Player.FindAction("Cam Anchor", throwIfNotFound: true);
     }
 
@@ -298,24 +298,24 @@ public class @Controler : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Jump;
-    private readonly InputAction m_Player_Running;
+    private readonly InputAction m_Player_Run;
     private readonly InputAction m_Player_Camera;
     private readonly InputAction m_Player_Aim;
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_Select;
-    private readonly InputAction m_Player_Mouvement;
+    private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_CamAnchor;
     public struct PlayerActions
     {
         private @Controler m_Wrapper;
         public PlayerActions(@Controler wrapper) { m_Wrapper = wrapper; }
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
-        public InputAction @Running => m_Wrapper.m_Player_Running;
+        public InputAction @Run => m_Wrapper.m_Player_Run;
         public InputAction @Camera => m_Wrapper.m_Player_Camera;
         public InputAction @Aim => m_Wrapper.m_Player_Aim;
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @Select => m_Wrapper.m_Player_Select;
-        public InputAction @Mouvement => m_Wrapper.m_Player_Mouvement;
+        public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @CamAnchor => m_Wrapper.m_Player_CamAnchor;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
@@ -329,9 +329,9 @@ public class @Controler : IInputActionCollection, IDisposable
                 @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                @Running.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRunning;
-                @Running.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRunning;
-                @Running.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRunning;
+                @Run.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRun;
+                @Run.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRun;
+                @Run.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRun;
                 @Camera.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCamera;
                 @Camera.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCamera;
                 @Camera.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCamera;
@@ -344,9 +344,9 @@ public class @Controler : IInputActionCollection, IDisposable
                 @Select.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSelect;
                 @Select.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSelect;
                 @Select.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSelect;
-                @Mouvement.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouvement;
-                @Mouvement.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouvement;
-                @Mouvement.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouvement;
+                @Movement.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
+                @Movement.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
+                @Movement.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
                 @CamAnchor.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCamAnchor;
                 @CamAnchor.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCamAnchor;
                 @CamAnchor.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCamAnchor;
@@ -357,9 +357,9 @@ public class @Controler : IInputActionCollection, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
-                @Running.started += instance.OnRunning;
-                @Running.performed += instance.OnRunning;
-                @Running.canceled += instance.OnRunning;
+                @Run.started += instance.OnRun;
+                @Run.performed += instance.OnRun;
+                @Run.canceled += instance.OnRun;
                 @Camera.started += instance.OnCamera;
                 @Camera.performed += instance.OnCamera;
                 @Camera.canceled += instance.OnCamera;
@@ -372,9 +372,9 @@ public class @Controler : IInputActionCollection, IDisposable
                 @Select.started += instance.OnSelect;
                 @Select.performed += instance.OnSelect;
                 @Select.canceled += instance.OnSelect;
-                @Mouvement.started += instance.OnMouvement;
-                @Mouvement.performed += instance.OnMouvement;
-                @Mouvement.canceled += instance.OnMouvement;
+                @Movement.started += instance.OnMovement;
+                @Movement.performed += instance.OnMovement;
+                @Movement.canceled += instance.OnMovement;
                 @CamAnchor.started += instance.OnCamAnchor;
                 @CamAnchor.performed += instance.OnCamAnchor;
                 @CamAnchor.canceled += instance.OnCamAnchor;
@@ -394,12 +394,12 @@ public class @Controler : IInputActionCollection, IDisposable
     public interface IPlayerActions
     {
         void OnJump(InputAction.CallbackContext context);
-        void OnRunning(InputAction.CallbackContext context);
+        void OnRun(InputAction.CallbackContext context);
         void OnCamera(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnSelect(InputAction.CallbackContext context);
-        void OnMouvement(InputAction.CallbackContext context);
+        void OnMovement(InputAction.CallbackContext context);
         void OnCamAnchor(InputAction.CallbackContext context);
     }
 }

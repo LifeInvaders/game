@@ -114,7 +114,7 @@ namespace People.Player
                 Move();
         }
     
-        public void OnMouvement(InputValue value)
+        public void OnMovement(InputValue value)
         {
             _axis= value.Get<Vector2>();
        
@@ -125,7 +125,7 @@ namespace People.Player
                 Jump();
         }
 
-        public void OnRunning(InputValue value)
+        public void OnRun(InputValue value)
         {
             _moveSpeed =  value.Get<float>().Equals(1) ? runSpeed : walkSpeed;
         }

@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Player;
 using UnityEngine;
 
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> menus = new List<GameObject>();
-    [SerializeField] private Dictionary<string, GameObject> item;
 
     // Start is called before the first frame update
     void Start()
@@ -21,4 +21,5 @@ public class MenuManager : MonoBehaviour
     }
 
     public void Quit() => Application.Quit();
+    
 }

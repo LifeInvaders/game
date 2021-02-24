@@ -915,9 +915,72 @@
           <e p="RadarSystem" t="Include">
             <e p="Radar.cs" t="Include" />
           </e>
-          <e p="RebindKeys.cs" t="Include" />
+          <e p="RebindButton.cs" t="Include" />
+          <e p="RebindMenu.cs" t="Include" />
           <e p="SaveDatabase.cs" t="Include" />
           <e p="SceneLoader.cs" t="Include" />
+          <e p="Serializer" t="Include">
+            <e p="Converters" t="Include">
+              <e p="fsArrayConverter.cs" t="Include" />
+              <e p="fsDateConverter.cs" t="Include" />
+              <e p="fsDictionaryConverter.cs" t="Include" />
+              <e p="fsEnumConverter.cs" t="Include" />
+              <e p="fsForwardConverter.cs" t="Include" />
+              <e p="fsGuidConverter.cs" t="Include" />
+              <e p="fsIEnumerableConverter.cs" t="Include" />
+              <e p="fsKeyValuePairConverter.cs" t="Include" />
+              <e p="fsNullableConverter.cs" t="Include" />
+              <e p="fsPrimitiveConverter.cs" t="Include" />
+              <e p="fsReflectedConverter.cs" t="Include" />
+              <e p="fsTypeConverter.cs" t="Include" />
+              <e p="fsWeakReferenceConverter.cs" t="Include" />
+              <e p="Unity" t="Include">
+                <e p="AnimationCurve_DirectConverter.cs" t="Include" />
+                <e p="Bounds_DirectConverter.cs" t="Include" />
+                <e p="Gradient_DirectConverter.cs" t="Include" />
+                <e p="GUIStyle_DirectConverter.cs" t="Include" />
+                <e p="GUIStyleState_DirectConverter.cs" t="Include" />
+                <e p="Keyframe_DirectConverter.cs" t="Include" />
+                <e p="LayerMask_DirectConverter.cs" t="Include" />
+                <e p="Rect_DirectConverter.cs" t="Include" />
+                <e p="RectOffset_DirectConverter.cs" t="Include" />
+                <e p="UnityEvent_Converter.cs" t="Include" />
+              </e>
+            </e>
+            <e p="fsAotCompilationManager.cs" t="Include" />
+            <e p="fsBaseConverter.cs" t="Include" />
+            <e p="fsConfig.cs" t="Include" />
+            <e p="fsContext.cs" t="Include" />
+            <e p="fsConverter.cs" t="Include" />
+            <e p="fsConverterRegistrar.cs" t="Include" />
+            <e p="fsData.cs" t="Include" />
+            <e p="fsDirectConverter.cs" t="Include" />
+            <e p="fsExceptions.cs" t="Include" />
+            <e p="fsIgnoreAttribute.cs" t="Include" />
+            <e p="fsISerializationCallbacks.cs" t="Include" />
+            <e p="fsJsonParser.cs" t="Include" />
+            <e p="fsJsonPrinter.cs" t="Include" />
+            <e p="fsMemberSerialization.cs" t="Include" />
+            <e p="fsObjectAttribute.cs" t="Include" />
+            <e p="fsObjectProcessor.cs" t="Include" />
+            <e p="fsPropertyAttribute.cs" t="Include" />
+            <e p="fsResult.cs" t="Include" />
+            <e p="fsSerializer.cs" t="Include" />
+            <e p="Internal" t="Include">
+              <e p="fsCyclicReferenceManager.cs" t="Include" />
+              <e p="fsOption.cs" t="Include" />
+              <e p="fsPortableReflection.cs" t="Include" />
+              <e p="fsTypeExtensions.cs" t="Include" />
+              <e p="fsVersionedType.cs" t="Include" />
+              <e p="fsVersionManager.cs" t="Include" />
+            </e>
+            <e p="Reflection" t="Include">
+              <e p="fsMetaProperty.cs" t="Include" />
+              <e p="fsMetaType.cs" t="Include" />
+              <e p="fsReflectionUtility.cs" t="Include" />
+              <e p="fsTypeCache.cs" t="Include" />
+            </e>
+          </e>
           <e p="StagingRoom.cs" t="Include" />
           <e p="TargetSystem" t="Include">
             <e p="CastTarget.cs" t="Include" />

@@ -52,7 +52,7 @@ public class AssignTarget : MonoBehaviourPunCallbacks
 
     private void Update()
     {
-        if (PhotonNetwork.LocalPlayer.NickName == "TestClient" && Input.GetKeyDown(KeyCode.Dollar))
+        if (PhotonNetwork.LocalPlayer.NickName == "TestClient" && Input.GetKeyDown(KeyCode.T))
             TargetAssigner();
     }
 
