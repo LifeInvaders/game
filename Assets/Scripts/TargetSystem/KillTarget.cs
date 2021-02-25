@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.InputSystem;
 using Photon.Pun;
+using UnityEngine.AI;
 
 namespace TargetSystem
 {
@@ -12,6 +14,8 @@ namespace TargetSystem
 
         private bool _killClick;
         private CastTarget _casttarget;
+        
+        [SerializeField] private Material dissolved;
 
         void Start()
         {
@@ -29,9 +33,40 @@ namespace TargetSystem
         {
             Debug.Log($"killed {target.name}");
             target.GetComponent<Animator>().Play("brutal death");
+
+            if (target.CompareTag("NPC"))
+                target.GetComponent<NavMeshAgent>().isStopped = true;
+
+            target.GetComponent<CapsuleCollider>().enabled = false;
             _animator.Play("sword kill");
             _selectedTarget.UpdateSelectedTarget(target,target.GetComponentInChildren<Outline>());
+            
+            StartCoroutine(WaitForDeathAnim(target));
         }
+        
+        IEnumerator WaitForDeathAnim(GameObject target)
+        {
+            yield return new WaitForSeconds(5);
+            SkinnedMeshRenderer meshRenderer = target.transform.GetComponentInChildren<SkinnedMeshRenderer>();
+            Texture oldTexture = meshRenderer.sharedMaterial.mainTexture;
+            meshRenderer.sharedMaterial = dissolved;
+            meshRenderer.sharedMaterial.SetTexture("Texture2D_C902C618", oldTexture);
+            meshRenderer.sharedMaterial.SetFloat("Vector1_203537A2", Time.time);
+
+
+            float timeElapsed = 0f;
+            float phase = 3;
+            float targetPhase = 5.5f;
+            while (timeElapsed <= 3)
+            {
+                timeElapsed += Time.deltaTime;
+                meshRenderer.sharedMaterial.SetFloat("Vector1_203537A2", Mathf.Lerp(phase, targetPhase, timeElapsed / 3));
+                yield return new WaitForEndOfFrame();
+            }
+
+            Destroy(target);
+        }
+        
         void Update()
         {
             if (_killClick) // appuye sur Clic Gauche

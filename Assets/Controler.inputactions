@@ -68,6 +68,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "BoostDev",
+                    "type": "Button",
+                    "id": "067e7fe4-ec54-4a23-a952-34d2955ba51e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -310,6 +318,17 @@
                     "processors": "",
                     "groups": "Manettes",
                     "action": "Cam Anchor",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1eb8a5cc-43c9-46c0-bd91-6ab952ac057d",
+                    "path": "<Keyboard>/v",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard and Mouse",
+                    "action": "BoostDev",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

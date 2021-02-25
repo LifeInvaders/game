@@ -81,6 +81,14 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""BoostDev"",
+                    ""type"": ""Button"",
+                    ""id"": ""067e7fe4-ec54-4a23-a952-34d2955ba51e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -325,6 +333,17 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""action"": ""Cam Anchor"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1eb8a5cc-43c9-46c0-bd91-6ab952ac057d"",
+                    ""path"": ""<Keyboard>/v"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and Mouse"",
+                    ""action"": ""BoostDev"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -423,6 +442,7 @@ public class @Controler : IInputActionCollection, IDisposable
         m_Player_Aim = m_Player.FindAction("Aim", throwIfNotFound: true);
         m_Player_Select = m_Player.FindAction("Select", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
+        m_Player_BoostDev = m_Player.FindAction("BoostDev", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Pause = m_Menu.FindAction("Pause", throwIfNotFound: true);
@@ -483,6 +503,7 @@ public class @Controler : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Aim;
     private readonly InputAction m_Player_Select;
     private readonly InputAction m_Player_Attack;
+    private readonly InputAction m_Player_BoostDev;
     public struct PlayerActions
     {
         private @Controler m_Wrapper;
@@ -495,6 +516,7 @@ public class @Controler : IInputActionCollection, IDisposable
         public InputAction @Aim => m_Wrapper.m_Player_Aim;
         public InputAction @Select => m_Wrapper.m_Player_Select;
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
+        public InputAction @BoostDev => m_Wrapper.m_Player_BoostDev;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -528,6 +550,9 @@ public class @Controler : IInputActionCollection, IDisposable
                 @Attack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
                 @Attack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
                 @Attack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
+                @BoostDev.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBoostDev;
+                @BoostDev.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBoostDev;
+                @BoostDev.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBoostDev;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -556,6 +581,9 @@ public class @Controler : IInputActionCollection, IDisposable
                 @Attack.started += instance.OnAttack;
                 @Attack.performed += instance.OnAttack;
                 @Attack.canceled += instance.OnAttack;
+                @BoostDev.started += instance.OnBoostDev;
+                @BoostDev.performed += instance.OnBoostDev;
+                @BoostDev.canceled += instance.OnBoostDev;
             }
         }
     }
@@ -630,6 +658,7 @@ public class @Controler : IInputActionCollection, IDisposable
         void OnAim(InputAction.CallbackContext context);
         void OnSelect(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+        void OnBoostDev(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {
