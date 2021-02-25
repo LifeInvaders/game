@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2091249926898360716}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.566, z: 0}
+  m_LocalPosition: {x: 0, y: 2.241, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2091249927837793991}
@@ -88,7 +88,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 3.3317e-41, z: 0, w: -1}
+  m_BoundingSphereOverride: {x: 4.0328e-41, y: 1.01e-43, z: 2.34e-42, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -116,7 +116,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2091249927837793990}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.901, y: 5.1896696, z: -44.86352}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2091249928033787703}
@@ -146,7 +146,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 456916, guid: 856e58d826331da43a700f8d4761bbf4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.52
+      value: 1.137
       objectReference: {fileID: 0}
     - target: {fileID: 456916, guid: 856e58d826331da43a700f8d4761bbf4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -209,7 +209,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 487960, guid: 62180f02a86555049a8b4bc3fe456b38, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.4440002
+      value: 2.241
       objectReference: {fileID: 0}
     - target: {fileID: 487960, guid: 62180f02a86555049a8b4bc3fe456b38, type: 3}
       propertyPath: m_LocalPosition.z
