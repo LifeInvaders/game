@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using Photon.Pun;
 
 namespace TargetSystem
 {
@@ -77,6 +78,12 @@ namespace TargetSystem
             {
                 UpdateSelectedTarget(_selectedTarget, _outlineTarget);
             }
+        }
+
+        private void Start()
+        {
+            if (PhotonNetwork.IsConnected && !gameObject.GetPhotonView().IsMine)
+                enabled = false;
         }
     }
 }

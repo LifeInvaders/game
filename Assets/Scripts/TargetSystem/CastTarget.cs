@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -29,6 +30,8 @@ namespace TargetSystem
         }
         private void Start()
         {
+            if (PhotonNetwork.IsConnected && !gameObject.GetPhotonView().IsMine)
+                enabled = false;
             _selectedTarget = GetComponent<SelectedTarget>();
         }
         /// <summary>

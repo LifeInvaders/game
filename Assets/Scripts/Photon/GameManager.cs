@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections;
-
-
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-
-
 using Photon.Pun;
-using Photon.Realtime;
-
 
 namespace Com.MyCompany.MyGame
 {
