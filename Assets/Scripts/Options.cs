@@ -45,5 +45,5 @@ public class Options : MonoBehaviour
     public void SetVolume(float vol) => soundSystem.SetFloat("volume", vol);
 
     public void SetResolution(int index) =>
-        Screen.SetResolution(Screen.resolutions[index * 2].width, Screen.resolutions[index * 2].height, true);
+        Screen.SetResolution(Screen.resolutions[index * 2].width, Screen.resolutions[index * 2].height, Screen.fullScreen);
 }

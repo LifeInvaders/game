@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using Player;
 using UnityEngine;
 
-public class MenuManager : MonoBehaviour
+public class MenuManager : MonoBehaviourPunCallbacks
 {
     [SerializeField] private List<GameObject> menus = new List<GameObject>();
 
@@ -12,6 +13,9 @@ public class MenuManager : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        if (PhotonNetwork.IsConnected)
+            SwitchMenu(4);
+        else SwitchMenu(0);
     }
 
     public void SwitchMenu(int index)
@@ -21,5 +25,6 @@ public class MenuManager : MonoBehaviour
     }
 
     public void Quit() => Application.Quit();
-    
+
+    public override void OnConnectedToMaster() => SwitchMenu(4);
 }

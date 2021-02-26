@@ -12,16 +12,14 @@ public class ServerManager : MonoBehaviourPunCallbacks
         PhotonNetwork.NickName = Player.PlayerDatabase.Instance.Nickname;
         nickName.text = Player.PlayerDatabase.Instance.Nickname;
         PhotonNetwork.AutomaticallySyncScene = true;
-        if (!PhotonNetwork.ConnectUsingSettings())
-            Debug.Log("Unable to connect to servers. Try again later.");
-        Debug.Log(PhotonNetwork.IsConnected);
         roomName = PhotonNetwork.NickName + "'s Room";
     }
 
-    public override void OnCreatedRoom()
-    {
-        PhotonNetwork.LoadLevel("Lobby");
-    }
+    public void Connect() => PhotonNetwork.ConnectUsingSettings();
+
+    public void Disconnect() => PhotonNetwork.Disconnect();
+
+    public override void OnCreatedRoom() => PhotonNetwork.LoadLevel("Lobby");
 
     public void SetNickname()
     {
@@ -32,11 +30,8 @@ public class ServerManager : MonoBehaviourPunCallbacks
         }
     }
 
-    public void QuickJoin()
-    {
-        PhotonNetwork.JoinRandomRoom();
-    }
-    
+    public void QuickJoin() => PhotonNetwork.JoinRandomRoom();
+
 
     public void TryJoin(string roomName)
     {

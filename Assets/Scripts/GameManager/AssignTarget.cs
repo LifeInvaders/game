@@ -52,9 +52,11 @@ public class AssignTarget : MonoBehaviourPunCallbacks
 
     private void Update()
     {
-        if (PhotonNetwork.LocalPlayer.NickName == "TestClient" && Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.T) && PhotonNetwork.LocalPlayer.NickName.Equals("TestClient"))
             TargetAssigner();
     }
+    
+    
 
     private void WriteDictToFile(Dictionary<Photon.Realtime.Player,Photon.Realtime.Player> dict)
     {

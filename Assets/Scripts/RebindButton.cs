@@ -16,24 +16,11 @@ public class RebindButton
 
     public void Start()
     {
-        buttonText = rebindButton.gameObject.GetComponentInChildren<Text>();
-        if (bindingIndex == -1)
-            rebindButton.onClick.AddListener(RemapButton);
-        else rebindButton.onClick.AddListener(RemapButtonAxis);
+        buttonText = rebindButton.gameObject.GetComponentInChildren<Text>(); 
+        rebindButton.onClick.AddListener(RemapButton);
         ChangeText();
     }
-
     private void RemapButton()
-    {
-        var rebindingOperation = action.action.PerformInteractiveRebinding()
-            // To avoid accidental input from mouse motion
-            .WithControlsExcluding("Mouse")
-            .OnMatchWaitForAnother(0.1f)
-            .OnComplete(operation => {ChangeText(); operation.Dispose();})
-            .Start();
-    }
-
-    private void RemapButtonAxis()
     {
         var rebindingOperation = action.action.PerformInteractiveRebinding(bindingIndex)
             // To avoid accidental input from mouse motion
@@ -43,13 +30,6 @@ public class RebindButton
     }
 
     private void ChangeText()
-    {
-        string print;
-        if (bindingIndex == -1)
-            print = action.action.name + ": " + action.action.GetBindingDisplayString();
-        else
-            print = action.action.bindings[bindingIndex].name + ": " +
-                    action.action.bindings[bindingIndex].ToDisplayString();
-        buttonText.text = print;
-    }
+    => buttonText.text = rebindButton.gameObject.name + ": " +
+                         action.action.bindings[bindingIndex].ToDisplayString();
 }
