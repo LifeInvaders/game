@@ -1,6 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 using System;
+using System.Collections.Generic;
 
 namespace Player
 {
@@ -26,6 +27,12 @@ namespace Player
             }
             set => _instance = value;
         }
+        #endregion
+        
+        #region Settings
+
+        public Dictionary<Guid, string> controls = new Dictionary<Guid, string>();
+        
         #endregion
         
         //Keeping track of player statistics

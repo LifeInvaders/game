@@ -2157,7 +2157,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7113331263401805986
 Transform:
   m_ObjectHideFlags: 0
@@ -6939,9 +6939,9 @@ MonoBehaviour:
     SynchronizeType: 1
     Name: talking
   m_SynchronizeLayers:
-  - SynchronizeType: 0
+  - SynchronizeType: 1
     LayerIndex: 0
-  - SynchronizeType: 0
+  - SynchronizeType: 1
     LayerIndex: 1
 --- !u!114 &7506934907375412820
 MonoBehaviour:
@@ -7031,7 +7031,7 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Keyboard and Mouse
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 541207288}
@@ -7042,7 +7042,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4353876372182459986}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d3ddd0d525ad8314cb9029ca27dee380, type: 3}
   m_Name: 
@@ -7055,7 +7055,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4353876372182459986}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23ded3be3c4647419b43b72e6fa2c79b, type: 3}
   m_Name: 
@@ -7068,11 +7068,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4353876372182459986}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 765176facfc9cca47b88326bfe34ced0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dissolved: {fileID: 0}
 --- !u!114 &8102929157271534825
 MonoBehaviour:
   m_ObjectHideFlags: 0
