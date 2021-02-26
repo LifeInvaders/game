@@ -24,7 +24,7 @@ namespace Com.lifeInvaders.PanicAtTortuga
             private void Start()
             {
                 string defaultName = string.Empty;
-                InputField _inputField = this.GetComponent<InputField>();
+                InputField _inputField = GetComponent<InputField>();
                 if (_inputField != null)
                 {
                     if (PlayerPrefs.HasKey(PlayerNamePrefKey))

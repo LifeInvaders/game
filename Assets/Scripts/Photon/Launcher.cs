@@ -64,8 +64,7 @@ namespace Com.MyCompany.MyGame
 
 
         #endregion
-
-
+        
         #region MonoBehaviour CallBacks
 
 
@@ -100,9 +99,7 @@ namespace Com.MyCompany.MyGame
         }
 */
         #endregion
-
         
-
         #region Public Methods
 
 
