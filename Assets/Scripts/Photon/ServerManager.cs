@@ -44,15 +44,15 @@ public class ServerManager : MonoBehaviourPunCallbacks
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
         RoomOptions quickOptions = new RoomOptions
-                {MaxPlayers = 8, IsVisible = true};
+                {MaxPlayers = 3, IsVisible = true};
             if (!PhotonNetwork.CreateRoom(PhotonNetwork.NickName + "'s Room",quickOptions))
             {
-                for (int roomNumber = 2; roomNumber < 10 && !PhotonNetwork.CreateRoom(PhotonNetwork.NickName + "'s Room" + (char) ('0' + roomNumber), quickOptions); roomNumber++){}
+                for (int roomNumber = 2; roomNumber < 10 && !PhotonNetwork.CreateRoom(PhotonNetwork.NickName + "'s Room" + roomNumber.ToString(), quickOptions); roomNumber++){}
             }
     }
 
-    [SerializeField]private int chooseMap = 0;
-    [SerializeField]private bool isPrivate = false;
+    [SerializeField] private int chooseMap;
+    [SerializeField] private bool isPrivate;
     [SerializeField]private byte maxPlayers = 8;
     [SerializeField] private string roomName;
 
@@ -61,11 +61,9 @@ public class ServerManager : MonoBehaviourPunCallbacks
     {
         RoomOptions roomOptions = new RoomOptions
             {MaxPlayers = maxPlayers, IsVisible = isPrivate};
-        roomOptions.CustomRoomProperties.Add("map",chooseMap);
-        roomOptions.CustomRoomPropertiesForLobby = new[] {"map"};
+        roomOptions.CustomRoomProperties.Add("Map",chooseMap);
+        roomOptions.CustomRoomPropertiesForLobby = new[] {"Map"};
         if (!PhotonNetwork.CreateRoom(roomName, roomOptions))
-        {
             Debug.Log("Room creation failed: Room already exists with that name!");
-        }
     }
 }

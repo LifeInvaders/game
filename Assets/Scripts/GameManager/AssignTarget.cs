@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using Photon.Pun;
 using TMPro;
+using UnityEngine.UI;
 using UnityEngine;
 using Random = System.Random;
 
@@ -24,7 +25,7 @@ public class AssignTarget : MonoBehaviourPunCallbacks
                 igs.target = player;  //Set target in InGameStats
                 player.GetComponentInChildren<TextMeshPro>().color = Color.red; //For testing
                 //The below message should be a UI element!!!
-                Debug.Log("Your target is: " + player.GetPhotonView().Owner.NickName);
+                Debug.Log("Your target is: " + target.NickName);
                 return;
             }
         }

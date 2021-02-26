@@ -21,8 +21,8 @@ public class Options : MonoBehaviour
         int currentRes = 0;
         for(int i = 0; i < Screen.resolutions.Length; i += 2)
         {
-            if (Screen.resolutions[i].width == Screen.currentResolution.width 
-                && Screen.resolutions[i].height == Screen.currentResolution.height)
+            if (Screen.resolutions[i].width == Screen.width
+                && Screen.resolutions[i].height == Screen.height)
                 currentRes = i/2;
             string option =Screen.resolutions[i].width.ToString() + "x" + Screen.resolutions[i].height.ToString();
             options.Add(option);

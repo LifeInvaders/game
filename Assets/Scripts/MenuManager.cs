@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Photon.Pun;
 using Player;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviourPunCallbacks
 {
@@ -16,6 +17,12 @@ public class MenuManager : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsConnected)
             SwitchMenu(4);
         else SwitchMenu(0);
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            GameObject.Find("Back").GetComponent<Button>().onClick.Invoke();
     }
 
     public void SwitchMenu(int index)
