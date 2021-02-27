@@ -76,6 +76,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "GravityDev",
+                    "type": "Button",
+                    "id": "f49c49af-90df-4ba7-a621-5a9e78138fda",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -331,6 +339,17 @@
                     "action": "BoostDev",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b5584819-fc02-4586-a091-6046fa59870f",
+                    "path": "<Keyboard>/b",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard and Mouse",
+                    "action": "GravityDev",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -367,33 +386,6 @@
                     "processors": "",
                     "groups": "Manettes",
                     "action": "Pause",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "Soutenance",
-            "id": "55fc19c4-136e-456d-9fef-d48ca7d0206d",
-            "actions": [
-                {
-                    "name": "New action",
-                    "type": "Button",
-                    "id": "986aa32d-6850-4861-9d2b-2fb3f9642e07",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "6653953c-d629-470b-9c6f-c408eaf957f5",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "New action",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

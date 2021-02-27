@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/soutenance.unity
+    guid: c01ddd9391a5c9c44bf271ff8ca5dcd2
+  - enabled: 1
     path: Assets/Scenes/StagingRoom.unity
     guid: df9354fc0f84683408e813a3b4548428
   - enabled: 1

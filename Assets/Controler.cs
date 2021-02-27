@@ -89,6 +89,14 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""GravityDev"",
+                    ""type"": ""Button"",
+                    ""id"": ""f49c49af-90df-4ba7-a621-5a9e78138fda"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -344,6 +352,17 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""action"": ""BoostDev"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b5584819-fc02-4586-a091-6046fa59870f"",
+                    ""path"": ""<Keyboard>/b"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and Mouse"",
+                    ""action"": ""GravityDev"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -380,33 +399,6 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Manettes"",
                     ""action"": ""Pause"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
-            ""name"": ""Soutenance"",
-            ""id"": ""55fc19c4-136e-456d-9fef-d48ca7d0206d"",
-            ""actions"": [
-                {
-                    ""name"": ""New action"",
-                    ""type"": ""Button"",
-                    ""id"": ""986aa32d-6850-4861-9d2b-2fb3f9642e07"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""6653953c-d629-470b-9c6f-c408eaf957f5"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""New action"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -470,12 +462,10 @@ public class @Controler : IInputActionCollection, IDisposable
         m_Player_Select = m_Player.FindAction("Select", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_BoostDev = m_Player.FindAction("BoostDev", throwIfNotFound: true);
+        m_Player_GravityDev = m_Player.FindAction("GravityDev", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Pause = m_Menu.FindAction("Pause", throwIfNotFound: true);
-        // Soutenance
-        m_Soutenance = asset.FindActionMap("Soutenance", throwIfNotFound: true);
-        m_Soutenance_Newaction = m_Soutenance.FindAction("New action", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -534,6 +524,7 @@ public class @Controler : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Select;
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_BoostDev;
+    private readonly InputAction m_Player_GravityDev;
     public struct PlayerActions
     {
         private @Controler m_Wrapper;
@@ -547,6 +538,7 @@ public class @Controler : IInputActionCollection, IDisposable
         public InputAction @Select => m_Wrapper.m_Player_Select;
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @BoostDev => m_Wrapper.m_Player_BoostDev;
+        public InputAction @GravityDev => m_Wrapper.m_Player_GravityDev;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -583,6 +575,9 @@ public class @Controler : IInputActionCollection, IDisposable
                 @BoostDev.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBoostDev;
                 @BoostDev.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBoostDev;
                 @BoostDev.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBoostDev;
+                @GravityDev.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGravityDev;
+                @GravityDev.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGravityDev;
+                @GravityDev.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGravityDev;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -614,6 +609,9 @@ public class @Controler : IInputActionCollection, IDisposable
                 @BoostDev.started += instance.OnBoostDev;
                 @BoostDev.performed += instance.OnBoostDev;
                 @BoostDev.canceled += instance.OnBoostDev;
+                @GravityDev.started += instance.OnGravityDev;
+                @GravityDev.performed += instance.OnGravityDev;
+                @GravityDev.canceled += instance.OnGravityDev;
             }
         }
     }
@@ -651,39 +649,6 @@ public class @Controler : IInputActionCollection, IDisposable
         }
     }
     public MenuActions @Menu => new MenuActions(this);
-
-    // Soutenance
-    private readonly InputActionMap m_Soutenance;
-    private ISoutenanceActions m_SoutenanceActionsCallbackInterface;
-    private readonly InputAction m_Soutenance_Newaction;
-    public struct SoutenanceActions
-    {
-        private @Controler m_Wrapper;
-        public SoutenanceActions(@Controler wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Newaction => m_Wrapper.m_Soutenance_Newaction;
-        public InputActionMap Get() { return m_Wrapper.m_Soutenance; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(SoutenanceActions set) { return set.Get(); }
-        public void SetCallbacks(ISoutenanceActions instance)
-        {
-            if (m_Wrapper.m_SoutenanceActionsCallbackInterface != null)
-            {
-                @Newaction.started -= m_Wrapper.m_SoutenanceActionsCallbackInterface.OnNewaction;
-                @Newaction.performed -= m_Wrapper.m_SoutenanceActionsCallbackInterface.OnNewaction;
-                @Newaction.canceled -= m_Wrapper.m_SoutenanceActionsCallbackInterface.OnNewaction;
-            }
-            m_Wrapper.m_SoutenanceActionsCallbackInterface = instance;
-            if (instance != null)
-            {
-                @Newaction.started += instance.OnNewaction;
-                @Newaction.performed += instance.OnNewaction;
-                @Newaction.canceled += instance.OnNewaction;
-            }
-        }
-    }
-    public SoutenanceActions @Soutenance => new SoutenanceActions(this);
     private int m_KeyboardandMouseSchemeIndex = -1;
     public InputControlScheme KeyboardandMouseScheme
     {
@@ -722,13 +687,10 @@ public class @Controler : IInputActionCollection, IDisposable
         void OnSelect(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnBoostDev(InputAction.CallbackContext context);
+        void OnGravityDev(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {
         void OnPause(InputAction.CallbackContext context);
-    }
-    public interface ISoutenanceActions
-    {
-        void OnNewaction(InputAction.CallbackContext context);
     }
 }

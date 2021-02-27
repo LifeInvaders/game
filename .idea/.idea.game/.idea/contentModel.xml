@@ -857,6 +857,7 @@
             <e p="Outline.cs" t="Include" />
           </e>
         </e>
+        <e p="ResetDemoScene.cs" t="Include" />
         <e p="Samples" t="Include">
           <e p="Cinemachine" t="Include">
             <e p="2.6.3" t="Include">
