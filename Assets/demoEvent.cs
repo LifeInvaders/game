@@ -11,6 +11,8 @@ public class demoEvent : MonoBehaviour
     private Rigidbody rb;
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         playerControler = GetComponent<PlayerControler>();
         rb = GetComponent<Rigidbody>();
     }
