@@ -37,6 +37,7 @@ namespace People.Player
             if (PhotonNetwork.IsConnected && !gameObject.GetPhotonView().IsMine)
             {
                 gameObject.GetComponent<PlayerInput>().enabled = false;
+                _rig.isKinematic = true;
                 enabled = false;
             }
         }
