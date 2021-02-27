@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using People;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Photon.Pun;
@@ -32,11 +33,14 @@ namespace TargetSystem
         void Kill(GameObject target)
         {
             Debug.Log($"killed {target.name}");
+            if (target.CompareTag("NPC"))
+            {
+                target.GetComponent<WalkingNPC>().enabled = false;
+                target.GetComponent<NavMeshAgent>().isStopped = true;
+            }
             target.GetComponent<Animator>().Play("brutal death");
 
-            if (target.CompareTag("NPC"))
-                target.GetComponent<NavMeshAgent>().isStopped = true;
-
+            
             target.GetComponent<CapsuleCollider>().enabled = false;
             _animator.Play("sword kill");
             _selectedTarget.UpdateSelectedTarget(target,target.GetComponentInChildren<Outline>());
