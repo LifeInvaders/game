@@ -14,7 +14,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
         PhotonNetwork.AutomaticallySyncScene = true;
         roomName = PhotonNetwork.NickName + "'s Room";
     }
-
+    
     public void Connect() => PhotonNetwork.ConnectUsingSettings();
 
     public void Disconnect() => PhotonNetwork.Disconnect();
@@ -44,16 +44,16 @@ public class ServerManager : MonoBehaviourPunCallbacks
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
         RoomOptions quickOptions = new RoomOptions
-                {MaxPlayers = 3, IsVisible = true};
+                {MaxPlayers = 8, IsVisible = true};
             if (!PhotonNetwork.CreateRoom(PhotonNetwork.NickName + "'s Room",quickOptions))
             {
-                for (int roomNumber = 2; roomNumber < 10 && !PhotonNetwork.CreateRoom(PhotonNetwork.NickName + "'s Room" + roomNumber.ToString(), quickOptions); roomNumber++){}
+                for (int roomNumber = 2; roomNumber < 10 && !PhotonNetwork.CreateRoom(PhotonNetwork.NickName + "'s Room " + roomNumber, quickOptions); roomNumber++){}
             }
     }
 
     [SerializeField] private int chooseMap;
     [SerializeField] private bool isPrivate;
-    [SerializeField]private byte maxPlayers = 8;
+    [SerializeField] private byte maxPlayers = 8;
     [SerializeField] private string roomName;
 
 

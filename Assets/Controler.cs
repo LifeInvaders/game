@@ -485,6 +485,7 @@ public class @Controler : IInputActionCollection, IDisposable
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Pause = m_Menu.FindAction("Pause", throwIfNotFound: true);
+        m_Menu_Dev = m_Menu.FindAction("Dev", throwIfNotFound: true);
     }
 
     public void Dispose()
