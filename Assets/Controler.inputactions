@@ -6,7 +6,7 @@
             "id": "1cd547d4-915d-4eb5-8ee2-9455f7e797a9",
             "actions": [
                 {
-                    "name": "Mouvement",
+                    "name": "Movement",
                     "type": "Value",
                     "id": "3b20a15f-882a-412e-8e86-7018bd8f5813",
                     "expectedControlType": "Vector2",
@@ -30,7 +30,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Running",
+                    "name": "Run",
                     "type": "Value",
                     "id": "7b9ab7c7-f80c-4139-a8fa-fb7f4fe5e1c5",
                     "expectedControlType": "DiscreteButton",
@@ -166,22 +166,22 @@
                 },
                 {
                     "name": "",
-                    "id": "71d2b73f-6845-4d64-8f6e-e49009c6a7b0",
-                    "path": "<Gamepad>/rightShoulder",
+                    "id": "5f4608b2-9a67-4109-b8eb-8e81ac47548c",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Manettes",
+                    "groups": "Keyboard and Mouse",
                     "action": "Select",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "5f4608b2-9a67-4109-b8eb-8e81ac47548c",
-                    "path": "<Mouse>/rightButton",
+                    "id": "71d2b73f-6845-4d64-8f6e-e49009c6a7b0",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard and Mouse",
+                    "groups": "Manettes",
                     "action": "Select",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -193,7 +193,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Mouvement",
+                    "action": "Movement",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -204,7 +204,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard and Mouse",
-                    "action": "Mouvement",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -215,7 +215,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard and Mouse",
-                    "action": "Mouvement",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -226,7 +226,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard and Mouse",
-                    "action": "Mouvement",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -237,7 +237,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard and Mouse",
-                    "action": "Mouvement",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -248,7 +248,7 @@
                     "interactions": "Press",
                     "processors": "ScaleVector2(x=0.1,y=0.1)",
                     "groups": "Mobile",
-                    "action": "Mouvement",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -259,7 +259,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Manettes",
-                    "action": "Mouvement",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -270,7 +270,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard and Mouse",
-                    "action": "Running",
+                    "action": "Run",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -281,7 +281,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Manettes",
-                    "action": "Running",
+                    "action": "Run",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -364,6 +364,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Dev",
+                    "type": "Button",
+                    "id": "aa174d4b-c7d7-43f0-b7d5-03010d3799bf",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -386,6 +394,17 @@
                     "processors": "",
                     "groups": "Manettes",
                     "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1b6b7205-2378-41b2-8858-754c2588947c",
+                    "path": "<Keyboard>/backquote",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard and Mouse",
+                    "action": "Dev",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

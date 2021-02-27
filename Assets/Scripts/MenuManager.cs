@@ -1,17 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
+using Player;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class MenuManager : MonoBehaviour
+public class MenuManager : MonoBehaviourPunCallbacks
 {
     [SerializeField] private List<GameObject> menus = new List<GameObject>();
-    [SerializeField] private Dictionary<string, GameObject> item;
 
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        if (PhotonNetwork.IsConnected)
+            SwitchMenu(4);
+        else SwitchMenu(0);
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            GameObject.Find("Back").GetComponent<Button>().onClick.Invoke();
     }
 
     public void SwitchMenu(int index)
@@ -21,4 +32,6 @@ public class MenuManager : MonoBehaviour
     }
 
     public void Quit() => Application.Quit();
+
+    public override void OnConnectedToMaster() => SwitchMenu(4);
 }

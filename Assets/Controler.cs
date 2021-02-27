@@ -19,7 +19,7 @@ public class @Controler : IInputActionCollection, IDisposable
             ""id"": ""1cd547d4-915d-4eb5-8ee2-9455f7e797a9"",
             ""actions"": [
                 {
-                    ""name"": ""Mouvement"",
+                    ""name"": ""Movement"",
                     ""type"": ""Value"",
                     ""id"": ""3b20a15f-882a-412e-8e86-7018bd8f5813"",
                     ""expectedControlType"": ""Vector2"",
@@ -43,7 +43,7 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Running"",
+                    ""name"": ""Run"",
                     ""type"": ""Value"",
                     ""id"": ""7b9ab7c7-f80c-4139-a8fa-fb7f4fe5e1c5"",
                     ""expectedControlType"": ""DiscreteButton"",
@@ -179,22 +179,22 @@ public class @Controler : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""71d2b73f-6845-4d64-8f6e-e49009c6a7b0"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""id"": ""5f4608b2-9a67-4109-b8eb-8e81ac47548c"",
+                    ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Manettes"",
+                    ""groups"": ""Keyboard and Mouse"",
                     ""action"": ""Select"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""5f4608b2-9a67-4109-b8eb-8e81ac47548c"",
-                    ""path"": ""<Mouse>/rightButton"",
+                    ""id"": ""71d2b73f-6845-4d64-8f6e-e49009c6a7b0"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard and Mouse"",
+                    ""groups"": ""Manettes"",
                     ""action"": ""Select"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -206,7 +206,7 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Mouvement"",
+                    ""action"": ""Movement"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -217,7 +217,7 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard and Mouse"",
-                    ""action"": ""Mouvement"",
+                    ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -228,7 +228,7 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard and Mouse"",
-                    ""action"": ""Mouvement"",
+                    ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -239,7 +239,7 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard and Mouse"",
-                    ""action"": ""Mouvement"",
+                    ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -250,7 +250,7 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard and Mouse"",
-                    ""action"": ""Mouvement"",
+                    ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -261,7 +261,7 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""interactions"": ""Press"",
                     ""processors"": ""ScaleVector2(x=0.1,y=0.1)"",
                     ""groups"": ""Mobile"",
-                    ""action"": ""Mouvement"",
+                    ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -272,7 +272,7 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Manettes"",
-                    ""action"": ""Mouvement"",
+                    ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -283,7 +283,7 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard and Mouse"",
-                    ""action"": ""Running"",
+                    ""action"": ""Run"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -294,7 +294,7 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Manettes"",
-                    ""action"": ""Running"",
+                    ""action"": ""Run"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -377,6 +377,14 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Dev"",
+                    ""type"": ""Button"",
+                    ""id"": ""aa174d4b-c7d7-43f0-b7d5-03010d3799bf"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -399,6 +407,17 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Manettes"",
                     ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1b6b7205-2378-41b2-8858-754c2588947c"",
+                    ""path"": ""<Keyboard>/backquote"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and Mouse"",
+                    ""action"": ""Dev"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -453,10 +472,10 @@ public class @Controler : IInputActionCollection, IDisposable
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_Mouvement = m_Player.FindAction("Mouvement", throwIfNotFound: true);
+        m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Camera = m_Player.FindAction("Camera", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
-        m_Player_Running = m_Player.FindAction("Running", throwIfNotFound: true);
+        m_Player_Run = m_Player.FindAction("Run", throwIfNotFound: true);
         m_Player_CamAnchor = m_Player.FindAction("Cam Anchor", throwIfNotFound: true);
         m_Player_Aim = m_Player.FindAction("Aim", throwIfNotFound: true);
         m_Player_Select = m_Player.FindAction("Select", throwIfNotFound: true);
@@ -515,10 +534,10 @@ public class @Controler : IInputActionCollection, IDisposable
     // Player
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
-    private readonly InputAction m_Player_Mouvement;
+    private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Camera;
     private readonly InputAction m_Player_Jump;
-    private readonly InputAction m_Player_Running;
+    private readonly InputAction m_Player_Run;
     private readonly InputAction m_Player_CamAnchor;
     private readonly InputAction m_Player_Aim;
     private readonly InputAction m_Player_Select;
@@ -529,10 +548,10 @@ public class @Controler : IInputActionCollection, IDisposable
     {
         private @Controler m_Wrapper;
         public PlayerActions(@Controler wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Mouvement => m_Wrapper.m_Player_Mouvement;
+        public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Camera => m_Wrapper.m_Player_Camera;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
-        public InputAction @Running => m_Wrapper.m_Player_Running;
+        public InputAction @Run => m_Wrapper.m_Player_Run;
         public InputAction @CamAnchor => m_Wrapper.m_Player_CamAnchor;
         public InputAction @Aim => m_Wrapper.m_Player_Aim;
         public InputAction @Select => m_Wrapper.m_Player_Select;
@@ -548,18 +567,18 @@ public class @Controler : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
             {
-                @Mouvement.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouvement;
-                @Mouvement.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouvement;
-                @Mouvement.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouvement;
+                @Movement.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
+                @Movement.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
+                @Movement.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
                 @Camera.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCamera;
                 @Camera.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCamera;
                 @Camera.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCamera;
                 @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                @Running.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRunning;
-                @Running.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRunning;
-                @Running.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRunning;
+                @Run.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRun;
+                @Run.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRun;
+                @Run.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRun;
                 @CamAnchor.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCamAnchor;
                 @CamAnchor.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCamAnchor;
                 @CamAnchor.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCamAnchor;
@@ -582,18 +601,18 @@ public class @Controler : IInputActionCollection, IDisposable
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Mouvement.started += instance.OnMouvement;
-                @Mouvement.performed += instance.OnMouvement;
-                @Mouvement.canceled += instance.OnMouvement;
+                @Movement.started += instance.OnMovement;
+                @Movement.performed += instance.OnMovement;
+                @Movement.canceled += instance.OnMovement;
                 @Camera.started += instance.OnCamera;
                 @Camera.performed += instance.OnCamera;
                 @Camera.canceled += instance.OnCamera;
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
-                @Running.started += instance.OnRunning;
-                @Running.performed += instance.OnRunning;
-                @Running.canceled += instance.OnRunning;
+                @Run.started += instance.OnRun;
+                @Run.performed += instance.OnRun;
+                @Run.canceled += instance.OnRun;
                 @CamAnchor.started += instance.OnCamAnchor;
                 @CamAnchor.performed += instance.OnCamAnchor;
                 @CamAnchor.canceled += instance.OnCamAnchor;
@@ -621,11 +640,13 @@ public class @Controler : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Menu;
     private IMenuActions m_MenuActionsCallbackInterface;
     private readonly InputAction m_Menu_Pause;
+    private readonly InputAction m_Menu_Dev;
     public struct MenuActions
     {
         private @Controler m_Wrapper;
         public MenuActions(@Controler wrapper) { m_Wrapper = wrapper; }
         public InputAction @Pause => m_Wrapper.m_Menu_Pause;
+        public InputAction @Dev => m_Wrapper.m_Menu_Dev;
         public InputActionMap Get() { return m_Wrapper.m_Menu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -638,6 +659,9 @@ public class @Controler : IInputActionCollection, IDisposable
                 @Pause.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnPause;
+                @Dev.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnDev;
+                @Dev.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnDev;
+                @Dev.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnDev;
             }
             m_Wrapper.m_MenuActionsCallbackInterface = instance;
             if (instance != null)
@@ -645,6 +669,9 @@ public class @Controler : IInputActionCollection, IDisposable
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @Dev.started += instance.OnDev;
+                @Dev.performed += instance.OnDev;
+                @Dev.canceled += instance.OnDev;
             }
         }
     }
@@ -678,10 +705,10 @@ public class @Controler : IInputActionCollection, IDisposable
     }
     public interface IPlayerActions
     {
-        void OnMouvement(InputAction.CallbackContext context);
+        void OnMovement(InputAction.CallbackContext context);
         void OnCamera(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
-        void OnRunning(InputAction.CallbackContext context);
+        void OnRun(InputAction.CallbackContext context);
         void OnCamAnchor(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
         void OnSelect(InputAction.CallbackContext context);
@@ -692,5 +719,6 @@ public class @Controler : IInputActionCollection, IDisposable
     public interface IMenuActions
     {
         void OnPause(InputAction.CallbackContext context);
+        void OnDev(InputAction.CallbackContext context);
     }
 }
