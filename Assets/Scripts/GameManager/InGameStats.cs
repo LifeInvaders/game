@@ -1,13 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
-using Photon.Pun;
 
 public class InGameStats : MonoBehaviour
 { 
     //Player stats (KD,score etc etc)
     #region Player-specific
 
+    public GameObject currentPlayer;
     public int killCount;
     public int deathCount;
     public int score;

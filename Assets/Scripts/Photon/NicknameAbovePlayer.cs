@@ -9,16 +9,13 @@ using UnityEngine.UI;
 
 public class NicknameAbovePlayer : MonoBehaviour
 {
-
-    private Button button;
-    [SerializeField] private TextMeshPro floatingText;
-    [SerializeField] private Transform textMeshTransform;
+    [SerializeField] private Transform floatingText;
     
     // Start is called before the first frame update
     void Start()
     {
         if (!gameObject.GetPhotonView().IsMine)
-            floatingText.SetText(gameObject.GetPhotonView().Owner.NickName);
+            floatingText.gameObject.GetComponent<TextMeshPro>().SetText(gameObject.GetPhotonView().Owner.NickName);
         else
         {
             floatingText.gameObject.SetActive(false);
@@ -26,5 +23,5 @@ public class NicknameAbovePlayer : MonoBehaviour
         }
     }
 
-    void Update() => textMeshTransform.rotation = Quaternion.LookRotation( Camera.main.transform.position - textMeshTransform.position );
+    void Update() => floatingText.rotation = Quaternion.LookRotation(  floatingText.position - Camera.main.transform.position);
 }
