@@ -4201,6 +4201,7 @@ RectTransform:
   - {fileID: 1987681982}
   - {fileID: 627357678}
   - {fileID: 671808916}
+  - {fileID: 2027729817}
   m_Father: {fileID: 1953346289}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6613,7 +6614,7 @@ MonoBehaviour:
   - rebindButton: {fileID: 1908034317}
     action: {fileID: -1098277040992299987, guid: c42f7726dd4981a49bdbe4606279d145,
       type: 3}
-    bindingIndex: 1
+    bindingIndex: 0
   - rebindButton: {fileID: 286339353}
     action: {fileID: 5398649285786029011, guid: c42f7726dd4981a49bdbe4606279d145,
       type: 3}
@@ -9657,7 +9658,6 @@ RectTransform:
   - {fileID: 194566795}
   - {fileID: 1509542245}
   - {fileID: 1914951306}
-  - {fileID: 2027729817}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10262,13 +10262,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2027729816}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1170624292}
-  m_Father: {fileID: 1953346289}
-  m_RootOrder: 9
+  m_Father: {fileID: 871888943}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -10741,6 +10741,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 2103949641}
   m_maskType: 0
+  _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
 --- !u!114 &2103948341
