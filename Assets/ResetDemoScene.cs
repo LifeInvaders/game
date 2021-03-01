@@ -10,12 +10,6 @@ public class ResetDemoScene : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
-            SceneManager.LoadScene("soutenance");
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-            SceneManager.LoadScene("Scenes/PhotonScene");
+            SceneManager.LoadScene("test3");
     }
 }

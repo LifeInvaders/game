@@ -97,6 +97,14 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Leave"",
+                    ""type"": ""Button"",
+                    ""id"": ""62f2ce3b-a597-49fb-be80-4a4d2e8f59a9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -171,7 +179,7 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""id"": ""9911caf3-1b2e-49f4-89d1-d80b82fd344c"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
-                    ""processors"": ""ScaleVector2(x=8,y=8)"",
+                    ""processors"": ""ScaleVector2(x=15,y=15)"",
                     ""groups"": ""Manettes"",
                     ""action"": ""Camera"",
                     ""isComposite"": false,
@@ -268,7 +276,7 @@ public class @Controler : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""9ade8fcd-dcee-4159-be49-5a6b8275e394"",
-                    ""path"": ""<DualShockGamepad>/leftStick"",
+                    ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Manettes"",
@@ -355,12 +363,56 @@ public class @Controler : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""9d70618a-e09d-423d-bf8c-f1c6f055d8a3"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Manettes"",
+                    ""action"": ""BoostDev"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""b5584819-fc02-4586-a091-6046fa59870f"",
                     ""path"": ""<Keyboard>/b"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard and Mouse"",
                     ""action"": ""GravityDev"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7774f64f-cefc-41cc-84e1-b3f377600183"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Manettes"",
+                    ""action"": ""GravityDev"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""77832b29-120d-4bf4-b563-2295deda947c"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Manettes"",
+                    ""action"": ""Leave"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8b58239e-688b-4ac8-889f-7056424730a0"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and Mouse"",
+                    ""action"": ""Leave"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -462,7 +514,7 @@ public class @Controler : IInputActionCollection, IDisposable
             ""bindingGroup"": ""Manettes"",
             ""devices"": [
                 {
-                    ""devicePath"": ""<DualShockGamepad>"",
+                    ""devicePath"": ""<Gamepad>"",
                     ""isOptional"": false,
                     ""isOR"": false
                 }
@@ -482,6 +534,7 @@ public class @Controler : IInputActionCollection, IDisposable
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_BoostDev = m_Player.FindAction("BoostDev", throwIfNotFound: true);
         m_Player_GravityDev = m_Player.FindAction("GravityDev", throwIfNotFound: true);
+        m_Player_Leave = m_Player.FindAction("Leave", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Pause = m_Menu.FindAction("Pause", throwIfNotFound: true);
@@ -545,6 +598,7 @@ public class @Controler : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_BoostDev;
     private readonly InputAction m_Player_GravityDev;
+    private readonly InputAction m_Player_Leave;
     public struct PlayerActions
     {
         private @Controler m_Wrapper;
@@ -559,6 +613,7 @@ public class @Controler : IInputActionCollection, IDisposable
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @BoostDev => m_Wrapper.m_Player_BoostDev;
         public InputAction @GravityDev => m_Wrapper.m_Player_GravityDev;
+        public InputAction @Leave => m_Wrapper.m_Player_Leave;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -598,6 +653,9 @@ public class @Controler : IInputActionCollection, IDisposable
                 @GravityDev.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGravityDev;
                 @GravityDev.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGravityDev;
                 @GravityDev.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGravityDev;
+                @Leave.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeave;
+                @Leave.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeave;
+                @Leave.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeave;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -632,6 +690,9 @@ public class @Controler : IInputActionCollection, IDisposable
                 @GravityDev.started += instance.OnGravityDev;
                 @GravityDev.performed += instance.OnGravityDev;
                 @GravityDev.canceled += instance.OnGravityDev;
+                @Leave.started += instance.OnLeave;
+                @Leave.performed += instance.OnLeave;
+                @Leave.canceled += instance.OnLeave;
             }
         }
     }
@@ -716,6 +777,7 @@ public class @Controler : IInputActionCollection, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnBoostDev(InputAction.CallbackContext context);
         void OnGravityDev(InputAction.CallbackContext context);
+        void OnLeave(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {

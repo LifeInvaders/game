@@ -1,6 +1,7 @@
 ﻿using People.Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class demoEvent : MonoBehaviour
 {
@@ -38,6 +39,11 @@ public class demoEvent : MonoBehaviour
     public void OnGravityDev()
     {
         rb.useGravity = !rb.useGravity;
+    }
+
+    public void OnLeave()
+    {
+        SceneManager.LoadScene("Scenes/PhotonScene");
     }
     
 }
