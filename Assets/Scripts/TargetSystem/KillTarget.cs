@@ -35,7 +35,8 @@ namespace TargetSystem
             Debug.Log($"killed {target.name}");
             if (target.CompareTag("NPC"))
             {
-                target.GetComponent<WalkingNPC>().enabled = false;
+                Destroy(target.GetComponent<WalkingNPC>());
+                // target.GetComponent<WalkingNPC>().enabled = false;
                 target.GetComponent<NavMeshAgent>().isStopped = true;
             }
             target.GetComponent<Animator>().Play("brutal death");

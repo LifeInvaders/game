@@ -21,7 +21,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_C902C618:
+<<<<<<< Updated upstream
         m_Texture: {fileID: 2800000, guid: 6fa6e3a289a54da4387f58e1eb847ef8, type: 3}
+=======
+        m_Texture: {fileID: 2800000, guid: 78af1218c051a244488fa7ef5f8c2b07, type: 3}
+>>>>>>> Stashed changes
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
