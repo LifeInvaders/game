@@ -10,6 +10,6 @@ public class ResetDemoScene : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
-            SceneManager.LoadScene("soutenance");
+            SceneManager.LoadScene("test3");
     }
 }
