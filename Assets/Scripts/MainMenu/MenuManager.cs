@@ -10,7 +10,6 @@ using Random = System.Random;
 public class MenuManager : MonoBehaviourPunCallbacks
 {
     [SerializeField] private List<GameObject> menus = new List<GameObject>();
-    [SerializeField] private Texture2D buttonTexture;
 
     // Start is called before the first frame update
     void Start()
@@ -53,7 +52,7 @@ public class MenuManager : MonoBehaviourPunCallbacks
 
     public void SwitchMenu(int index)
     {
-        for (int i = 0; i < menus.Count; i++) 
+        for (int i = 0; i < menus.Count; i++)
             menus[i].SetActive(i==index);
     }
 

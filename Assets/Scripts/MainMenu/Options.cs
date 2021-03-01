@@ -11,8 +11,7 @@ public class Options : MonoBehaviour
 
     void Start()
     {
-        float volume;
-        soundSystem.GetFloat("volume",out volume);
+        soundSystem.GetFloat("volume",out var volume);
         volumeSlider.value = volume;
         qualityDropdown.value = QualitySettings.GetQualityLevel();
         fullscreenToggle.isOn = Screen.fullScreen;

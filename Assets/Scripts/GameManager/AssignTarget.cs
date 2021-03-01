@@ -15,21 +15,14 @@ public class AssignTarget : MonoBehaviourPunCallbacks
     [PunRPC]
     private void ChangeTarget(Photon.Realtime.Player target)
     {
-        Debug.Log("Function called successfully");
-        Debug.Log("Your target is: " + target.NickName);
         foreach (TextMeshPro tmp in FindObjectsOfType<TextMeshPro>())
             tmp.color = Color.white;
-        Debug.Log("Finding target GameObject...");
         foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))  //Test every Player character for correct target
         {
             if (player.GetPhotonView().Owner.Equals(target))  //Test if character belongs to target
             {
-                Debug.Log("Player found!");
                 igs.target = player;  //Set target in InGameStats
-                Debug.Log("Target successfully set!");
-                Debug.Log("Changing name color...");
                 player.GetComponentInChildren<TextMeshPro>().color = Color.red; //For testing
-                Debug.Log("Done!");
                 //Display a UI message!!!
                 return;
             }
@@ -63,7 +56,7 @@ public class AssignTarget : MonoBehaviourPunCallbacks
         }
 
         foreach (KeyValuePair<Photon.Realtime.Player, Photon.Realtime.Player> kvp in targetList)
-            photonView.RPC("ChangeTarget", kvp.Key, kvp.Value);
+            photonView.RPC(nameof(ChangeTarget), kvp.Key, kvp.Value);
         WriteDictToFile(targetList); //For testing
     }
 
