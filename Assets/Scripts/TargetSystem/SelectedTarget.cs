@@ -8,7 +8,7 @@ namespace TargetSystem
     {
         private GameObject _selectedTarget;
         private Outline _outlineTarget;
-        private bool _isselectedtarget = false;
+        private bool _isselectedtarget;
         private RaycastHit _raycastHit;
 
         [SerializeField] private Camera camera;

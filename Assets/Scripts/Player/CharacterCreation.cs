@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.UIElements;
 
 namespace Player
 {
@@ -70,10 +72,18 @@ namespace Player
             PlayerDatabase.Instance.Variant = _tempVariant;
             PlayerDatabase.Instance.SkinColor = _tempSkinColor;
         }
+
+        void Update()
+        {
+            if (Input.GetMouseButton(0))
+                transform.parent.Rotate(0,(_mousePos-Input.mousePosition.x)/3,0); 
+            _mousePos = Input.mousePosition.x;
+        }
         
         private char _tempRank;
         private char _tempGender;
         private char _tempVariant;
         private char _tempSkinColor;
+        private float _mousePos;
     }   
 }

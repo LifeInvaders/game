@@ -32,15 +32,6 @@ namespace People.Player
             _canRotate = state;
         }
 
-        private void Awake()
-        {
-            if (PhotonNetwork.IsConnected && !gameObject.GetPhotonView().IsMine)
-            {
-                gameObject.GetComponent<PlayerInput>().enabled = false;
-                enabled = false;
-            }
-        }
-
         void Start()
         {
             _axis = Vector2.zero;
@@ -48,6 +39,12 @@ namespace People.Player
             _anim = GetComponent<Animator>();
             _capsule = GetComponent<CapsuleCollider>();
             _moveSpeed = walkSpeed;
+            if (PhotonNetwork.IsConnected && !gameObject.GetPhotonView().IsMine)
+            {
+                gameObject.GetComponent<PlayerInput>().enabled = false;
+                _rig.isKinematic = true;
+                enabled = false;
+            }
         }
 
 
@@ -114,7 +111,7 @@ namespace People.Player
                 Move();
         }
     
-        public void OnMouvement(InputValue value)
+        public void OnMovement(InputValue value)
         {
             _axis= value.Get<Vector2>();
        
@@ -125,7 +122,7 @@ namespace People.Player
                 Jump();
         }
 
-        public void OnRunning(InputValue value)
+        public void OnRun(InputValue value)
         {
             _moveSpeed =  value.Get<float>().Equals(1) ? runSpeed : walkSpeed;
         }

@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class LobbySkinSelect : MonoBehaviour
 {
-    void Start()
+    void Awake()
     {
         if (!PhotonNetwork.IsConnected)
         {
