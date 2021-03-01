@@ -21,7 +21,10 @@ public class AssignTarget : MonoBehaviourPunCallbacks
         {
             if (player.GetPhotonView().Owner.Equals(target))  //Test if character belongs to target
             {
+                Debug.Log("Player found!");
                 igs.target = player;  //Set target in InGameStats
+                Debug.Log("Target successfully set!");
+                Debug.Log("Changing name color...");
                 player.GetComponentInChildren<TextMeshPro>().color = Color.red; //For testing
                 //Display a UI message!!!
                 return;
@@ -56,7 +59,7 @@ public class AssignTarget : MonoBehaviourPunCallbacks
         }
 
         foreach (KeyValuePair<Photon.Realtime.Player, Photon.Realtime.Player> kvp in targetList)
-            photonView.RPC(nameof(ChangeTarget), kvp.Key, kvp.Value);
+            photonView.RPC("ChangeTarget", kvp.Key, kvp.Value);
         WriteDictToFile(targetList); //For testing
     }
 
