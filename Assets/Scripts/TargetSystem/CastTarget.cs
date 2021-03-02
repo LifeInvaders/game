@@ -37,6 +37,7 @@ namespace TargetSystem
             _selectedTarget = GetComponent<SelectedTarget>();
 
             _aiming = false;
+            _selected = false;
         }
 
         /// <summary>
@@ -73,6 +74,7 @@ namespace TargetSystem
 
         private void Update()
         {
+            Debug.Log($"aiming : {_aiming} | {_selectedTarget.IsTarget()}");
             if (!_aiming)
             {
                 if (_target != null && !_selectedTarget.IsSelectedTarget(_target))
@@ -80,25 +82,23 @@ namespace TargetSystem
             }
             else
             {
-                bool tata = Physics.Raycast(_camera.transform.position,
+                // bool tata = Physics.Raycast(_camera.transform.position,
+                //     _camera.transform.TransformDirection(Vector3.forward),
+                //     out raycastHit, 30f);
+                // bool test = tata && IsCharacter(raycastHit.transform.gameObject);
+          
+                if (Physics.Raycast(_camera.transform.position,
                     _camera.transform.TransformDirection(Vector3.forward),
-                    out raycastHit, 30f);
-                bool test = tata && IsCharacter(raycastHit.transform.gameObject);
-                Debug.DrawRay(_camera.transform.position, _camera.transform.TransformDirection(Vector3.forward),
-                    Color.red);
-                Debug.Log("debug: " + tata+" "+ test);
-                if (test)
+                    out raycastHit, 30f) && IsCharacter(raycastHit.transform.gameObject))
                 {
-                    Debug.Log("toto");
                     if (!_selectedTarget.IsTarget())
                     {
-                        Debug.Log("tota");
                         Outlining(raycastHit.transform.Find("Character").GetComponent<Outline>());
                     }
 
                     if (_selected)
                     {
-                        Debug.Log("select");
+                        Debug.Log($"select {_target.name}");
                         _selectedTarget.UpdateSelectedTarget(_target, _outlinecam);
                         _selected = false;
                     }
@@ -108,9 +108,8 @@ namespace TargetSystem
             }
         }
 
-        public void OnAim()
+        public void OnAim(InputValue value)
         {
-            Debug.Log(!_aiming);
             _aiming = !_aiming;
         }
 

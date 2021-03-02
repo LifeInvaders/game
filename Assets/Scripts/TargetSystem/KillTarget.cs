@@ -38,6 +38,7 @@ namespace TargetSystem
                 Destroy(target.GetComponent<WalkingNPC>());
                 // target.GetComponent<WalkingNPC>().enabled = false;
                 target.GetComponent<NavMeshAgent>().isStopped = true;
+                target.GetComponentInParent<NpcEvent>().GenerateNewNpc();
             }
             target.GetComponent<Animator>().Play("brutal death");
 
