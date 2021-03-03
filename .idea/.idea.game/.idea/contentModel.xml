@@ -749,6 +749,7 @@
             <e p="Human.cs" t="Include" />
             <e p="NPC" t="Include">
               <e p="GroupNPC.cs" t="Include" />
+              <e p="NpcEvent.cs" t="Include" />
               <e p="Patrol.cs" t="Include" />
               <e p="RandomNPC.cs" t="Include" />
               <e p="Talking.cs" t="Include" />
