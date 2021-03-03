@@ -2,7 +2,7 @@
 name: New power boost
 about: New power boost feature request
 title: "[Gamecore] (Power Boost) - "
-labels: Gamecore, enhancement
+labels: Gamecore, enhancement, Power Boost
 assignees: Harsane, Renaud-Dov
 
 ---
