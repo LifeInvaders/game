@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -402,6 +402,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 93661275}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &149787567 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5889368337999237999, guid: 9018a25dd8541464ca84208402a8fa5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 344139020}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &149787568
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149787567}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.37
+  m_Height: 2.1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!4 &168878086 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2091249927837793991, guid: c0c9868d6cf13314fa9a1ac4a71ed711,
@@ -2741,6 +2761,12 @@ PrefabInstance:
       propertyPath: meshes.Array.data[7]
       value: 
       objectReference: {fileID: 4300040, guid: 409520c9226982345a49c9803624f208, type: 3}
+    - target: {fileID: 5889368337999237999, guid: 9018a25dd8541464ca84208402a8fa5a,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000,
+        type: 0}
     - target: {fileID: 5889368337999237999, guid: 9018a25dd8541464ca84208402a8fa5a,
         type: 3}
       propertyPath: m_Name
