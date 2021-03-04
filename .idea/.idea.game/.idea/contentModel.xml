@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Projects\Life Invaders\game" t="IncludeRecursive">
+    <e p="C:\Users\dovde\AppData\local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\dovde\AppData\local\JetBrains\Rider2020.3\resharper-host\local\Transient\Rider\v203\SolutionCaches\_game.-1182146299.00" t="ExcludeRecursive" />
+    <e p="C:\Users\dovde\RiderProjects\game" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -768,6 +770,7 @@
             <e p="Human.cs" t="Include" />
             <e p="NPC" t="Include">
               <e p="GroupNPC.cs" t="Include" />
+              <e p="NpcEvent.cs" t="Include" />
               <e p="Patrol.cs" t="Include" />
               <e p="RandomNPC.cs" t="Include" />
               <e p="Talking.cs" t="Include" />
@@ -975,7 +978,5 @@
       <e p="Unity.Searcher.EditorSamples.csproj" t="IncludeRecursive" />
       <e p="Unity.Searcher.ScriptsSamples.csproj" t="IncludeRecursive" />
     </e>
-    <e p="C:\Users\mrhar\AppData\local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\mrhar\AppData\local\JetBrains\Rider2020.3\resharper-host\local\Transient\Rider\v203\SolutionCaches\_game.-2096735507.00" t="ExcludeRecursive" />
   </component>
 </project>

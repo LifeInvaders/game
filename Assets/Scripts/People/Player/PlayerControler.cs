@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.InputSystem;
 using Photon.Pun;
 
@@ -103,9 +104,28 @@ namespace People.Player
         private void Jump()
         {
             _rig.AddForce(new Vector3(0, jumpspeed, 0), ForceMode.Impulse);
+            _anim.SetBool("jump", true);
+            StartCoroutine(JumpAnim());
         }
 
-        void Update()
+        private IEnumerator JumpAnim()
+        {
+            yield return new WaitForSeconds(1);
+            _anim.SetBool("jump", false);
+            float time = 0;
+            while (!IsGrounded())
+            {
+                _canMove = false;
+                time += Time.deltaTime;
+                yield return new WaitForEndOfFrame();
+                if (time > 3)
+                    break;
+            }
+
+            _canMove = true;
+        }
+
+        void FixedUpdate()
         {
             if (_canMove)
                 Move();
