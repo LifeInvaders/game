@@ -14,6 +14,7 @@
       <Path>Library/PackageCache/com.unity.recorder@2.5.4</Path>
       <Path>Library/PackageCache/com.unity.render-pipelines.core@7.3.1</Path>
       <Path>Library/PackageCache/com.unity.render-pipelines.universal@7.3.1</Path>
+      <Path>Library/PackageCache/com.unity.searcher@4.0.9</Path>
       <Path>Library/PackageCache/com.unity.shadergraph@7.3.1</Path>
       <Path>Library/PackageCache/com.unity.test-framework@1.1.19</Path>
       <Path>Library/PackageCache/com.unity.textmeshpro@2.1.4</Path>
@@ -26,7 +27,6 @@
       <Path>.github</Path>
       <Path>.idea</Path>
       <Path>Library</Path>
-      <Path>Temp</Path>
       <Path>UIElementsSchema</Path>
       <Path>obj</Path>
     </explicitExcludes>

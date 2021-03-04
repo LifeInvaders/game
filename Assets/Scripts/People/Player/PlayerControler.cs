@@ -126,5 +126,8 @@ namespace People.Player
         {
             _moveSpeed =  value.Get<float>().Equals(1) ? runSpeed : walkSpeed;
         }
+
+        public void OnLeave() => PhotonNetwork.LeaveRoom();
+
     }
 }

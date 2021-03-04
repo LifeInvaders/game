@@ -5,8 +5,9 @@
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="Controler.cs" t="Include" />
-        <e p="demoEvent.cs" t="Include" />
+        <e p="Controls" t="Include">
+          <e p="Controler.cs" t="Include" />
+        </e>
         <e p="Joystick Pack" t="Include">
           <e p="Examples" t="Include">
             <e p="JoystickPlayerExample.cs" t="Include" />
@@ -658,7 +659,6 @@
             <e p="Outline.cs" t="Include" />
           </e>
         </e>
-        <e p="ResetDemoScene.cs" t="Include" />
         <e p="Samples" t="Include">
           <e p="Cinemachine" t="Include">
             <e p="2.6.3" t="Include">
@@ -713,20 +713,41 @@
               </e>
             </e>
           </e>
+          <e p="Searcher" t="Include">
+            <e p="4.0.9" t="Include">
+              <e p="Searchers Samples" t="Include">
+                <e p="Editor" t="Include">
+                  <e p="SearcherExampleComponentEditor.cs" t="Include" />
+                  <e p="SearcherExampleHostWindow.cs" t="Include" />
+                  <e p="SearcherExampleWindow.cs" t="Include" />
+                  <e p="Unity.Searcher.EditorSamples.asmdef" t="Include" />
+                </e>
+                <e p="Scripts" t="Include">
+                  <e p="SearcherExampleComponent.cs" t="Include" />
+                  <e p="Unity.Searcher.ScriptsSamples.asmdef" t="Include" />
+                </e>
+              </e>
+            </e>
+          </e>
         </e>
         <e p="Scripts" t="Include">
-          <e p="Editor" t="Include">
-            <e p="Tools.cs" t="Include" />
-          </e>
           <e p="GameManager" t="Include">
             <e p="AssignTarget.cs" t="Include" />
             <e p="InGameStats.cs" t="Include" />
           </e>
+          <e p="Lobby" t="Include">
+            <e p="LobbyManager.cs" t="Include" />
+            <e p="LobbySkinSelect.cs" t="Include" />
+            <e p="LobbyTimer.cs" t="Include" />
+            <e p="NicknameAbovePlayer.cs" t="Include" />
+          </e>
           <e p="MainMenu" t="Include">
+            <e p="CharacterCreation.cs" t="Include" />
             <e p="MenuManager.cs" t="Include" />
             <e p="Options.cs" t="Include" />
             <e p="RebindButton.cs" t="Include" />
             <e p="RebindMenu.cs" t="Include" />
+            <e p="ServerManager.cs" t="Include" />
           </e>
           <e p="Objects" t="Include">
             <e p="Banc.cs" t="Include" />
@@ -763,17 +784,10 @@
             <e p="InstantiateInLobby.cs" t="Include" />
             <e p="JoinRandomGame.cs" t="Include" />
             <e p="Launcher.cs" t="Include" />
-            <e p="LobbyManager.cs" t="Include" />
-            <e p="NicknameAbovePlayer.cs" t="Include" />
             <e p="PlayerInputFields.cs" t="Include" />
-            <e p="ServerManager.cs" t="Include" />
           </e>
           <e p="Player" t="Include">
-            <e p="CharacterCreation.cs" t="Include" />
-            <e p="LobbySkinSelect.cs" t="Include" />
-            <e p="MeleeAttackSystem.cs" t="Include" />
             <e p="PlayerDatabase.cs" t="Include" />
-            <e p="RandomChar.cs" t="Include" />
           </e>
           <e p="RadarSystem" t="Include">
             <e p="Radar.cs" t="Include" />
@@ -843,17 +857,26 @@
               </e>
             </e>
           </e>
-          <e p="SceneLoader.cs" t="Include" />
-          <e p="StagingRoom.cs" t="Include" />
+          <e p="StagingRoom" t="Include">
+            <e p="StagingRoom.cs" t="Include" />
+          </e>
           <e p="TargetSystem" t="Include">
             <e p="CastTarget.cs" t="Include" />
             <e p="KillEvents.cs" t="Include" />
             <e p="KillTarget.cs" t="Include" />
             <e p="selectedTarget.cs" t="Include" />
           </e>
+          <e p="UI Scripts" t="Include">
+            <e p="SceneLoader.cs" t="Include" />
+          </e>
           <e p="Utils" t="Include">
             <e p="DebugBuild.cs" t="Include" />
+            <e p="demoEvent.cs" t="Include" />
+            <e p="Editor" t="Include">
+              <e p="Tools.cs" t="Include" />
+            </e>
             <e p="FreeCam.cs" t="Include" />
+            <e p="ResetDemoScene.cs" t="Include" />
           </e>
         </e>
         <e p="Shaders" t="Include">
@@ -949,6 +972,8 @@
       <e p="PhotonUnityNetworking.Utilities.Culling.Editor.csproj" t="IncludeRecursive" />
       <e p="PhotonUnityNetworking.Utilities.PhotonPlayer.Editor.csproj" t="IncludeRecursive" />
       <e p="Temp\bin" t="ExcludeRecursive" />
+      <e p="Unity.Searcher.EditorSamples.csproj" t="IncludeRecursive" />
+      <e p="Unity.Searcher.ScriptsSamples.csproj" t="IncludeRecursive" />
     </e>
     <e p="C:\Users\mrhar\AppData\local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
     <e p="C:\Users\mrhar\AppData\local\JetBrains\Rider2020.3\resharper-host\local\Transient\Rider\v203\SolutionCaches\_game.-2096735507.00" t="ExcludeRecursive" />

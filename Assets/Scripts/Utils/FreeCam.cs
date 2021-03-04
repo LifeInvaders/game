@@ -55,7 +55,7 @@ public class FreeCam : MonoBehaviour
         var fastMode = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
         var movementSpeed = fastMode ? this.fastMovementSpeed : this.movementSpeed;
 
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.LeftArrow))
         {
             transform.position = transform.position + (-transform.right * movementSpeed * Time.deltaTime);
         }
@@ -65,7 +65,7 @@ public class FreeCam : MonoBehaviour
             transform.position = transform.position + (transform.right * movementSpeed * Time.deltaTime);
         }
 
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.UpArrow))
         {
             transform.position = transform.position + (transform.forward * movementSpeed * Time.deltaTime);
         }
@@ -75,7 +75,7 @@ public class FreeCam : MonoBehaviour
             transform.position = transform.position + (-transform.forward * movementSpeed * Time.deltaTime);
         }
 
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(KeyCode.A))
         {
             transform.position = transform.position + (transform.up * movementSpeed * Time.deltaTime);
         }
@@ -119,7 +119,7 @@ public class FreeCam : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
-            SceneManager.LoadScene("PhotonScene");
+            SceneManager.LoadScene("MainMenu");
     }
 
     void OnDisable()
