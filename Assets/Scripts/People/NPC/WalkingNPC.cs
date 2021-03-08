@@ -9,20 +9,26 @@ namespace People
     {
         private Animator anim;
         private NavMeshAgent agent;
-        public GameObject iaPoints;
-        private Transform[] positions;
+        
+        private GameObject iaPoints;
+        
+        public Transform[] positions;
+        
         public bool RandomPosition = false;
         private int pos = 0;
         private bool shoved = false;
-        void Start()
+        void Awake()
         {
-            positions = iaPoints.GetComponentsInChildren<Transform>();
+            // positions = iaPoints.GetComponentsInChildren<Transform>();
             agent = GetComponent<NavMeshAgent>();
             // agent.autoBraking = false;
             anim = GetComponent<Animator>();
 
             anim.SetBool("walk", true);
         }
+
+        public void SetIAPoints(Transform[] points) => positions = points;
+
         private void OnCollisionEnter(Collision other)
         {
             if (other.gameObject.CompareTag("Player") && other.gameObject.GetComponent<PlayerControler>().Running() && !shoved)
