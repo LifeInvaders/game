@@ -4,7 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Echelle
+  - Bullet
+  - NPC
+  - GroupNPC
   layers:
   - Default
   - TransparentFX
@@ -14,8 +16,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Players
+  - NPCs
   - 
   - 
   - 

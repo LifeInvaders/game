@@ -47,6 +47,8 @@ namespace Com.MyCompany.MyGame
         {
             Debug.Log("PUN Basics Tutorial/Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.");
             Debug.Log("Max player is " + maxPlayersPerRoom);
+            Debug.Log("We load the 'Room for 1' ");
+            PhotonNetwork.LoadLevel("Room for 1");
         }
 
         
@@ -62,8 +64,7 @@ namespace Com.MyCompany.MyGame
 
 
         #endregion
-
-
+        
         #region MonoBehaviour CallBacks
 
 
@@ -98,9 +99,7 @@ namespace Com.MyCompany.MyGame
         }
 */
         #endregion
-
         
-
         #region Public Methods
 
 
@@ -143,6 +142,8 @@ namespace Com.MyCompany.MyGame
 
 
     #endregion
+    
+    
 
 
     }
