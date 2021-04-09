@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using Random = System.Random;
 
 namespace Objects.Powers
 {
@@ -7,29 +8,36 @@ namespace Objects.Powers
     {
         protected float TimeBeforeUse;
         protected int _time;
-
-        /*public int GetTime()
-        {
-            return _time;
-        }
-    
-        public int GetTimeLeft()
-        {
-            return TimeBeforeUse;
-        }*/
-
+        protected Random _random;
+        
+        
+        /// <summary>
+        /// Use this function if the player needs to validate certain parameters in order to use the Power
+        /// </summary>
+        /// <returns></returns>
+        protected abstract bool IsValid();
+        /// <summary>
+        ///  Method called when the power is used
+        /// </summary>
         protected abstract void Action();
 
-        public void Update()
+        public void FixedUpdate()
         {
-            if (Input.GetButtonDown("Action") && TimeBeforeUse == 0)
+            if (TimeBeforeUse > 0)
+            {
+                TimeBeforeUse -= Time.deltaTime;
+                Debug.Log(TimeBeforeUse);
+            }
+            else if (TimeBeforeUse < 0)
+                TimeBeforeUse = 0;
+        }
+
+        public void OnPower()
+        {
+            if (TimeBeforeUse == 0 && IsValid())
             {
                 TimeBeforeUse = _time;
                 Action();
-            }
-            else if (TimeBeforeUse > 0)
-            {
-                TimeBeforeUse -= Time.deltaTime;
             }
         }
     }
