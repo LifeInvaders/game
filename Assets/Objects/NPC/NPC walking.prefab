@@ -19,6 +19,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-1808758720465303860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5889368337999237999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dc0967d352af924c982935e3ee86bc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {x: 0, y: 0, z: 0}
+  color: {r: 1, g: 0, b: 0, a: 1}
 --- !u!195 &1105454687269520807
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -28,7 +42,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 5889368337999237999}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.2
   m_Speed: 2
   m_Acceleration: 7
   avoidancePriority: 50
@@ -41,6 +55,18 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &7453445902247685195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5889368337999237999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c430a415dcd77c4c8e2cf442bc30ec4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8880837460794633292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53,8 +79,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a879eaa2251878b48b6205ba6a5c894c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iaPoints: {fileID: 0}
-  RandomPosition: 0
+  Status: 1
+  positions:
+  - {fileID: 0}
+  RandomPosition: 1
+  ParentPosition: {x: -6.41, y: 4.6077657, z: 102.16}
+  SearchRadius: 15
 --- !u!1001 &6391671937588929662
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65,7 +95,7 @@ PrefabInstance:
     - target: {fileID: 651045640812541713, guid: 614022e0a32902244ab9421d05e46eed,
         type: 3}
       propertyPath: m_Name
-      value: NPC walking Variant
+      value: NPC walking
       objectReference: {fileID: 0}
     - target: {fileID: 651045640812709251, guid: 614022e0a32902244ab9421d05e46eed,
         type: 3}
@@ -135,6 +165,11 @@ PrefabInstance:
     - target: {fileID: 651045640812733131, guid: 614022e0a32902244ab9421d05e46eed,
         type: 3}
       propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1642381290634515536, guid: 614022e0a32902244ab9421d05e46eed,
+        type: 3}
+      propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3755229173984452762, guid: 614022e0a32902244ab9421d05e46eed,
