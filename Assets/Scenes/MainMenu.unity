@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -4279,7 +4279,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &871888943
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6661,7 +6661,7 @@ MonoBehaviour:
   nickName: {fileID: 1303317635}
   chooseMap: 0
   isPrivate: 0
-  maxPlayers: 4
+  maxPlayers: 8
   roomName: bruh
 --- !u!4 &1286285296
 Transform:
@@ -9656,7 +9656,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -333.5999, y: -18}
+  m_AnchoredPosition: {x: -333.59995, y: -18}
   m_SizeDelta: {x: -667.2442, y: -179.23407}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1947886102

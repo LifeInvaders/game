@@ -35,11 +35,19 @@ public class LobbyTimer : MonoBehaviourPunCallbacks
     {
         if (_startTimer) UpdateTimer();
         if (_endTime > 0 && PhotonNetwork.Time >= _endTime && PhotonNetwork.IsMasterClient)
-            photonView.RPC(nameof(TimerEnd),RpcTarget.AllViaServer);
+        {
+            TimerEnd();
+            enabled = false;
+        }
     }
 
-    [PunRPC]
-    public void TimerEnd() => Debug.Log("Timer has ended!");
+
+    public void TimerEnd()
+    {
+        Debug.Log("Timer ended. Loading map...");
+        PhotonNetwork.CurrentRoom.IsOpen = false;
+        PhotonNetwork.LoadLevel("Map");
+    }
 
     public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer)
     {

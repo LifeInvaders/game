@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Resources/Lobby.unity
     guid: 0e73f8b14e4b2bf44a02ef4622a6eaa1
   - enabled: 1
+    path: Assets/Resources/Map.unity
+    guid: 5834430e9f24e404d958abc030c17d63
+  - enabled: 1
     path: Assets/Scenes/soutenance.unity
     guid: c01ddd9391a5c9c44bf271ff8ca5dcd2
   - enabled: 1

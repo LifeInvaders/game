@@ -34,7 +34,7 @@ public class AssignTarget : MonoBehaviourPunCallbacks
     
     private Random _random = new Random();
 
-    private void TargetAssigner()
+    public void TargetAssigner()
     {
         var targetList = new Dictionary<Photon.Realtime.Player, Photon.Realtime.Player>();
         while (targetList.Count == 0)
