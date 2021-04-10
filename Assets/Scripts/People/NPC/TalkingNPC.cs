@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Talking : MonoBehaviour
+public class TalkingNPC : MonoBehaviour
 {
     private Animator anim;
 
@@ -11,7 +11,7 @@ public class Talking : MonoBehaviour
     private IEnumerator _enumerator;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         // _enumerator = ;
         anim = GetComponent<Animator>();
@@ -25,22 +25,19 @@ public class Talking : MonoBehaviour
             StartCoroutine(ExampleCoroutine());
             // Debug.Log("Au revoir"); 
         }
-        
-        
     }
 
     IEnumerator ExampleCoroutine()
     {
         animationOn = true;
         // Debug.Log("Coucou");
-        anim.SetBool("talk",false);
-        
+        anim.SetBool("talk", false);
+
         // anim.Play("talking");
 
         yield return new WaitForSeconds(Random.Range(15, 25));
-        anim.SetBool("talk",true);
-        
-        animationOn = false;
+        anim.SetBool("talk", true);
 
+        animationOn = false;
     }
 }

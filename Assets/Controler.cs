@@ -83,25 +83,9 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""BoostDev"",
+                    ""name"": ""Power"",
                     ""type"": ""Button"",
-                    ""id"": ""067e7fe4-ec54-4a23-a952-34d2955ba51e"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""GravityDev"",
-                    ""type"": ""Button"",
-                    ""id"": ""f49c49af-90df-4ba7-a621-5a9e78138fda"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Leave"",
-                    ""type"": ""Button"",
-                    ""id"": ""62f2ce3b-a597-49fb-be80-4a4d2e8f59a9"",
+                    ""id"": ""22dde526-8661-42b4-88a0-b48ac7a94853"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -352,56 +336,12 @@ public class @Controler : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""1eb8a5cc-43c9-46c0-bd91-6ab952ac057d"",
-                    ""path"": ""<Keyboard>/v"",
+                    ""id"": ""9efabd9f-fce6-49bc-8d95-499c4b56612d"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard and Mouse"",
-                    ""action"": ""BoostDev"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""9d70618a-e09d-423d-bf8c-f1c6f055d8a3"",
-                    ""path"": ""<Gamepad>/dpad/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Manettes"",
-                    ""action"": ""BoostDev"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b5584819-fc02-4586-a091-6046fa59870f"",
-                    ""path"": ""<Keyboard>/b"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard and Mouse"",
-                    ""action"": ""GravityDev"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""7774f64f-cefc-41cc-84e1-b3f377600183"",
-                    ""path"": ""<Gamepad>/dpad/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Manettes"",
-                    ""action"": ""GravityDev"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""77832b29-120d-4bf4-b563-2295deda947c"",
-                    ""path"": ""<Gamepad>/start"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Manettes"",
-                    ""action"": ""Leave"",
+                    ""action"": ""Power"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -521,9 +461,7 @@ public class @Controler : IInputActionCollection, IDisposable
         m_Player_Aim = m_Player.FindAction("Aim", throwIfNotFound: true);
         m_Player_Select = m_Player.FindAction("Select", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
-        m_Player_BoostDev = m_Player.FindAction("BoostDev", throwIfNotFound: true);
-        m_Player_GravityDev = m_Player.FindAction("GravityDev", throwIfNotFound: true);
-        m_Player_Leave = m_Player.FindAction("Leave", throwIfNotFound: true);
+        m_Player_Power = m_Player.FindAction("Power", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Pause = m_Menu.FindAction("Pause", throwIfNotFound: true);
@@ -585,9 +523,7 @@ public class @Controler : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Aim;
     private readonly InputAction m_Player_Select;
     private readonly InputAction m_Player_Attack;
-    private readonly InputAction m_Player_BoostDev;
-    private readonly InputAction m_Player_GravityDev;
-    private readonly InputAction m_Player_Leave;
+    private readonly InputAction m_Player_Power;
     public struct PlayerActions
     {
         private @Controler m_Wrapper;
@@ -600,9 +536,7 @@ public class @Controler : IInputActionCollection, IDisposable
         public InputAction @Aim => m_Wrapper.m_Player_Aim;
         public InputAction @Select => m_Wrapper.m_Player_Select;
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
-        public InputAction @BoostDev => m_Wrapper.m_Player_BoostDev;
-        public InputAction @GravityDev => m_Wrapper.m_Player_GravityDev;
-        public InputAction @Leave => m_Wrapper.m_Player_Leave;
+        public InputAction @Power => m_Wrapper.m_Player_Power;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -636,15 +570,9 @@ public class @Controler : IInputActionCollection, IDisposable
                 @Attack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
                 @Attack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
                 @Attack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
-                @BoostDev.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBoostDev;
-                @BoostDev.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBoostDev;
-                @BoostDev.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBoostDev;
-                @GravityDev.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGravityDev;
-                @GravityDev.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGravityDev;
-                @GravityDev.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGravityDev;
-                @Leave.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeave;
-                @Leave.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeave;
-                @Leave.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeave;
+                @Power.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPower;
+                @Power.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPower;
+                @Power.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPower;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -673,15 +601,9 @@ public class @Controler : IInputActionCollection, IDisposable
                 @Attack.started += instance.OnAttack;
                 @Attack.performed += instance.OnAttack;
                 @Attack.canceled += instance.OnAttack;
-                @BoostDev.started += instance.OnBoostDev;
-                @BoostDev.performed += instance.OnBoostDev;
-                @BoostDev.canceled += instance.OnBoostDev;
-                @GravityDev.started += instance.OnGravityDev;
-                @GravityDev.performed += instance.OnGravityDev;
-                @GravityDev.canceled += instance.OnGravityDev;
-                @Leave.started += instance.OnLeave;
-                @Leave.performed += instance.OnLeave;
-                @Leave.canceled += instance.OnLeave;
+                @Power.started += instance.OnPower;
+                @Power.performed += instance.OnPower;
+                @Power.canceled += instance.OnPower;
             }
         }
     }
@@ -764,9 +686,7 @@ public class @Controler : IInputActionCollection, IDisposable
         void OnAim(InputAction.CallbackContext context);
         void OnSelect(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
-        void OnBoostDev(InputAction.CallbackContext context);
-        void OnGravityDev(InputAction.CallbackContext context);
-        void OnLeave(InputAction.CallbackContext context);
+        void OnPower(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {

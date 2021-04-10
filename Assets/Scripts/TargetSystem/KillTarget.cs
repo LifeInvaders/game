@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using People;
+using People.NPC;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Photon.Pun;
@@ -38,7 +39,7 @@ namespace TargetSystem
                 Destroy(target.GetComponent<WalkingNPC>());
                 // target.GetComponent<WalkingNPC>().enabled = false;
                 target.GetComponent<NavMeshAgent>().isStopped = true;
-                target.GetComponentInParent<NpcEvent>().GenerateNewNpc();
+                target.GetComponentInParent<NpcZone>().GenerateNewNpc();
             }
             target.GetComponent<Animator>().Play("brutal death");
 

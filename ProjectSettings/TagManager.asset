@@ -7,6 +7,8 @@ TagManager:
   - Bullet
   - NPC
   - GroupNPC
+  - Banc
+  - Skin
   layers:
   - Default
   - TransparentFX
@@ -16,9 +18,9 @@ TagManager:
   - UI
   - 
   - 
-  - Players
-  - NPCs
-  - 
+  - Player
+  - NPC
+  - NPC Event
   - 
   - 
   - 
