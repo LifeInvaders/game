@@ -9,18 +9,19 @@ namespace TargetSystem
 {
     public class CastTarget : MonoBehaviour
     {
-        public RaycastHit raycastHit;
+        private RaycastHit _raycastHit;
         [SerializeField] private Camera _camera;
 
-        private Outline _outlinecam;
-        private GameObject _target;
+        private Outline _outlineCam;
+        public GameObject _target;
 
-        private bool _isOutlinecamNotNull;
         private SelectedTarget _selectedTarget;
 
-        private bool _aiming;
+        public bool _aiming;
         private bool _selected;
-
+        
+        public bool _isTargetNull;
+        
         /// <summary>
         /// Set Aiming bool
         /// </summary>
@@ -46,76 +47,48 @@ namespace TargetSystem
         /// <param name="playerOutline"></param>
         private void Outlining(Outline playerOutline)
         {
-            if (_target != null && _target.name != raycastHit.transform.gameObject.name)
-            {
-                // Not the same player
-                _outlinecam.enabled = false;
-                _target = raycastHit.transform.gameObject;
-                _outlinecam = playerOutline;
-                _outlinecam.enabled = true;
-            }
-            else
-            {
-                _outlinecam = playerOutline;
-                _target = raycastHit.transform.gameObject;
-                _outlinecam.enabled = true;
-            }
+            _outlineCam = playerOutline;
+            _target = _raycastHit.transform.gameObject;
+            _outlineCam.enabled = true;
         }
 
         private void RemoveCamTarget()
         {
-            _outlinecam.enabled = false;
-            _outlinecam = null;
-            _target = null;
+            if (!_isTargetNull)
+            {
+                _outlineCam.enabled = false;
+                _outlineCam = null;
+                _target = null;
+            }
         }
 
-        private bool IsCharacter(GameObject gameObject) =>
-            gameObject.CompareTag("NPC") || gameObject.CompareTag("Player");
-
-        private void Update()
+        private void FixedUpdate()
         {
-            Debug.Log($"aiming : {_aiming} | {_selectedTarget.IsTarget()}");
-            if (!_aiming)
+            _isTargetNull = _target == null;
+            
+            if (_aiming && Physics.Raycast(_camera.transform.position,
+                _camera.transform.TransformDirection(Vector3.forward),
+                out _raycastHit, 30f, 768)) // si on vise un personnage
             {
-                if (_target != null && !_selectedTarget.IsSelectedTarget(_target))
-                    RemoveCamTarget();
-            }
-            else
-            {
-                // bool tata = Physics.Raycast(_camera.transform.position,
-                //     _camera.transform.TransformDirection(Vector3.forward),
-                //     out raycastHit, 30f);
-                // bool test = tata && IsCharacter(raycastHit.transform.gameObject);
-          
-                if (Physics.Raycast(_camera.transform.position,
-                    _camera.transform.TransformDirection(Vector3.forward),
-                    out raycastHit, 30f) && IsCharacter(raycastHit.transform.gameObject))
+                if (_isTargetNull || (_selectedTarget.IsSelectedTarget(_raycastHit.transform.gameObject) && _raycastHit.transform.gameObject.GetInstanceID() != _target.GetInstanceID()))
                 {
-                    if (!_selectedTarget.IsTarget())
-                    {
-                        Outlining(raycastHit.transform.Find("Character").GetComponent<Outline>());
-                    }
-
-                    if (_selected)
-                    {
-                        Debug.Log($"select {_target.name}");
-                        _selectedTarget.UpdateSelectedTarget(_target, _outlinecam);
-                        _selected = false;
-                    }
-                }
-                else if (_target != null && !_selectedTarget.IsSelectedTarget(_target))
                     RemoveCamTarget();
+                    Outlining(_raycastHit.transform.GetComponentInChildren<Outline>());
+                }
+
+                if (_selected)
+                {
+                    _selectedTarget.UpdateSelectedTarget(_target, _outlineCam);
+                    _selected = false;
+                    _aiming = false;
+                }
             }
+            else if (!_isTargetNull && !_selectedTarget.IsSelectedTarget(_target))
+                RemoveCamTarget();
         }
 
-        public void OnAim(InputValue value)
-        {
-            _aiming = !_aiming;
-        }
+        public void OnAim() => _aiming = !_aiming;
 
-        public void OnSelect(InputValue value)
-        {
-            _selected = value.isPressed && _aiming;
-        }
+        public void OnSelect(InputValue value) => _selected = value.isPressed && _aiming;
     }
 }
