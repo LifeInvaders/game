@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEditor;
+using UnityEngine.Serialization;
 
 namespace People.NPC
 {
@@ -16,6 +17,7 @@ namespace People.NPC
         private System.Random _random;
 
         [SerializeField] private float searchRadius = 15;
+        [SerializeField] private bool sphere = true;
 
         void Start()
         {
@@ -28,15 +30,25 @@ namespace People.NPC
             walkingNpc.RandomPosition = true;
             walkingNpc.ParentPosition = transform.position;
             walkingNpc.SearchRadius = searchRadius;
+            walkingNpc.FindInSphere = sphere;
         
             parent = transform.Find("NPC");
             for (int i = 1; i <= numberOfNpc; i++)
-                Instantiate(prefab, _points[i % _points.Length].position + new Vector3(Random.Range(-2,2),0,Random.Range(-2,2)), Quaternion.identity, parent);
+                Instantiate(prefab, _points[i % _points.Length].position /*+ new Vector3(Random.Range(-4,4),0,Random.Range(-4,4))*/, Quaternion.identity, parent);
         }
 
         public void GenerateNewNpc()
         {
             Instantiate(prefab, _points[_random.Next(1,_points.Length)].position, Quaternion.identity, parent);
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+        #if DEBUG
+            Handles.color = new Color(1,0,0,0.2f);
+            Handles.DrawSolidDisc(transform.position, transform.up , searchRadius); 
+        #endif
+            
         }
     }
 }
