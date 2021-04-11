@@ -38,7 +38,7 @@ jobs:
             lfs: true
             
       - name: get package
-        run: pwd && wget ${{secrets.PIRATE_PACKAGE}}
+        run: wget ${{secrets.PIRATE_PACKAGE}}
         
       - uses: actions/cache@v2
         with:
