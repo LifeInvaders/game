@@ -12,8 +12,8 @@ EditorBuildSettings:
     path: Assets/Scenes/PhotonScene.unity
     guid: 17f6974d5b87a0e4292cd15b266120f9
   - enabled: 1
-    path: Assets/Scenes/Lobby.unity
-    guid: fda2b6581125ad047b44e92e5e78da98
+    path: Assets/Resources/Lobby.unity
+    guid: 0e73f8b14e4b2bf44a02ef4622a6eaa1
   - enabled: 1
     path: Assets/Scenes/soutenance.unity
     guid: c01ddd9391a5c9c44bf271ff8ca5dcd2
@@ -23,4 +23,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/test3.unity
     guid: af457390512305e41add456e22c971df
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 7714b2c5061c2174980b3d6662894dc1,
+      type: 2}
