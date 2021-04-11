@@ -31,16 +31,16 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
           
       - uses: actions/checkout@v2
         with:
             fetch-depth: 0
             lfs: true
+            
+      - name: get package
+        run: pwd && wget ${{secrets.PIRATE_PACKAGE}}
+        
       - uses: actions/cache@v2
         with:
           path: Library
@@ -51,6 +51,7 @@ jobs:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
           targetPlatform: ${{ matrix.targetPlatform }}
+          customParameters: -import POLYGON_Pirate_Pack_Unity_Package_2017_4.unitypackage
       - uses: actions/upload-artifact@v2
         with:
           name: Build-${{ matrix.targetPlatform }}
