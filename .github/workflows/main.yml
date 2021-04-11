@@ -36,9 +36,8 @@ jobs:
         with:
             fetch-depth: 0
             lfs: true
-            
       - name: get package
-        run: wget ${{secrets.PIRATE_PACKAGE}} && git commit -a -m "add package" && git status
+        run: wget ${{secrets.PIRATE_PACKAGE}}  && git status
         
       - uses: actions/cache@v2
         with:
