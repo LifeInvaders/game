@@ -22,6 +22,7 @@ namespace People.NPC
 
         public Vector3 ParentPosition = Vector3.up;
         public float SearchRadius = 15;
+        public bool FindInSphere;
 
         void Awake()
         {
@@ -118,8 +119,10 @@ namespace People.NPC
             do
             {
                 newPos = ParentPosition + Random.insideUnitSphere * range;
-                // newPos.y = ParentPosition.y;
-                // newPos = ParentPosition + new Vector3(Random.Range(-range, range), 0, Random.Range(-range, range));
+                if (!FindInSphere)
+                    newPos.y = ParentPosition.y;
+
+                
             } while (NavMesh.CalculatePath(ParentPosition, newPos, NavMesh.AllAreas, navMeshPath) && navMeshPath.status != NavMeshPathStatus.PathComplete);
 
             // Vector3 insideUnitSphere;
