@@ -37,7 +37,7 @@ jobs:
             fetch-depth: 0
             lfs: true
       - name: get package
-        run: wget ${{secrets.PIRATE_PACKAGE}}  && git status
+        run: wget ${{secrets.PIRATE_PACKAGE}} -O POLYGON_Pirate_Pack_Unity_Package_2017_4.unitypackage && git status
         
       - uses: actions/cache@v2
         with:
