@@ -50,7 +50,7 @@ jobs:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
           targetPlatform: ${{ matrix.targetPlatform }}
-          customParameters: -import POLYGON_Pirate_Pack_Unity_Package_2017_4.unitypackage
+          customParameters: -importPackage /home/runner/work/game/game/POLYGON_Pirate_Pack_Unity_Package_2017_4.unitypackage
       - uses: actions/upload-artifact@v2
         with:
           name: Build-${{ matrix.targetPlatform }}
