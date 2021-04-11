@@ -759,6 +759,7 @@
             <e p="Ladder.cs" t="Include" />
             <e p="Powers" t="Include">
               <e p="ChangeAppearance.cs" t="Include" />
+              <e p="KnifeThrowing.cs" t="Include" />
               <e p="PowerTools.cs" t="Include" />
               <e p="SmokeBomb.cs" t="Include" />
             </e>
@@ -771,11 +772,13 @@
           <e p="People" t="Include">
             <e p="Human.cs" t="Include" />
             <e p="NPC" t="Include">
-              <e p="GroupNPC.cs" t="Include" />
-              <e p="NpcEvent.cs" t="Include" />
+              <e p="DebugPath.cs" t="Include" />
+              <e p="HidingZone.cs" t="Include" />
+              <e p="NPCdata.cs" t="Include" />
+              <e p="NPCStatus.cs" t="Include" />
+              <e p="NpcZone.cs" t="Include" />
               <e p="Patrol.cs" t="Include" />
-              <e p="RandomNPC.cs" t="Include" />
-              <e p="Talking.cs" t="Include" />
+              <e p="TalkingNPC.cs" t="Include" />
               <e p="WalkingNPC.cs" t="Include" />
             </e>
             <e p="Player" t="Include">
@@ -783,6 +786,7 @@
               <e p="PlayerControler.cs" t="Include" />
               <e p="PlayerTalking.cs" t="Include" />
             </e>
+            <e p="RandomSkin.cs" t="Include" />
           </e>
           <e p="Photon" t="Include">
             <e p="GameManager.cs" t="Include" />

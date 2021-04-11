@@ -6661,7 +6661,7 @@ MonoBehaviour:
   nickName: {fileID: 1303317635}
   chooseMap: 0
   isPrivate: 0
-  maxPlayers: 8
+  maxPlayers: 4
   roomName: bruh
 --- !u!4 &1286285296
 Transform:

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using NPC;
 using People.Player;
 using UnityEngine;
 using UnityEngine.AI;
@@ -70,6 +68,11 @@ namespace Objects.Powers
                 //     character.gameObject.GetComponent<GroupNPC>().GetNPC().ForEach(p =>p.GetComponent<>);
                 // }
             }
+        }
+
+        protected override bool IsValid()
+        {
+            throw new NotImplementedException();
         }
     }
 }

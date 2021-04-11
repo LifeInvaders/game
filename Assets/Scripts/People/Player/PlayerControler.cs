@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Photon.Pun;
@@ -31,6 +32,11 @@ namespace People.Player
         public void SetRotateBool(bool state)
         {
             _canRotate = state;
+        }
+
+        public void SetCanRun(bool state)
+        {
+            throw new NotImplementedException();
         }
 
         void Start()

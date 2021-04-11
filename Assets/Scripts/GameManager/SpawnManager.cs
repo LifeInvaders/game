@@ -18,13 +18,13 @@ public class SpawnManager : MonoBehaviour
         if (!PhotonNetwork.IsMasterClient) yield return 0;
         List<Transform> spawnPointsCopy = new List<Transform>(spawnPoints);
         System.Random rand = new System.Random();
-        Transform masterClientSpawn = null;
+        int masterClientSpawn = 0;
         foreach (var player in PhotonNetwork.PlayerList)
         {
             int randIndex = rand.Next(spawnPointsCopy.Count);
             if (player.IsLocal)
-                masterClientSpawn = spawnPointsCopy[randIndex];
-            else gameObject.GetPhotonView().RPC(nameof(Spawn), player, spawnPointsCopy[randIndex]);
+                masterClientSpawn = randIndex;
+            else gameObject.GetPhotonView().RPC(nameof(Spawn), player, randIndex);
             spawnPointsCopy.RemoveAt(randIndex);
         }
         yield return new WaitForSeconds(5);
@@ -32,11 +32,12 @@ public class SpawnManager : MonoBehaviour
     }
 
     [PunRPC]
-    void Spawn(Transform spawnPoint)
+    void Spawn(int index)
     {
+        Transform spawnPoint = spawnPoints[index];
         loadCamera.gameObject.SetActive(false);
         loadScreen.SetActive(false);
-        PhotonNetwork.Instantiate("CustomPlayer", spawnPoint.position, spawnPoint.rotation);
+        PhotonNetwork.Instantiate("CustomCharacter", spawnPoint.position, spawnPoint.rotation);
         timer.enabled = true;
     }
 }
