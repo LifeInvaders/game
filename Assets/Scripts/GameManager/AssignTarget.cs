@@ -15,16 +15,18 @@ public class AssignTarget : MonoBehaviourPunCallbacks
     [PunRPC]
     private void ChangeTarget(Photon.Realtime.Player target)
     {
-        if (igs.target != null)
-            igs.target.GetComponentInChildren<TextMeshPro>().color = Color.white; //For testing: reset
+        foreach (TextMeshPro tmp in FindObjectsOfType<TextMeshPro>())
+            tmp.color = Color.white;
         foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))  //Test every Player character for correct target
         {
             if (player.GetPhotonView().Owner.Equals(target))  //Test if character belongs to target
             {
+                Debug.Log("Player found!");
                 igs.target = player;  //Set target in InGameStats
+                Debug.Log("Target successfully set!");
+                Debug.Log("Changing name color...");
                 player.GetComponentInChildren<TextMeshPro>().color = Color.red; //For testing
-                //The below message should be a UI element!!!
-                Debug.Log("Your target is: " + player.GetPhotonView().Owner.NickName);
+                //Display a UI message!!!
                 return;
             }
         }
@@ -35,31 +37,44 @@ public class AssignTarget : MonoBehaviourPunCallbacks
     private void TargetAssigner()
     {
         var targetList = new Dictionary<Photon.Realtime.Player, Photon.Realtime.Player>();
-        foreach(var player in PhotonNetwork.PlayerList)
+        while (targetList.Count == 0)
         {
-            //This is a filter for the valid targets
-            var targetFilter = PhotonNetwork.PlayerList.Where(i => !targetList.ContainsValue(i) //Excludes already assigned targets
-                                                                   && i.Equals(player)                     //Excludes targeting itself
-                                                                   && (!targetList.ContainsKey(i) ||      //Exclude hunter's hunter (no 1v1)
-                                                                       !targetList[i].Equals(player))).ToArray();
-            var target = targetFilter[_random.Next(targetFilter.Length)]; //Pick a random player in the filtered list
-            targetList.Add(player, target);  //Add the hunter/target combo to the dictionary
-            photonView.RPC("ChangeTarget",player,target);
-            //RPC to everyone, let clients detect target
+            foreach (var player in PhotonNetwork.PlayerList)
+            {
+                //This is a filter for the valid targets
+                var targetFilter = PhotonNetwork.PlayerList.Where(i =>
+                    !targetList.ContainsValue(i) //Excludes already assigned targets
+                    && !i.Equals(player) //Excludes targeting itself
+                    && (!targetList.ContainsKey(i) || //Exclude hunter's hunter (no 1v1)
+                        !targetList[i].Equals(player))).ToArray();
+                if (targetFilter.Length == 0)
+                {
+                    targetList = new Dictionary<Photon.Realtime.Player, Photon.Realtime.Player>();
+                    break;
+                }
+                var target =
+                    targetFilter[_random.Next(targetFilter.Length)]; //Pick a random player in the filtered list
+                targetList.Add(player, target); //Add the hunter/target combo to the dictionary
+            }
         }
+
+        foreach (KeyValuePair<Photon.Realtime.Player, Photon.Realtime.Player> kvp in targetList)
+            photonView.RPC("ChangeTarget", kvp.Key, kvp.Value);
         WriteDictToFile(targetList); //For testing
     }
 
     private void Update()
     {
-        if (PhotonNetwork.LocalPlayer.NickName == "TestClient" && Input.GetKeyDown(KeyCode.Dollar))
+        if (Input.GetKeyDown(KeyCode.T) && PhotonNetwork.LocalPlayer.NickName.Equals("TestClient"))
             TargetAssigner();
     }
+    
+    
 
     private void WriteDictToFile(Dictionary<Photon.Realtime.Player,Photon.Realtime.Player> dict)
     {
         string folderPath = Application.persistentDataPath + "/test/assign_target/";
-        string timeStamp = DateTime.Now.ToString("YYYY_MM_dd_HH_mm_ss");
+        string timeStamp = DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss");
         if (!Directory.Exists(folderPath))
             Directory.CreateDirectory(folderPath);
         StreamWriter file = File.CreateText(folderPath + "assign_target" + timeStamp + ".txt");

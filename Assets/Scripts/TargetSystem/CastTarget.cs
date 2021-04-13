@@ -9,17 +9,19 @@ namespace TargetSystem
 {
     public class CastTarget : MonoBehaviour
     {
-        public RaycastHit raycastHit;
+        private RaycastHit _raycastHit;
         [SerializeField] private Camera _camera;
 
-        private Outline _outlinecam;
-        private GameObject _target;
+        private Outline _outlineCam;
+        public GameObject _target;
 
-        private bool _isOutlinecamNotNull;
         private SelectedTarget _selectedTarget;
 
-        private bool _aiming = false;
-        private bool _selected = false;
+        public bool _aiming;
+        private bool _selected;
+        
+        public bool _isTargetNull;
+        
         /// <summary>
         /// Set Aiming bool
         /// </summary>
@@ -28,82 +30,65 @@ namespace TargetSystem
         {
             _aiming = value;
         }
+
         private void Start()
         {
             if (PhotonNetwork.IsConnected && !gameObject.GetPhotonView().IsMine)
                 enabled = false;
             _selectedTarget = GetComponent<SelectedTarget>();
+
+            _aiming = false;
+            _selected = false;
         }
+
         /// <summary>
         /// Surligne le joueur et désactive la surbrillance de l'autre joueur s'il a changé
         /// </summary>
         /// <param name="playerOutline"></param>
         private void Outlining(Outline playerOutline)
         {
-            if (_target != null && _target.name != raycastHit.transform.gameObject.name)
-            {
-                // Not the same player
-                _outlinecam.enabled = false;
-                _target = raycastHit.transform.gameObject;
-                _outlinecam = playerOutline;
-                _outlinecam.enabled = true;
-            }
-            else
-            {
-                _outlinecam = playerOutline;
-                _target = raycastHit.transform.gameObject;
-                _outlinecam.enabled = true;
-            }
+            _outlineCam = playerOutline;
+            _target = _raycastHit.transform.gameObject;
+            _outlineCam.enabled = true;
         }
 
         private void RemoveCamTarget()
         {
-            _outlinecam.enabled = false;
-            _outlinecam = null;
-            _target = null;
-        }
-
-        private void Update()
-        {
-            if (!_aiming)
+            if (!_isTargetNull)
             {
-                if (_target != null && !_selectedTarget.IsSelectedTarget(_target))
-                    RemoveCamTarget();
-            }
-            else
-            {
-                if (Physics.Raycast(_camera.transform.position, _camera.transform.TransformDirection(Vector3.forward),
-                        out raycastHit, 30f) && (raycastHit.transform.gameObject.CompareTag("Player") ||
-                                                 raycastHit.transform.gameObject.CompareTag("NPC"))
-                )
-                {
-                    if (!_selectedTarget.IsTarget())
-                    {
-                        Outlining(raycastHit.transform.Find("Character").GetComponent<Outline>());
-                    }
-
-                    if (_selected)
-                    {
-                        _selectedTarget.UpdateSelectedTarget(_target, _outlinecam);
-                        _selected = false;
-                    }
-                }
-                else if (_target != null && !_selectedTarget.IsSelectedTarget(_target))
-                    RemoveCamTarget();
+                _outlineCam.enabled = false;
+                _outlineCam = null;
+                _target = null;
             }
         }
 
-        public void OnAim(InputValue value)
+        private void FixedUpdate()
         {
-            _aiming = !_aiming;
-
-        }
-
-        public void OnSelect(InputValue value)
-        {
+            _isTargetNull = _target == null;
             
-            _selected = value.isPressed && _aiming;
+            if (_aiming && Physics.Raycast(_camera.transform.position,
+                _camera.transform.TransformDirection(Vector3.forward),
+                out _raycastHit, 30f, 768)) // si on vise un personnage
+            {
+                if (_isTargetNull || (_selectedTarget.IsSelectedTarget(_raycastHit.transform.gameObject) && _raycastHit.transform.gameObject.GetInstanceID() != _target.GetInstanceID()))
+                {
+                    RemoveCamTarget();
+                    Outlining(_raycastHit.transform.GetComponentInChildren<Outline>());
+                }
+
+                if (_selected)
+                {
+                    _selectedTarget.UpdateSelectedTarget(_target, _outlineCam);
+                    _selected = false;
+                    _aiming = false;
+                }
+            }
+            else if (!_isTargetNull && !_selectedTarget.IsSelectedTarget(_target))
+                RemoveCamTarget();
         }
 
+        public void OnAim() => _aiming = !_aiming;
+
+        public void OnSelect(InputValue value) => _selected = value.isPressed && _aiming;
     }
 }

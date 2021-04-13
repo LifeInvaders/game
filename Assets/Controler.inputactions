@@ -6,7 +6,7 @@
             "id": "1cd547d4-915d-4eb5-8ee2-9455f7e797a9",
             "actions": [
                 {
-                    "name": "Mouvement",
+                    "name": "Movement",
                     "type": "Value",
                     "id": "3b20a15f-882a-412e-8e86-7018bd8f5813",
                     "expectedControlType": "Vector2",
@@ -30,7 +30,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Running",
+                    "name": "Run",
                     "type": "Value",
                     "id": "7b9ab7c7-f80c-4139-a8fa-fb7f4fe5e1c5",
                     "expectedControlType": "DiscreteButton",
@@ -70,9 +70,9 @@
                     "interactions": ""
                 },
                 {
-                    "name": "BoostDev",
+                    "name": "Power",
                     "type": "Button",
-                    "id": "067e7fe4-ec54-4a23-a952-34d2955ba51e",
+                    "id": "22dde526-8661-42b4-88a0-b48ac7a94853",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -150,20 +150,9 @@
                     "id": "9911caf3-1b2e-49f4-89d1-d80b82fd344c",
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
-                    "processors": "ScaleVector2(x=8,y=8)",
+                    "processors": "ScaleVector2(x=15,y=15)",
                     "groups": "Manettes",
                     "action": "Camera",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "71d2b73f-6845-4d64-8f6e-e49009c6a7b0",
-                    "path": "<Gamepad>/rightShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Manettes",
-                    "action": "Select",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -179,13 +168,24 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "71d2b73f-6845-4d64-8f6e-e49009c6a7b0",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Manettes",
+                    "action": "Select",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "2D Vector",
                     "id": "1d76b694-209b-49a8-ac1d-815fccd2d7cd",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Mouvement",
+                    "action": "Movement",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -196,7 +196,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard and Mouse",
-                    "action": "Mouvement",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -207,7 +207,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard and Mouse",
-                    "action": "Mouvement",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -218,7 +218,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard and Mouse",
-                    "action": "Mouvement",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -229,7 +229,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard and Mouse",
-                    "action": "Mouvement",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -240,18 +240,18 @@
                     "interactions": "Press",
                     "processors": "ScaleVector2(x=0.1,y=0.1)",
                     "groups": "Mobile",
-                    "action": "Mouvement",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "9ade8fcd-dcee-4159-be49-5a6b8275e394",
-                    "path": "<DualShockGamepad>/leftStick",
+                    "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "Manettes",
-                    "action": "Mouvement",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -262,7 +262,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard and Mouse",
-                    "action": "Running",
+                    "action": "Run",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -273,7 +273,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Manettes",
-                    "action": "Running",
+                    "action": "Run",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -323,12 +323,12 @@
                 },
                 {
                     "name": "",
-                    "id": "1eb8a5cc-43c9-46c0-bd91-6ab952ac057d",
-                    "path": "<Keyboard>/v",
+                    "id": "9efabd9f-fce6-49bc-8d95-499c4b56612d",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard and Mouse",
-                    "action": "BoostDev",
+                    "action": "Power",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -342,6 +342,14 @@
                     "name": "Pause",
                     "type": "Button",
                     "id": "0ae264da-8868-4b69-bec0-2a7438610a70",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Dev",
+                    "type": "Button",
+                    "id": "aa174d4b-c7d7-43f0-b7d5-03010d3799bf",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -369,31 +377,15 @@
                     "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "Soutenance",
-            "id": "55fc19c4-136e-456d-9fef-d48ca7d0206d",
-            "actions": [
-                {
-                    "name": "New action",
-                    "type": "Button",
-                    "id": "986aa32d-6850-4861-9d2b-2fb3f9642e07",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                }
-            ],
-            "bindings": [
+                },
                 {
                     "name": "",
-                    "id": "6653953c-d629-470b-9c6f-c408eaf957f5",
-                    "path": "",
+                    "id": "1b6b7205-2378-41b2-8858-754c2588947c",
+                    "path": "<Keyboard>/backquote",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "New action",
+                    "groups": "Keyboard and Mouse",
+                    "action": "Dev",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -438,7 +430,7 @@
             "bindingGroup": "Manettes",
             "devices": [
                 {
-                    "devicePath": "<DualShockGamepad>",
+                    "devicePath": "<Gamepad>",
                     "isOptional": false,
                     "isOR": false
                 }
