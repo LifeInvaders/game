@@ -62,7 +62,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5889368337999237999}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c430a415dcd77c4c8e2cf442bc30ec4, type: 3}
   m_Name: 
@@ -82,9 +82,21 @@ MonoBehaviour:
   Status: 1
   positions:
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   RandomPosition: 1
-  ParentPosition: {x: -6.41, y: 4.6077657, z: 102.16}
-  SearchRadius: 15
+  ParentPosition: {x: 31.7, y: 7.39, z: 91.6}
+  SearchRadius: 22.6
 --- !u!1001 &6391671937588929662
 PrefabInstance:
   m_ObjectHideFlags: 0
