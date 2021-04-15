@@ -28,16 +28,18 @@ public class LobbyTimer : MonoBehaviourPunCallbacks
             if (PhotonNetwork.CurrentRoom.CustomProperties.TryGetValue("endTime", out var time)) _endTime = Convert.ToDouble(time);
             if (PhotonNetwork.CurrentRoom.CustomProperties.TryGetValue("startTimer", out var start)) _startTimer = (bool) start;
             UpdateTimer();
-            UpdateUI();
         }
     }
     private void Update()
     {
-        if (_startTimer) UpdateTimer();
-        if (_endTime > 0 && PhotonNetwork.Time >= _endTime && PhotonNetwork.IsMasterClient)
+        if (_startTimer)
         {
-            TimerEnd();
-            enabled = false;
+            UpdateTimer();
+            if (PhotonNetwork.Time >= _endTime && PhotonNetwork.IsMasterClient)
+            {
+                TimerEnd();
+                enabled = false;
+            }
         }
     }
 

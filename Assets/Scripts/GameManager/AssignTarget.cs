@@ -37,8 +37,9 @@ public class AssignTarget : MonoBehaviourPunCallbacks
     public void TargetAssigner()
     {
         var targetList = new Dictionary<Photon.Realtime.Player, Photon.Realtime.Player>();
-        while (targetList.Count == 0)
+        for (int tries =0;targetList.Count == 0 && tries < 20;tries++)
         {
+            Debug.Log("TargetAssigner: Attempt number " + tries);
             foreach (var player in PhotonNetwork.PlayerList)
             {
                 //This is a filter for the valid targets
@@ -57,7 +58,6 @@ public class AssignTarget : MonoBehaviourPunCallbacks
                 targetList.Add(player, target); //Add the hunter/target combo to the dictionary
             }
         }
-
         foreach (KeyValuePair<Photon.Realtime.Player, Photon.Realtime.Player> kvp in targetList)
             photonView.RPC("ChangeTarget", kvp.Key, kvp.Value);
         WriteDictToFile(targetList); //For testing

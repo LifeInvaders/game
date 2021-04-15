@@ -735,6 +735,7 @@
             <e p="AssignTarget.cs" t="Include" />
             <e p="EventManager.cs" t="Include" />
             <e p="InGameStats.cs" t="Include" />
+            <e p="NpcManager.cs" t="Include" />
             <e p="ScoreManager.cs" t="Include" />
             <e p="SpawnManager.cs" t="Include" />
             <e p="TimerManager.cs" t="Include" />
@@ -793,6 +794,10 @@
             <e p="InstantiateInLobby.cs" t="Include" />
             <e p="JoinRandomGame.cs" t="Include" />
             <e p="Launcher.cs" t="Include" />
+            <e p="PhotonNPC" t="Include">
+              <e p="PhotonNPC.cs" t="Include" />
+            </e>
+            <e p="PhotonSkin.cs" t="Include" />
             <e p="PlayerInputFields.cs" t="Include" />
           </e>
           <e p="Player" t="Include">

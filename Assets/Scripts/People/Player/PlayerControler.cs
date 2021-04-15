@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Photon.Pun;
+using UnityEditor;
 
 namespace People.Player
 {
@@ -114,6 +116,13 @@ namespace People.Player
         {
             if (IsGrounded())
                 Jump();
+        }
+
+        public void OnMenu(InputValue value)
+        {
+            if (value.isPressed) {/* Do stuff*/} 
+            else throw new NotImplementedException();
+            //TODO: Implement menu show/hide
         }
 
         public void OnRun(InputValue value) =>

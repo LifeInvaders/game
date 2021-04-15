@@ -15,7 +15,7 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     IEnumerator Start()
     {
-        if (!PhotonNetwork.IsMasterClient) yield return 0;
+        if (!PhotonNetwork.IsMasterClient) yield break;
         List<Transform> spawnPointsCopy = new List<Transform>(spawnPoints);
         System.Random rand = new System.Random();
         int masterClientSpawn = 0;

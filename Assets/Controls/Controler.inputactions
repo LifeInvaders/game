@@ -76,6 +76,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Menu",
+                    "type": "Value",
+                    "id": "43ac1bb2-1e2d-4bbd-bbfe-e576bdabcf30",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -329,6 +337,28 @@
                     "processors": "",
                     "groups": "Keyboard and Mouse",
                     "action": "Power",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "11dfd832-733c-4635-991c-ccdbafc069a4",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mobile",
+                    "action": "Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7741ef69-f509-423d-b3ae-694174b5f42b",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Manettes",
+                    "action": "Menu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

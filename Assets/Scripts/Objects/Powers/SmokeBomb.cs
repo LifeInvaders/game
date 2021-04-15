@@ -47,10 +47,5 @@ namespace Objects.Powers
 
             Destroy(bomb);
         }
-
-        protected override bool IsValid()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

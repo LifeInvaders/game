@@ -5,7 +5,6 @@
       <Path>../../../Users/mrhar/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.cinemachine@2.6.3</Path>
     </attachedFolders>
     <explicitIncludes>
-      <Path>Assets</Path>
       <Path>Library/PackageCache/com.unity.cinemachine@2.6.3</Path>
       <Path>Library/PackageCache/com.unity.collab-proxy@1.2.16</Path>
       <Path>Library/PackageCache/com.unity.ext.nunit@1.0.5</Path>
@@ -28,7 +27,6 @@
       <Path>.github</Path>
       <Path>.idea</Path>
       <Path>Library</Path>
-      <Path>Temp</Path>
       <Path>UIElementsSchema</Path>
       <Path>obj</Path>
     </explicitExcludes>

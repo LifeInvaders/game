@@ -8,7 +8,6 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 {
 
     [SerializeField] private ParticleSystem cannon;
-    [SerializeField] private GameObject player;
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -17,7 +16,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     }
     private void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape)) PhotonNetwork.LeaveRoom();
     }
 
     public override void OnLeftRoom() => SceneManager.LoadScene("MainMenu");

@@ -89,6 +89,14 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Menu"",
+                    ""type"": ""Value"",
+                    ""id"": ""43ac1bb2-1e2d-4bbd-bbfe-e576bdabcf30"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -344,6 +352,28 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""action"": ""Power"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""11dfd832-733c-4635-991c-ccdbafc069a4"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mobile"",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7741ef69-f509-423d-b3ae-694174b5f42b"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Manettes"",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -462,6 +492,7 @@ public class @Controler : IInputActionCollection, IDisposable
         m_Player_Select = m_Player.FindAction("Select", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_Power = m_Player.FindAction("Power", throwIfNotFound: true);
+        m_Player_Menu = m_Player.FindAction("Menu", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Pause = m_Menu.FindAction("Pause", throwIfNotFound: true);
@@ -524,6 +555,7 @@ public class @Controler : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Select;
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_Power;
+    private readonly InputAction m_Player_Menu;
     public struct PlayerActions
     {
         private @Controler m_Wrapper;
@@ -537,6 +569,7 @@ public class @Controler : IInputActionCollection, IDisposable
         public InputAction @Select => m_Wrapper.m_Player_Select;
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @Power => m_Wrapper.m_Player_Power;
+        public InputAction @Menu => m_Wrapper.m_Player_Menu;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -573,6 +606,9 @@ public class @Controler : IInputActionCollection, IDisposable
                 @Power.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPower;
                 @Power.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPower;
                 @Power.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPower;
+                @Menu.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMenu;
+                @Menu.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMenu;
+                @Menu.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMenu;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -604,6 +640,9 @@ public class @Controler : IInputActionCollection, IDisposable
                 @Power.started += instance.OnPower;
                 @Power.performed += instance.OnPower;
                 @Power.canceled += instance.OnPower;
+                @Menu.started += instance.OnMenu;
+                @Menu.performed += instance.OnMenu;
+                @Menu.canceled += instance.OnMenu;
             }
         }
     }
@@ -687,6 +726,7 @@ public class @Controler : IInputActionCollection, IDisposable
         void OnSelect(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnPower(InputAction.CallbackContext context);
+        void OnMenu(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {

@@ -6732,7 +6732,6 @@ GameObject:
   - component: {fileID: 1679106962576234046}
   - component: {fileID: 2395263955669549454}
   - component: {fileID: 8419538221819320572}
-  - component: {fileID: 4094822339235556061}
   - component: {fileID: 314731265128283528}
   - component: {fileID: 4806241347541731904}
   - component: {fileID: 1984074783185969496}
@@ -6907,6 +6906,9 @@ MonoBehaviour:
   - Type: 4
     SynchronizeType: 1
     Name: talking
+  - Type: 4
+    SynchronizeType: 1
+    Name: injured
   m_SynchronizeLayers:
   - SynchronizeType: 1
     LayerIndex: 0
@@ -6945,18 +6947,6 @@ MonoBehaviour:
   walkSpeed: 3
   runSpeed: 5
   jumpspeed: 4.5
---- !u!114 &4094822339235556061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4353876372182459986}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efee5fe45c8bf444884a160781301237, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &314731265128283528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7014,6 +7004,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 541207288}
+  _target: {fileID: 0}
+  _aiming: 0
+  _isTargetNull: 0
 --- !u!114 &176928701983436667
 MonoBehaviour:
   m_ObjectHideFlags: 0
