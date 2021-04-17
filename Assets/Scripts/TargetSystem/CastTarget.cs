@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using People.Player;
 using Photon.Pun;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 namespace TargetSystem
 {
@@ -21,6 +23,11 @@ namespace TargetSystem
         private bool _selected;
         
         public bool _isTargetNull;
+
+        [SerializeField] private Volume _vignette;
+        [SerializeField] private Camera[] _cameras;
+
+        private PlayerControler _playerControler;
         
         /// <summary>
         /// Set Aiming bool
@@ -29,6 +36,8 @@ namespace TargetSystem
         public void SetAiming(bool value)
         {
             _aiming = value;
+            _vignette.isGlobal = value;
+            foreach (var cam in _cameras) cam.enabled = value;
         }
 
         private void Start()
@@ -36,7 +45,7 @@ namespace TargetSystem
             if (PhotonNetwork.IsConnected && !gameObject.GetPhotonView().IsMine)
                 enabled = false;
             _selectedTarget = GetComponent<SelectedTarget>();
-
+            _playerControler = GetComponent<PlayerControler>();
             _aiming = false;
             _selected = false;
         }
@@ -80,15 +89,20 @@ namespace TargetSystem
                 {
                     _selectedTarget.UpdateSelectedTarget(_target, _outlineCam);
                     _selected = false;
-                    _aiming = false;
+                    SetAiming(false);
                 }
             }
             else if (!_isTargetNull && !_selectedTarget.IsSelectedTarget(_target))
                 RemoveCamTarget();
         }
 
-        public void OnAim() => _aiming = !_aiming;
+        public void OnAim()
+        {
+            SetAiming(!_aiming);
+            if (_aiming) 
+                _selectedTarget.UpdateSelectedTarget(_target, _outlineCam);
+        }
 
-        public void OnSelect(InputValue value) => _selected = value.isPressed && _aiming;
+        public void OnSelect(InputValue value) => _selected = value.isPressed && _aiming && !_isTargetNull;
     }
 }

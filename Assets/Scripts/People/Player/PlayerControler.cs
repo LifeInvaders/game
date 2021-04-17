@@ -54,6 +54,7 @@ namespace People.Player
         public bool CanRotate() => _canRotate;
 
         public bool Running() => _moveSpeed > walkSpeed;
+        public bool Moving() => _axis != Vector2.zero;
 
         public Vector2 GetAxis() => _axis;
 
