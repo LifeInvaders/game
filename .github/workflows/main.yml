@@ -49,6 +49,7 @@ jobs:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
           targetPlatform: ${{ matrix.targetPlatform }}
+          unityVersion: 2019.4.16f1
           customParameters: -importPackage /home/runner/work/game/game/POLYGON_Pirate_Pack_Unity_Package_2017_4.unitypackage
       - uses: actions/upload-artifact@v2
         with:
