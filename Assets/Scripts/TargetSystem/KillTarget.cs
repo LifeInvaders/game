@@ -16,7 +16,7 @@ namespace TargetSystem
 
         private bool _killClick;
         private CastTarget _casttarget;
-        
+
         [SerializeField] private Material dissolved;
 
         void Start()
@@ -27,30 +27,23 @@ namespace TargetSystem
             _selectedTarget = GetComponent<SelectedTarget>();
             _casttarget = GetComponent<CastTarget>();
         }
+
         /// <summary>
         /// Méthode appelée quand un joueur tue la cible verouillée 
         /// </summary>
         /// <param name="target"></param>
         void Kill(GameObject target)
         {
+            target.GetComponent<Human.Human>().Death();
+            _casttarget.SetAiming(false);
             Debug.Log($"killed {target.name}");
-            if (target.CompareTag("NPC"))
-            {
-                Destroy(target.GetComponent<WalkingNPC>());
-                // target.GetComponent<WalkingNPC>().enabled = false;
-                target.GetComponent<NavMeshAgent>().isStopped = true;
-                target.GetComponentInParent<NpcZone>().GenerateNewNpc();
-            }
-            target.GetComponent<Animator>().Play("brutal death");
 
-            
-            target.GetComponent<CapsuleCollider>().enabled = false;
             _animator.Play("sword kill");
-            _selectedTarget.UpdateSelectedTarget(target,target.GetComponentInChildren<Outline>());
-            
-            StartCoroutine(WaitForDeathAnim(target));
+            _selectedTarget.UpdateSelectedTarget(target, target.GetComponentInChildren<Outline>());
+
+            // StartCoroutine(WaitForDeathAnim(target));
         }
-        
+
         IEnumerator WaitForDeathAnim(GameObject target)
         {
             yield return new WaitForSeconds(5);
@@ -67,32 +60,23 @@ namespace TargetSystem
             while (timeElapsed <= 3)
             {
                 timeElapsed += Time.deltaTime;
-                meshRenderer.sharedMaterial.SetFloat("Vector1_203537A2", Mathf.Lerp(phase, targetPhase, timeElapsed / 3));
+                meshRenderer.sharedMaterial.SetFloat("Vector1_203537A2",
+                    Mathf.Lerp(phase, targetPhase, timeElapsed / 3));
                 yield return new WaitForEndOfFrame();
             }
 
             Destroy(target);
         }
-        
-        void Update()
-        {
-            if (_killClick) // appuye sur Clic Gauche
-            {
-                _killClick = false;
-                GameObject target = _selectedTarget.GetTarget();
-                // Si le joueur est à moins d'un mètre et demi.
-                if (target != null && Vector3.Distance(target.transform.position,transform.position) < 1.5f)
-                {
-                    Kill(target);
-                    _casttarget.SetAiming(false);
 
-                }
-            } 
-        }
-        
         public void OnAttack(InputValue value)
         {
-            _killClick = value.isPressed;
+            if (value.isPressed)
+            {
+                GameObject target = _selectedTarget.GetTarget();
+                // Si le joueur est à moins d'un mètre et demi.
+                if (target != null && Vector3.Distance(transform.position, target.transform.position) < 1.5f)
+                    Kill(target);
+            }
         }
     }
 }

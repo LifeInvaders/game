@@ -7,7 +7,6 @@ namespace Human
         protected Mesh mesh;
         protected Material material;
         
-        public abstract void Kill();
         public abstract void Death();
         
     }
