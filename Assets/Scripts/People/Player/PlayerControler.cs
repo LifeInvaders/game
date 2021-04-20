@@ -118,13 +118,6 @@ namespace People.Player
                 Jump();
         }
 
-        public void OnMenu(InputValue value)
-        {
-            if (value.isPressed) {/* Do stuff*/} 
-            else throw new NotImplementedException();
-            //TODO: Implement menu show/hide
-        }
-
         public void OnRun(InputValue value) =>
             _moveSpeed = value.Get<float>().Equals(1) && _canRun ? runSpeed : walkSpeed;
     }
