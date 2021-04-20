@@ -28,10 +28,7 @@ public class TimerManager : MonoBehaviourPunCallbacks, IOnEventCallback
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.K))
-        {
-            RaiseEventOptions raiseEventOptions = new RaiseEventOptions { Receivers = ReceiverGroup.All };
-            PhotonNetwork.RaiseEvent(EventManager.KilledEventCode,null,raiseEventOptions,SendOptions.SendReliable);
-        }
+            EventManager.RaisePlayerKilled(null);
         if (PhotonNetwork.Time >= _currentEndTime)
             TimerEnded();
         UpdateTimer();

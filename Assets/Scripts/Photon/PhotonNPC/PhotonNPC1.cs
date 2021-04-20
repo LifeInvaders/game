@@ -13,7 +13,7 @@ using Vector3 = UnityEngine.Vector3;
 
 namespace People.NPC
 {
-    public class PhotonNPC : NPCdata
+    public class PhotonNPC1 : NPCdata
     {
         private bool _start;
         private Animator _anim;
@@ -25,7 +25,6 @@ namespace People.NPC
         
         void Start()
         {
-            StartCoroutine(StartUpdate());
             _random = new System.Random();
                 // positions = iaPoints.GetComponentsInChildren<Transform>();
             _agent = GetComponent<NavMeshAgent>();
@@ -42,12 +41,13 @@ namespace People.NPC
                 NavMesh.SamplePosition(transform.position,out var hit, 10.0f, NavMesh.AllAreas);
                 _agent.Warp(hit.position);
             }
+            StartCoroutine(StartUpdate());
             if (PhotonNetwork.IsMasterClient) CalculateNextPath(transform.position);
         }
 
         IEnumerator StartUpdate()
         {
-            Debug.Log("Waiting 20 seconds...");
+            Debug.Log("Waiting 10 seconds...");
             yield return new WaitForSeconds(20);
             Debug.Log("Script started!");
             GotoNextPoint();
@@ -57,9 +57,8 @@ namespace People.NPC
         void FixedUpdate()
         {
             if (!_start) return;
-            if (_agent.remainingDistance < 0.1f)
+            if (!_agent.pathPending && _agent.remainingDistance < 0.5f)
             {
-                _agent.Warp(_agent.destination);
                 Debug.Log("Going towards next point...");
                 GotoNextPoint();
             }

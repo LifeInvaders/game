@@ -2,6 +2,7 @@
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ServerManager : MonoBehaviourPunCallbacks
@@ -19,7 +20,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
     public void Disconnect() => PhotonNetwork.Disconnect();
 
-    public override void OnCreatedRoom() => PhotonNetwork.LoadLevel("Lobby");
+    public override void OnCreatedRoom() => PhotonNetwork.LoadLevel("Map");
 
     public void SetNickname()
     {

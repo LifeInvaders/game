@@ -89,7 +89,6 @@ public class LobbyTimer : MonoBehaviourPunCallbacks
         notEnoughPlayers.gameObject.SetActive(!_startTimer);
         timerText.gameObject.SetActive(_startTimer);
         playerCount.text = PhotonNetwork.CurrentRoom.PlayerCount.ToString() + '/' + PhotonNetwork.CurrentRoom.MaxPlayers.ToString();
-
     }
 
     private void UpdateTimer()

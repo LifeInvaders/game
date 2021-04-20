@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -120,7 +120,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 381f026872ce3aa4794dac69aa1146f5, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: d9c971599c2a3634f940df0f97859745, type: 2}
 --- !u!1001 &327694
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16764,6 +16764,14 @@ PrefabInstance:
     - target: {fileID: 170130, guid: db23befc3822099498dae9e0d53844b9, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Stall_Cloth_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 170130, guid: db23befc3822099498dae9e0d53844b9, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 170130, guid: db23befc3822099498dae9e0d53844b9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 468570, guid: db23befc3822099498dae9e0d53844b9, type: 3}
       propertyPath: m_RootOrder
@@ -63193,6 +63201,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Crane_Shark_01
       objectReference: {fileID: 0}
+    - target: {fileID: 138754, guid: 365e4a2b68585bb48838ef11aafd9024, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 138754, guid: 365e4a2b68585bb48838ef11aafd9024, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 448606, guid: 365e4a2b68585bb48838ef11aafd9024, type: 3}
       propertyPath: m_RootOrder
       value: 188
@@ -69498,6 +69514,14 @@ PrefabInstance:
     - target: {fileID: 148012, guid: cebd03adc1a52984c83f1a62e8615c5f, type: 3}
       propertyPath: m_Name
       value: SM_Bld_Shanty_SideAttachment_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 148012, guid: cebd03adc1a52984c83f1a62e8615c5f, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 148012, guid: cebd03adc1a52984c83f1a62e8615c5f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 440202, guid: cebd03adc1a52984c83f1a62e8615c5f, type: 3}
       propertyPath: m_RootOrder
@@ -102368,7 +102392,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8161074325373492383}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.859337, y: -17.514809, z: -3.5149612}
+  m_LocalPosition: {x: -15.859337, y: -16.1, z: -3.5149612}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8161074326482102777}
@@ -102405,10 +102429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5fe4578e53d4cd0b72434b52f28cccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfNpc: 0
-  prefab: {fileID: 5889368337999237999, guid: dc5547bda9e36bc4a8a7d7ec3d8ec9a6, type: 3}
-  searchRadius: 38.7
-  sphere: 0
+  numberOfNpc: 20
 --- !u!4 &8161074325385185170
 Transform:
   m_ObjectHideFlags: 0
@@ -102499,7 +102520,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8161074325690789850}
   m_LocalRotation: {x: -0.000000029802322, y: 0.0000000018626451, z: -0, w: 1}
-  m_LocalPosition: {x: 61.470665, y: -18.014809, z: -23.574959}
+  m_LocalPosition: {x: 61.470665, y: -14.4, z: -23.574959}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8161074326803061436}
@@ -102536,10 +102557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5fe4578e53d4cd0b72434b52f28cccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfNpc: 0
-  prefab: {fileID: 5889368337999237999, guid: dc5547bda9e36bc4a8a7d7ec3d8ec9a6, type: 3}
-  searchRadius: 20
-  sphere: 0
+  numberOfNpc: 20
 --- !u!4 &8161074325711956952
 Transform:
   m_ObjectHideFlags: 0
@@ -102693,7 +102711,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8161074325990160127}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -36.699337, y: -13.464809, z: 25.935036}
+  m_LocalPosition: {x: -36.699337, y: -7.8, z: 25.935036}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8161074327039509401}
@@ -102730,10 +102748,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5fe4578e53d4cd0b72434b52f28cccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfNpc: 0
-  prefab: {fileID: 5889368337999237999, guid: dc5547bda9e36bc4a8a7d7ec3d8ec9a6, type: 3}
-  searchRadius: 14.2
-  sphere: 1
+  numberOfNpc: 20
 --- !u!1 &8161074326087007816
 GameObject:
   m_ObjectHideFlags: 0
@@ -102763,10 +102778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5fe4578e53d4cd0b72434b52f28cccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfNpc: 0
-  prefab: {fileID: 5889368337999237999, guid: dc5547bda9e36bc4a8a7d7ec3d8ec9a6, type: 3}
-  searchRadius: 14.2
-  sphere: 0
+  numberOfNpc: 20
 --- !u!4 &8161074326087007819
 Transform:
   m_ObjectHideFlags: 0
@@ -102775,7 +102787,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8161074326087007816}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.2493362, y: -16.774809, z: 24.365044}
+  m_LocalPosition: {x: -5.2493362, y: -12.76, z: 24.365044}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8161074327111715630}
@@ -102812,10 +102824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5fe4578e53d4cd0b72434b52f28cccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfNpc: 0
-  prefab: {fileID: 5889368337999237999, guid: dc5547bda9e36bc4a8a7d7ec3d8ec9a6, type: 3}
-  searchRadius: 21.3
-  sphere: 0
+  numberOfNpc: 20
 --- !u!4 &8161074326423843943
 Transform:
   m_ObjectHideFlags: 0
@@ -102824,7 +102833,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8161074326423843940}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -37.359337, y: -6.6348095, z: 51.635048}
+  m_LocalPosition: {x: -37.359337, y: -4.7, z: 51.635048}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8161074325399109890}
@@ -102861,10 +102870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5fe4578e53d4cd0b72434b52f28cccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfNpc: 0
-  prefab: {fileID: 5889368337999237999, guid: dc5547bda9e36bc4a8a7d7ec3d8ec9a6, type: 3}
-  searchRadius: 22.6
-  sphere: 0
+  numberOfNpc: 20
 --- !u!4 &8161074326436655863
 Transform:
   m_ObjectHideFlags: 0
@@ -102873,7 +102879,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8161074326436655860}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -18.479336, y: -17.07481, z: -29.90496}
+  m_LocalPosition: {x: -18.479336, y: -13.3, z: -29.90496}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8161074325385185170}
@@ -103005,7 +103011,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8161074326787812691}
   m_LocalRotation: {x: -0.000000029802322, y: 0.0000000018626451, z: -0, w: 1}
-  m_LocalPosition: {x: 48.410664, y: -18.01281, z: -2.9649582}
+  m_LocalPosition: {x: 48.410664, y: -14.3, z: -2.9649582}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8161074325740017717}
@@ -103042,10 +103048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5fe4578e53d4cd0b72434b52f28cccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfNpc: 0
-  prefab: {fileID: 5889368337999237999, guid: dc5547bda9e36bc4a8a7d7ec3d8ec9a6, type: 3}
-  searchRadius: 20
-  sphere: 1
+  numberOfNpc: 20
 --- !u!4 &8161074326803061436
 Transform:
   m_ObjectHideFlags: 0
@@ -103109,7 +103112,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8161074326813846261}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 22.520664, y: -15.80481, z: -13.004959}
+  m_LocalPosition: {x: 22.520664, y: -12.8, z: -13.004959}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8161074325713624979}
@@ -103130,9 +103133,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberOfNpc: 20
-  prefab: {fileID: 5889368337999237999, guid: dc5547bda9e36bc4a8a7d7ec3d8ec9a6, type: 3}
-  searchRadius: 22.6
-  sphere: 0
 --- !u!1 &8161074327039509400
 GameObject:
   m_ObjectHideFlags: 0

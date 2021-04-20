@@ -5,6 +5,7 @@ namespace People
 {
     public class PhotonSkin : MonoBehaviour
     {
+
         private SkinnedMeshRenderer _renderer;
 
         public Mesh[] meshes;
@@ -34,7 +35,7 @@ namespace People
         [PunRPC]
         public void SetSkinNpc(int meshID, int matID)
         {
-            _renderer = GetComponent<SkinnedMeshRenderer>();
+            _renderer = GetComponentInChildren<SkinnedMeshRenderer>();
             _meshNb = meshID;
             _renderer.sharedMesh = meshes[meshID];
             _renderer.sharedMaterial = materials[matID];
