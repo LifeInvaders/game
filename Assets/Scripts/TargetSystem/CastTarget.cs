@@ -74,11 +74,12 @@ namespace TargetSystem
         private void FixedUpdate()
         {
             _isTargetNull = _target == null;
-            
+            Debug.DrawRay(_camera.transform.position,_camera.transform.forward,Color.blue);
             if (_aiming && Physics.Raycast(_camera.transform.position,
-                _camera.transform.TransformDirection(Vector3.forward),
+                _camera.transform.forward,
                 out _raycastHit, 30f, 768)) // si on vise un personnage
             {
+                Debug.Log("found human");
                 if (_isTargetNull || (_selectedTarget.IsSelectedTarget(_raycastHit.transform.gameObject) && _raycastHit.transform.gameObject.GetInstanceID() != _target.GetInstanceID()))
                 {
                     RemoveCamTarget();
@@ -93,13 +94,16 @@ namespace TargetSystem
                 }
             }
             else if (!_isTargetNull && !_selectedTarget.IsSelectedTarget(_target))
+            {
+                Debug.Log("remove end");
                 RemoveCamTarget();
+            }
         }
 
         public void OnAim()
         {
             SetAiming(!_aiming);
-            if (_aiming) 
+            if (_aiming && _selectedTarget.IsTarget()) 
                 _selectedTarget.UpdateSelectedTarget(_target, _outlineCam);
         }
 

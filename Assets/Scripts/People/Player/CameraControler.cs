@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Cinemachine;
+using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 using Photon.Pun;
@@ -17,7 +18,7 @@ namespace People.Player
         private float _xAxis;
         private float _zAxis;
 
-        [FormerlySerializedAs("_camera")] public Camera camera;
+        public CinemachineVirtualCamera camera;
 
         private PlayerControler _playerControler;
 
@@ -29,7 +30,7 @@ namespace People.Player
 
         private void Awake()
         {
-            camera = GetComponentInChildren<Camera>();
+            camera = GetComponentInChildren<CinemachineVirtualCamera>();
             if (PhotonNetwork.IsConnected && !gameObject.GetPhotonView().IsMine)
             {
                 camera.gameObject.SetActive(false);

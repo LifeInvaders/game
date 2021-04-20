@@ -3,16 +3,19 @@ using UnityEngine.AI;
 using UnityEngine;
 namespace People.NPC
 {
-    public class NPCEvent : Human.Human
+    public class NPCEvent : Human
     {   
-        [SerializeField] private Material dissolveShader;
-        [SerializeField] private Material dissolveMaterial;
+        
         public override void Death()
         {
+            GetComponentInParent<NpcZone>().GenerateNewNpc();
+            Destroy(gameObject);
+            return;
             Destroy(GetComponent<WalkingNPC>());
             // target.GetComponent<WalkingNPC>().enabled = false;
             // GetComponent<NavMeshAgent>().isStopped = true;
-            // GetComponentInParent<NpcZone>().GenerateNewNpc();
+            
+            GetComponent<NavMeshAgent>().isStopped = true;
             GetComponent<Animator>().Play("brutal death");
 
             StartCoroutine(WaitForDeathAnim());

@@ -1,13 +1,11 @@
 using UnityEngine;
 
-namespace Human
+namespace People
 {
     public abstract class Human : MonoBehaviour
     {
-        protected Mesh mesh;
-        protected Material material;
-        
+        [SerializeField] protected Material dissolveShader;
+
         public abstract void Death();
-        
     }
 }
