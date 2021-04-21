@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -49,6 +50,12 @@ public class FreeCam : MonoBehaviour
     /// Set to true when free looking (on right mouse button).
     /// </summary>
     private bool looking = false;
+
+    void Awake()
+    {
+        if (!PhotonNetwork.IsMasterClient)
+            enabled = false;
+    }
 
     void Update()
     {

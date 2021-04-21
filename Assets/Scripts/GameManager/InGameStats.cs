@@ -18,7 +18,7 @@ public class InGameStats : MonoBehaviour
     public bool isDead;
 
     #endregion
-
+    
     //Game wide (could be timers,events and what not)
 
     #region Game-wide

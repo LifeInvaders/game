@@ -326,7 +326,6 @@ GameObject:
   - component: {fileID: 8922761799064997395}
   - component: {fileID: 2030243926350272736}
   - component: {fileID: 4637526971878301845}
-  - component: {fileID: 6438617369758641232}
   m_Layer: 9
   m_Name: PhotonNPC
   m_TagString: NPC
@@ -409,10 +408,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5889368337999237999}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b35ef3d0246c47efb883fbd14b0cb7bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bdb9c4d24c34151a2d9fcb50ecc2998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Status: 0
+  Status: 1
 --- !u!114 &4501865844253715732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -433,7 +432,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 8922761799064997395}
-  - {fileID: 6438617369758641232}
+  - {fileID: 0}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -528,22 +527,6 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 89a8c4d05aebfbd40ad71b8f56d3f20f, type: 2}
   - {fileID: 2100000, guid: 40aec02aea86ce244b18314c814bb5ac, type: 2}
   - {fileID: 2100000, guid: 68cc9bc1692dabf4596c958ffe06eae6, type: 2}
---- !u!114 &6438617369758641232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5889368337999237999}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 0
 --- !u!1 &5889368337999239199
 GameObject:
   m_ObjectHideFlags: 0
