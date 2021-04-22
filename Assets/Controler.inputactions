@@ -76,6 +76,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "ChangePOV",
+                    "type": "Button",
+                    "id": "08748a5f-4281-4c66-8675-95ada0e17a0f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -329,6 +337,17 @@
                     "processors": "",
                     "groups": "Keyboard and Mouse",
                     "action": "Power",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "26085453-90b2-4048-a1cb-50f20a61e352",
+                    "path": "<Keyboard>/v",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard and Mouse",
+                    "action": "ChangePOV",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

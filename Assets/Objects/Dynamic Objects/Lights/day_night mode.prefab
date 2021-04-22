@@ -228,7 +228,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7225802864209111126}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
   m_Name: 
@@ -250,6 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2563cca0162bf478b2e4b61d960bd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _lights: []
   dayLight: {fileID: 7225802863792764721}
   nightLight: {fileID: 7225802863119533688}
   rain:

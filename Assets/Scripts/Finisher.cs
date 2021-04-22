@@ -25,7 +25,7 @@ public class Finisher : MonoBehaviour
         player.transform.position = killer.transform.parent.position;
         player.transform.rotation = transform.rotation;
         killer.enabled = false;
-
+        StartCoroutine(WaitForDeathAnim());
         foreach (var toolObject in objectsToDisapear)
         {
             Destroy(toolObject,0.2f);
@@ -43,7 +43,7 @@ public class Finisher : MonoBehaviour
         
         dead.sharedMesh = deadSkin.sharedMesh;
         dead.sharedMaterial = deadSkin.sharedMaterial;
-        StartCoroutine(WaitForDeathAnim());
+        
     }
 
     public void TargetToSkeleton(GameObject skeleton)

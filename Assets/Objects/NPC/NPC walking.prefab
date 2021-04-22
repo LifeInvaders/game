@@ -51,7 +51,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
+  m_Height: 1.91
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -189,6 +189,11 @@ PrefabInstance:
         type: 3}
       propertyPath: iaPoints
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8319126040743981075, guid: 614022e0a32902244ab9421d05e46eed,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.37
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 614022e0a32902244ab9421d05e46eed, type: 3}
