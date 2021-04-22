@@ -89,6 +89,14 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""ChangePOV"",
+                    ""type"": ""Button"",
+                    ""id"": ""08748a5f-4281-4c66-8675-95ada0e17a0f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -344,6 +352,17 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""action"": ""Power"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""26085453-90b2-4048-a1cb-50f20a61e352"",
+                    ""path"": ""<Keyboard>/v"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and Mouse"",
+                    ""action"": ""ChangePOV"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -462,6 +481,7 @@ public class @Controler : IInputActionCollection, IDisposable
         m_Player_Select = m_Player.FindAction("Select", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_Power = m_Player.FindAction("Power", throwIfNotFound: true);
+        m_Player_ChangePOV = m_Player.FindAction("ChangePOV", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Pause = m_Menu.FindAction("Pause", throwIfNotFound: true);
@@ -524,6 +544,7 @@ public class @Controler : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Select;
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_Power;
+    private readonly InputAction m_Player_ChangePOV;
     public struct PlayerActions
     {
         private @Controler m_Wrapper;
@@ -537,6 +558,7 @@ public class @Controler : IInputActionCollection, IDisposable
         public InputAction @Select => m_Wrapper.m_Player_Select;
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @Power => m_Wrapper.m_Player_Power;
+        public InputAction @ChangePOV => m_Wrapper.m_Player_ChangePOV;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -573,6 +595,9 @@ public class @Controler : IInputActionCollection, IDisposable
                 @Power.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPower;
                 @Power.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPower;
                 @Power.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPower;
+                @ChangePOV.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangePOV;
+                @ChangePOV.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangePOV;
+                @ChangePOV.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangePOV;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -604,6 +629,9 @@ public class @Controler : IInputActionCollection, IDisposable
                 @Power.started += instance.OnPower;
                 @Power.performed += instance.OnPower;
                 @Power.canceled += instance.OnPower;
+                @ChangePOV.started += instance.OnChangePOV;
+                @ChangePOV.performed += instance.OnChangePOV;
+                @ChangePOV.canceled += instance.OnChangePOV;
             }
         }
     }
@@ -687,6 +715,7 @@ public class @Controler : IInputActionCollection, IDisposable
         void OnSelect(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnPower(InputAction.CallbackContext context);
+        void OnChangePOV(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {

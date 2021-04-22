@@ -11,8 +11,8 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 409520c9226982345a49c9803624f208, type: 3}
   m_Controller: {fileID: 9100000, guid: ce7fc9d52dd5f384d93e40a193404832, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
+  m_CullingMode: 2
+  m_UpdateMode: 1
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -51,7 +51,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
+  m_Height: 1.91
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -97,6 +97,7 @@ MonoBehaviour:
   RandomPosition: 1
   ParentPosition: {x: 31.7, y: 7.39, z: 91.6}
   SearchRadius: 22.6
+  FindInSphere: 0
 --- !u!1001 &6391671937588929662
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -188,6 +189,11 @@ PrefabInstance:
         type: 3}
       propertyPath: iaPoints
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8319126040743981075, guid: 614022e0a32902244ab9421d05e46eed,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.37
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 614022e0a32902244ab9421d05e46eed, type: 3}

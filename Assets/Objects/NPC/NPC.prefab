@@ -644,7 +644,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 651045640812444531}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1398,6 +1398,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 89a8c4d05aebfbd40ad71b8f56d3f20f, type: 2}
   - {fileID: 2100000, guid: 40aec02aea86ce244b18314c814bb5ac, type: 2}
   - {fileID: 2100000, guid: 68cc9bc1692dabf4596c958ffe06eae6, type: 2}
+  dissolveMat: {fileID: 2100000, guid: ac133a4892f7ca693a4532e6f006cf09, type: 2}
 --- !u!114 &968173258086345764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2914,7 +2915,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 651045640812532581}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.0510384e-29, y: 9.447606, z: 12.272215}
+  m_LocalPosition: {x: 0, y: 8.6, z: 12.27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 651045640812643345}
@@ -3398,6 +3399,7 @@ GameObject:
   - component: {fileID: 651045640812709251}
   - component: {fileID: 8319126040743981075}
   - component: {fileID: 1642381290634515536}
+  - component: {fileID: 4556865410520502094}
   m_Layer: 9
   m_Name: NPC
   m_TagString: NPC
@@ -3451,6 +3453,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
+--- !u!114 &4556865410520502094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 651045640812541713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 851df3c500d93df43bd1ffc6ce7149de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dissolveShader: {fileID: 2100000, guid: ac133a4892f7ca693a4532e6f006cf09, type: 2}
 --- !u!1 &651045640812542231
 GameObject:
   m_ObjectHideFlags: 0
