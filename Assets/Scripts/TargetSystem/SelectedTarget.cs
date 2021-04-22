@@ -61,6 +61,7 @@ namespace TargetSystem
             }
             else
             {
+                Debug.Log(target);
                 _selectedTarget = target;
                 _outlineTarget = outline;
                 _outlineTarget.OutlineColor = Color.yellow;

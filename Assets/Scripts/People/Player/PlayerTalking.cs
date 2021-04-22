@@ -1,19 +1,18 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using People.Player;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class PlayerTalking : MonoBehaviour
+namespace People.Player
 {
-    private void OnTriggerStay(Collider other)
+    public class PlayerTalking : MonoBehaviour
     {
-        if (other.gameObject.CompareTag("Player"))
+        private void OnTriggerStay(Collider other)
         {
-            Vector2 axis = other.gameObject.GetComponent<PlayerControler>().GetAxis();
-            other.gameObject.GetComponent<Animator>()
-                .SetBool("talking", axis.Equals(Vector2.zero));
+            if (other.gameObject.CompareTag("Player"))
+            {
+                Vector2 axis = other.gameObject.GetComponent<PlayerControler>().GetAxis();
+                other.gameObject.GetComponent<Animator>()
+                    .SetBool("talking", axis.Equals(Vector2.zero));
+            }
         }
-    }
 
+    }
 }
