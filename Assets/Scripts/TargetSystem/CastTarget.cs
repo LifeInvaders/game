@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using People.Player;
 using Photon.Pun;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 namespace TargetSystem
 {
@@ -21,6 +23,11 @@ namespace TargetSystem
         private bool _selected;
         
         public bool _isTargetNull;
+
+        [SerializeField] private Volume _vignette;
+        [SerializeField] private Camera[] _cameras;
+
+        private PlayerControler _playerControler;
         
         /// <summary>
         /// Set Aiming bool
@@ -29,6 +36,8 @@ namespace TargetSystem
         public void SetAiming(bool value)
         {
             _aiming = value;
+            _vignette.isGlobal = value;
+            foreach (var cam in _cameras) cam.enabled = value;
         }
 
         private void Start()
@@ -36,7 +45,7 @@ namespace TargetSystem
             if (PhotonNetwork.IsConnected && !gameObject.GetPhotonView().IsMine)
                 enabled = false;
             _selectedTarget = GetComponent<SelectedTarget>();
-
+            _playerControler = GetComponent<PlayerControler>();
             _aiming = false;
             _selected = false;
         }
@@ -65,11 +74,12 @@ namespace TargetSystem
         private void FixedUpdate()
         {
             _isTargetNull = _target == null;
-            
+            Debug.DrawRay(_camera.transform.position,_camera.transform.forward,Color.blue);
             if (_aiming && Physics.Raycast(_camera.transform.position,
-                _camera.transform.TransformDirection(Vector3.forward),
+                _camera.transform.forward,
                 out _raycastHit, 30f, 768)) // si on vise un personnage
             {
+                Debug.Log("found human");
                 if (_isTargetNull || (_selectedTarget.IsSelectedTarget(_raycastHit.transform.gameObject) && _raycastHit.transform.gameObject.GetInstanceID() != _target.GetInstanceID()))
                 {
                     RemoveCamTarget();
@@ -80,15 +90,23 @@ namespace TargetSystem
                 {
                     _selectedTarget.UpdateSelectedTarget(_target, _outlineCam);
                     _selected = false;
-                    _aiming = false;
+                    SetAiming(false);
                 }
             }
             else if (!_isTargetNull && !_selectedTarget.IsSelectedTarget(_target))
+            {
+                Debug.Log("remove end");
                 RemoveCamTarget();
+            }
         }
 
-        public void OnAim() => _aiming = !_aiming;
+        public void OnAim()
+        {
+            SetAiming(!_aiming);
+            if (_aiming && _selectedTarget.IsTarget()) 
+                _selectedTarget.UpdateSelectedTarget(_target, _outlineCam);
+        }
 
-        public void OnSelect(InputValue value) => _selected = value.isPressed && _aiming;
+        public void OnSelect(InputValue value) => _selected = value.isPressed && _aiming && !_isTargetNull;
     }
 }

@@ -1,4 +1,5 @@
-﻿using People.Player;
+﻿using Cinemachine;
+using People.Player;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
@@ -6,13 +7,17 @@ namespace Objects
 {
     public class Ladder : MonoBehaviour
     {
+        [SerializeField] private CinemachineVirtualCamera cam; 
         // Start is called before the first frame update
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.CompareTag("Player"))
             {
+                cam.Follow = other.transform;
+                cam.LookAt = other.transform;
+                cam.Priority = 40;
                 var transformLocalPosition = other.gameObject.GetComponent<CameraControler>();
-                transformLocalPosition.camera.transform.localPosition = new Vector3(transformLocalPosition.camera.transform.localPosition.x, -0.5f, -2.5f);
+                // transformLocalPosition.camera.transform.localPosition = new Vector3(transformLocalPosition.camera.transform.localPosition.x, -0.5f, -2.5f);
             
                 var eulerAngles = transformLocalPosition.camAnchor.transform.eulerAngles;
                 eulerAngles = new Vector3(0,eulerAngles.y,eulerAngles.z);
@@ -45,6 +50,9 @@ namespace Objects
             {
                 ExitLadder(other.gameObject);
                 other.gameObject.transform.Translate(Vector3.forward *1.3f);
+                cam.Follow = null;
+                cam.LookAt = null;
+                cam.Priority = 0;
             }
         }
 
@@ -68,7 +76,6 @@ namespace Objects
             playerGameObject.GetComponent<Animator>().SetBool("Echelle",false);
         
             playerGameObject.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
-            playerGameObject.GetComponent<CameraControler>().ResetCamera();
 
         }
 
