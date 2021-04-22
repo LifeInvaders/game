@@ -8,6 +8,7 @@
         <e p="Controls" t="Include">
           <e p="Controler.cs" t="Include" />
         </e>
+        <e p="csc.rsp" t="Include" />
         <e p="Joystick Pack" t="Include">
           <e p="Examples" t="Include">
             <e p="JoystickPlayerExample.cs" t="Include" />
@@ -890,6 +891,7 @@
             <e p="demoEvent.cs" t="Include" />
             <e p="Editor" t="Include">
               <e p="BuildPipeline.cs" t="Include" />
+              <e p="BuildPipelineSO.cs" t="Include" />
               <e p="Tools.cs" t="Include" />
             </e>
             <e p="FreeCam.cs" t="Include" />
