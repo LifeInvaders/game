@@ -6,8 +6,7 @@ namespace Com.MyCompany.MyGame
 {
     public class GameManager : MonoBehaviourPunCallbacks
     {
-
-
+        
         #region Photon Callbacks
 
 
@@ -21,8 +20,7 @@ namespace Com.MyCompany.MyGame
 
 
         #endregion
-
-
+        
         #region Public Methods
 
 
@@ -57,8 +55,6 @@ namespace Com.MyCompany.MyGame
         public override void OnPlayerEnteredRoom(Photon.Realtime.Player other)
         {
             Debug.LogFormat("OnPlayerEnteredRoom() {0}", other.NickName); // not seen if you're the player connecting
-
-
             if (PhotonNetwork.IsMasterClient)
             {
                 Debug.LogFormat("OnPlayerEnteredRoom IsMasterClient {0}", PhotonNetwork.IsMasterClient); // called before OnPlayerLeftRoom
@@ -72,8 +68,6 @@ namespace Com.MyCompany.MyGame
         public override void OnPlayerLeftRoom(Photon.Realtime.Player other)
         {
             Debug.LogFormat("OnPlayerLeftRoom() {0}", other.NickName); // seen when other disconnects
-
-
             if (PhotonNetwork.IsMasterClient)
             {
                 Debug.LogFormat("OnPlayerLeftRoom IsMasterClient {0}", PhotonNetwork.IsMasterClient); // called before OnPlayerLeftRoom
