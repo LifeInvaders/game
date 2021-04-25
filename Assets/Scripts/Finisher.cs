@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using Cinemachine;
 using People.Player;
+using TargetSystem;
 using UnityEngine;
 
 public class Finisher : MonoBehaviour
@@ -22,6 +23,7 @@ public class Finisher : MonoBehaviour
         player.GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
         player.GetComponent<PlayerControler>().SetMoveBool(true);
         player.GetComponent<PlayerControler>().SetRotateBool(true);
+        player.GetComponent<CastTarget>().enabled = true;
         player.transform.position = killer.transform.parent.position;
         player.transform.rotation = transform.rotation;
         killer.enabled = false;
