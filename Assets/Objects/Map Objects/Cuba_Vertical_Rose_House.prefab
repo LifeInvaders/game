@@ -113,6 +113,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Lantern_Attachment_18
       objectReference: {fileID: 0}
+    - target: {fileID: 145908, guid: bb677ec00087db84e9c3dcc9bb02a479, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 418664, guid: bb677ec00087db84e9c3dcc9bb02a479, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -123,7 +127,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 418664, guid: bb677ec00087db84e9c3dcc9bb02a479, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.0500002
+      value: -2.459
       objectReference: {fileID: 0}
     - target: {fileID: 418664, guid: bb677ec00087db84e9c3dcc9bb02a479, type: 3}
       propertyPath: m_LocalPosition.z
@@ -557,6 +561,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 78edba5dc4cc2684c8e99f363873ff77, type: 2}
+    - target: {fileID: 4409252244061537142, guid: 9f9e04b362343df49bf493726e4974e9,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.9226265
+      objectReference: {fileID: 0}
+    - target: {fileID: 4409252244061537142, guid: 9f9e04b362343df49bf493726e4974e9,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.002669699
+      objectReference: {fileID: 0}
+    - target: {fileID: 4409252244061537142, guid: 9f9e04b362343df49bf493726e4974e9,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.46131325
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f9e04b362343df49bf493726e4974e9, type: 3}
 --- !u!4 &1201694769705294272 stripped
