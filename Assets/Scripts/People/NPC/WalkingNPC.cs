@@ -69,7 +69,7 @@ namespace People.NPC
         {
             if (!_agent.pathPending && _agent.remainingDistance < 0.5f)
                 GotoNextPoint();
-            Debug.DrawRay(transform.position + Vector3.up, transform.forward, Color.magenta);
+            // Debug.DrawRay(transform.position + Vector3.up, transform.forward, Color.magenta);
             if (Physics.Raycast(transform.position + Vector3.up, transform.forward, 1f, 768))
                 _agent.speed = 1.2f;
             else
@@ -118,7 +118,7 @@ namespace People.NPC
             Vector3 newPos;
             do
             {
-                newPos = ParentPosition + Random.insideUnitSphere * range;
+                newPos = transform.position + Random.insideUnitSphere * range;
                 if (!FindInSphere)
                     newPos.y = ParentPosition.y;
 
