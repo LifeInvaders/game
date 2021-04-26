@@ -8,6 +8,8 @@
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="camManager.cs" t="Include" />
+        <e p="cinematiqueController.cs" t="Include" />
         <e p="Controler.cs" t="Include" />
         <e p="demoEvent.cs" t="Include" />
         <e p="Joystick Pack" t="Include">
@@ -670,7 +672,11 @@
             <e p="NightModeEditor.cs" t="Include" />
             <e p="Tools.cs" t="Include" />
           </e>
+<<<<<<< HEAD
+          <e p="finisher.cs" t="Include" />
+=======
           <e p="Finisher.cs" t="Include" />
+>>>>>>> dev
           <e p="GameManager" t="Include">
             <e p="AssignTarget.cs" t="Include" />
             <e p="InGameStats.cs" t="Include" />
@@ -712,6 +718,7 @@
               <e p="WalkingNPC.cs" t="Include" />
             </e>
             <e p="Player" t="Include">
+              <e p="AnimControler.cs" t="Include" />
               <e p="CameraControler.cs" t="Include" />
               <e p="HumanEvent.cs" t="Include" />
               <e p="PlayerControler.cs" t="Include" />
@@ -895,6 +902,7 @@
             <e p="EmojiOne Attribution.txt" t="Include" />
           </e>
         </e>
+        <e p="Victory.cs" t="Include" />
       </e>
       <e p="BitpackersASMDEF.csproj" t="IncludeRecursive" />
       <e p="EmoCompressUtilsASMDEF.csproj" t="IncludeRecursive" />

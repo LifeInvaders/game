@@ -38,6 +38,7 @@ namespace TargetSystem
         {
             target.GetComponent<Human>().Death();
             _casttarget.SetAiming(false);
+            _casttarget.enabled = false;
             Debug.Log($"killed {target.name}");
             var g = Instantiate(finishers[new Random().Next(finishers.Length)], transform.position, transform.rotation);
             
