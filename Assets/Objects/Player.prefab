@@ -49,6 +49,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3407748498409622259, guid: 4d064807a326e0343b77e7f7b53bfcc0,
         type: 3}
+      propertyPath: finishers.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3407748498409622259, guid: 4d064807a326e0343b77e7f7b53bfcc0,
+        type: 3}
       propertyPath: finishers.Array.data[0]
       value: 
       objectReference: {fileID: 1302481631317835392, guid: ee49e0c629aefc14b91f9a915e7dfaeb,
@@ -58,6 +63,12 @@ PrefabInstance:
       propertyPath: finishers.Array.data[1]
       value: 
       objectReference: {fileID: 729133053160898170, guid: 2501ee6eade012140a18ea3599e6bf63,
+        type: 3}
+    - target: {fileID: 3407748498409622259, guid: 4d064807a326e0343b77e7f7b53bfcc0,
+        type: 3}
+      propertyPath: finishers.Array.data[6]
+      value: 
+      objectReference: {fileID: 2221348574246789631, guid: 3a2972403303dfb48b04f86290a821fe,
         type: 3}
     - target: {fileID: 4441482292251185313, guid: 4d064807a326e0343b77e7f7b53bfcc0,
         type: 3}
