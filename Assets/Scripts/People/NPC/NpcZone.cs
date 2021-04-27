@@ -41,14 +41,5 @@ namespace People.NPC
         {
             Instantiate(prefab, _points[_random.Next(1,_points.Length)].position, Quaternion.identity, parent);
         }
-
-        private void OnDrawGizmosSelected()
-        {
-        #if DEBUG
-            Handles.color = new Color(1,0,0,0.2f);
-            Handles.DrawSolidDisc(transform.position, transform.up , searchRadius); 
-        #endif
-            
-        }
     }
 }

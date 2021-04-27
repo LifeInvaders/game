@@ -13,9 +13,9 @@ namespace RadarSystem
         [SerializeField] private RectTransform radar;
         [SerializeField] private SpriteRenderer _spriteRenderer;
 
-        public void SetTarget(Transform targeTransform)
+        public void SetTarget(Transform targetTransform)
         {
-            target = targeTransform;
+            target = targetTransform;
         }
         // Update is called once per frame
         private void FixedUpdate()

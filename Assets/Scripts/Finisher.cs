@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using Cinemachine;
 using People.Player;
+using Photon.Pun;
 using UnityEngine;
 
 public class Finisher : MonoBehaviour
@@ -11,11 +12,13 @@ public class Finisher : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera camera;
     
     public GameObject player;
+    public GameObject victim;
     // public GameObject target;
     [SerializeField] private GameObject[] objectsToDisapear;
 
     [SerializeField] private Material _material;
     
+
     public void LeaveCamera()
     {
         camera.Priority = 1;

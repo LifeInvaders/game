@@ -22,6 +22,11 @@ public class LobbyTimer : MonoBehaviourPunCallbacks
             _startTimer = false;
             Hashtable customTimer = new Hashtable {{"endTime", _endTime},{"startTimer",_startTimer}};
             PhotonNetwork.CurrentRoom.SetCustomProperties(customTimer);
+            if (PhotonNetwork.CurrentRoom.CustomProperties.ContainsKey("restart"))
+            {
+                foreach (Photon.Realtime.Player player in PhotonNetwork.PlayerList)
+                    OnPlayerEnteredRoom(player);
+            }
         }
         else
         {

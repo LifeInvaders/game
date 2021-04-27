@@ -15,15 +15,35 @@ public static class EventManager
     /// <summary>
     /// Event raised when a player is killed.
     /// </summary>
-    public const byte KilledEventCode = 1;
-    public const byte EndRoundEventCode = 2;
+    public const byte KilledPlayerEventCode = 1;
+    /// <summary>
+    /// Event raised when an NPC is killed.
+    /// </summary>
+    public const byte KilledNpcEventCode = 2;
+    /// <summary>
+    /// Event raised when a round ends.
+    /// </summary>
+    public const byte EndRoundEventCode = 3;
     //You can also implement template RaiseEvent methods for specific Events here.
 
-    public static void RaisePlayerKilled(Photon.Realtime.Player killed)
+    public static void RaisePlayerKilled(GameObject playerKilled)
     {
-        object[] args = {killed};
+        Debug.Log("Raising player killed event.");
         RaiseEventOptions raiseEventOptions = new RaiseEventOptions { Receivers = ReceiverGroup.All };
-        PhotonNetwork.RaiseEvent(KilledEventCode,args,raiseEventOptions,SendOptions.SendReliable);
+        PhotonNetwork.RaiseEvent(KilledPlayerEventCode,playerKilled.GetPhotonView().ViewID,raiseEventOptions,SendOptions.SendReliable);
     }
-    
+
+    public static void RaiseNpcKilled(GameObject npcKilled)
+    {
+        Debug.Log("Raising NPC killed event.");
+        RaiseEventOptions raiseEventOptions= new RaiseEventOptions {Receivers = ReceiverGroup.All};
+        PhotonNetwork.RaiseEvent(KilledNpcEventCode, npcKilled.GetPhotonView().ViewID, raiseEventOptions, SendOptions.SendReliable);
+    }
+
+    public static void RaiseEndRoundEvent()
+    {
+        Debug.Log("Raising end round event.");
+        RaiseEventOptions raiseEventOptions= new RaiseEventOptions {Receivers = ReceiverGroup.All};
+        PhotonNetwork.RaiseEvent(EndRoundEventCode,null, raiseEventOptions, SendOptions.SendReliable);
+    }
 }

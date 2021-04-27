@@ -10,29 +10,16 @@ using Random = System.Random;
 public class AssignTarget : MonoBehaviourPunCallbacks
 {
     [SerializeField] private InGameStats igs;
-    
-    
-    [PunRPC]
-    private void ChangeTarget(Photon.Realtime.Player target)
-    {
-        foreach (TextMeshPro tmp in FindObjectsOfType<TextMeshPro>())
-            tmp.color = Color.white;
-        foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))  //Test every Player character for correct target
-        {
-            if (player.GetPhotonView().Owner.Equals(target))  //Test if character belongs to target
-            {
-                Debug.Log("Player found!");
-                igs.target = player;  //Set target in InGameStats
-                Debug.Log("Target successfully set!");
-                Debug.Log("Changing name color...");
-                player.GetComponentInChildren<TextMeshPro>().color = Color.red; //For testing
-                //Display a UI message!!!
-                return;
-            }
-        }
-    }
-    
     private Random _random = new Random();
+
+
+    [PunRPC]
+    private void ChangeTarget(Photon.Realtime.Player target)    
+    {
+        if (igs.target != null) igs.target.GetComponentInChildren<TextMeshPro>().color = Color.white;
+        igs.target = PhotonView.Find((int) target.CustomProperties["viewID"]).gameObject;
+        igs.target.GetComponentInChildren<TextMeshPro>().color = Color.red;
+    }
 
     public void TargetAssigner()
     {

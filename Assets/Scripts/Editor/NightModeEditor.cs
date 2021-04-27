@@ -12,16 +12,10 @@ public class NightModeEditor : Editor
         // myTarget.name = EditorGUILayout.TextField("name", myTarget.name);
         // EditorGUILayout.LabelField("Level", myTarget._lights.Length.ToString());
         
-        if (GUILayout.Button("Day"))
+        if (GUILayout.Button("Change Mode"))
         {
             myTarget.FindLights();
-            myTarget.ChangeMode(true);
-        }
-        
-        if (GUILayout.Button("Night"))
-        {
-            myTarget.FindLights();
-            myTarget.ChangeMode(false);
+            myTarget.ChangeMode();
         }
     }
 }

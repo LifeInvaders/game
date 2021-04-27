@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -6764,34 +6764,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rebindButtons:
   - rebindButton: {fileID: 186008273}
-    action: {fileID: 1255451690334249501, guid: c42f7726dd4981a49bdbe4606279d145,
+    action: {fileID: 1255451690334249501, guid: e8aaadb029fac2241ab6fdee1ba085d0,
       type: 3}
     bindingIndex: 1
   - rebindButton: {fileID: 1729977448}
-    action: {fileID: 1255451690334249501, guid: c42f7726dd4981a49bdbe4606279d145,
+    action: {fileID: 1255451690334249501, guid: e8aaadb029fac2241ab6fdee1ba085d0,
       type: 3}
     bindingIndex: 2
   - rebindButton: {fileID: 128226215}
-    action: {fileID: 1255451690334249501, guid: c42f7726dd4981a49bdbe4606279d145,
+    action: {fileID: 1255451690334249501, guid: e8aaadb029fac2241ab6fdee1ba085d0,
       type: 3}
     bindingIndex: 3
   - rebindButton: {fileID: 906306886}
-    action: {fileID: 1255451690334249501, guid: c42f7726dd4981a49bdbe4606279d145,
+    action: {fileID: 1255451690334249501, guid: e8aaadb029fac2241ab6fdee1ba085d0,
       type: 3}
     bindingIndex: 4
   - rebindButton: {fileID: 407469778}
-    action: {fileID: -3861748742782877003, guid: c42f7726dd4981a49bdbe4606279d145,
+    action: {fileID: -3861748742782877003, guid: e8aaadb029fac2241ab6fdee1ba085d0,
       type: 3}
     bindingIndex: 0
   - rebindButton: {fileID: 1908034317}
-    action: {fileID: -1098277040992299987, guid: c42f7726dd4981a49bdbe4606279d145,
+    action: {fileID: -1098277040992299987, guid: e8aaadb029fac2241ab6fdee1ba085d0,
       type: 3}
     bindingIndex: 0
   - rebindButton: {fileID: 286339353}
-    action: {fileID: 5398649285786029011, guid: c42f7726dd4981a49bdbe4606279d145,
+    action: {fileID: 5398649285786029011, guid: e8aaadb029fac2241ab6fdee1ba085d0,
       type: 3}
     bindingIndex: 0
-  inputAsset: {fileID: -944628639613478452, guid: c42f7726dd4981a49bdbe4606279d145,
+  inputAsset: {fileID: -944628639613478452, guid: e8aaadb029fac2241ab6fdee1ba085d0,
     type: 3}
 --- !u!1 &1303317632
 GameObject:
@@ -8604,7 +8604,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 2.6221e-41, z: 0, w: -2.5687256e+28}
+  m_BoundingSphereOverride: {x: 0, y: 1.4108e-41, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0

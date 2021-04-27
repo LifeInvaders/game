@@ -323,7 +323,6 @@ GameObject:
   - component: {fileID: 1105454687269520807}
   - component: {fileID: 5028163972026090487}
   - component: {fileID: 4501865844253715732}
-  - component: {fileID: 8922761799064997395}
   - component: {fileID: 2030243926350272736}
   - component: {fileID: 4637526971878301845}
   m_Layer: 9
@@ -427,45 +426,14 @@ MonoBehaviour:
   ObservedComponentsFoldoutOpen: 1
   Group: 0
   prefixField: -1
-  observableSearch: 2
-  Synchronization: 3
+  observableSearch: 0
+  Synchronization: 0
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 8922761799064997395}
   - {fileID: 0}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &8922761799064997395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5889368337999237999}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowLayerWeightsInspector: 1
-  ShowParameterInspector: 1
-  m_SynchronizeParameters:
-  - Type: 4
-    SynchronizeType: 1
-    Name: walk
-  - Type: 1
-    SynchronizeType: 1
-    Name: Blend
-  - Type: 4
-    SynchronizeType: 1
-    Name: mirror
-  - Type: 4
-    SynchronizeType: 1
-    Name: talk
-  m_SynchronizeLayers:
-  - SynchronizeType: 1
-    LayerIndex: 0
 --- !u!95 &2030243926350272736
 Animator:
   serializedVersion: 3
@@ -527,6 +495,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 89a8c4d05aebfbd40ad71b8f56d3f20f, type: 2}
   - {fileID: 2100000, guid: 40aec02aea86ce244b18314c814bb5ac, type: 2}
   - {fileID: 2100000, guid: 68cc9bc1692dabf4596c958ffe06eae6, type: 2}
+  dissolveMat: {fileID: 2100000, guid: ac133a4892f7ca693a4532e6f006cf09, type: 2}
 --- !u!1 &5889368337999239199
 GameObject:
   m_ObjectHideFlags: 0

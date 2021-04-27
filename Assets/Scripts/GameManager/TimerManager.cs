@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 
 
-public class TimerManager : MonoBehaviourPunCallbacks, IOnEventCallback
+public class TimerManager : MonoBehaviourPunCallbacks
 {
     [SerializeField] private double[] timerPhase;
     private int _index;
@@ -21,14 +21,11 @@ public class TimerManager : MonoBehaviourPunCallbacks, IOnEventCallback
     void Awake()
     {
         _currentEndTime = Double.PositiveInfinity;
-        PhotonNetwork.AddCallbackTarget(this);
         ChangeTimer();
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-            EventManager.RaisePlayerKilled(null);
         if (PhotonNetwork.Time >= _currentEndTime)
             TimerEnded();
         UpdateTimer();
@@ -36,9 +33,9 @@ public class TimerManager : MonoBehaviourPunCallbacks, IOnEventCallback
 
     public override void OnRoomPropertiesUpdate(Hashtable propertiesThatChanged)
     {
-        propertiesThatChanged.TryGetValue("endTime",out var endTime);
+        if (!propertiesThatChanged.TryGetValue("endTime", out var endTime)) return;
         _currentEndTime = Convert.ToDouble(endTime);
-        if (!timerText.gameObject.activeInHierarchy) timerText.gameObject.SetActive(true);
+        timerText.gameObject.SetActive(true);
     }
 
     void TimerEnded()
@@ -54,8 +51,6 @@ public class TimerManager : MonoBehaviourPunCallbacks, IOnEventCallback
         ChangeTimer();
         if (PhotonNetwork.IsMasterClient)
             targetSystem.TargetAssigner();
-        //TODO: Enable power usage
-        //TODO: Enable hunt-related UI elements
     }
 
     void EndRound()
@@ -63,8 +58,11 @@ public class TimerManager : MonoBehaviourPunCallbacks, IOnEventCallback
         _index = 0;
         ChangeTimer();
         igs.target = null;
+        if (PhotonNetwork.IsMasterClient) 
+            EventManager.RaiseEndRoundEvent();
         //TODO: Disable power usage
         //TODO: Disable hunt-related UI elements
+        //TODO: Disable ability to kill
     }
 
     void ChangeTimer()
@@ -76,16 +74,13 @@ public class TimerManager : MonoBehaviourPunCallbacks, IOnEventCallback
         }
     }
 
-    public void OnEvent(EventData photonEvent)
+    public void AccTimer()
     {
-        if (photonEvent.Code != EventManager.KilledEventCode || _index >= timerPhase.Length - 1) return;
+        if (_index >= timerPhase.Length - 1) return;
         _index += 1;
-        if (_currentEndTime < PhotonNetwork.Time + timerPhase[_index])
+        if (_currentEndTime > PhotonNetwork.Time + timerPhase[_index])
             ChangeTimer();
     }
-
-    [PunRPC]
-    public void EnableTimer() => timerText.gameObject.SetActive(true);
 
     void UpdateTimer()
     {

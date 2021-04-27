@@ -22,8 +22,6 @@ namespace People
             _materialNb = Random.Range(0, materials.Length - 1);
             
             _renderer = GetComponent<SkinnedMeshRenderer>();
-            
-
             StartCoroutine(FadeIn());
         }
 
@@ -44,7 +42,6 @@ namespace People
                     Mathf.Lerp(phase, targetPhase, timeElapsed / 3));
                 yield return new WaitForEndOfFrame();
             }
-            
             _renderer.sharedMaterial = materials[_materialNb];
         }
 

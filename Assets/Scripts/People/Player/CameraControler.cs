@@ -27,9 +27,11 @@ namespace People.Player
         private float _xAxis;
         private float _zAxis;
 
-        public CinemachineVirtualCamera camera;
+        [SerializeField]  CinemachineVirtualCamera camera;
 
-        [Header("Cameras")] [SerializeField] private CinemachineVirtualCamera firstCam;
+        [Header("Cameras")]
+        [SerializeField] private GameObject camerasParent;
+        [SerializeField] private CinemachineVirtualCamera firstCam;
         [SerializeField] private CinemachineVirtualCamera thirdCamRightShoulder;
         [SerializeField] private CinemachineVirtualCamera thirdCamLeftShoulder;
         [SerializeField] private CinemachineBrain cinemachineBrain;
@@ -39,21 +41,20 @@ namespace People.Player
 
         private void Awake()
         {
+            if (PhotonNetwork.IsConnected && !gameObject.GetPhotonView().IsMine)
+            {
+                camerasParent.SetActive(false);
+                enabled = false;
+                return;
+            }
             camera = thirdCamRightShoulder;
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-            if (PhotonNetwork.IsConnected && !gameObject.GetPhotonView().IsMine)
-            {
-                camera.gameObject.SetActive(false);
-                enabled = false;
-            }
         }
 
         private void Start()
         {
             _playerControler = GetComponent<PlayerControler>();
-            // Cursor.lockState = CursorLockMode.Locked;
-            // Cursor.visible = false;
         }
 
         private void OnChangePOV()

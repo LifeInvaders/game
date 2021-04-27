@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using Photon.Pun;
 using UnityEngine.Experimental.AI;
+using Utilities;
 using Vector3 = UnityEngine.Vector3;
 
 
@@ -21,15 +22,12 @@ namespace People.NPC
         private Queue<Vector3> points;
         private Vector3 lastDest;
 
-
         void Start()
         {
-            StartCoroutine(StartUpdate());
+            StartCoroutine(WaitSync());
             // positions = iaPoints.GetComponentsInChildren<Transform>();
             _agent = GetComponent<NavMeshAgent>();
-            // agent.autoBraking = false;
             _anim = GetComponent<Animator>();
-            // SetStatus(NpcStatus.Walking);
             if (Status == NpcStatus.Walking)
                 _anim.SetBool("walk", true);
             points = new Queue<Vector3>();
@@ -41,25 +39,28 @@ namespace People.NPC
                 _agent.Warp(hit.position);
             }
             _agent.radius = 0.1f;
-            if (PhotonNetwork.IsMasterClient) CalculateNextPath(transform.position);
+            if (PhotonNetwork.IsMasterClient)
+                CalculateNextPath(transform.position);
         }
 
-        IEnumerator StartUpdate()
+        IEnumerator WaitSync()
         {
-            Debug.Log("Waiting 20 seconds...");
-            yield return new WaitForSeconds(20);
-            Debug.Log("Script started!");
+            yield return new WaitUntil(CheckNpcSyncTime);
+            if (PhotonNetwork.IsMasterClient)
+                yield return new WaitForSeconds(2);
             GotoNextPoint();
             _start = true;
         }
 
-        [PunRPC]
-        public void ChangeStart() => _start = !_start;
+        bool CheckNpcSyncTime()
+        {
+            if (!PhotonNetwork.CurrentRoom.CustomProperties.TryGetValue("syncNpcStart", out var time))
+                return false;
+            return PhotonNetwork.Time >= Convert.ToDouble(time);
+        }
 
         void FixedUpdate()
         {
-            if (PhotonNetwork.IsMasterClient && Input.GetKeyDown(KeyCode.RightShift))
-                gameObject.GetPhotonView().RPC(nameof(ChangeStart),RpcTarget.AllViaServer);
             if (!_start) return;
             if (!_agent.pathPending && _agent.remainingDistance < 0.5f)
             {
@@ -103,20 +104,19 @@ namespace People.NPC
                 } while (!validPosition && ++tryPositions < 1000 && path.status != NavMeshPathStatus.PathComplete);
                 validPath = NavMesh.CalculatePath(start, hit.position, NavMesh.AllAreas, path);
             } while (!validPath && ++tryPaths < 1000);
-            if (!validPath) PhotonNetwork.Destroy(gameObject);
-            gameObject.GetPhotonView().RPC(nameof(SetNextPath), RpcTarget.All, path.corners);
+            if (!validPath)
+            {
+                Debug.Log("Failed to find a path! Destroying NPC...");
+                PhotonNetwork.Destroy(gameObject);
             }
+            gameObject.GetPhotonView().RPC(nameof(SetNextPath),RpcTarget.All,path.corners);
+        }
 
         [PunRPC]
         public void SetNextPath(Vector3[] vectArray)
         {
-            Debug.Log("adding vectors to queue");
             foreach (Vector3 vect in vectArray)
-            {
-                Debug.Log("Adding vector...");
                 points.Enqueue(vect);
-            }
-            Debug.Log("Done adding vectors.");
             points.Enqueue(Vector3.zero);
             lastDest = vectArray.Last();
         }
