@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace RadarSystem
 {
@@ -9,25 +10,31 @@ namespace RadarSystem
 
         // Update is called once per frame
         // TODO : REMOVE SerializeField for target Transform
-        [SerializeField] private Transform target;
-        [SerializeField] private RectTransform radar;
-        [SerializeField] private SpriteRenderer _spriteRenderer;
+        private Transform _target;
+        private RectTransform _radar;
+        private SpriteRenderer _spriteRenderer;
 
-        public void SetTarget(Transform targetTransform)
+        public void Start()
         {
-            target = targetTransform;
+            _radar = GetComponent<RectTransform>();
+            _spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+
+        public void SetTarget(Transform targeTransform)
+        {
+            _target = targeTransform;
         }
         // Update is called once per frame
         private void FixedUpdate()
         {
-            if (target == null)
+            if (_target == null)
             {
                 _spriteRenderer.material.SetFloat("Vector1_A5BC52FF",0);
                 return;
             }
-            float distance = Vector3.Distance(transform.position, target.position);
+            float distance = Vector3.Distance(transform.position, _target.position);
 
-            Quaternion quaternion = Quaternion.LookRotation(transform.position - target.position);
+            Quaternion quaternion = Quaternion.LookRotation(transform.position - _target.position);
             quaternion.z = -quaternion.y;
             quaternion.y = 0;
             quaternion.x = 0;
@@ -35,7 +42,7 @@ namespace RadarSystem
             _spriteRenderer.material.SetFloat("Vector1_A5BC52FF",distance);
             
             
-            radar.localRotation = quaternion * Quaternion.Euler(0,0,transform.eulerAngles.y);
+            _radar.localRotation = quaternion * Quaternion.Euler(0,0,transform.eulerAngles.y);
 
         }
     }

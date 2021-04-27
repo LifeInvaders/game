@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Cinemachine;
 using People;
 using People.NPC;
 using People.Player;
@@ -20,7 +21,7 @@ namespace TargetSystem
         private CastTarget _casttarget;
 
         [SerializeField] private GameObject[] finishers;
-
+        public void SetFinisher(GameObject finisher) => finishers = new[] {finisher};
         void Start()
         {
             if (PhotonNetwork.IsConnected && !gameObject.GetPhotonView().IsMine)
@@ -38,13 +39,16 @@ namespace TargetSystem
         {
             target.GetComponent<HumanEvent>().Death();
             _casttarget.SetAiming(false);
+            _casttarget.enabled = false;
             Debug.Log($"killed {target.name}");
             var g = Instantiate(finishers[new Random().Next(finishers.Length)], transform.position, transform.rotation);
-            
-            
-            g.GetComponent<Finisher>().SetHumans(GetComponentInChildren<SkinnedMeshRenderer>(),
+
+
+            var finisher = g.GetComponent<Finisher>();
+            finisher.SetHumans(GetComponentInChildren<SkinnedMeshRenderer>(),
                 target.GetComponentInChildren<SkinnedMeshRenderer>());
-            g.GetComponent<Finisher>().player = gameObject;
+            finisher.player = gameObject;
+            finisher.cinemachineBrain = GetComponentInChildren<CinemachineBrain>();
             
             
             

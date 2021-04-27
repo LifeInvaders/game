@@ -6,7 +6,7 @@ using UnityEngine.Rendering;
 public class NightMode : MonoBehaviour
 {
     // Start is called before the first frame update
-    private Light[] _lights;
+    public Light[] _lights;
     
     [Header("Day/Night Lights")]
     [SerializeField] private GameObject dayLight;
@@ -38,7 +38,15 @@ public class NightMode : MonoBehaviour
         dayLight.SetActive(activated);
         nightLight.SetActive(!activated);
         foreach (var light in _lights)
+        {
             light.enabled = !activated;
-        rain.SetActive(!activated);
+            for (int i = 0; i < light.gameObject.transform.childCount; i++)
+            {
+                light.gameObject.transform.GetChild(i).gameObject.SetActive(!activated);
+            }
+        }
+
+        foreach (var r in rain)
+            r.SetActive(!activated);
     }
 }

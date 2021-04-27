@@ -21,23 +21,28 @@ namespace TargetSystem
 
         public bool _aiming;
         private bool _selected;
-        
+
         public bool _isTargetNull;
 
         [SerializeField] private Volume _vignette;
         [SerializeField] private Camera[] _cameras;
 
         private PlayerControler _playerControler;
-        
+
         /// <summary>
         /// Set Aiming bool
         /// </summary>
         /// <param name="value"></param>
-        public void SetAiming(bool value)
+        public void SetAiming(bool value, bool playFade = false)
         {
             _aiming = value;
-            _vignette.isGlobal = value;
-            foreach (var cam in _cameras) cam.enabled = value;
+            if (playFade)
+            {
+                if (value)
+                    StartCoroutine(FadeIn());
+                else
+                    StartCoroutine(FadeOut());
+            }
         }
 
         private void Start()
@@ -49,6 +54,37 @@ namespace TargetSystem
             _aiming = false;
             _selected = false;
         }
+
+        IEnumerator FadeIn()
+        {
+            foreach (var cam in _cameras) cam.enabled = true;
+            float time = 0;
+            // _vignette.isGlobal = true;
+            while (time <= 0.5f)
+            {
+                _vignette.weight = time * 2;
+                time += Time.deltaTime;
+                yield return new WaitForEndOfFrame();
+            }
+
+            _vignette.weight = 1;
+        }
+
+        IEnumerator FadeOut()
+        {
+            float time = 0.5f;
+            while (time >= 0)
+            {
+                _vignette.weight = time * 2;
+                time -= Time.deltaTime;
+                yield return new WaitForEndOfFrame();
+            }
+
+            _vignette.weight = 0;
+            // _vignette.isGlobal = false;
+            foreach (var cam in _cameras) cam.enabled = false;
+        }
+
 
         /// <summary>
         /// Surligne le joueur et désactive la surbrillance de l'autre joueur s'il a changé
@@ -71,16 +107,18 @@ namespace TargetSystem
             }
         }
 
-        private void FixedUpdate()
+        private void FixedUpdate()  
         {
             _isTargetNull = _target == null;
-            Debug.DrawRay(_camera.transform.position,_camera.transform.forward,Color.blue);
+            Debug.DrawRay(_camera.transform.position, _camera.transform.forward, Color.blue);
+            
             if (_aiming && Physics.Raycast(_camera.transform.position,
-                _camera.transform.forward,
-                out _raycastHit, 30f, 768)) // si on vise un personnage
+                _camera.transform.TransformDirection(Vector3.forward),
+                out _raycastHit, 30f,768) ) // si on vise un personnage 768
             {
-                Debug.Log("found human");
-                if (_isTargetNull || (_selectedTarget.IsSelectedTarget(_raycastHit.transform.gameObject) && _raycastHit.transform.gameObject.GetInstanceID() != _target.GetInstanceID()))
+                Debug.Log("player");
+                if (_isTargetNull || (_selectedTarget.IsSelectedTarget(_raycastHit.transform.gameObject) &&
+                                      _raycastHit.transform.gameObject.GetInstanceID() != _target.GetInstanceID()))
                 {
                     RemoveCamTarget();
                     Outlining(_raycastHit.transform.GetComponentInChildren<Outline>());
@@ -90,7 +128,7 @@ namespace TargetSystem
                 {
                     _selectedTarget.UpdateSelectedTarget(_target, _outlineCam);
                     _selected = false;
-                    SetAiming(false);
+                    SetAiming(false, true);
                 }
             }
             else if (!_isTargetNull && !_selectedTarget.IsSelectedTarget(_target))
@@ -102,8 +140,8 @@ namespace TargetSystem
 
         public void OnAim()
         {
-            SetAiming(!_aiming);
-            if (_aiming && _selectedTarget.IsTarget()) 
+            SetAiming(!_aiming, true);
+            if (_aiming && _selectedTarget.IsTarget())
                 _selectedTarget.UpdateSelectedTarget(_target, _outlineCam);
         }
 

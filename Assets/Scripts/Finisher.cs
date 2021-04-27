@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using Cinemachine;
 using People.Player;
-using Photon.Pun;
+using TargetSystem;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Finisher : MonoBehaviour
 {
@@ -17,14 +18,14 @@ public class Finisher : MonoBehaviour
     [SerializeField] private GameObject[] objectsToDisapear;
 
     [SerializeField] private Material _material;
-    
-
+    public CinemachineBrain cinemachineBrain;
     public void LeaveCamera()
     {
         camera.Priority = 1;
         player.GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
         player.GetComponent<PlayerControler>().SetMoveBool(true);
         player.GetComponent<PlayerControler>().SetRotateBool(true);
+        player.GetComponent<CastTarget>().enabled = true;
         player.transform.position = killer.transform.parent.position;
         player.transform.rotation = transform.rotation;
         killer.enabled = false;
@@ -78,5 +79,22 @@ public class Finisher : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         Destroy(gameObject);
+    }
+
+    public void SetCameraBlendDuration(int duration)
+    {
+        cinemachineBrain.m_DefaultBlend.m_Time = duration;
+
+    }
+
+    public void SetCameraBlendToCut()
+    {
+        cinemachineBrain.m_DefaultBlend.m_Style = CinemachineBlendDefinition.Style.Cut;
+    }
+
+    public void ResetCameraBlendDuration()
+    {
+        cinemachineBrain.m_DefaultBlend.m_Time = 2;
+        cinemachineBrain.m_DefaultBlend.m_Style  = CinemachineBlendDefinition.Style.EaseInOut;
     }
 }

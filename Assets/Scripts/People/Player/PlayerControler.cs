@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections;
-using Cinemachine;
+﻿using System.Collections;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Photon.Pun;
-using UnityEditor;
 
 namespace People.Player
 {
@@ -27,6 +24,10 @@ namespace People.Player
         private bool _canMove = true;
         private bool _canRun = true;
 
+        private bool _isInAir;
+        private bool _isGrounded;
+        private float _timeInAir;
+        [SerializeField] private float fallingSpeed = 5;
         public void SetMoveBool(bool state) => _canMove = state;
         public void SetCanRun(bool state) => _canRun = state;
 
@@ -70,13 +71,43 @@ namespace People.Player
             _anim.SetBool("running", _moveSpeed > walkSpeed);
         }
 
-        private bool IsGrounded() =>
-            Physics.Raycast(_capsule.bounds.center, Vector3.down, _capsule.bounds.extents.y + 0.2f);
+        private void IsGrounded()
+        {
+            _isGrounded = Physics.Raycast(_capsule.bounds.center, Vector3.down, _capsule.bounds.extents.y + 0.2f);
+            // Debug.Log("time in air : " + _timeInAir);
+            // if (!_isGrounded)
+            // {
+            //     _timeInAir += Time.deltaTime;
+            //     if (_timeInAir >= 0.8f && _timeInAir < 1f)
+            //     {
+            //         _anim.SetBool("falling", true);
+            //         _anim.CrossFade("falling", 0.5f);
+            //     }
+            //
+            //     if (_timeInAir >= 1)
+            //     {
+            //         _canMove = false;
+            //         // _rig.AddForce(Vector3.down * fallingSpeed * _timeInAir);
+            //         // _rig.AddForce(transform.forward * 1.1f);
+            //         Debug.DrawRay(transform.position, -transform.up);
+            //         if (Physics.Raycast(transform.position, -transform.up, 0.4f))
+            //         {
+            //             _anim.SetBool("falling", false);
+            //             _canMove = true;
+            //         }
+            //     }
+            // }
+            // else
+            // {
+            //     _timeInAir = 0;
+            //     _anim.SetBool("falling", false);
+            // }
+        }
 
         private void Move()
         {
             SetAnim();
-            Vector3 dir = (transform.right * _axis.x + transform.forward * _axis.y) * _moveSpeed;
+            Vector3 dir = (transform.right *_axis.x  + transform.forward * _axis.y) * _moveSpeed;
             dir.y = _rig.velocity.y;
             _rig.velocity = dir;
         }
@@ -92,30 +123,33 @@ namespace People.Player
         {
             yield return new WaitForSeconds(1);
             _anim.SetBool("jump", false);
-            float time = 0;
-            while (!IsGrounded())
-            {
-                _canMove = false;
-                time += Time.deltaTime;
-                yield return new WaitForEndOfFrame();
-                if (time > 2.5f)
-                    break;
-            }
-
-            _canMove = true;
+            // float time = 0;
+            // while (!_isGrounded)
+            // {
+            //     _canMove = false;
+            //     time += Time.deltaTime;
+            //     yield return new WaitForEndOfFrame();
+            //     if (time > 2.5f)
+            //         break;
+            // }
+            //
+            // _canMove = true;
         }
 
         void FixedUpdate()
         {
+            IsGrounded();
             if (_canMove)
+            {
                 Move();
+            }
         }
 
         public void OnMovement(InputValue value) => _axis = value.Get<Vector2>();
 
         public void OnJump()
         {
-            if (IsGrounded())
+            if (_isGrounded)
                 Jump();
         }
 
