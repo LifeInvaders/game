@@ -21,7 +21,7 @@ namespace TargetSystem
         private CastTarget _casttarget;
 
         [SerializeField] private GameObject[] finishers;
-
+        public void SetFinisher(GameObject finisher) => finishers = new[] {finisher};
         void Start()
         {
             if (PhotonNetwork.IsConnected && !gameObject.GetPhotonView().IsMine)

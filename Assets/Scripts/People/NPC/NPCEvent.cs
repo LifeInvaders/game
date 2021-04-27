@@ -8,6 +8,9 @@ namespace People.NPC
         
         public override void Death()
         {
+            var walkingNpc = GetComponent<WalkingNPC>();
+            if (walkingNpc.EventZone != null) 
+                walkingNpc.EventZone.GetComponent<HidingZone>().RemoveDeadNpc(gameObject);
             GetComponentInParent<NpcZone>().GenerateNewNpc();
             Destroy(gameObject);
             return;

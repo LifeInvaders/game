@@ -11,7 +11,7 @@ public class HidingZone : MonoBehaviour
     // Start is called before the first frame update
     public int NumberOfNpcInTheZone = 0;
     public int NumberOfNpc = 0;
-    private List<GameObject> NPCs;
+    public List<GameObject> NPCs;
     private bool _searching = false;
 
     private GameObject[] NpcInTheZone;
@@ -21,7 +21,7 @@ public class HidingZone : MonoBehaviour
     void Start()
     {
         if (NumberOfNpc == 0) NumberOfNpc = Random.Range(2, 4);
-        transform.parent.eulerAngles = Vector3.up * Random.Range(0,365f); 
+        transform.parent.eulerAngles = Vector3.up * Random.Range(0, 365f);
         NPCs = new List<GameObject>();
         NpcInTheZone = new GameObject[NumberOfNpc];
         nextPlace = 0;
@@ -86,7 +86,7 @@ public class HidingZone : MonoBehaviour
 
                 if (NumberOfNpcInTheZone == NumberOfNpc)
                 {
-                    StartCoroutine(RemoveNPC());
+                    StartCoroutine(RemoveNpc());
                 }
             }
         }
@@ -95,7 +95,7 @@ public class HidingZone : MonoBehaviour
     private IEnumerator RotateNPC(NavMeshAgent agent, Transform Npc)
     {
         float remainingTime = 0f;
-        while (remainingTime < 3f || agent.remainingDistance < 2)
+        while (remainingTime < 3f || agent.remainingDistance < 1)
         {
             Npc.LookAt(transform);
             remainingTime += Time.deltaTime;
@@ -105,27 +105,45 @@ public class HidingZone : MonoBehaviour
         Npc.LookAt(transform);
     }
 
-    private IEnumerator RemoveNPC()
+    public void RemoveDeadNpc(GameObject DeadNpc)
     {
-        yield return new WaitForSeconds(Random.Range(6,15));
+        for (var index = 0; index < NPCs.Count; index++)
+            if (DeadNpc == NPCs[index])
+            {
+                RemoveNpc(index, false);
+                break;
+            }
+    }
+
+    private IEnumerator RemoveNpc(int index = 0, bool waiting = true)
+    {
+        if (waiting)
+            yield return new WaitForSeconds(Random.Range(6, 15));
         int i = 0;
         for (; i < NumberOfNpc; i++)
-            if (NpcInTheZone[i] == NPCs[0])
+        {
+            if (NPCs[index] == null)
+            {
+                NPCs.RemoveAt(i);
+                break;
+                
+            }
+
+            if (NpcInTheZone[i] == NPCs[index])
             {
                 nextPlace = i;
                 NpcInTheZone[i] = null;
-                var walkingNpc = NPCs[0].GetComponent<WalkingNPC>();
+                var walkingNpc = NPCs[index].GetComponent<WalkingNPC>();
                 walkingNpc.FindRandomDestination();
                 walkingNpc.SetEventZone(null);
-                NPCs[0].GetComponent<NPCdata>().SetStatus(NpcStatus.Walking);
-                NPCs.RemoveAt(0);
+                NPCs[index].GetComponent<NPCdata>().SetStatus(NpcStatus.Walking);
+                NPCs.RemoveAt(index);
                 NumberOfNpcInTheZone--;
-                if (!_searching)
-                {
+                if (!_searching) 
                     StartCoroutine(FindNPC());
-                }
 
                 break;
             }
+        }
     }
 }
