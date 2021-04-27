@@ -7,7 +7,7 @@ namespace People
     public class PhotonSkin : MonoBehaviour
     {
 
-        private SkinnedMeshRenderer _renderer;
+        [SerializeField] private SkinnedMeshRenderer _renderer;
 
         public Mesh[] meshes;
 
@@ -19,7 +19,7 @@ namespace People
 
         void Start()
         {
-            if (!PhotonNetwork.IsMasterClient) return;
+            if (!gameObject.GetPhotonView().IsMine) return;
             var meshID = Random.Range(0, meshes.Length - 1);
             var matID = Random.Range(0, materials.Length - 1);
             gameObject.GetPhotonView().RPC(nameof(SetSkinNpc),RpcTarget.All,meshID,matID);
@@ -56,10 +56,15 @@ namespace People
         [PunRPC]
         public void SetSkinNpc(int meshID, int matID)
         {
-            _renderer = GetComponentInChildren<SkinnedMeshRenderer>();
             _materialNb = matID;
             _meshNb = meshID;
-            StartCoroutine(FadeIn());
+            if (gameObject.CompareTag("NPC"))
+                StartCoroutine(FadeIn());
+            else
+            {
+                _renderer.sharedMesh = meshes[_meshNb];
+                _renderer.sharedMaterial = materials[_materialNb];
+            }
         }
     }
 }

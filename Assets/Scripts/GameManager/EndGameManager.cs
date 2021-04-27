@@ -51,7 +51,7 @@ namespace GameManager
             var playerCount = PhotonNetwork.CurrentRoom.PlayerCount;
             var rand = new System.Random();
             var exp = score * rand.Next(1, 3);
-            return exp;
+            return exp < 0 ? 0 : exp;
         }
 
         public void StartEndRoundCoroutine()
@@ -116,7 +116,7 @@ namespace GameManager
 
         IEnumerator PrompRestart()
         {
-            restartDisplay.SetActive(true);
+            choiceDisplay.SetActive(true);
             Text timer = this.timer.GetComponent<Text>();
             timer.text = "10";
             for (int i = 10; i >= 0; i--)
@@ -141,6 +141,7 @@ namespace GameManager
         {
             PhotonNetwork.CurrentRoom.IsOpen = true;
             PhotonNetwork.LoadLevel("Lobby");
+            CancelInvoke(nameof(CheckChoiceAndRestart));
         }
     }
 }

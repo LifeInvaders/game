@@ -38,6 +38,7 @@ public class NpcManager : MonoBehaviour
             {
                 var npc =PhotonNetwork.InstantiateRoomObject("PhotonNPC", _points[i % _points.Length].position, Quaternion.identity);
             }
+            dead = 0;
         }
     }
     

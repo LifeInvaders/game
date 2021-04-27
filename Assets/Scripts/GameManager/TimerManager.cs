@@ -4,6 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using ExitGames.Client.Photon;
 using Photon.Realtime;
+using RadarSystem;
 using UnityEngine.UI;
 
 
@@ -16,17 +17,19 @@ public class TimerManager : MonoBehaviourPunCallbacks
     [SerializeField] private AssignTarget targetSystem;
     [SerializeField] private Text timerText;
     [SerializeField] private InGameStats igs;
-    
+    private bool ended;
+
     // Start is called before the first frame update
     void Awake()
     {
         _currentEndTime = Double.PositiveInfinity;
+        PhotonNetwork.AddCallbackTarget(this);
         ChangeTimer();
     }
 
     void Update()
     {
-        if (PhotonNetwork.Time >= _currentEndTime)
+        if (!ended && PhotonNetwork.Time >= _currentEndTime)
             TimerEnded();
         UpdateTimer();
     }
@@ -35,7 +38,8 @@ public class TimerManager : MonoBehaviourPunCallbacks
     {
         if (!propertiesThatChanged.TryGetValue("endTime", out var endTime)) return;
         _currentEndTime = Convert.ToDouble(endTime);
-        timerText.gameObject.SetActive(true);
+        if (!timerText.gameObject.activeInHierarchy) timerText.gameObject.SetActive(true);
+        if (ended) ended = false;
     }
 
     void TimerEnded()
@@ -43,6 +47,7 @@ public class TimerManager : MonoBehaviourPunCallbacks
         if (_index == 0)
             StartHunt();
         else EndRound();
+        ended = true;
     }
 
     void StartHunt()
@@ -57,9 +62,7 @@ public class TimerManager : MonoBehaviourPunCallbacks
     {
         _index = 0;
         ChangeTimer();
-        igs.target = null;
-        if (PhotonNetwork.IsMasterClient) 
-            EventManager.RaiseEndRoundEvent();
+        if (PhotonNetwork.IsMasterClient) EventManager.RaiseEndRoundEvent();
         //TODO: Disable power usage
         //TODO: Disable hunt-related UI elements
         //TODO: Disable ability to kill
@@ -76,11 +79,14 @@ public class TimerManager : MonoBehaviourPunCallbacks
 
     public void AccTimer()
     {
-        if (_index >= timerPhase.Length - 1) return;
+        if (_index == timerPhase.Length - 1) return;
         _index += 1;
         if (_currentEndTime > PhotonNetwork.Time + timerPhase[_index])
             ChangeTimer();
     }
+
+    [PunRPC]
+    public void EnableTimer() => timerText.gameObject.SetActive(true);
 
     void UpdateTimer()
     {

@@ -6,6 +6,10 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="camManager.cs" t="Include" />
+        <e p="Chat" t="Include">
+          <e p="RoomChat.cs" t="Include" />
+          <e p="RoomChatUtility.cs" t="Include" />
+        </e>
         <e p="cinematiqueController.cs" t="Include" />
         <e p="Controler.cs" t="Include" />
         <e p="csc.rsp" t="Include" />
@@ -737,7 +741,6 @@
         <e p="Scripts" t="Include">
           <e p="Editor" t="Include">
             <e p="NightModeEditor.cs" t="Include" />
-            <e p="Tools.cs" t="Include" />
           </e>
           <e p="finisher.cs" t="Include" />
           <e p="GameManager" t="Include">
@@ -801,7 +804,6 @@
             <e p="Player" t="Include">
               <e p="AnimControler.cs" t="Include" />
               <e p="CameraControler.cs" t="Include" />
-              <e p="HumanEvent.cs" t="Include" />
               <e p="PlayerControler.cs" t="Include" />
               <e p="PlayerEvent.cs" t="Include" />
               <e p="PlayerTalking.cs" t="Include" />

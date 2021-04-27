@@ -99,6 +99,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91d13dcd7148f0e448989a22c436ffdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  radar: {fileID: 5591514008299615626}
-  _spriteRenderer: {fileID: 5591514008299615627}

@@ -35,13 +35,14 @@ namespace People.Player
         [SerializeField] private CinemachineVirtualCamera thirdCamRightShoulder;
         [SerializeField] private CinemachineVirtualCamera thirdCamLeftShoulder;
         [SerializeField] private CinemachineBrain cinemachineBrain;
+        [SerializeField] private bool isSpectator;
         private PlayerControler _playerControler;
 
         
 
         private void Awake()
         {
-            if (PhotonNetwork.IsConnected && !gameObject.GetPhotonView().IsMine)
+            if (!isSpectator && PhotonNetwork.IsConnected && !gameObject.GetPhotonView().IsMine)
             {
                 camerasParent.SetActive(false);
                 enabled = false;

@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -6661,7 +6661,7 @@ MonoBehaviour:
   nickName: {fileID: 1303317635}
   chooseMap: 0
   isPrivate: 0
-  maxPlayers: 4
+  maxPlayers: 8
   roomName: bruh
 --- !u!4 &1286285296
 Transform:

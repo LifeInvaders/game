@@ -108,6 +108,7 @@ namespace People.NPC
             {
                 Debug.Log("Failed to find a path! Destroying NPC...");
                 PhotonNetwork.Destroy(gameObject);
+                return;
             }
             gameObject.GetPhotonView().RPC(nameof(SetNextPath),RpcTarget.All,path.corners);
         }

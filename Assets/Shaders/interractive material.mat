@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New Material
+  m_Name: interractive material
   m_Shader: {fileID: -6465566751694194690, guid: d48419252ad04bd4eaebd676ae8b1980,
     type: 3}
   m_ShaderKeywords: 

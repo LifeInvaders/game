@@ -4844,6 +4844,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 729aad4491e915a41bda2b8325cf757a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_FocusTracksTarget: 0
+  m_FocusTracking: 0
+  m_FocusTarget: {fileID: 0}
+  m_FocusOffset: 0
+  m_Profile: {fileID: 0}
 --- !u!114 &6066548333012599476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8002,6 +8007,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 729aad4491e915a41bda2b8325cf757a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_FocusTracksTarget: 0
+  m_FocusTracking: 0
+  m_FocusTarget: {fileID: 0}
+  m_FocusOffset: 0
+  m_Profile: {fileID: 0}
 --- !u!114 &4855694813627543036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9267,6 +9277,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 729aad4491e915a41bda2b8325cf757a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_FocusTracksTarget: 0
+  m_FocusTracking: 0
+  m_FocusTarget: {fileID: 0}
+  m_FocusOffset: 0
+  m_Profile: {fileID: 0}
 --- !u!114 &795664805703287695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11475,6 +11490,7 @@ MonoBehaviour:
   thirdCamRightShoulder: {fileID: 2590309097004785362}
   thirdCamLeftShoulder: {fileID: 8511415839353013852}
   cinemachineBrain: {fileID: 8168814372205921586}
+  isSpectator: 0
 --- !u!114 &3892985878736501544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11490,6 +11506,8 @@ MonoBehaviour:
   walkSpeed: 3
   runSpeed: 5
   jumpspeed: 4.5
+  fallingSpeed: 5
+  isSpectator: 0
 --- !u!114 &5080263839191146076
 MonoBehaviour:
   m_ObjectHideFlags: 0

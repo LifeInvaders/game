@@ -25,6 +25,7 @@ namespace GameManager
         [SerializeField] private NpcManager npcManager;
         [SerializeField] private EndGameManager endGameManager;
         [SerializeField] private int maxRound;
+        [SerializeField] private AssignTarget assignTarget;
         private int _roundCount;
 
 
@@ -36,12 +37,9 @@ namespace GameManager
         private void SpectatorMode()
         {
             var player = igs.localPlayer;
-            if (_spectator == null)
-                _spectator = Instantiate(spectatorPrefab);
-            else _spectator.SetActive(true);
+            _spectator = Instantiate(spectatorPrefab);
             _spectator.transform.position = player.transform.position;
             _spectator.transform.rotation = player.transform.rotation;
-
         }
 
         private void SetDeadCustomProp()
@@ -62,14 +60,16 @@ namespace GameManager
             {
                 Debug.Log("Round ended!");
                 _roundCount++;
+                scoreManager.AlivePoints();
+                if (_spectator != null) Destroy(_spectator);
                 playerManager.RespawnPlayers();
                 if (PhotonNetwork.IsMasterClient) npcManager.StartRespawnCoroutine();
+                assignTarget.KilledTarget();
                 if (_roundCount == maxRound)
                 {
                     timerManager.enabled = false;
                     endGameManager.StartEndRoundCoroutine();
                 }
-                if (_spectator != null && _spectator.activeSelf) _spectator.SetActive(false);
                 return; 
             }
             var killedPhotonView = PhotonView.Find(Convert.ToInt32(photonEvent.CustomData));
@@ -85,12 +85,17 @@ namespace GameManager
                 {
                     igs.deathCount++;
                     SetDeadCustomProp();
+                    SpectatorMode();
                     StartCoroutine(EnableDeathHud(killer.NickName));
                     //TODO: Implement spectator system
                 }
                 timerManager.AccTimer();
                 var isTarget = killed.Equals(igs.target.GetPhotonView().Owner);
-                if (amKiller && isTarget) igs.killCount++;
+                if (amKiller && isTarget)
+                {
+                    igs.killCount++;
+                    assignTarget.KilledTarget();
+                }
                 scoreManager.KilledPlayer(amKiller, isTarget);
             }
             else if (photonEvent.Code == EventManager.KilledNpcEventCode)

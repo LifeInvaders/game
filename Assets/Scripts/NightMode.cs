@@ -45,8 +45,6 @@ public class NightMode : MonoBehaviour
                 light.gameObject.transform.GetChild(i).gameObject.SetActive(!activated);
             }
         }
-
-        foreach (var r in rain)
-            r.SetActive(!activated);
+        rain.SetActive(!activated);
     }
 }

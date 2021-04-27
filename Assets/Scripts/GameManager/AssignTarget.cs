@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Photon.Pun;
+using RadarSystem;
 using TMPro;
 using UnityEngine;
 using Random = System.Random;
@@ -11,20 +12,29 @@ public class AssignTarget : MonoBehaviourPunCallbacks
 {
     [SerializeField] private InGameStats igs;
     private Random _random = new Random();
+    private Radar _radar;
 
 
     [PunRPC]
     private void ChangeTarget(Photon.Realtime.Player target)    
     {
-        if (igs.target != null) igs.target.GetComponentInChildren<TextMeshPro>().color = Color.white;
         igs.target = PhotonView.Find((int) target.CustomProperties["viewID"]).gameObject;
-        igs.target.GetComponentInChildren<TextMeshPro>().color = Color.red;
+        if (_radar == null) _radar = igs.localPlayer.GetComponentInChildren<Radar>();
+        _radar.gameObject.SetActive(true);
+        _radar.SetTarget(igs.target.transform);
+    }
+
+    public void KilledTarget()
+    {
+        igs.target = null;
+        _radar.SetTarget(null);
+        _radar.gameObject.SetActive(false);
     }
 
     public void TargetAssigner()
     {
         var targetList = new Dictionary<Photon.Realtime.Player, Photon.Realtime.Player>();
-        for (int tries =0;targetList.Count == 0 && tries < 20;tries++)
+        for (int tries = 0;targetList.Count == 0 && tries < 20;tries++)
         {
             Debug.Log("TargetAssigner: Attempt number " + tries);
             foreach (var player in PhotonNetwork.PlayerList)
@@ -47,28 +57,11 @@ public class AssignTarget : MonoBehaviourPunCallbacks
         }
         foreach (KeyValuePair<Photon.Realtime.Player, Photon.Realtime.Player> kvp in targetList)
             photonView.RPC("ChangeTarget", kvp.Key, kvp.Value);
-        WriteDictToFile(targetList); //For testing
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.T) && PhotonNetwork.LocalPlayer.NickName.Equals("TestClient"))
             TargetAssigner();
-    }
-    
-    
-
-    private void WriteDictToFile(Dictionary<Photon.Realtime.Player,Photon.Realtime.Player> dict)
-    {
-        string folderPath = Application.persistentDataPath + "/test/assign_target/";
-        string timeStamp = DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss");
-        if (!Directory.Exists(folderPath))
-            Directory.CreateDirectory(folderPath);
-        StreamWriter file = File.CreateText(folderPath + "assign_target" + timeStamp + ".txt");
-        file.WriteLine("Test " + timeStamp);
-        file.WriteLine();
-        foreach (KeyValuePair<Photon.Realtime.Player, Photon.Realtime.Player> kvp in dict)
-            file.WriteLine(kvp.Key.NickName + "  ->  " + kvp.Value.NickName);
-        file.Close();
     }
 }

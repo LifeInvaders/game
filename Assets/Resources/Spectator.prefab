@@ -257,6 +257,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 729aad4491e915a41bda2b8325cf757a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_FocusTracksTarget: 0
+  m_FocusTracking: 0
+  m_FocusTarget: {fileID: 0}
+  m_FocusOffset: 0
+  m_Profile: {fileID: 0}
 --- !u!114 &125111041231670824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4113,13 +4118,13 @@ MonoBehaviour:
   maxXLook: 60
   camAnchor: {fileID: 54534013961904703}
   invertXRotation: 0
-  isSpectator: 1
   camera: {fileID: 0}
   camerasParent: {fileID: 191465490589462732}
   firstCam: {fileID: 3960829880155281347}
   thirdCamRightShoulder: {fileID: 7002040818953420038}
   thirdCamLeftShoulder: {fileID: 3801039171551438216}
   cinemachineBrain: {fileID: 3712067823982257894}
+  isSpectator: 1
 --- !u!114 &8419538221819320572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4135,6 +4140,7 @@ MonoBehaviour:
   walkSpeed: 3
   runSpeed: 5
   jumpspeed: 4.5
+  fallingSpeed: 5
   isSpectator: 1
 --- !u!114 &314731265128283528
 MonoBehaviour:
@@ -4665,6 +4671,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 729aad4491e915a41bda2b8325cf757a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_FocusTracksTarget: 0
+  m_FocusTracking: 0
+  m_FocusTarget: {fileID: 0}
+  m_FocusOffset: 0
+  m_Profile: {fileID: 0}
 --- !u!114 &5319977717990924379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4919,6 +4930,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 729aad4491e915a41bda2b8325cf757a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_FocusTracksTarget: 0
+  m_FocusTracking: 0
+  m_FocusTarget: {fileID: 0}
+  m_FocusOffset: 0
+  m_Profile: {fileID: 0}
 --- !u!114 &1652305330888663392
 MonoBehaviour:
   m_ObjectHideFlags: 0

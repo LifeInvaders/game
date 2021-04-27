@@ -5,7 +5,10 @@ using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Pun.UtilityScripts;
 using Photon.Realtime;
+using TargetSystem;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class PlayerManager : MonoBehaviourPunCallbacks
@@ -20,6 +23,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     [NonSerialized] public Photon.Realtime.Player[] players;
     [NonSerialized] public List<Transform> playerTransforms;
     private System.Random _rand;
+    [SerializeField] private Volume volume;
 
     // Start is called before the first frame update
     IEnumerator Start()
@@ -48,9 +52,10 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         loadCamera.gameObject.SetActive(false);
         loadScreen.SetActive(false);
 		hud.SetActive(true);
-        var player = PhotonNetwork.Instantiate("CustomCharacter", spawnPoint.position, spawnPoint.rotation);
+        var player = PhotonNetwork.Instantiate("RandomCharacter", spawnPoint.position, spawnPoint.rotation);
         SetLayerRecursive(player);
         igs.localPlayer = player;
+        player.GetComponent<CastTarget>().vignette = volume;
         Hashtable customProps = new Hashtable {{"viewID", player.GetPhotonView().ViewID}, {"dead", false}};
         PhotonNetwork.LocalPlayer.SetCustomProperties(customProps);
     }
@@ -116,5 +121,8 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     void Respawn(int spawnPoint)
     {
         igs.localPlayer.transform.position = spawnPoints[spawnPoint].position;
+        var input = igs.localPlayer.GetComponent<PlayerInput>();
+        input.enabled = false;
+        input.enabled = true;
     }
 }

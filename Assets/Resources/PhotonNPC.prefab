@@ -465,6 +465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d5cf858c4244999c9183bfb409320f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _renderer: {fileID: 5889368337987863717}
   meshes:
   - {fileID: 4300022, guid: 409520c9226982345a49c9803624f208, type: 3}
   - {fileID: 4300024, guid: 409520c9226982345a49c9803624f208, type: 3}

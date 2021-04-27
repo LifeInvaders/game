@@ -32,7 +32,6 @@ namespace GameManager
         public void KilledNpc()
         {
             PhotonNetwork.LocalPlayer.AddScore(npcMalusPoints);
-            UpdateHud();
         }
 
         public void ResetKills() => _roundKills = 0;
@@ -42,7 +41,6 @@ namespace GameManager
             {
                 if (amKiller) PhotonNetwork.LocalPlayer.AddScore(baseKillPoints - _roundKills * killDowngradePoints);
                 else PhotonNetwork.LocalPlayer.AddScore(killStealPoints);
-                UpdateHud();
             }
             _roundKills++;
         }
@@ -61,6 +59,7 @@ namespace GameManager
         public override void OnPlayerPropertiesUpdate(Photon.Realtime.Player targetPlayer, Hashtable changedProps)
         {
             if (!changedProps.TryGetValue(PunPlayerScores.PlayerScoreProp, out _)) return;
+            if (targetPlayer.IsLocal) UpdateHud();
             scoreBoard.Sort(ScoreSort);
         }
 
