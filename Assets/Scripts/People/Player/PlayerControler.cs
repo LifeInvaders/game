@@ -32,6 +32,8 @@ namespace People.Player
         public void SetCanRun(bool state) => _canRun = state;
 
         public void SetRotateBool(bool state) => _canRotate = state;
+        
+        [SerializeField] private bool isSpectator;
 
         void Start()
         {
@@ -40,7 +42,7 @@ namespace People.Player
             _anim = GetComponent<Animator>();
             _capsule = GetComponent<CapsuleCollider>();
             _moveSpeed = walkSpeed;
-            if (PhotonNetwork.IsConnected && !gameObject.GetPhotonView().IsMine)
+            if (!isSpectator && PhotonNetwork.IsConnected && !gameObject.GetPhotonView().IsMine)
             {
                 gameObject.GetComponent<PlayerInput>().enabled = false;
                 _rig.isKinematic = true;

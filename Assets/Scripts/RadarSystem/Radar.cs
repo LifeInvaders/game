@@ -9,7 +9,6 @@ namespace RadarSystem
         
 
         // Update is called once per frame
-        // TODO : REMOVE SerializeField for target Transform
         private Transform _target;
         private RectTransform _radar;
         private SpriteRenderer _spriteRenderer;
@@ -20,9 +19,9 @@ namespace RadarSystem
             _spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
-        public void SetTarget(Transform targeTransform)
+        public void SetTarget(Transform targetTransform)
         {
-            _target = targeTransform;
+            _target = targetTransform;
         }
         // Update is called once per frame
         private void FixedUpdate()
