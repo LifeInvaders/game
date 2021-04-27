@@ -24,6 +24,10 @@ namespace People.NPC
         public float SearchRadius = 15;
         public bool FindInSphere;
 
+        public GameObject EventZone { get; private set; }
+
+        public void SetEventZone(GameObject eventZone) => EventZone = eventZone;
+
         void Awake()
         {
             // positions = iaPoints.GetComponentsInChildren<Transform>();
@@ -87,27 +91,28 @@ namespace People.NPC
             }
             else
             {
-                var nearEvents = Physics.OverlapSphere(transform.position, 15, 1024);
-                if (nearEvents.Length > 0 && Status == NpcStatus.Walking && Random.value > 0.85)
-                {
-                    var transformPosition = nearEvents[new System.Random().Next(nearEvents.Length)].transform.position;
-                    float angle = Random.Range(0, Mathf.PI);
-                    _agent.destination = transformPosition + new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle)) * 1.2f;
-                    SetStatus(NpcStatus.GoingToEvent);
-#if DEBUG
-                    debugPath.target = _agent.destination;
-                    debugPath.color = Color.blue;
-#endif
-                }
-                else
-                {
-                    FindRandomDestination(SearchRadius);
-#if DEBUG
-                    debugPath.target = _agent.destination;
-                    debugPath.color = Color.red;
-#endif
-                }
-            }
+                FindRandomDestination(SearchRadius);
+//                 var nearEvents = Physics.OverlapSphere(transform.position, 15, 1024);
+//                 if (nearEvents.Length > 0 && Status == NpcStatus.Walking && Random.value > 0.92)
+//                 {
+//                     var transformPosition = nearEvents[new System.Random().Next(nearEvents.Length)].transform.position;
+//                     float angle = Random.Range(0, Mathf.PI);
+//                     _agent.destination = transformPosition + new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle)) * 1.2f;
+//                     SetStatus(NpcStatus.GoingToEvent);
+// #if DEBUG
+//                     debugPath.target = _agent.destination;
+//                     debugPath.color = Color.blue;
+// #endif
+//                 }
+                //                 else
+                //                 {
+                //                     
+                // #if DEBUG
+                //                     debugPath.target = _agent.destination;
+                //                     debugPath.color = Color.red;
+                // #endif
+                //                 }
+            }   
         }
 
         public void FindRandomDestination(float range = 0)
@@ -121,9 +126,8 @@ namespace People.NPC
                 newPos = transform.position + Random.insideUnitSphere * range;
                 if (!FindInSphere)
                     newPos.y = ParentPosition.y;
-
-                
-            } while (NavMesh.CalculatePath(ParentPosition, newPos, NavMesh.AllAreas, navMeshPath) && navMeshPath.status != NavMeshPathStatus.PathComplete);
+            } while (NavMesh.CalculatePath(ParentPosition, newPos, NavMesh.AllAreas, navMeshPath) &&
+                     navMeshPath.status != NavMeshPathStatus.PathComplete);
 
             // Vector3 insideUnitSphere;
             // NavMeshHit hit;
