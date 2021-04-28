@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace People
@@ -13,13 +14,35 @@ namespace People
         private int _meshNb;
         private int _materialNb;
 
+        [SerializeField] private Material dissolveMat;
+
         void Start()
         {
             _meshNb = Random.Range(0, meshes.Length - 1);
             _materialNb = Random.Range(0, materials.Length - 1);
-
+            
             _renderer = GetComponent<SkinnedMeshRenderer>();
-            SetSkinNPC(_meshNb, _materialNb);
+            StartCoroutine(FadeIn());
+        }
+
+        IEnumerator FadeIn()
+        {
+            _renderer.sharedMesh = meshes[_meshNb];
+            var mat = new Material(dissolveMat);
+            mat.SetTexture("Texture2D_C902C618", materials[_materialNb].mainTexture);
+            _renderer.sharedMaterial = mat;
+            float timeElapsed = 0f;
+            float phase = 0;
+            float targetPhase = 3.5f;
+            _renderer.sharedMaterial.SetFloat("Vector1_203537A2", Time.time);
+            while (timeElapsed <= 3)
+            {
+                timeElapsed += Time.deltaTime;
+                _renderer.sharedMaterial.SetFloat("Vector1_203537A2",
+                    Mathf.Lerp(phase, targetPhase, timeElapsed / 3));
+                yield return new WaitForEndOfFrame();
+            }
+            _renderer.sharedMaterial = materials[_materialNb];
         }
 
         /// <summary>

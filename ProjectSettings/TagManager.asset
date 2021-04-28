@@ -6,9 +6,10 @@ TagManager:
   tags:
   - Bullet
   - NPC
-  - GroupNPC
   - Banc
   - Skin
+  - MyPlayer
+  - GameManager
   layers:
   - Default
   - TransparentFX
@@ -21,9 +22,9 @@ TagManager:
   - Player
   - NPC
   - NPC Event
-  - 
-  - 
-  - 
+  - MyPlayer
+  - Light
+  - Post Process
   - 
   - 
   - 

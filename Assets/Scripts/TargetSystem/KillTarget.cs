@@ -1,10 +1,13 @@
 ﻿using System.Collections;
+using Cinemachine;
 using People;
 using People.NPC;
+using People.Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Photon.Pun;
 using UnityEngine.AI;
+using Random = System.Random;
 
 namespace TargetSystem
 {
@@ -16,9 +19,9 @@ namespace TargetSystem
 
         private bool _killClick;
         private CastTarget _casttarget;
-        
-        [SerializeField] private Material dissolved;
 
+        [SerializeField] private GameObject[] finishers;
+        public void SetFinisher(GameObject finisher) => finishers = new[] {finisher};
         void Start()
         {
             if (PhotonNetwork.IsConnected && !gameObject.GetPhotonView().IsMine)
@@ -27,72 +30,46 @@ namespace TargetSystem
             _selectedTarget = GetComponent<SelectedTarget>();
             _casttarget = GetComponent<CastTarget>();
         }
+
         /// <summary>
         /// Méthode appelée quand un joueur tue la cible verouillée 
         /// </summary>
         /// <param name="target"></param>
         void Kill(GameObject target)
         {
+            target.GetComponent<HumanEvent>().Death();
+            _casttarget.SetAiming(false);
+            _casttarget.enabled = false;
             Debug.Log($"killed {target.name}");
-            if (target.CompareTag("NPC"))
-            {
-                Destroy(target.GetComponent<WalkingNPC>());
-                // target.GetComponent<WalkingNPC>().enabled = false;
-                target.GetComponent<NavMeshAgent>().isStopped = true;
-                target.GetComponentInParent<NpcZone>().GenerateNewNpc();
-            }
-            target.GetComponent<Animator>().Play("brutal death");
+            var g = Instantiate(finishers[new Random().Next(finishers.Length)], transform.position, transform.rotation);
 
+
+            var finisher = g.GetComponent<Finisher>();
+            finisher.SetHumans(GetComponentInChildren<SkinnedMeshRenderer>(),
+                target.GetComponentInChildren<SkinnedMeshRenderer>());
+            finisher.player = gameObject;
+            finisher.cinemachineBrain = GetComponentInChildren<CinemachineBrain>();
             
-            target.GetComponent<CapsuleCollider>().enabled = false;
-            _animator.Play("sword kill");
-            _selectedTarget.UpdateSelectedTarget(target,target.GetComponentInChildren<Outline>());
             
-            StartCoroutine(WaitForDeathAnim(target));
+            
+            
+            _animator.Play("brutal kill");
+            GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
+            GetComponent<PlayerControler>().SetMoveBool(false);
+            _selectedTarget.UpdateSelectedTarget(target, target.GetComponentInChildren<Outline>());
+
+            // StartCoroutine(WaitForDeathAnim(target));
         }
-        
-        IEnumerator WaitForDeathAnim(GameObject target)
-        {
-            yield return new WaitForSeconds(5);
-            SkinnedMeshRenderer meshRenderer = target.transform.GetComponentInChildren<SkinnedMeshRenderer>();
-            Texture oldTexture = meshRenderer.sharedMaterial.mainTexture;
-            meshRenderer.sharedMaterial = dissolved;
-            meshRenderer.sharedMaterial.SetTexture("Texture2D_C902C618", oldTexture);
-            meshRenderer.sharedMaterial.SetFloat("Vector1_203537A2", Time.time);
 
-
-            float timeElapsed = 0f;
-            float phase = 3;
-            float targetPhase = 5.5f;
-            while (timeElapsed <= 3)
-            {
-                timeElapsed += Time.deltaTime;
-                meshRenderer.sharedMaterial.SetFloat("Vector1_203537A2", Mathf.Lerp(phase, targetPhase, timeElapsed / 3));
-                yield return new WaitForEndOfFrame();
-            }
-
-            Destroy(target);
-        }
-        
-        void Update()
-        {
-            if (_killClick) // appuye sur Clic Gauche
-            {
-                _killClick = false;
-                GameObject target = _selectedTarget.GetTarget();
-                // Si le joueur est à moins d'un mètre et demi.
-                if (target != null && Vector3.Distance(target.transform.position,transform.position) < 1.5f)
-                {
-                    Kill(target);
-                    _casttarget.SetAiming(false);
-
-                }
-            } 
-        }
-        
         public void OnAttack(InputValue value)
         {
-            _killClick = value.isPressed;
+            if (value.isPressed)
+            {
+                GameObject target = _selectedTarget.GetTarget();
+                // Si le joueur est à moins d'un mètre et demi.
+                if (target != null && Vector3.Distance(transform.position, target.transform.position) < 1.5f)
+                    Kill(target);
+            }
         }
     }
 }

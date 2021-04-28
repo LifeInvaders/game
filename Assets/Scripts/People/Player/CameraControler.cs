@@ -1,14 +1,24 @@
-﻿using UnityEngine;
+﻿using Cinemachine;
+using Photon.Pun;
+using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
-using Photon.Pun;
 
 namespace People.Player
 {
+    public enum CamStatus
+    {
+        FirstCam,
+        ThirdCamRightShoulder,
+        ThirdCamLeftShoulder
+    }
+
     public class CameraControler : MonoBehaviour
     {
-        private bool _thirdPerson = true;
-        public float lookSensitivity;
+        private CamStatus status = CamStatus.ThirdCamRightShoulder;
+        private CamStatus _selectedShoulder = CamStatus.ThirdCamRightShoulder;
+        
+        [Header("Settings")] public float lookSensitivity;
         public float minXLook, maxXLook;
         public Transform camAnchor;
         public bool invertXRotation;
@@ -17,45 +27,64 @@ namespace People.Player
         private float _xAxis;
         private float _zAxis;
 
-        [FormerlySerializedAs("_camera")] public Camera camera;
+        [SerializeField]  CinemachineVirtualCamera camera;
 
+        [Header("Cameras")]
+        [SerializeField] private GameObject camerasParent;
+        [SerializeField] private CinemachineVirtualCamera firstCam;
+        [SerializeField] private CinemachineVirtualCamera thirdCamRightShoulder;
+        [SerializeField] private CinemachineVirtualCamera thirdCamLeftShoulder;
+        [SerializeField] private CinemachineBrain cinemachineBrain;
+        [SerializeField] private bool isSpectator;
         private PlayerControler _playerControler;
 
-
-        public void ResetCamera()
-        {
-            camera.transform.localPosition = new Vector3(0.4f, 0, -1.64f);
-        }
+        
 
         private void Awake()
         {
-            camera = GetComponentInChildren<Camera>();
-            if (PhotonNetwork.IsConnected && !gameObject.GetPhotonView().IsMine)
+            if (!isSpectator && PhotonNetwork.IsConnected && !gameObject.GetPhotonView().IsMine)
             {
-                camera.gameObject.SetActive(false);
+                camerasParent.SetActive(false);
                 enabled = false;
+                return;
             }
+            camera = thirdCamRightShoulder;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
 
         private void Start()
         {
             _playerControler = GetComponent<PlayerControler>();
-            Cursor.lockState = CursorLockMode.Locked;
         }
 
-        private void ChangePOV()
+        private void OnChangePOV()
         {
-            if (_thirdPerson)
+            if (status != CamStatus.FirstCam)
             {
-                _thirdPerson = false;
-                Debug.Log($"{camAnchor.position}{camAnchor.localPosition}");
-                Debug.Log($"{camera.transform.position}{camera.transform.localPosition}");
-                camera.transform.position = camAnchor.position + Vector3.forward * 0.1f;
+                
+                // cinemachineBrain.
+                firstCam.Priority += 1;
+                camera.Priority -= 1;
+                camera = firstCam;
+                status = CamStatus.FirstCam;
+                
             }
             else
             {
-                _thirdPerson = true;
-                camera.transform.position = camAnchor.position + new Vector3(0.4f, 0.02f, -1.64f);
+                if (_selectedShoulder == CamStatus.ThirdCamRightShoulder )
+                {
+                    status = CamStatus.ThirdCamRightShoulder;
+                    camera = thirdCamRightShoulder;
+                }
+                else
+                {
+                    status = CamStatus.ThirdCamLeftShoulder;
+                    camera = thirdCamLeftShoulder;
+                }
+                firstCam.Priority -= 1;
+                camera.Priority += 1;
+
             }
         }
 
@@ -68,7 +97,6 @@ namespace People.Player
 
                 Vector3 clampedAngle = camAnchor.eulerAngles;
                 clampedAngle.x = Mathf.Clamp(_curXRot, minXLook, maxXLook);
-                ;
                 camAnchor.eulerAngles = clampedAngle;
             }
         }
@@ -82,8 +110,21 @@ namespace People.Player
 
         public void OnCamAnchor(InputValue value)
         {
-            camera.transform.localPosition = new Vector3(-camera.transform.localPosition.x, camera.transform.localPosition.y,
-                camera.transform.localPosition.z);
+            if (status != CamStatus.FirstCam)
+            {
+                if (_selectedShoulder == CamStatus.ThirdCamRightShoulder )
+                {
+                    _selectedShoulder = CamStatus.ThirdCamLeftShoulder;
+                    thirdCamRightShoulder.Priority -= 1;
+                    thirdCamLeftShoulder.Priority += 1;
+                }
+                else
+                {
+                    _selectedShoulder = CamStatus.ThirdCamRightShoulder;
+                    thirdCamLeftShoulder.Priority -= 1;
+                    thirdCamRightShoulder.Priority += 1;
+                }
+            }
         }
     }
 }
