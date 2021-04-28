@@ -3,6 +3,7 @@ using Cinemachine;
 using People.Player;
 using TargetSystem;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Finisher : MonoBehaviour
 {
@@ -12,11 +13,12 @@ public class Finisher : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera camera;
     
     public GameObject player;
+    public GameObject victim;
     // public GameObject target;
     [SerializeField] private GameObject[] objectsToDisapear;
 
     [SerializeField] private Material _material;
-    
+    public CinemachineBrain cinemachineBrain;
     public void LeaveCamera()
     {
         camera.Priority = 1;
@@ -77,5 +79,22 @@ public class Finisher : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         Destroy(gameObject);
+    }
+
+    public void SetCameraBlendDuration(int duration)
+    {
+        cinemachineBrain.m_DefaultBlend.m_Time = duration;
+
+    }
+
+    public void SetCameraBlendToCut()
+    {
+        cinemachineBrain.m_DefaultBlend.m_Style = CinemachineBlendDefinition.Style.Cut;
+    }
+
+    public void ResetCameraBlendDuration()
+    {
+        cinemachineBrain.m_DefaultBlend.m_Time = 2;
+        cinemachineBrain.m_DefaultBlend.m_Style  = CinemachineBlendDefinition.Style.EaseInOut;
     }
 }

@@ -24,7 +24,7 @@ namespace TargetSystem
 
         public bool _isTargetNull;
 
-        [SerializeField] private Volume _vignette;
+        public Volume vignette;
         [SerializeField] private Camera[] _cameras;
 
         private PlayerControler _playerControler;
@@ -62,12 +62,12 @@ namespace TargetSystem
             // _vignette.isGlobal = true;
             while (time <= 0.5f)
             {
-                _vignette.weight = time * 2;
+                vignette.weight = time * 2;
                 time += Time.deltaTime;
                 yield return new WaitForEndOfFrame();
             }
 
-            _vignette.weight = 1;
+            vignette.weight = 1;
         }
 
         IEnumerator FadeOut()
@@ -75,12 +75,12 @@ namespace TargetSystem
             float time = 0.5f;
             while (time >= 0)
             {
-                _vignette.weight = time * 2;
+                vignette.weight = time * 2;
                 time -= Time.deltaTime;
                 yield return new WaitForEndOfFrame();
             }
 
-            _vignette.weight = 0;
+            vignette.weight = 0;
             // _vignette.isGlobal = false;
             foreach (var cam in _cameras) cam.enabled = false;
         }

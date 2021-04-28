@@ -1,5 +1,4 @@
 using System.IO;
-using FullSerializer;
 using Player;
 using UnityEngine;
 
@@ -7,8 +6,7 @@ public class SaveDatabase : MonoBehaviour
 {
     public int startMethod; //0 = save on Start, 1 = load on Start, default = no Start method
 
-    readonly int versionHash = 27836721;
-    private static readonly fsSerializer Serializer = new fsSerializer();
+    readonly int versionHash = 0;
 
 
     void Start()
@@ -45,18 +43,6 @@ public class SaveDatabase : MonoBehaviour
         }
     }
 
-    public void Savejson()
-    {
-        fsData data;
-        Serializer.TrySerialize(typeof(PlayerDatabase), PlayerDatabase.Instance, out data).AssertSuccessWithoutWarnings();
-        string savePath = Application.persistentDataPath + "/SaveData" ;
-        if (!Directory.Exists(savePath))
-            Directory.CreateDirectory(savePath);
-        StreamWriter file = new StreamWriter(savePath + "/_save_" + versionHash.ToString() + ".dat");
-        file.Write(fsJsonPrinter.CompressedJson(data));
-        file.Close();
-    }   
-
     public void Load()
     {
         string savePath = Application.persistentDataPath + "/SaveData/_save_" + versionHash.ToString() + ".dat";
@@ -67,15 +53,5 @@ public class SaveDatabase : MonoBehaviour
 
             PlayerDatabase.Instance = (PlayerDatabase) binaryFormatter.Deserialize(stream);
         }
-    }
-
-    public void Loadjson()
-    {
-        string savePath = Application.persistentDataPath + "/SaveData/_save_" + versionHash.ToString() + ".dat";
-        if (!File.Exists(savePath)) return;
-        fsData json = fsJsonParser.Parse(File.ReadAllText(savePath));
-        object deserialized = null;
-        Serializer.TryDeserialize(json, typeof(PlayerDatabase), ref deserialized).AssertSuccessWithoutWarnings();
-        PlayerDatabase.Instance = (PlayerDatabase) deserialized;
     }
 }

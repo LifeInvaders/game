@@ -32,6 +32,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 130397555890715870, guid: 4d064807a326e0343b77e7f7b53bfcc0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 415015114491889042, guid: 4d064807a326e0343b77e7f7b53bfcc0,
         type: 3}
       propertyPath: m_Layer
@@ -47,6 +52,16 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1640329153050830523, guid: 4d064807a326e0343b77e7f7b53bfcc0,
+        type: 3}
+      propertyPath: camerasParent
+      value: 
+      objectReference: {fileID: 637066530}
+    - target: {fileID: 3407748498409622259, guid: 4d064807a326e0343b77e7f7b53bfcc0,
+        type: 3}
+      propertyPath: finishers.Array.size
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3407748498409622259, guid: 4d064807a326e0343b77e7f7b53bfcc0,
         type: 3}
       propertyPath: finishers.Array.data[0]
@@ -58,6 +73,12 @@ PrefabInstance:
       propertyPath: finishers.Array.data[1]
       value: 
       objectReference: {fileID: 729133053160898170, guid: 2501ee6eade012140a18ea3599e6bf63,
+        type: 3}
+    - target: {fileID: 3407748498409622259, guid: 4d064807a326e0343b77e7f7b53bfcc0,
+        type: 3}
+      propertyPath: finishers.Array.data[6]
+      value: 
+      objectReference: {fileID: 2221348574246789631, guid: 3a2972403303dfb48b04f86290a821fe,
         type: 3}
     - target: {fileID: 4441482292251185313, guid: 4d064807a326e0343b77e7f7b53bfcc0,
         type: 3}
