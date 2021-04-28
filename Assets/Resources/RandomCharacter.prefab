@@ -1968,7 +1968,7 @@ MonoBehaviour:
   _target: {fileID: 0}
   _aiming: 0
   _isTargetNull: 0
-  _vignette: {fileID: 878534355468113708}
+  vignette: {fileID: 0}
   _cameras:
   - {fileID: 3380008109752725831}
   - {fileID: 8468354362255607082}

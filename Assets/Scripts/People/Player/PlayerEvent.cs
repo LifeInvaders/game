@@ -4,7 +4,7 @@ using Photon.Realtime;
 
 namespace People.Player
 {
-    public class PlayerEvent : HumanEvent,IOnEventCallback
+    public class PlayerEvent : HumanEvent
     {
         public override void Death()
         {

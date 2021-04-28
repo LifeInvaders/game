@@ -15,17 +15,17 @@ PrefabInstance:
     - target: {fileID: 130397555890715869, guid: 4d064807a326e0343b77e7f7b53bfcc0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.707988
+      value: 0.26000023
       objectReference: {fileID: 0}
     - target: {fileID: 130397555890715869, guid: 4d064807a326e0343b77e7f7b53bfcc0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.145001
+      value: -0.00000011920929
       objectReference: {fileID: 0}
     - target: {fileID: 130397555890715869, guid: 4d064807a326e0343b77e7f7b53bfcc0,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -111.802704
+      value: -1.8499985
       objectReference: {fileID: 0}
     - target: {fileID: 130397555890715869, guid: 4d064807a326e0343b77e7f7b53bfcc0,
         type: 3}
@@ -76,7 +76,7 @@ PrefabInstance:
         type: 3}
       propertyPath: camerasParent
       value: 
-      objectReference: {fileID: 637066530}
+      objectReference: {fileID: 0}
     - target: {fileID: 3407748498409622259, guid: 4d064807a326e0343b77e7f7b53bfcc0,
         type: 3}
       propertyPath: finishers.Array.size
@@ -565,6 +565,12 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 7178693715806526083, guid: 4d064807a326e0343b77e7f7b53bfcc0,
+        type: 3}
+      propertyPath: m_Actions
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: e8aaadb029fac2241ab6fdee1ba085d0,
+        type: 3}
     - target: {fileID: 8514157176573852347, guid: 4d064807a326e0343b77e7f7b53bfcc0,
         type: 3}
       propertyPath: m_Cameras.Array.size
@@ -580,7 +586,33 @@ PrefabInstance:
       propertyPath: m_Cameras.Array.data[1]
       value: 
       objectReference: {fileID: 6311169157023962786}
-    m_RemovedComponents: []
+    - target: {fileID: 9213237454532272822, guid: 4d064807a326e0343b77e7f7b53bfcc0,
+        type: 3}
+      propertyPath: m_SynchronizeParameters.Array.size
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213237454532272822, guid: 4d064807a326e0343b77e7f7b53bfcc0,
+        type: 3}
+      propertyPath: m_SynchronizeParameters.Array.data[12].Name
+      value: injured
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213237454532272822, guid: 4d064807a326e0343b77e7f7b53bfcc0,
+        type: 3}
+      propertyPath: m_SynchronizeParameters.Array.data[12].Type
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213237454532272822, guid: 4d064807a326e0343b77e7f7b53bfcc0,
+        type: 3}
+      propertyPath: m_SynchronizeParameters.Array.data[13].Name
+      value: falling
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213237454532272822, guid: 4d064807a326e0343b77e7f7b53bfcc0,
+        type: 3}
+      propertyPath: m_SynchronizeParameters.Array.data[13].Type
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2591157541718201493, guid: 4d064807a326e0343b77e7f7b53bfcc0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4d064807a326e0343b77e7f7b53bfcc0, type: 3}
 --- !u!20 &4328967094956155119 stripped
 Camera:
