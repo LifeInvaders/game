@@ -1,4 +1,5 @@
 using System.Collections;
+using People.NPC.Hiding;
 using UnityEngine.AI;
 using UnityEngine;
 namespace People.NPC

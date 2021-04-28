@@ -20,7 +20,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
     public void Disconnect() => PhotonNetwork.Disconnect();
 
-    public override void OnCreatedRoom() => PhotonNetwork.LoadLevel("Lobby");
+    public override void OnCreatedRoom() => PhotonNetwork.LoadLevel("Map");
 
     public void SetNickname()
     {
