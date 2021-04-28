@@ -591,7 +591,8 @@ PrefabInstance:
       propertyPath: m_SynchronizeParameters.Array.data[13].Type
       value: 4
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2591157541718201493, guid: 4d064807a326e0343b77e7f7b53bfcc0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4d064807a326e0343b77e7f7b53bfcc0, type: 3}
 --- !u!20 &4328967094956155119 stripped
 Camera:
