@@ -8,6 +8,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using Player = Photon.Realtime.Player;
 
 public class ListPlayers : MonoBehaviourPunCallbacks
 {
@@ -37,7 +38,7 @@ public class ListPlayers : MonoBehaviourPunCallbacks
             }
             
         }
-        printPlayer.text += "UpdateList" + "\n";
+        
         
     }
     // Update is called once per frame
@@ -47,7 +48,6 @@ public class ListPlayers : MonoBehaviourPunCallbacks
         {
             UpdateList();
             playerBoard.enabled = (true);
-            printPlayer.text += "Update" + "\n";
             
         }
 
