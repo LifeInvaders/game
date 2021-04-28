@@ -751,8 +751,10 @@
             <e p="GameManager.cs" t="Include" />
             <e p="InGameStats.cs" t="Include" />
             <e p="KillFeed.cs" t="Include" />
+            <e p="NightMode.cs" t="Include" />
             <e p="NpcManager.cs" t="Include" />
             <e p="PlayerManager.cs" t="Include" />
+            <e p="PowerManager.cs" t="Include" />
             <e p="ScoreManager.cs" t="Include" />
             <e p="TestManager.cs" t="Include" />
             <e p="TimerManager.cs" t="Include" />
@@ -765,13 +767,13 @@
           </e>
           <e p="MainMenu" t="Include">
             <e p="CharacterCreation.cs" t="Include" />
+            <e p="ExperienceBar.cs" t="Include" />
             <e p="MenuManager.cs" t="Include" />
             <e p="Options.cs" t="Include" />
             <e p="RebindButton.cs" t="Include" />
             <e p="RebindMenu.cs" t="Include" />
             <e p="ServerManager.cs" t="Include" />
           </e>
-          <e p="NightMode.cs" t="Include" />
           <e p="Objects" t="Include">
             <e p="Banc.cs" t="Include" />
             <e p="Doors.cs" t="Include" />

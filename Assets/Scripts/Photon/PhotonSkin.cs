@@ -6,7 +6,6 @@ namespace People
 {
     public class PhotonSkin : MonoBehaviour
     {
-
         [SerializeField] private SkinnedMeshRenderer _renderer;
 
         public Mesh[] meshes;
@@ -58,13 +57,7 @@ namespace People
         {
             _materialNb = matID;
             _meshNb = meshID;
-            if (gameObject.CompareTag("NPC"))
-                StartCoroutine(FadeIn());
-            else
-            {
-                _renderer.sharedMesh = meshes[_meshNb];
-                _renderer.sharedMaterial = materials[_materialNb];
-            }
+            StartCoroutine(FadeIn());
         }
     }
 }
