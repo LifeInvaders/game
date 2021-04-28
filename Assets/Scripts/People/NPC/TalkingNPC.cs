@@ -4,30 +4,32 @@ using UnityEngine;
 
 public class TalkingNPC : MonoBehaviour
 {
-    private Animator anim;
+    private Animator _anim;
 
-    private bool animationOn;
+    private bool _animationOn;
+    private string _animationString = "talk";
 
+    public void SetAnim(string anim) => _animationString = anim;
     private IEnumerator _enumerator;
 
     // Start is called before the first frame update
     void OnDisable()
     {
-        animationOn = false;
+        _animationOn = false;
     }
 
     
     void Awake()
     {
         // _enumerator = ;
-        anim = GetComponent<Animator>();
+        _anim = GetComponent<Animator>();
     }
     
 
     // Update is called once per frame
     void Update()
     {
-        if (!animationOn)
+        if (!_animationOn)
         {
             StartCoroutine(ExampleCoroutine());
             // Debug.Log("Au revoir"); 
@@ -36,13 +38,13 @@ public class TalkingNPC : MonoBehaviour
 
     IEnumerator ExampleCoroutine()
     {
-        animationOn = true;
+        _animationOn = true;
         yield return new WaitForSeconds(Random.Range(0, 5));
-        anim.SetBool("talk", true);
+        _anim.SetBool("talk", true);
 
 
         yield return new WaitForSeconds(Random.Range(5, 10));
-        anim.SetBool("talk", false);
-        animationOn = false;
+        _anim.SetBool("talk", false);
+        _animationOn = false;
     }
 }

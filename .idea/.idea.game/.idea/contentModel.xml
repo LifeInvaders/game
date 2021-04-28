@@ -724,7 +724,10 @@
             <e p="HumanEvent.cs" t="Include" />
             <e p="NPC" t="Include">
               <e p="DebugPath.cs" t="Include" />
-              <e p="HidingZone.cs" t="Include" />
+              <e p="Hiding" t="Include">
+                <e p="HidingCircle.cs" t="Include" />
+                <e p="HidingZone.cs" t="Include" />
+              </e>
               <e p="NPCdata.cs" t="Include" />
               <e p="NPCEvent.cs" t="Include" />
               <e p="NPCStatus.cs" t="Include" />
