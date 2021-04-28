@@ -55,8 +55,6 @@ public class ListPlayers : MonoBehaviourPunCallbacks
         {
             playerBoard.enabled = (false);
         }
-        
-
     }
 }
 

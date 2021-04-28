@@ -38,6 +38,7 @@ namespace Player
         //Keeping track of player statistics
         #region Stats
 
+        public int FirstPlace = 0;
         public int TargetKills = 0;
         public int Points = 0;
         public int Deaths = 0;
@@ -58,8 +59,9 @@ namespace Player
        
        //Progress system 
         #region Progress
-        
-        public  int Level = 0;
+
+        public int LevelExpReqMult = 100;
+        public  int Level = 1;
         public int Exp = 0;
 
         #endregion

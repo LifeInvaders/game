@@ -13,6 +13,7 @@ public class Finisher : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera camera;
     
     public GameObject player;
+    public GameObject victim;
     // public GameObject target;
     [SerializeField] private GameObject[] objectsToDisapear;
 

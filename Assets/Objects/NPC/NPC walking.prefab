@@ -176,6 +176,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 968173258086345764, guid: 614022e0a32902244ab9421d05e46eed,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1642381290634515536, guid: 614022e0a32902244ab9421d05e46eed,
         type: 3}
       propertyPath: m_IsKinematic

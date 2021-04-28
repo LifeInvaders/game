@@ -37,7 +37,7 @@ namespace TargetSystem
         /// <param name="target"></param>
         void Kill(GameObject target)
         {
-            target.GetComponent<Human>().Death();
+            target.GetComponent<HumanEvent>().Death();
             _casttarget.SetAiming(false);
             _casttarget.enabled = false;
             Debug.Log($"killed {target.name}");

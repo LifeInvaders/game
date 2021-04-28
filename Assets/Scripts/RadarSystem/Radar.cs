@@ -20,7 +20,7 @@ namespace RadarSystem
 
         public void SetTarget(Transform targeTransform)
         {
-            _target = targeTransform;
+            _target = targetTransform;
         }
         // Update is called once per frame
         private void FixedUpdate()

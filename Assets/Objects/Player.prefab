@@ -52,6 +52,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 130397555890715870, guid: 4d064807a326e0343b77e7f7b53bfcc0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 415015114491889042, guid: 4d064807a326e0343b77e7f7b53bfcc0,
         type: 3}
       propertyPath: m_Layer
@@ -67,6 +72,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1640329153050830523, guid: 4d064807a326e0343b77e7f7b53bfcc0,
+        type: 3}
+      propertyPath: camerasParent
+      value: 
+      objectReference: {fileID: 637066530}
     - target: {fileID: 3407748498409622259, guid: 4d064807a326e0343b77e7f7b53bfcc0,
         type: 3}
       propertyPath: finishers.Array.size
