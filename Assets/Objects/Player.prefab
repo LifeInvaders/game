@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &4157962460592848773
+--- !u!114 &6492286959659334864
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,7 +20,7 @@ MonoBehaviour:
   - {fileID: 4300090, guid: 409520c9226982345a49c9803624f208, type: 3}
   - {fileID: 4300038, guid: 409520c9226982345a49c9803624f208, type: 3}
   - {fileID: 4300030, guid: 409520c9226982345a49c9803624f208, type: 3}
-  - {fileID: 4300042, guid: 409520c9226982345a49c9803624f208, type: 3}
+  - {fileID: 4300036, guid: 409520c9226982345a49c9803624f208, type: 3}
   - {fileID: 4300040, guid: 409520c9226982345a49c9803624f208, type: 3}
   - {fileID: 4300032, guid: 409520c9226982345a49c9803624f208, type: 3}
   - {fileID: 4300036, guid: 409520c9226982345a49c9803624f208, type: 3}
@@ -262,6 +262,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4441482292251406457, guid: 4d064807a326e0343b77e7f7b53bfcc0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4441482292251406457, guid: 4d064807a326e0343b77e7f7b53bfcc0,
+        type: 3}
+      propertyPath: m_TagString
+      value: MyPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 4441482292251406877, guid: 4d064807a326e0343b77e7f7b53bfcc0,
         type: 3}
