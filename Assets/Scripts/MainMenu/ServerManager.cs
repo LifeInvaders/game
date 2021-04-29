@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class ServerManager : MonoBehaviourPunCallbacks
 {
     [SerializeField] private InputField nickName;
+    [SerializeField] private string quickJoinMap;
     private void Start()
     {
         PhotonNetwork.NickName = Player.PlayerDatabase.Instance.Nickname;
@@ -20,7 +21,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
     public void Disconnect() => PhotonNetwork.Disconnect();
 
-    public override void OnCreatedRoom() => PhotonNetwork.LoadLevel("Map");
+    public override void OnCreatedRoom() => PhotonNetwork.LoadLevel(quickJoinMap);
 
     public void SetNickname()
     {

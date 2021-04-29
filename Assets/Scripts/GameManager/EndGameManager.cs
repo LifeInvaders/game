@@ -48,7 +48,6 @@ namespace GameManager
         private int GetExp()
         {
             var score = PhotonNetwork.LocalPlayer.GetScore();
-            var playerCount = PhotonNetwork.CurrentRoom.PlayerCount;
             var rand = new System.Random();
             var exp = score * rand.Next(1, 3);
             return exp < 0 ? 0 : exp;
@@ -56,6 +55,7 @@ namespace GameManager
 
         public void StartEndRoundCoroutine()
         {
+            Debug.Log("Starting EndRound Coroutine");
             StartCoroutine(EndRound());
         }
 
@@ -71,7 +71,7 @@ namespace GameManager
             DisplayStats(exp);
             yield return new WaitForSeconds(5);
             statsDisplay.SetActive(false);
-            _leaveCountdown = StartCoroutine(PrompRestart());
+            _leaveCountdown = StartCoroutine(PromptRestart());
         }
 
         private void UpdateDatabase(int exp)
@@ -114,7 +114,7 @@ namespace GameManager
             Restart();
         }
 
-        IEnumerator PrompRestart()
+        IEnumerator PromptRestart()
         {
             choiceDisplay.SetActive(true);
             Text timer = this.timer.GetComponent<Text>();

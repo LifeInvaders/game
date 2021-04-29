@@ -64,7 +64,7 @@ namespace GameManager
                 if (_spectator != null) Destroy(_spectator);
                 playerManager.RespawnPlayers();
                 if (PhotonNetwork.IsMasterClient) npcManager.StartRespawnCoroutine();
-                assignTarget.KilledTarget();
+                if (igs.target != null) assignTarget.KilledTarget();
                 if (_roundCount == maxRound)
                 {
                     timerManager.enabled = false;
@@ -90,7 +90,7 @@ namespace GameManager
                     //TODO: Implement spectator system
                 }
                 timerManager.AccTimer();
-                var isTarget = killed.Equals(igs.target.GetPhotonView().Owner);
+                var isTarget = igs.target != null && killed.Equals(igs.target.GetPhotonView().Owner);
                 if (amKiller && isTarget)
                 {
                     igs.killCount++;

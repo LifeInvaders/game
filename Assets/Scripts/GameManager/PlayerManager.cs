@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Pun.UtilityScripts;
@@ -94,6 +95,12 @@ public class PlayerManager : MonoBehaviourPunCallbacks
             playerTransforms.Add(PhotonView.Find((int)player.CustomProperties["viewID"]).transform);
     }
 
+    private void SetAlive()
+    {
+        Hashtable alive = new Hashtable {{"dead", false}};
+        PhotonNetwork.LocalPlayer.SetCustomProperties(alive);
+    }
+
     public void RespawnPlayers()
     {
         List<Transform> spawnPointsCopy = new List<Transform>(spawnPoints);
@@ -120,6 +127,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     [PunRPC]
     void Respawn(int spawnPoint)
     {
+        SetAlive();
         igs.localPlayer.transform.position = spawnPoints[spawnPoint].position;
         var input = igs.localPlayer.GetComponent<PlayerInput>();
         input.enabled = false;
