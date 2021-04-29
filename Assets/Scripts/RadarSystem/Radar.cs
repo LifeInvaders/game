@@ -18,7 +18,7 @@ namespace RadarSystem
         [SerializeField] private Transform origin;
         
 
-        public void SetTarget(Transform targeTransform)
+        public void SetTarget(Transform targetTransform)
         {
             _target = targetTransform;
         }

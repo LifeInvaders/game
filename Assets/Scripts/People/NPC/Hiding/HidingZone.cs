@@ -20,6 +20,19 @@ namespace People.NPC.Hiding
 
         protected int nextPlace;
         protected abstract void SetTransform();
+
+        public string GetStatus()
+        {
+            switch (anim)
+            {
+                case NpcStatus.Talking:
+                    return "talk";
+                case NpcStatus.Praying:
+                    return "pray";
+                default:
+                    return "";
+            }
+        }
         void Start()
         {
             if (NumberOfNpc == 0) NumberOfNpc = Random.Range(2, 4);

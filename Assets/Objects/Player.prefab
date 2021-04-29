@@ -586,6 +586,11 @@ PrefabInstance:
       propertyPath: m_Cameras.Array.data[1]
       value: 
       objectReference: {fileID: 6311169157023962786}
+    - target: {fileID: 8755847760386649724, guid: 4d064807a326e0343b77e7f7b53bfcc0,
+        type: 3}
+      propertyPath: origin
+      value: 
+      objectReference: {fileID: 8668381204217411665}
     - target: {fileID: 9213237454532272822, guid: 4d064807a326e0343b77e7f7b53bfcc0,
         type: 3}
       propertyPath: m_SynchronizeParameters.Array.size
@@ -623,6 +628,12 @@ Camera:
 --- !u!20 &6311169157023962786 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 6222432121615761545, guid: 4d064807a326e0343b77e7f7b53bfcc0,
+    type: 3}
+  m_PrefabInstance: {fileID: 130397556423513643}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &8668381204217411665 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8755847760386649722, guid: 4d064807a326e0343b77e7f7b53bfcc0,
     type: 3}
   m_PrefabInstance: {fileID: 130397556423513643}
   m_PrefabAsset: {fileID: 0}
