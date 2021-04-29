@@ -1,7 +1,7 @@
 using System.Collections;
 using People.NPC.Hiding;
-using UnityEngine.AI;
 using UnityEngine;
+
 namespace People.NPC
 {
     public class NPCEvent : HumanEvent
@@ -10,7 +10,7 @@ namespace People.NPC
         public override void Death()
         {
             var walkingNpc = GetComponent<WalkingNPC>();
-            if (walkingNpc.EventZone != null) 
+            if (walkingNpc.EventZone != null)
                 walkingNpc.EventZone.GetComponent<HidingZone>().RemoveDeadNpc(gameObject);
             GetComponentInParent<NpcZone>().GenerateNewNpc();
             Destroy(gameObject);

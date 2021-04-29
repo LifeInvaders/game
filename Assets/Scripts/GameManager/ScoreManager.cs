@@ -20,6 +20,7 @@ namespace GameManager
         [SerializeField] private int alivePoints;
         [SerializeField] private GameObject scoreHud;
         [NonSerialized]public List<Photon.Realtime.Player> scoreBoard;
+        [SerializeField] private ListPlayers listPlayers;
         private int _roundKills;
 
         void Start()
@@ -58,15 +59,22 @@ namespace GameManager
 
         public override void OnPlayerPropertiesUpdate(Photon.Realtime.Player targetPlayer, Hashtable changedProps)
         {
-            if (!changedProps.TryGetValue(PunPlayerScores.PlayerScoreProp, out _)) return;
+            if (!changedProps.ContainsKey(PunPlayerScores.PlayerScoreProp)
+            && !changedProps.ContainsKey("deathCount")) return;
             if (targetPlayer.IsLocal) UpdateHud();
+            UpdateScoreboard();
+        }
+
+        public void UpdateScoreboard()
+        {
             scoreBoard.Sort(ScoreSort);
+            listPlayers.UpdateList(scoreBoard);
         }
 
         public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer)
         {
             scoreBoard = PhotonNetwork.PlayerList.ToList();
-            scoreBoard.Sort(ScoreSort);
+            UpdateScoreboard();
         }
 
         private int ScoreSort(Photon.Realtime.Player p1, Photon.Realtime.Player p2)
@@ -74,7 +82,7 @@ namespace GameManager
             int p1S = p1.GetScore();
             int p2S = p2.GetScore();
             if (p1S == p2S) return 0;
-            if (p1S > p2S) return 1;
+            if (p1S < p2S) return 1;
             return -1;
         }
 

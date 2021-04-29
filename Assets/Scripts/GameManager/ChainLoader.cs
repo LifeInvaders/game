@@ -13,6 +13,7 @@ namespace GameManager
         [SerializeField] private NpcManager npcManager;
         [SerializeField] private PlayerManager playerManager;
         [SerializeField] private TimerManager timerManager;
+        [SerializeField] private ListPlayers listPlayers;
         
         IEnumerator Start()
         {
@@ -31,6 +32,7 @@ namespace GameManager
             if (PhotonNetwork.IsMasterClient)
                 yield return new WaitForSeconds(1);
             timerManager.enabled = true;
+            listPlayers.enabled = true;
         }
         
         bool CheckNpcSyncTime()

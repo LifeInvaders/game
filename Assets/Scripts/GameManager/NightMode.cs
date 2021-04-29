@@ -47,4 +47,9 @@ public class NightMode : MonoBehaviour
         }
         rain.SetActive(!activated);
     }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.N)) ChangeMode();
+    }
 }

@@ -57,7 +57,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         SetLayerRecursive(player);
         igs.localPlayer = player;
         player.GetComponent<CastTarget>().vignette = volume;
-        Hashtable customProps = new Hashtable {{"viewID", player.GetPhotonView().ViewID}, {"dead", false}};
+        Hashtable customProps = new Hashtable {{"viewID", player.GetPhotonView().ViewID}, {"dead", false}, {"deathCount", 0},{"killCount",0}};
         PhotonNetwork.LocalPlayer.SetCustomProperties(customProps);
     }
 

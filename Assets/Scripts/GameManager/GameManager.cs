@@ -26,6 +26,9 @@ namespace GameManager
         [SerializeField] private EndGameManager endGameManager;
         [SerializeField] private int maxRound;
         [SerializeField] private AssignTarget assignTarget;
+        [SerializeField] private GameObject killFeed;
+        [SerializeField] private GameObject killFeedTemplate;
+        [SerializeField] private Text textIndicator;
         private int _roundCount;
 
 
@@ -44,8 +47,14 @@ namespace GameManager
 
         private void SetDeadCustomProp()
         {
-            Hashtable deadCustomProp = new Hashtable {{"dead", true}};
+            Hashtable deadCustomProp = new Hashtable {{"dead", true},{"deathCount",igs.deathCount}};
             PhotonNetwork.LocalPlayer.SetCustomProperties(deadCustomProp);
+        }
+
+        private void SetKillCustomProp()
+        {
+            Hashtable killCustomProp = new Hashtable {{"killCount", igs.killCount}};
+            PhotonNetwork.LocalPlayer.SetCustomProperties(killCustomProp);
         }
         IEnumerator EnableDeathHud(string killer)
         {
@@ -78,6 +87,8 @@ namespace GameManager
             if (photonEvent.Code == EventManager.KilledPlayerEventCode)
             {
                 var killed = killedPhotonView.Owner;
+                var template = Instantiate(killFeedTemplate, killFeed.transform);
+                template.GetComponent<KillFeed>().CreateKillFeedEntry(killer.NickName,killed.NickName);
                 Debug.Log("Player died: " + killed.NickName);
                 var killedGo = killedPhotonView.gameObject;
                 killedGo.SetActive(false);
@@ -93,19 +104,28 @@ namespace GameManager
                 var isTarget = igs.target != null && killed.Equals(igs.target.GetPhotonView().Owner);
                 if (amKiller && isTarget)
                 {
+                    StartCoroutine(TextIndicator("You killed your target!"));
                     igs.killCount++;
+                    SetKillCustomProp();
                     assignTarget.KilledTarget();
                 }
+                if (amKiller && !isTarget) StartCoroutine(TextIndicator("You killed the wrong player!"));
                 scoreManager.KilledPlayer(amKiller, isTarget);
             }
             else if (photonEvent.Code == EventManager.KilledNpcEventCode)
             {
-                if (killer.Equals(PhotonNetwork.LocalPlayer)) scoreManager.KilledNpc();
                 var killedNPCGo = killedPhotonView.gameObject;
                 Debug.Log("NPC died: " + killedNPCGo);
                 if (PhotonNetwork.IsMasterClient)
                     PhotonNetwork.Destroy(killedNPCGo);
                 npcManager.dead++;
+                var template = Instantiate(killFeedTemplate, killFeed.transform);
+                template.GetComponent<KillFeed>().CreateKillFeedEntry(killer.NickName);
+                if (killer.Equals(PhotonNetwork.LocalPlayer))
+                {
+                    StartCoroutine(TextIndicator("You killed an NPC!"));
+                    scoreManager.KilledNpc();
+                }
             }
         }
 
@@ -119,6 +139,15 @@ namespace GameManager
             g.GetComponent<Finisher>().victim = killed;
             killer.GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
             killer.GetComponent<PlayerControler>().SetMoveBool(false);
+        }
+
+        IEnumerator TextIndicator(string text)
+        {
+            textIndicator.text = text;
+            var textIndicatorColor = textIndicator.color;
+            textIndicatorColor.a = 1;
+            yield return new WaitForSeconds(5);
+            textIndicator.text = "";
         }
 
         public void NpcFinisher(int randFinisher, GameObject killer, GameObject killed)

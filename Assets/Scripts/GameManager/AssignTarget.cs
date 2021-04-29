@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -6,6 +7,7 @@ using Photon.Pun;
 using RadarSystem;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = System.Random;
 
 public class AssignTarget : MonoBehaviourPunCallbacks
@@ -13,6 +15,8 @@ public class AssignTarget : MonoBehaviourPunCallbacks
     [SerializeField] private InGameStats igs;
     private Random _random = new Random();
     private Radar _radar;
+    [SerializeField] private Text targetName;
+    
 
 
     [PunRPC]
@@ -22,6 +26,15 @@ public class AssignTarget : MonoBehaviourPunCallbacks
         if (_radar == null) _radar = igs.localPlayer.GetComponentInChildren<Radar>();
         _radar.gameObject.SetActive(true);
         _radar.SetTarget(igs.target.transform);
+        StartCoroutine(SetTargetText(target.NickName));
+    }
+
+    IEnumerator SetTargetText(string name)
+    {
+        targetName.text = "Your target is " + name + '.';
+        targetName.gameObject.SetActive(true);
+        yield return new WaitForSeconds(5);
+        targetName.gameObject.SetActive(false);
     }
 
     public void KilledTarget()
@@ -39,12 +52,20 @@ public class AssignTarget : MonoBehaviourPunCallbacks
             Debug.Log("TargetAssigner: Attempt number " + tries);
             foreach (var player in PhotonNetwork.PlayerList)
             {
-                //This is a filter for the valid targets
-                var targetFilter = PhotonNetwork.PlayerList.Where(i =>
-                    !targetList.ContainsValue(i) //Excludes already assigned targets
-                    && !i.Equals(player) //Excludes targeting itself
-                    && (!targetList.ContainsKey(i) || //Exclude hunter's hunter (no 1v1)
-                        !targetList[i].Equals(player))).ToArray();
+                Photon.Realtime.Player[] targetFilter;
+                if (PhotonNetwork.CurrentRoom.PlayerCount >= 4)
+                {
+                    targetFilter = PhotonNetwork.PlayerList.Where(i =>
+                        !targetList.ContainsValue(i) //Excludes already assigned targets
+                        && !i.Equals(player) //Excludes targeting itself
+                        && (!targetList.ContainsKey(i) || //Exclude hunter's hunter (no 1v1)
+                            !targetList[i].Equals(player))).ToArray();
+                }
+                else
+                {
+                    targetFilter = PhotonNetwork.PlayerList.Where(i => 
+                                   !i.Equals(player)).ToArray();
+                }
                 if (targetFilter.Length == 0)
                 {
                     targetList = new Dictionary<Photon.Realtime.Player, Photon.Realtime.Player>();

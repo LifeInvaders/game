@@ -249,7 +249,6 @@ GameObject:
   - component: {fileID: 3523081851390699481}
   - component: {fileID: 8505493364163973137}
   - component: {fileID: 3400921048566643465}
-  - component: {fileID: 4956709534056425144}
   - component: {fileID: 5985697077944675549}
   - component: {fileID: 5178331650068702079}
   - component: {fileID: 8523565842609925435}
@@ -537,19 +536,6 @@ MonoBehaviour:
   _cameras:
   - {fileID: 3380008109752725831}
   - {fileID: 8468354362255607082}
---- !u!114 &4956709534056425144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 636895761321982979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12e1bdd75a51ef34e904b56c0b992c88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  floatingText: {fileID: 0}
 --- !u!114 &5985697077944675549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5312,6 +5298,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4282157318548853971}
   - component: {fileID: 4065653961603276657}
+  - component: {fileID: 2250430012550033618}
   m_Layer: 8
   m_Name: Character
   m_TagString: Skin
@@ -5351,7 +5338,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 79bfdd834a23bf04d8ea380700c97ad9, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5376,7 +5363,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300032, guid: 409520c9226982345a49c9803624f208, type: 3}
+  m_Mesh: {fileID: 0}
   m_Bones:
   - {fileID: 5404405524682323486}
   - {fileID: 2121810041629741707}
@@ -5433,6 +5420,24 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.000019073486, y: 86.21986, z: -6.0901365}
     m_Extent: {x: 102.45596, y: 96.03123, z: 25.58535}
   m_DirtyAABB: 0
+--- !u!114 &2250430012550033618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9141825558139945618}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 6
+  precomputeOutline: 1
+  bakeKeys: []
+  bakeValues: []
 --- !u!1001 &1453330168421585619
 PrefabInstance:
   m_ObjectHideFlags: 0
