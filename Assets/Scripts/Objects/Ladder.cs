@@ -11,7 +11,7 @@ namespace Objects
         // Start is called before the first frame update
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.CompareTag("Player"))
+            if (other.gameObject.CompareTag("MyPlayer"))
             {
                 cam.Follow = other.transform;
                 cam.LookAt = other.transform;
@@ -46,7 +46,7 @@ namespace Objects
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.gameObject.CompareTag("Player"))
+            if (other.gameObject.CompareTag("MyPlayer"))
             {
                 ExitLadder(other.gameObject);
                 other.gameObject.transform.Translate(Vector3.forward *1.3f);
@@ -93,7 +93,7 @@ namespace Objects
         }
         private void OnTriggerStay(Collider other)
         {
-            if (other.gameObject.CompareTag("Player"))
+            if (other.gameObject.CompareTag("MyPlayer"))
             {
                 float input = other.GetComponent<PlayerControler>().GetAxis().y;
                 if (input == 0)
