@@ -1,4 +1,5 @@
 ﻿using System;
+using Photon.Pun;
 using UnityEngine;
 
 namespace RadarSystem
@@ -15,6 +16,11 @@ namespace RadarSystem
 
         public void Start()
         {
+            if (PhotonNetwork.IsConnected && !gameObject.GetComponentInParent<PhotonView>().IsMine)
+            {
+                gameObject.SetActive(false);
+                return;
+            }
             _radar = GetComponent<RectTransform>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
         }

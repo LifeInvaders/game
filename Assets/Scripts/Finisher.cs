@@ -57,7 +57,7 @@ public class Finisher : MonoBehaviour
     
     IEnumerator WaitForDeathAnim()
     {
-        yield return new WaitForSeconds(15);
+        yield return new WaitForSeconds(5);
         SkinnedMeshRenderer meshRenderer = dead.GetComponentInChildren<SkinnedMeshRenderer>();
         Texture oldTexture = meshRenderer.sharedMaterial.mainTexture;
 
