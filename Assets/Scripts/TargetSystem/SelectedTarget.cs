@@ -29,7 +29,7 @@ namespace TargetSystem
         /// Retourne true si il a verrouilé une cible
         /// </summary>
         /// <returns></returns>
-        public bool IsTarget() => _isselectedtarget;
+        public bool IsTarget() => _isselectedtarget && _selectedTarget != null;
 
         /// <summary>
         /// Retourne le Gameobject de la cible verouillée

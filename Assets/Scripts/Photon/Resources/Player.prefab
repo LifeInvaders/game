@@ -1531,6 +1531,7 @@ GameObject:
   - component: {fileID: 4973559243237870650}
   - component: {fileID: 1640329153050830523}
   - component: {fileID: 2591157541718201493}
+  - component: {fileID: 5019423821364432386}
   m_Layer: 12
   m_Name: Player
   m_TagString: Player
@@ -1716,7 +1717,7 @@ MonoBehaviour:
   _target: {fileID: 0}
   _aiming: 0
   _isTargetNull: 0
-  _vignette: {fileID: 0}
+  vignette: {fileID: 0}
   _cameras:
   - {fileID: 4457674409339303620}
   - {fileID: 6222432121615761545}
@@ -1799,6 +1800,7 @@ MonoBehaviour:
   runSpeed: 9
   jumpspeed: 5
   fallingSpeed: 5
+  isSpectator: 0
 --- !u!114 &1640329153050830523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1817,11 +1819,26 @@ MonoBehaviour:
   camAnchor: {fileID: 130397555846220552}
   invertXRotation: 0
   camera: {fileID: 0}
+  camerasParent: {fileID: 0}
   firstCam: {fileID: 3177920721597166836}
   thirdCamRightShoulder: {fileID: 5422083646359310756}
   thirdCamLeftShoulder: {fileID: 3187918088780919382}
   cinemachineBrain: {fileID: 4769438857583993890}
+  isSpectator: 0
 --- !u!114 &2591157541718201493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4441482292251406457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb5ed4a8595a2044cab321185c819038, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dissolveShader: {fileID: 2100000, guid: ac133a4892f7ca693a4532e6f006cf09, type: 2}
+--- !u!114 &5019423821364432386
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
