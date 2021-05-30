@@ -82,7 +82,22 @@ namespace Chat
 			//send message if available
 			if (!string.IsNullOrEmpty(m_messageInput.text))
 			{
-				SendMessage();
+				bool addtoqueue = true;
+				char[] sep = new[] {',', ' ', '\t', '\n'};
+				string[] msg_words = m_messageInput.text.Split(sep);
+
+				foreach (var word in msg_words)
+				{
+					if (Array.BinarySearch(banned, word) >= 0)
+					{
+						addtoqueue = false;
+						Debug.Log("Please check your language !");
+						break;
+					}
+				}
+				
+				if (addtoqueue)
+					SendMessage();
 			}
 
 			//clean input Field
@@ -118,24 +133,7 @@ namespace Chat
 		/// <param name="msg">Message to Send.</param>
 		private void HandleQueueLimit(string msg)
 		{
-			bool addtoqueue = true;
-			char[] sep = new[] {',', ' ', '\t', '\n'};
-			string[] msg_words = msg.Split(sep);
-
-			foreach (var word in msg_words)
-			{
-				if (Array.BinarySearch(banned, word) >= 0)
-				{
-					addtoqueue = false;
-					Debug.Log("Please check your language !");
-					break;
-				}
-			}
-
-
-			if (addtoqueue)
-			{
-				if (m_messageQueue.Count < QueueCapacity)
+			if (m_messageQueue.Count < QueueCapacity)
 				{
 					m_messageQueue.Enqueue(msg);
 				}
@@ -143,7 +141,6 @@ namespace Chat
 				{
 					Debug.Log("Message Queue is full. Wait a moment");
 				}
-			}
 		}
 
 		/// <summary>
