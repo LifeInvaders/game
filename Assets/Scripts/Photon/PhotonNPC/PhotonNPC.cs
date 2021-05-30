@@ -3,12 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
+using ExitGames.Client.Photon.StructWrapping;
 using People.Player;
 using UnityEngine;
 using UnityEngine.AI;
 using Photon.Pun;
+using Photon.Pun.Simple;
 using UnityEngine.Experimental.AI;
 using Utilities;
+using Random = System.Random;
 using Vector3 = UnityEngine.Vector3;
 
 
@@ -16,52 +19,62 @@ namespace People.NPC
 {
     public class PhotonNPC : NPCdata
     {
-        private bool _start;
+        public bool start;
         private Animator _anim;
         private NavMeshAgent _agent;
         private Queue<Vector3> points;
         private Vector3 lastDest;
+        private int activationTime;
+        private double internalClock;
 
         void Start()
         {
+            points = new Queue<Vector3>();
+            Random r = new Random(gameObject.GetPhotonView().ViewID);
+            activationTime = r.Next(5, 16);
             StartCoroutine(WaitSync());
-            // positions = iaPoints.GetComponentsInChildren<Transform>();
             _agent = GetComponent<NavMeshAgent>();
             _anim = GetComponent<Animator>();
             if (Status == NpcStatus.Walking)
                 _anim.SetBool("walk", true);
-            points = new Queue<Vector3>();
-            points.Enqueue(Vector3.zero);
-            lastDest = Vector3.zero;
             if (!_agent.isOnNavMesh)
             {
                 NavMesh.SamplePosition(transform.position,out var hit, 10.0f, NavMesh.AllAreas);
                 _agent.Warp(hit.position);
             }
             _agent.radius = 0.1f;
-            if (PhotonNetwork.IsMasterClient)
-                CalculateNextPath(transform.position);
         }
 
+        [PunRPC]
+        void SetClock(double activation)
+        {
+            internalClock = activation;
+        }
+        
         IEnumerator WaitSync()
         {
+            start = false;
+            internalClock = 0;
+            lastDest = Vector3.zero;
+            points.Clear();
+            points.Enqueue(Vector3.zero);
+            if (PhotonNetwork.IsMasterClient)
+            {
+                gameObject.GetPhotonView().RPC(nameof(SetClock),RpcTarget.All,PhotonNetwork.Time + activationTime);
+                CalculateNextPath(transform.position);
+            } 
             yield return new WaitUntil(CheckNpcSyncTime);
             if (PhotonNetwork.IsMasterClient)
-                yield return new WaitForSeconds(2);
+                yield return new WaitForSeconds(2); 
             GotoNextPoint();
-            _start = true;
+            start = true;
         }
 
-        bool CheckNpcSyncTime()
-        {
-            if (!PhotonNetwork.CurrentRoom.CustomProperties.TryGetValue("syncNpcStart", out var time))
-                return false;
-            return PhotonNetwork.Time >= Convert.ToDouble(time);
-        }
+        bool CheckNpcSyncTime() => internalClock != 0 && PhotonNetwork.Time >= Convert.ToDouble(internalClock);
 
         void FixedUpdate()
         {
-            if (!_start) return;
+            if (!start) return;
             if (!_agent.pathPending && _agent.remainingDistance < 0.5f)
             {
                 Debug.Log("Going towards next point...");

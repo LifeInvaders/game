@@ -411,6 +411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Status: 1
+  start: 0
 --- !u!114 &4501865844253715732
 MonoBehaviour:
   m_ObjectHideFlags: 0

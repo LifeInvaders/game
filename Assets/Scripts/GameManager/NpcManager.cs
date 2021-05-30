@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
@@ -12,18 +13,24 @@ public class NpcManager : MonoBehaviour
     [SerializeField] private Transform pointsParent;
     [NonSerialized] public int dead;
     [SerializeField] private double timeSync = 15;
-    
+
     void Start()
     {
         _points = pointsParent.GetComponentsInChildren<Transform>();
         if (PhotonNetwork.IsMasterClient)
         {
-            SetSyncTime();
             for (int i = 1; i <= numberOfNpc; i++)
             {
-                var npc =PhotonNetwork.InstantiateRoomObject("PhotonNPC", _points[i % _points.Length].position, Quaternion.identity);
+                PhotonNetwork.InstantiateRoomObject("PhotonNPC", _points[i % _points.Length].position, Quaternion.identity);
             }
+            SetTimerForChainLoading();
         }
+    }
+
+    void SetTimerForChainLoading()
+    {
+        var timer = new Hashtable {{"npcDone", PhotonNetwork.Time + 20}};
+        PhotonNetwork.CurrentRoom.SetCustomProperties(timer);
     }
 
     public void StartRespawnCoroutine() => StartCoroutine(Respawn());
@@ -32,19 +39,12 @@ public class NpcManager : MonoBehaviour
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            SetSyncTime();
             yield return new WaitForSeconds(5);
             for (int i = 0; i < dead; i++)
             {
-                var npc =PhotonNetwork.InstantiateRoomObject("PhotonNPC", _points[i % _points.Length].position, Quaternion.identity);
+                PhotonNetwork.InstantiateRoomObject("PhotonNPC", _points[i % _points.Length].position, Quaternion.identity);
             }
             dead = 0;
         }
-    }
-    
-    void SetSyncTime()
-    {
-        Hashtable hashtable = new Hashtable {{"syncNpcStart", PhotonNetwork.Time + timeSync}};
-        PhotonNetwork.CurrentRoom.SetCustomProperties(hashtable);
     }
 }

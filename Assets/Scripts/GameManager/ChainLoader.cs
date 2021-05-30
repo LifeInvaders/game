@@ -37,9 +37,7 @@ namespace GameManager
         
         bool CheckNpcSyncTime()
         {
-            if (!PhotonNetwork.CurrentRoom.CustomProperties.TryGetValue("syncNpcStart", out var time))
-                return false;
-            return PhotonNetwork.Time >= Convert.ToDouble(time);
+            return PhotonNetwork.CurrentRoom.CustomProperties.TryGetValue("npcDone", out var time) && PhotonNetwork.Time >= Convert.ToDouble(time);
         }
 
         bool CheckAssignViewID()
