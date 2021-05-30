@@ -26,7 +26,6 @@ namespace Objects.Powers
             if (TimeBeforeUse > 0)
             {
                 TimeBeforeUse -= Time.deltaTime;
-                Debug.Log(TimeBeforeUse);
             }
             else if (TimeBeforeUse < 0)
                 TimeBeforeUse = 0;

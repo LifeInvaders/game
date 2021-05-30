@@ -368,8 +368,9 @@ GameObject:
   - component: {fileID: 1713169835585898869}
   - component: {fileID: 3725405657003131918}
   - component: {fileID: 5249468186606064092}
+  - component: {fileID: 4955235340879246894}
   m_Layer: 0
-  m_Name: GameObject (2)
+  m_Name: FirstTimelineAnim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -435,17 +436,30 @@ MonoBehaviour:
     m_Events:
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 4955235340879246894}
           m_MethodName: SwitchToPlayer
-          m_Mode: 2
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &4955235340879246894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5613573039227834550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50b525bdcd8c6f94d924e1f50def1019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!1 &5750785536259426328
 GameObject:
   m_ObjectHideFlags: 0

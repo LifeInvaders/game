@@ -20,6 +20,19 @@ namespace People.NPC.Hiding
 
         protected int nextPlace;
         protected abstract void SetTransform();
+
+        public string GetStatus()
+        {
+            switch (anim)
+            {
+                case NpcStatus.Talking:
+                    return "talk";
+                case NpcStatus.Praying:
+                    return "pray";
+                default:
+                    return "";
+            }
+        }
         void Start()
         {
             if (NumberOfNpc == 0) NumberOfNpc = Random.Range(2, 4);
@@ -34,7 +47,8 @@ namespace People.NPC.Hiding
         }
 
         protected abstract void WherePlaceNpc(WalkingNPC walkingNpc);
-        public IEnumerator FindNPC(int waiting = 5)
+
+        private IEnumerator FindNPC(int waiting = 5)
         {
             _searching = true;
             yield return new WaitForSeconds(waiting);
@@ -84,7 +98,7 @@ namespace People.NPC.Hiding
                     // other.transform.eulerAngles = new Vector3(0,transform.eulerAngles.y,0);
                     other.transform.LookAt(transform, Vector3.up);
 
-                    if (NumberOfNpcInTheZone == NumberOfNpc)
+                    if (NPCs.Count == NumberOfNpc)
                     {
                         StartCoroutine(RemoveNpc());
                     }
@@ -107,10 +121,11 @@ namespace People.NPC.Hiding
 
         public void RemoveDeadNpc(GameObject DeadNpc)
         {
+            
             for (var index = 0; index < NPCs.Count; index++)
                 if (DeadNpc == NPCs[index])
                 {
-                    RemoveNpc(index, false);
+                    StartCoroutine(RemoveNpc(index, false));
                     break;
                 }
         }
@@ -126,7 +141,6 @@ namespace People.NPC.Hiding
                 {
                     NPCs.RemoveAt(i);
                     break;
-                
                 }
 
                 if (NpcInTheZone[i] == NPCs[index])

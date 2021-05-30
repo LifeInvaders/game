@@ -142,6 +142,7 @@ MonoBehaviour:
   NumberOfNpcInTheZone: 0
   NumberOfNpc: 4
   NPCs: []
+  anim: 3
 --- !u!1 &8968990391366920673
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,3 +201,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efee5fe45c8bf444884a160781301237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  triggerGameObject: {fileID: 7813534446443696920}

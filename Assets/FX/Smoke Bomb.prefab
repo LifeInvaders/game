@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 2655516407762129840}
   - component: {fileID: 2655516407743895724}
   - component: {fileID: 2655516407744545316}
+  - component: {fileID: 5181973883914169686}
+  - component: {fileID: 2564692411978119678}
   m_Layer: 0
   m_Name: Smoke Bomb
   m_TagString: Untagged
@@ -4668,3 +4670,28 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!135 &5181973883914169686
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2655516407762417200}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.23
+  m_Center: {x: -0.0361228, y: 0.04280902, z: -0.065677896}
+--- !u!114 &2564692411978119678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2655516407762417200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3eb55d198447c1b8e97518d4ea10e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
