@@ -8,13 +8,12 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-using Player = Photon.Realtime.Player;
 
 public class ListPlayers : MonoBehaviourPunCallbacks
 {
     
     // Start is called before the first frame update
-    [SerializeField] public TextMeshProUGUI printPlayer;
+    //[SerializeField] public TextMeshProUGUI printPlayer;
     [SerializeField] public Canvas playerBoard;
 
     private List<Photon.Realtime.Player> _players;
@@ -34,11 +33,10 @@ public class ListPlayers : MonoBehaviourPunCallbacks
             if (!_players.Contains(player))
             {
                 _players.Add(player);  
-                printPlayer.text += player.NickName + "\n";
+                //printPlayer.text += player.NickName + "\n";
             }
             
         }
-        
         
     }
     // Update is called once per frame
@@ -55,6 +53,8 @@ public class ListPlayers : MonoBehaviourPunCallbacks
         {
             playerBoard.enabled = (false);
         }
+        
+
     }
 }
 

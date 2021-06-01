@@ -372,6 +372,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "PlayerList",
+                    "type": "Button",
+                    "id": "f2940418-884c-4144-9922-2ba59a5147ec",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -405,6 +413,17 @@
                     "processors": "",
                     "groups": "Keyboard and Mouse",
                     "action": "Dev",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3b6904d5-2bcb-466e-9c1f-c4239ce4f111",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard and Mouse",
+                    "action": "PlayerList",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
