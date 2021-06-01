@@ -28,9 +28,9 @@ namespace People.NPC
             var walkingNpc = prefab.GetComponent<WalkingNPC>();
             walkingNpc.SetIAPoints(_points);
             walkingNpc.RandomPosition = true;
-            walkingNpc.ParentPosition = transform.position;
-            walkingNpc.SearchRadius = searchRadius;
-            walkingNpc.FindInSphere = sphere;
+            walkingNpc.parentPosition = transform.position;
+            walkingNpc.searchRadius = searchRadius;
+            walkingNpc.findInSphere = sphere;
         
             parent = transform.Find("NPC");
             for (int i = 1; i <= numberOfNpc; i++)
