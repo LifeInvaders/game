@@ -1376,7 +1376,7 @@ MonoBehaviour:
   - {fileID: 4300090, guid: 409520c9226982345a49c9803624f208, type: 3}
   - {fileID: 4300038, guid: 409520c9226982345a49c9803624f208, type: 3}
   - {fileID: 4300030, guid: 409520c9226982345a49c9803624f208, type: 3}
-  - {fileID: 4300042, guid: 409520c9226982345a49c9803624f208, type: 3}
+  - {fileID: 4300036, guid: 409520c9226982345a49c9803624f208, type: 3}
   - {fileID: 4300040, guid: 409520c9226982345a49c9803624f208, type: 3}
   - {fileID: 4300032, guid: 409520c9226982345a49c9803624f208, type: 3}
   - {fileID: 4300036, guid: 409520c9226982345a49c9803624f208, type: 3}
@@ -3466,6 +3466,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dissolveShader: {fileID: 2100000, guid: ac133a4892f7ca693a4532e6f006cf09, type: 2}
+  poisonFinisher: {fileID: 5711785541323808145, guid: 9b8038b8c9c2e1646bf05fb81fec9a2a,
+    type: 3}
 --- !u!1 &651045640812542231
 GameObject:
   m_ObjectHideFlags: 0

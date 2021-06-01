@@ -1,11 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using System.Linq;
 
 namespace Chat
 {
@@ -19,6 +22,7 @@ namespace Chat
 
 		private Queue<string> m_messageQueue = new Queue<string>();
 		private StringBuilder m_messageBuilder = new StringBuilder();
+		private static string[] banned = CreateBanned();
 
 #region Message Limits
 
@@ -40,6 +44,13 @@ namespace Chat
 		{
 			m_messageInput.text = string.Empty;
 			m_messageInput.interactable = false;
+		}
+
+		private static string[] CreateBanned()
+		{
+			string all = File.ReadAllText("banned.csv");
+			return all.Split(',');
+
 		}
 
 		private void Update() => PlayerInput();
@@ -70,7 +81,22 @@ namespace Chat
 			//send message if available
 			if (!string.IsNullOrEmpty(m_messageInput.text))
 			{
-				SendMessage();
+				bool addtoqueue = true;
+				char[] sep = new[] {',', ' ', '\t', '\n'};
+				string[] msg_words = m_messageInput.text.Split(sep);
+
+				foreach (var word in msg_words)
+				{
+					if (Array.BinarySearch(banned, word) >= 0)
+					{
+						addtoqueue = false;
+						Debug.Log("Please check your language !");
+						break;
+					}
+				}
+				
+				if (addtoqueue)
+					SendMessage();
 			}
 
 			//clean input Field
@@ -107,13 +133,13 @@ namespace Chat
 		private void HandleQueueLimit(string msg)
 		{
 			if (m_messageQueue.Count < QueueCapacity)
-			{
-				m_messageQueue.Enqueue(msg);
-			}
-			else
-			{
-				Debug.Log("Message Queue is full.Wait a moment");
-			}
+				{
+					m_messageQueue.Enqueue(msg);
+				}
+				else
+				{
+					Debug.Log("Message Queue is full. Wait a moment");
+				}
 		}
 
 		/// <summary>

@@ -7,7 +7,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Photon.Pun;
 using UnityEngine.AI;
-using Random = System.Random;
 
 namespace TargetSystem
 {
@@ -22,6 +21,9 @@ namespace TargetSystem
 
         [SerializeField] private GameObject[] finishers;
         public void SetFinisher(GameObject finisher) => finishers = new[] {finisher};
+        
+
+
         void Start()
         {
             if (PhotonNetwork.IsConnected && !gameObject.GetPhotonView().IsMine)
@@ -41,8 +43,8 @@ namespace TargetSystem
             _casttarget.SetAiming(false);
             _casttarget.enabled = false;
             Debug.Log($"killed {target.name}");
-            var g = Instantiate(finishers[new Random().Next(finishers.Length)], transform.position, transform.rotation);
-
+            
+            var g = Instantiate(finishers[Random.Range(0,finishers.Length)], transform.position, transform.rotation);
 
             var finisher = g.GetComponent<Finisher>();
             finisher.SetHumans(GetComponentInChildren<SkinnedMeshRenderer>(),
@@ -53,7 +55,6 @@ namespace TargetSystem
             
             
             
-            _animator.Play("brutal kill");
             GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
             GetComponent<PlayerControler>().SetMoveBool(false);
             _selectedTarget.UpdateSelectedTarget(target, target.GetComponentInChildren<Outline>());

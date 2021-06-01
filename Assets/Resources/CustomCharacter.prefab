@@ -11568,7 +11568,7 @@ MonoBehaviour:
   _target: {fileID: 0}
   _aiming: 0
   _isTargetNull: 0
-  _vignette: {fileID: 8814977254441610921}
+  vignette: {fileID: 0}
   _cameras:
   - {fileID: 6380486021557291202}
   - {fileID: 279674115661806767}

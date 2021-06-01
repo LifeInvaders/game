@@ -17,7 +17,7 @@ namespace People.Player
     {
         private CamStatus status = CamStatus.ThirdCamRightShoulder;
         private CamStatus _selectedShoulder = CamStatus.ThirdCamRightShoulder;
-        
+
         [Header("Settings")] public float lookSensitivity;
         public float minXLook, maxXLook;
         public Transform camAnchor;
@@ -27,10 +27,9 @@ namespace People.Player
         private float _xAxis;
         private float _zAxis;
 
-        [SerializeField]  CinemachineVirtualCamera camera;
+        [SerializeField] CinemachineVirtualCamera camera;
 
-        [Header("Cameras")]
-        [SerializeField] private GameObject camerasParent;
+        [Header("Cameras")] [SerializeField] private GameObject camerasParent;
         [SerializeField] private CinemachineVirtualCamera firstCam;
         [SerializeField] private CinemachineVirtualCamera thirdCamRightShoulder;
         [SerializeField] private CinemachineVirtualCamera thirdCamLeftShoulder;
@@ -38,7 +37,6 @@ namespace People.Player
         [SerializeField] private bool isSpectator;
         private PlayerControler _playerControler;
 
-        
 
         private void Awake()
         {
@@ -48,6 +46,7 @@ namespace People.Player
                 enabled = false;
                 return;
             }
+
             camera = thirdCamRightShoulder;
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -62,17 +61,14 @@ namespace People.Player
         {
             if (status != CamStatus.FirstCam)
             {
-                
-                // cinemachineBrain.
                 firstCam.Priority += 1;
                 camera.Priority -= 1;
                 camera = firstCam;
                 status = CamStatus.FirstCam;
-                
             }
             else
             {
-                if (_selectedShoulder == CamStatus.ThirdCamRightShoulder )
+                if (_selectedShoulder == CamStatus.ThirdCamRightShoulder)
                 {
                     status = CamStatus.ThirdCamRightShoulder;
                     camera = thirdCamRightShoulder;
@@ -82,9 +78,9 @@ namespace People.Player
                     status = CamStatus.ThirdCamLeftShoulder;
                     camera = thirdCamLeftShoulder;
                 }
+
                 firstCam.Priority -= 1;
                 camera.Priority += 1;
-
             }
         }
 
@@ -112,7 +108,7 @@ namespace People.Player
         {
             if (status != CamStatus.FirstCam)
             {
-                if (_selectedShoulder == CamStatus.ThirdCamRightShoulder )
+                if (_selectedShoulder == CamStatus.ThirdCamRightShoulder)
                 {
                     _selectedShoulder = CamStatus.ThirdCamLeftShoulder;
                     thirdCamRightShoulder.Priority -= 1;

@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
+<<<<<<< HEAD
     <e p="C:\Users\julie\AppData\local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
     <e p="C:\Users\julie\AppData\local\JetBrains\Rider2020.2\resharper-host\local\Transient\Rider\v202\SolutionCaches\_game.130886729.00" t="ExcludeRecursive" />
     <e p="C:\Users\julie\Desktop\Projets\game" t="IncludeRecursive">
+=======
+    <e p="C:\Users\pauld\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\pauld\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_game.-2136944164.00" t="ExcludeRecursive" />
+    <e p="C:\Users\pauld\AppData\Roaming\JetBrains\Rider2020.3\scratches" t="IncludeRecursive" />
+    <e p="C:\Users\pauld\Documents\GamePirate\game" t="IncludeRecursive">
+>>>>>>> dev
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -669,12 +676,15 @@
             <e p="Outline.cs" t="Include" />
           </e>
         </e>
+<<<<<<< HEAD
         <e p="ResetDemoScene.cs" t="Include" />
+=======
+>>>>>>> dev
         <e p="Scripts" t="Include">
           <e p="Editor" t="Include">
             <e p="NightModeEditor.cs" t="Include" />
           </e>
-          <e p="finisher.cs" t="Include" />
+          <e p="Finisher.cs" t="Include" />
           <e p="GameManager" t="Include">
             <e p="AssignTarget.cs" t="Include" />
             <e p="ChainLoader.cs" t="Include" />
@@ -683,8 +693,10 @@
             <e p="GameManager.cs" t="Include" />
             <e p="InGameStats.cs" t="Include" />
             <e p="KillFeed.cs" t="Include" />
+            <e p="NightMode.cs" t="Include" />
             <e p="NpcManager.cs" t="Include" />
             <e p="PlayerManager.cs" t="Include" />
+            <e p="PowerManager.cs" t="Include" />
             <e p="ScoreManager.cs" t="Include" />
             <e p="TestManager.cs" t="Include" />
             <e p="TimerManager.cs" t="Include" />
@@ -697,13 +709,13 @@
           </e>
           <e p="MainMenu" t="Include">
             <e p="CharacterCreation.cs" t="Include" />
+            <e p="ExperienceBar.cs" t="Include" />
             <e p="MenuManager.cs" t="Include" />
             <e p="Options.cs" t="Include" />
             <e p="RebindButton.cs" t="Include" />
             <e p="RebindMenu.cs" t="Include" />
             <e p="ServerManager.cs" t="Include" />
           </e>
-          <e p="NightMode.cs" t="Include" />
           <e p="Objects" t="Include">
             <e p="Banc.cs" t="Include" />
             <e p="Doors.cs" t="Include" />
@@ -724,7 +736,10 @@
             <e p="HumanEvent.cs" t="Include" />
             <e p="NPC" t="Include">
               <e p="DebugPath.cs" t="Include" />
-              <e p="HidingZone.cs" t="Include" />
+              <e p="Hiding" t="Include">
+                <e p="HidingCircle.cs" t="Include" />
+                <e p="HidingZone.cs" t="Include" />
+              </e>
               <e p="NPCdata.cs" t="Include" />
               <e p="NPCEvent.cs" t="Include" />
               <e p="NPCStatus.cs" t="Include" />
@@ -772,7 +787,7 @@
             <e p="CastTarget.cs" t="Include" />
             <e p="KillEvents.cs" t="Include" />
             <e p="KillTarget.cs" t="Include" />
-            <e p="selectedTarget.cs" t="Include" />
+            <e p="SelectedTarget.cs" t="Include" />
           </e>
           <e p="TestScript.cs" t="Include" />
           <e p="UI Scripts" t="Include">
@@ -884,10 +899,6 @@
       <e p="PhotonUnityNetworking.Utilities.Culling.Editor.csproj" t="IncludeRecursive" />
       <e p="PhotonUnityNetworking.Utilities.PhotonPlayer.Editor.csproj" t="IncludeRecursive" />
       <e p="Temp\bin" t="ExcludeRecursive" />
-      <e p="Unity.Searcher.EditorSamples.csproj" t="IncludeRecursive" />
-      <e p="Unity.Searcher.ScriptsSamples.csproj" t="IncludeRecursive" />
     </e>
-    <e p="C:\Users\mrhar\AppData\local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\mrhar\AppData\local\JetBrains\Rider2020.3\resharper-host\local\Transient\Rider\v203\SolutionCaches\_game.-2096735507.00" t="ExcludeRecursive" />
   </component>
 </project>

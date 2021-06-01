@@ -6,19 +6,28 @@ namespace People.NPC
     {
         [SerializeField] protected NpcStatus Status;
         public NpcStatus GetStatus() => Status;
+
         public void SetStatus(NpcStatus status)
         {
+            var talkingNpc = GetComponent<TalkingNPC>();
+            var animator = GetComponent<Animator>();
+            var walkingNpc = GetComponent<WalkingNPC>();
             switch (Status)
             {
                 case NpcStatus.GoingToEvent:
                 case NpcStatus.Walking:
-                    GetComponent<WalkingNPC>().enabled = false;
-                    GetComponent<Animator>().SetBool("walk", false);
+                
+                    walkingNpc.enabled = false;
+                    animator.SetBool("walk", false);
 
                     break;
                 case NpcStatus.Talking:
-                    GetComponent<TalkingNPC>().enabled = false;
-                    GetComponent<Animator>().SetBool("talk", false);
+                    talkingNpc.enabled = false;
+                    animator.SetBool("talk", false);
+                    break;
+                case NpcStatus.Praying:
+                    talkingNpc.enabled = false;
+                    animator.SetBool("pray", false);
                     break;
                 // case NpcStatus.GoingToEvent:
             }
@@ -27,14 +36,16 @@ namespace People.NPC
             {
                 case NpcStatus.GoingToEvent:
                 case NpcStatus.Walking:
-                    GetComponent<WalkingNPC>().enabled = true;
-                    GetComponent<Animator>().SetBool("walk", true);
-                    // GetComponent<WalkingNPC>()
+                    walkingNpc.enabled = true;
+                    animator.SetBool("walk", true);
                     break;
                 case NpcStatus.Talking:
-                    GetComponent<TalkingNPC>().enabled = true;
-                    GetComponent<Animator>().SetBool("talk", true);
-
+                    talkingNpc.enabled = true;
+                    talkingNpc.SetAnim("talk");
+                    break;
+                case NpcStatus.Praying:
+                    talkingNpc.enabled = true;
+                    talkingNpc.SetAnim("pray");
                     break;
             }
 

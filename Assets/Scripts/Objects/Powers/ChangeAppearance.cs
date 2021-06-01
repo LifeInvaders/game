@@ -29,12 +29,11 @@ namespace Objects.Powers
         {
             
             (_meshID, _materialID) = _randomSkin.GetSkinNpc();
-            Collider[] colliders = Physics.OverlapSphere(transform.position, 3, 1 << 9);
+            Collider[] colliders = Physics.OverlapSphere(transform.position, 4, 1 << 9);
 
             if (colliders.Length > 0)
             {
-                int chosen = _random.Next(colliders.Length);
-                var skinnedMesh = colliders[chosen].gameObject.GetComponentInChildren<SkinnedMeshRenderer>();
+                var skinnedMesh = colliders[0].gameObject.GetComponentInChildren<SkinnedMeshRenderer>();
                 _randomSkin.SetSkinNPC(skinnedMesh);
             }
             else

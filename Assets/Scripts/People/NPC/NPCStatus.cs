@@ -5,6 +5,8 @@ namespace People.NPC
         None,
         Walking,
         GoingToEvent,
-        Talking
+        Talking,
+        Praying
+        
     }
 }

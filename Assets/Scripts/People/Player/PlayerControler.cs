@@ -9,8 +9,8 @@ namespace People.Player
     {
         // Start is called before the first frame update
         private float _moveSpeed;
-        [SerializeField] private float walkSpeed = 6;
-        [SerializeField] private float runSpeed = 3;
+        [SerializeField] private float walkSpeed = 3;
+        [SerializeField] private float runSpeed = 6;
         [SerializeField] private float jumpspeed = 5;
 
         private Vector2 _axis;
@@ -157,5 +157,8 @@ namespace People.Player
 
         public void OnRun(InputValue value) =>
             _moveSpeed = value.Get<float>().Equals(1) && _canRun ? runSpeed : walkSpeed;
+
+        public float GetWalkSpeed() => walkSpeed;
+        public void SetMoveSpeed(float value) => _moveSpeed = value;
     }
 }

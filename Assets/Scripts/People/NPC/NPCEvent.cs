@@ -1,45 +1,71 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
+using People.NPC.Hiding;
 using UnityEngine.AI;
 using UnityEngine;
 namespace People.NPC
 {
     public class NPCEvent : HumanEvent
-    {   
-        
+    {
+        private NavMeshAgent _navMeshAgent;
+        private WalkingNPC _walkingNpc;
+        private Animator _animator;
+        private void Start()
+        {
+            _navMeshAgent = GetComponent<NavMeshAgent>();
+            _animator = GetComponent<Animator>();
+            _walkingNpc = GetComponent<WalkingNPC>();
+        }
+
         public override void Death()
         {
-            var walkingNpc = GetComponent<WalkingNPC>();
-            if (walkingNpc.EventZone != null) 
-                walkingNpc.EventZone.GetComponent<HidingZone>().RemoveDeadNpc(gameObject);
+        
+            if (_walkingNpc.EventZone != null) 
+                _walkingNpc.EventZone.GetComponent<HidingZone>().RemoveDeadNpc(gameObject);
             GetComponentInParent<NpcZone>().GenerateNewNpc();
             Destroy(gameObject);
         }
-        
-        IEnumerator WaitForDeathAnim()
+
+        public override void TriggeredBySmokeBomb(float endtime)
         {
-            yield return new WaitForSeconds(5);
-            SkinnedMeshRenderer meshRenderer = transform.GetComponentInChildren<SkinnedMeshRenderer>();
-            Texture oldTexture = meshRenderer.sharedMaterial.mainTexture;
+            Debug.Log($"{endtime}: {gameObject.name}");
+            _navMeshAgent.isStopped = true;
+            _animator.SetTrigger("smoked");
+            StartCoroutine(WaitSmokeBomb(endtime));
+        }
 
-            var mat = new Material(dissolveShader);
-            mat.SetTexture("Texture2D_C902C618", oldTexture);
-            meshRenderer.sharedMaterial = mat;
-            // meshRenderer.sharedMaterial = dissolveMaterial;
-            // meshRenderer.sharedMaterial.SetTexture("Texture2D_C902C618", oldTexture);
-            meshRenderer.sharedMaterial.SetFloat("Vector1_203537A2", Time.time);
+        public override void KilledByPoison()
+        {
+            Debug.Log($"{gameObject.name}");
+            StartCoroutine(SpawnPoison());
+        }
 
-
-            float timeElapsed = 0f;
-            float phase = 3;
-            float targetPhase = 5.5f;
-            while (timeElapsed <= 3)
+        private IEnumerator SpawnPoison()
+        {
+            float speed = _navMeshAgent.speed;
+            float time = 0;
+            while (time <= 3)
             {
-                timeElapsed += Time.deltaTime;
-                meshRenderer.sharedMaterial.SetFloat("Vector1_203537A2",
-                    Mathf.Lerp(phase, targetPhase, timeElapsed / 3));
+                _navMeshAgent.speed = speed * (1 - time / 3);
+                time += Time.deltaTime;
                 yield return new WaitForEndOfFrame();
             }
-            Destroy(gameObject);
+            
+            
+            var g = Instantiate(poisonFinisher, transform.position, transform.rotation);
+
+            var finisher = g.GetComponent<Finisher>();
+            finisher.SetDead(GetComponentInChildren<SkinnedMeshRenderer>());
+
+            Death();
+        }
+        IEnumerator WaitSmokeBomb(float endtime)
+        {
+            
+            yield return new WaitForSeconds(endtime);
+            _navMeshAgent.isStopped = false;
+            _animator.SetTrigger("Endsmoked");
         }
     }
 }
