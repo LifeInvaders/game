@@ -33,7 +33,7 @@ namespace Objects.Powers
 
         public void OnPower()
         {
-            if (TimeBeforeUse == 0 && IsValid())
+            if (enabled &&TimeBeforeUse == 0 && IsValid())
             {
                 TimeBeforeUse = _time;
                 Action();

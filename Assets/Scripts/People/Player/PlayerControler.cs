@@ -14,7 +14,7 @@ namespace People.Player
         [SerializeField] private float jumpspeed = 5;
 
         private Vector2 _axis;
-
+        private bool _isRunning = false;
 
         private Rigidbody _rig;
         private Animator _anim;
@@ -30,6 +30,8 @@ namespace People.Player
         [SerializeField] private float fallingSpeed = 5;
         public void SetMoveBool(bool state) => _canMove = state;
         public void SetCanRun(bool state) => _canRun = state;
+
+        public bool CanRun() => _canRun;
 
         public void SetRotateBool(bool state) => _canRotate = state;
         
@@ -155,8 +157,13 @@ namespace People.Player
                 Jump();
         }
 
-        public void OnRun(InputValue value) =>
-            _moveSpeed = value.Get<float>().Equals(1) && _canRun ? runSpeed : walkSpeed;
+        public void OnRun(InputValue value)
+        {
+            _isRunning = value.Get<float>().Equals(1);
+            _moveSpeed = _isRunning && _canRun ? runSpeed : walkSpeed;
+        }
+
+        public void CheckIfRunning() =>  _moveSpeed = _canRun && _isRunning ? runSpeed : walkSpeed;
 
         public float GetWalkSpeed() => walkSpeed;
         public void SetMoveSpeed(float value) => _moveSpeed = value;
