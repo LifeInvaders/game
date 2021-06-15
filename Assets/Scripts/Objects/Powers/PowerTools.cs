@@ -26,7 +26,6 @@ namespace Objects.Powers
             if (TimeBeforeUse > 0)
             {
                 TimeBeforeUse -= Time.deltaTime;
-                Debug.Log(TimeBeforeUse);
             }
             else if (TimeBeforeUse < 0)
                 TimeBeforeUse = 0;
@@ -34,7 +33,7 @@ namespace Objects.Powers
 
         public void OnPower()
         {
-            if (TimeBeforeUse == 0 && IsValid())
+            if (enabled &&TimeBeforeUse == 0 && IsValid())
             {
                 TimeBeforeUse = _time;
                 Action();

@@ -1,10 +1,19 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using People.Player;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 namespace People.NPC
 {
+    public enum PathPending
+    {
+        None,
+        Found,
+        Searching
+    }
     public class WalkingNPC : NPCdata
     {
         private Animator _anim;
@@ -12,18 +21,18 @@ namespace People.NPC
 
         private GameObject _iaPoints;
 
-        public Transform[] positions;
+        private Transform[] _positions;
 
         public bool RandomPosition = false;
         private int _pos = 0;
         private bool _shoved = false;
 
-        private Vector3 _nextpoint;
+        private Vector3 _nextPoint;
+        private PathPending _hasFoundNextDestination = PathPending.None;
 
-        public Vector3 ParentPosition = Vector3.up;
-        public float SearchRadius = 15;
-        public bool FindInSphere;
-
+        public Vector3 parentPosition = Vector3.up;
+        public float searchRadius = 15;
+        public bool findInSphere;
         public GameObject EventZone { get; private set; }
 
         public void SetEventZone(GameObject eventZone) => EventZone = eventZone;
@@ -41,7 +50,7 @@ namespace People.NPC
             }
         }
 
-        public void SetIAPoints(Transform[] points) => positions = points;
+        public void SetIAPoints(Transform[] points) => _positions = points;
 
         private void OnCollisionEnter(Collision other)
         {
@@ -69,75 +78,52 @@ namespace People.NPC
         }
 
         // Update is called once per frame
-        void Update()
+        private void Start()
         {
-            if (!_agent.pathPending && _agent.remainingDistance < 0.5f)
-                GotoNextPoint();
-            // Debug.DrawRay(transform.position + Vector3.up, transform.forward, Color.magenta);
-            if (Physics.Raycast(transform.position + Vector3.up, transform.forward, 1f, 768))
-                _agent.speed = 1.2f;
-            else
-                _agent.speed = 2;
+            _agent.destination = transform.position;
         }
 
-        private void GotoNextPoint()
+        void Update()
         {
-            var debugPath = GetComponent<DebugPath>();
-
-            if (!RandomPosition)
+            if (_agent.remainingDistance < 5 && _hasFoundNextDestination == PathPending.None)
+                FindNextPoint();
+            if (_agent.remainingDistance < 0.5f && _hasFoundNextDestination == PathPending.Found)
             {
-                _pos = (_pos + 1) % positions.Length;
-                _agent.destination = positions[_pos].position;
+                _agent.destination = _nextPoint;
+                _hasFoundNextDestination = PathPending.None;
             }
+
+            _agent.speed = Physics.Raycast(transform.position + Vector3.up, transform.forward, 1f, 768) ? 1.2f : 2;
+        }
+
+        private void FindNextPoint()
+        {
+            if (RandomPosition)
+                FindRandomDestination(searchRadius);
             else
             {
-                FindRandomDestination(SearchRadius);
-//                 var nearEvents = Physics.OverlapSphere(transform.position, 15, 1024);
-//                 if (nearEvents.Length > 0 && Status == NpcStatus.Walking && Random.value > 0.92)
-//                 {
-//                     var transformPosition = nearEvents[new System.Random().Next(nearEvents.Length)].transform.position;
-//                     float angle = Random.Range(0, Mathf.PI);
-//                     _agent.destination = transformPosition + new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle)) * 1.2f;
-//                     SetStatus(NpcStatus.GoingToEvent);
-// #if DEBUG
-//                     debugPath.target = _agent.destination;
-//                     debugPath.color = Color.blue;
-// #endif
-//                 }
-                //                 else
-                //                 {
-                //                     
-                // #if DEBUG
-                //                     debugPath.target = _agent.destination;
-                //                     debugPath.color = Color.red;
-                // #endif
-                //                 }
-            }   
+                _pos = (_pos + 1) % _positions.Length;
+                _nextPoint = _positions[_pos].position;
+            }
         }
 
         public void FindRandomDestination(float range = 0)
         {
+            _hasFoundNextDestination = PathPending.Searching;
             if (range == 0)
-                range = SearchRadius;
+                range = searchRadius;
             var navMeshPath = new NavMeshPath();
             Vector3 newPos;
             do
             {
-                newPos = transform.position + Random.insideUnitSphere * range;
-                if (!FindInSphere)
-                    newPos.y = ParentPosition.y;
-            } while (NavMesh.CalculatePath(ParentPosition, newPos, NavMesh.AllAreas, navMeshPath) &&
+                newPos = _agent.destination + Random.insideUnitSphere * range;
+                if (!findInSphere)
+                    newPos.y = parentPosition.y;
+            } while (NavMesh.CalculatePath(_agent.destination, newPos, NavMesh.AllAreas, navMeshPath) &&
                      navMeshPath.status != NavMeshPathStatus.PathComplete);
 
-            // Vector3 insideUnitSphere;
-            // NavMeshHit hit;
-            // do
-            // {
-            //     insideUnitSphere = Random.insideUnitSphere * 15f + transform.position;
-            // } while (NavMesh.SamplePosition(insideUnitSphere, out hit, 1.0f, NavMesh.AllAreas));
-
-            // _agent.destination = hit.position;
-            _agent.destination = newPos;
+            _hasFoundNextDestination = PathPending.Found;
+            _nextPoint = newPos;
         }
     }
 }

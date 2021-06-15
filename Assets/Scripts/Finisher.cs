@@ -22,19 +22,36 @@ public class Finisher : MonoBehaviour
     public void LeaveCamera()
     {
         camera.Priority = 1;
-        player.GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
-        player.GetComponent<PlayerControler>().SetMoveBool(true);
-        player.GetComponent<PlayerControler>().SetRotateBool(true);
-        player.GetComponent<CastTarget>().enabled = true;
-        player.transform.position = killer.transform.parent.position;
-        player.transform.rotation = transform.rotation;
-        killer.enabled = false;
+        if (player != null)
+        {
+            player.GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
+            player.GetComponent<PlayerControler>().SetMoveBool(true);
+            player.GetComponent<PlayerControler>().SetRotateBool(true);
+            player.GetComponent<CastTarget>().enabled = true;
+            player.transform.position = killer.transform.parent.position;
+            player.transform.rotation = transform.rotation;
+            killer.enabled = false;
+        }
         StartCoroutine(WaitForDeathAnim());
         foreach (var toolObject in objectsToDisapear)
         {
             Destroy(toolObject,0.2f);
         }
-    }   
+    }
+
+    public void SetKiller(SkinnedMeshRenderer killerSkin)
+    {
+        killer.sharedMesh = killerSkin.sharedMesh;
+        killer.sharedMaterial = killerSkin.sharedMaterial;
+
+    }
+    public void SetDead(SkinnedMeshRenderer deadSkin)
+    {
+        dead.sharedMesh = deadSkin.sharedMesh;
+        dead.sharedMaterial = deadSkin.sharedMaterial;
+
+    }
+
     public void SetHumans(SkinnedMeshRenderer killerSkin, SkinnedMeshRenderer deadSkin)
     {
         // killer = killerSkin;

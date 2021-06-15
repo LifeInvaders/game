@@ -40,11 +40,12 @@ public class TalkingNPC : MonoBehaviour
     {
         _animationOn = true;
         yield return new WaitForSeconds(Random.Range(0, 5));
-        _anim.SetBool("talk", true);
+        // _anim.SetBool("talk", true);
+        _anim.SetTrigger(_animationString);
 
 
         yield return new WaitForSeconds(Random.Range(5, 10));
-        _anim.SetBool("talk", false);
+        // _anim.SetBool("talk", false);
         _animationOn = false;
     }
 }

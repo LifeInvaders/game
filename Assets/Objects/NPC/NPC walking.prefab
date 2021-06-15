@@ -51,7 +51,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 1.91
+  m_Height: 1.73
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -80,20 +80,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Status: 1
-  positions:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   RandomPosition: 1
-  ParentPosition: {x: 70.65, y: 5.18, z: 81.03}
-  SearchRadius: 15
-  FindInSphere: 0
+  parentPosition: {x: 0, y: 1, z: 0}
+  searchRadius: 15
+  findInSphere: 0
 --- !u!1001 &6391671937588929662
 PrefabInstance:
   m_ObjectHideFlags: 0

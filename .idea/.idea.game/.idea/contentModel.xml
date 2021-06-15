@@ -5,6 +5,7 @@
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="BackgroundTransition.cs" t="Include" />
         <e p="camManager.cs" t="Include" />
         <e p="Chat" t="Include">
           <e p="RoomChat.cs" t="Include" />
@@ -769,6 +770,7 @@
           </e>
           <e p="MainMenu" t="Include">
             <e p="CharacterCreation.cs" t="Include" />
+            <e p="EmoteMenu.cs" t="Include" />
             <e p="ExperienceBar.cs" t="Include" />
             <e p="MenuManager.cs" t="Include" />
             <e p="Options.cs" t="Include" />
@@ -782,9 +784,13 @@
             <e p="Ladder.cs" t="Include" />
             <e p="Powers" t="Include">
               <e p="ChangeAppearance.cs" t="Include" />
+              <e p="Gun.cs" t="Include" />
               <e p="KnifeThrowing.cs" t="Include" />
+              <e p="Poison.cs" t="Include" />
               <e p="PowerTools.cs" t="Include" />
               <e p="SmokeBomb.cs" t="Include" />
+              <e p="SmokeBombManager.cs" t="Include" />
+              <e p="SpeedBoost.cs" t="Include" />
             </e>
           </e>
           <e p="parkour" t="Include">
@@ -794,10 +800,12 @@
           </e>
           <e p="People" t="Include">
             <e p="HumanEvent.cs" t="Include" />
+            <e p="HumanTasks.cs" t="Include" />
             <e p="NPC" t="Include">
               <e p="DebugPath.cs" t="Include" />
               <e p="Hiding" t="Include">
                 <e p="HidingCircle.cs" t="Include" />
+                <e p="HidingPray.cs" t="Include" />
                 <e p="HidingZone.cs" t="Include" />
               </e>
               <e p="NPCdata.cs" t="Include" />
@@ -943,6 +951,15 @@
           <e p="Sprites" t="Include">
             <e p="EmojiOne Attribution.txt" t="Include" />
           </e>
+        </e>
+        <e p="Tutorial" t="Include">
+          <e p="Discussion.cs" t="Include" />
+          <e p="KillNpcTutorial.cs" t="Include" />
+          <e p="MacroCanvasTutorial.cs" t="Include" />
+          <e p="StopTime.cs" t="Include" />
+          <e p="Tutorial.cs" t="Include" />
+          <e p="TutorialTrigger.cs" t="Include" />
+          <e p="VoidTutorial.cs" t="Include" />
         </e>
       </e>
       <e p="BitpackersASMDEF.csproj" t="IncludeRecursive" />

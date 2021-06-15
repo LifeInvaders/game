@@ -15,9 +15,9 @@ namespace People.Player
 
     public class CameraControler : MonoBehaviour
     {
-        private CamStatus status = CamStatus.ThirdCamRightShoulder;
+        public CamStatus Status { get; private set; }  = CamStatus.ThirdCamRightShoulder;
         private CamStatus _selectedShoulder = CamStatus.ThirdCamRightShoulder;
-        
+
         [Header("Settings")] public float lookSensitivity;
         public float minXLook, maxXLook;
         public Transform camAnchor;
@@ -27,10 +27,9 @@ namespace People.Player
         private float _xAxis;
         private float _zAxis;
 
-        [SerializeField]  CinemachineVirtualCamera camera;
+        [SerializeField] CinemachineVirtualCamera camera;
 
-        [Header("Cameras")]
-        [SerializeField] private GameObject camerasParent;
+        [Header("Cameras")] [SerializeField] private GameObject camerasParent;
         [SerializeField] private CinemachineVirtualCamera firstCam;
         [SerializeField] private CinemachineVirtualCamera thirdCamRightShoulder;
         [SerializeField] private CinemachineVirtualCamera thirdCamLeftShoulder;
@@ -38,7 +37,6 @@ namespace People.Player
         [SerializeField] private bool isSpectator;
         private PlayerControler _playerControler;
 
-        
 
         private void Awake()
         {
@@ -48,6 +46,7 @@ namespace People.Player
                 enabled = false;
                 return;
             }
+
             camera = thirdCamRightShoulder;
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -60,31 +59,32 @@ namespace People.Player
 
         private void OnChangePOV()
         {
-            if (status != CamStatus.FirstCam)
+            if (Status != CamStatus.FirstCam)
             {
-                
-                // cinemachineBrain.
                 firstCam.Priority += 1;
                 camera.Priority -= 1;
                 camera = firstCam;
-                status = CamStatus.FirstCam;
-                
+                Status = CamStatus.FirstCam;
+                // cinemachineBrain.m_DefaultBlend.m_Style = CinemachineBlendDefinition.Style.Cut;
+                cinemachineBrain.m_DefaultBlend.m_Time = 0.5f;
             }
             else
             {
-                if (_selectedShoulder == CamStatus.ThirdCamRightShoulder )
+                if (_selectedShoulder == CamStatus.ThirdCamRightShoulder)
                 {
-                    status = CamStatus.ThirdCamRightShoulder;
+                    Status = CamStatus.ThirdCamRightShoulder;
                     camera = thirdCamRightShoulder;
                 }
                 else
                 {
-                    status = CamStatus.ThirdCamLeftShoulder;
+                    Status = CamStatus.ThirdCamLeftShoulder;
                     camera = thirdCamLeftShoulder;
                 }
+
                 firstCam.Priority -= 1;
                 camera.Priority += 1;
-
+                cinemachineBrain.m_DefaultBlend.m_Time = 2;
+                // cinemachineBrain.m_DefaultBlend.m_Style = CinemachineBlendDefinition.Style.EaseInOut;
             }
         }
 
@@ -110,9 +110,9 @@ namespace People.Player
 
         public void OnCamAnchor(InputValue value)
         {
-            if (status != CamStatus.FirstCam)
+            if (Status != CamStatus.FirstCam)
             {
-                if (_selectedShoulder == CamStatus.ThirdCamRightShoulder )
+                if (_selectedShoulder == CamStatus.ThirdCamRightShoulder)
                 {
                     _selectedShoulder = CamStatus.ThirdCamLeftShoulder;
                     thirdCamRightShoulder.Priority -= 1;
