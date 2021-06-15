@@ -2,6 +2,7 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using UnityEngine.Serialization;
 
 namespace Player
 {
@@ -54,6 +55,7 @@ namespace Player
        public char Gender = 'M';
        public char Variant = '1';
        public char SkinColor = 'A';
+       public int SelectedEmote = 0;
 
        #endregion
        

@@ -2,6 +2,7 @@ using System;
 using People;
 using TargetSystem;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Objects.Powers
 {

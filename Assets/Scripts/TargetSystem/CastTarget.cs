@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using People;
 using People.Player;
 using Photon.Pun;
 using UnityEngine;
@@ -28,6 +29,7 @@ namespace TargetSystem
         [SerializeField] private Camera[] _cameras;
 
         private PlayerControler _playerControler;
+        private PlayerEvent _playerEvent;
 
         /// <summary>
         /// Set Aiming bool
@@ -47,6 +49,7 @@ namespace TargetSystem
 
         private void Start()
         {
+            _playerEvent = GetComponent<PlayerEvent>();
             if (PhotonNetwork.IsConnected && !gameObject.GetPhotonView().IsMine)
                 enabled = false;
             _selectedTarget = GetComponent<SelectedTarget>();
@@ -111,35 +114,46 @@ namespace TargetSystem
         {
             _isTargetNull = _target == null;
             Debug.DrawRay(_camera.transform.position, _camera.transform.forward, Color.blue);
-            
-            if (_aiming && Physics.Raycast(_camera.transform.position,
-                _camera.transform.TransformDirection(Vector3.forward),
-                out _raycastHit, 30f,768) ) // si on vise un personnage 768
+            if (_aiming )
             {
-                Debug.Log("player");
-                if (_isTargetNull || (_selectedTarget.IsSelectedTarget(_raycastHit.transform.gameObject) &&
-                                      _raycastHit.transform.gameObject.GetInstanceID() != _target.GetInstanceID()))
+                if (_playerControler.Running())
+                {
+                    SetAiming(false, true);
+                    return;
+                }
+                if (Physics.Raycast(_camera.transform.position,
+                    _camera.transform.TransformDirection(Vector3.forward),
+                    out _raycastHit, 30f,768))  // si on vise un personnage 768
+                {
+                    if (_isTargetNull || (_selectedTarget.IsSelectedTarget(_raycastHit.transform.gameObject) &&
+                                          _raycastHit.transform.gameObject.GetInstanceID() != _target.GetInstanceID()))
+                    {
+                        RemoveCamTarget();
+                        Outlining(_raycastHit.transform.GetComponentInChildren<Outline>());
+                    }
+
+                    if (_selected)
+                    {
+                        _selectedTarget.UpdateSelectedTarget(_target, _outlineCam);
+                        _selected = false;
+                        SetAiming(false, true);
+                    }
+                }
+                else if (!_isTargetNull && !_selectedTarget.IsSelectedTarget(_target))
                 {
                     RemoveCamTarget();
-                    Outlining(_raycastHit.transform.GetComponentInChildren<Outline>());
-                }
-
-                if (_selected)
-                {
-                    _selectedTarget.UpdateSelectedTarget(_target, _outlineCam);
-                    _selected = false;
-                    SetAiming(false, true);
                 }
             }
             else if (!_isTargetNull && !_selectedTarget.IsSelectedTarget(_target))
             {
-                Debug.Log("remove end");
                 RemoveCamTarget();
             }
         }
 
-        public void OnAim()
+        public void OnAiming(InputValue value)
         {
+            if (_playerEvent.humanTask == HumanTasks.SpeedRunning)
+                return;
             SetAiming(!_aiming, true);
             if (_aiming && _selectedTarget.IsTarget())
                 _selectedTarget.UpdateSelectedTarget(_target, _outlineCam);

@@ -1,4 +1,6 @@
 using System.Collections;
+using People;
+using People.NPC;
 using People.Player;
 using TargetSystem;
 using UnityEngine;
@@ -12,50 +14,46 @@ namespace Objects.Powers
         private float _maxDistance;
         [SerializeField] private GameObject fx;
 
+        private Transform Right_Hand;
+
         private void Start()
         {
-            _time = 1;
+            Right_Hand = gameObject.transform
+                .Find("Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_L/Shoulder_L/Elbow_L/Hand_L").transform;
+            _time = 3;
             TimeBeforeUse = 0;
             _selectedTarget = GetComponent<SelectedTarget>();
             _maxDistance = 15;
         }
 
-        protected override bool IsValid() =>
-            _selectedTarget.IsTarget() &&
-            Vector3.Distance(transform.position, _selectedTarget.GetTarget().transform.position) < _maxDistance;
+        protected override bool IsValid()
+        {
+            if (!_selectedTarget.IsTarget())
+                return false;
+            var distance = Vector3.Distance(transform.position, _selectedTarget.GetTarget().transform.position);
+            
+            if (distance >= _maxDistance || Physics.Raycast(transform.position,transform.forward,distance,0))
+                return false;
+            var humanEvent = _selectedTarget.GetTarget().GetComponent<HumanEvent>();
+            return humanEvent.humanTask != HumanTasks.Bleeding && humanEvent.humanTask != HumanTasks.SpeedRunning;
+        }
 
         protected override void Action()
         {
-            var target = _selectedTarget.GetTarget();
-            if (target.CompareTag("NPC"))
-            {
-                target.GetComponent<NavMeshAgent>().speed = 0.8f;
-            }
-            else if (target.CompareTag("Player"))
-            {
-                target.GetComponent<PlayerControler>().SetWalkSpeed(1.2f);
-                target.GetComponent<PlayerControler>().SetCanRun(false);
-            }
-            target.GetComponent<Animator>().SetBool("injured",true);
-            var fxInstance = Instantiate(fx, transform.position + 0.2f * Vector3.up, Quaternion.LookRotation(transform.position - target.transform.position));
-            StartCoroutine(WaitFor(target,fxInstance));
+            StartCoroutine(Wait());
         }
 
-
-        private static IEnumerator WaitFor(GameObject target, GameObject fxInstance)
+        private IEnumerator Wait()
         {
-            yield return new WaitForSeconds(5);
-            Destroy(fxInstance);
-            target.GetComponent<Animator>().SetBool("injured",false);
-            if (target.CompareTag("NPC"))
-            {
-                target.GetComponent<NavMeshAgent>().speed = 2;
-            }
-            else if (target.CompareTag("Player"))
-            {
-                target.GetComponent<PlayerControler>().SetWalkSpeed(3);
-                target.GetComponent<PlayerControler>().SetCanRun(true);
-            }
+            GetComponent<Animator>().SetTrigger("throw");
+            yield return new WaitForSeconds(0.8f);
+            
+            var target = _selectedTarget.GetTarget();
+            target.GetComponent<HumanEvent>().HarmedByKnife();
+            
+
+            var fxInstance = Instantiate(fx, Right_Hand.position + 0.2f * Vector3.up,
+                Quaternion.LookRotation(Right_Hand.position - target.transform.position));
         }
     }
 }

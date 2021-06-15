@@ -23,7 +23,7 @@ namespace People.NPC
         
             if (_walkingNpc.EventZone != null) 
                 _walkingNpc.EventZone.GetComponent<HidingZone>().RemoveDeadNpc(gameObject);
-            GetComponentInParent<NpcZone>().GenerateNewNpc();
+            GetComponentInParent<NpcZone>()?.GenerateNewNpc();
             Destroy(gameObject);
         }
 
@@ -32,6 +32,7 @@ namespace People.NPC
             Debug.Log($"{endtime}: {gameObject.name}");
             _navMeshAgent.isStopped = true;
             _animator.SetTrigger("smoked");
+            humanTask = HumanTasks.Poisoned;
             StartCoroutine(WaitSmokeBomb(endtime));
         }
 
@@ -39,6 +40,29 @@ namespace People.NPC
         {
             Debug.Log($"{gameObject.name}");
             StartCoroutine(SpawnPoison());
+        }
+
+        public override void HarmedByKnife()
+        {
+            var value = _navMeshAgent.speed;
+            _navMeshAgent.speed = 1.2f;
+            _animator.SetTrigger("injured");
+            humanTask = HumanTasks.Bleeding;
+            StartCoroutine(WaitKnife(value));
+        }
+
+        public override IEnumerator DeathByGun()
+        {
+            yield return new WaitForSeconds(2);
+            
+        }
+
+        private IEnumerator WaitKnife(float value)
+        {
+            yield return new WaitForSeconds(5);
+            _navMeshAgent.speed = value;
+            _animator.SetTrigger("Default");
+            humanTask = HumanTasks.Nothing;
         }
 
         private IEnumerator SpawnPoison()
@@ -65,7 +89,8 @@ namespace People.NPC
             
             yield return new WaitForSeconds(endtime);
             _navMeshAgent.isStopped = false;
-            _animator.SetTrigger("Endsmoked");
+            humanTask = HumanTasks.Nothing;
+            _animator.SetTrigger("Default");
         }
     }
 }
