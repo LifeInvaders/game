@@ -6,6 +6,9 @@ namespace People
         Walking,
         Talking,
         Climbing,
-        SmokeBomb
+        SmokeBomb,
+        SpeedRunning,
+        Bleeding,
+        Poisoned
     }
 }
