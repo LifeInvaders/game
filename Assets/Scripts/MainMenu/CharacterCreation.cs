@@ -26,8 +26,8 @@ namespace Player
             _tempSkinColor = PlayerDatabase.Instance.SkinColor;
             ChangeSkin();
         }
-        
-        private void ChangeSkin()
+
+        public void ChangeSkin()
         {
             string searchName = _charID();
             foreach (Transform child in transform)
@@ -71,11 +71,12 @@ namespace Player
             PlayerDatabase.Instance.Gender = _tempGender;
             PlayerDatabase.Instance.Variant = _tempVariant;
             PlayerDatabase.Instance.SkinColor = _tempSkinColor;
+            ChangeSkin();
         }
 
         void Update()
         {
-            if (Input.GetMouseButton(0))
+            if ( RotateWithMouse && Input.GetMouseButton(0))
                 transform.parent.Rotate(0,(_mousePos-Input.mousePosition.x)/3,0); 
             _mousePos = Input.mousePosition.x;
         }
@@ -85,5 +86,7 @@ namespace Player
         private char _tempVariant;
         private char _tempSkinColor;
         private float _mousePos;
+
+        public bool RotateWithMouse;
     }   
 }
