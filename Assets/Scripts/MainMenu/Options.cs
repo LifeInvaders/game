@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Player;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Rendering;
@@ -11,8 +12,10 @@ public class Options : MonoBehaviour
 
     void Start()
     {
-        soundSystem.GetFloat("volume",out var volume);
-        volumeSlider.value = volume;
+        // Debug.Log($"{PlayerDatabase.Instance.soundLevel},{Mathf.Pow(10,PlayerDatabase.Instance.soundLevel/10)}");
+        // soundSystem.SetFloat("volume", Mathf.Pow(10,PlayerDatabase.Instance.soundLevel/10));
+        // volumeSlider.value = PlayerDatabase.Instance.soundLevel;
+        QualitySettings.SetQualityLevel(PlayerDatabase.Instance.qualitySetting);
         qualityDropdown.value = QualitySettings.GetQualityLevel();
         fullscreenToggle.isOn = Screen.fullScreen;
         soundSystem.FindMatchingGroups("Master");
@@ -39,9 +42,18 @@ public class Options : MonoBehaviour
 
     public void Fullscreen(bool check) => Screen.fullScreen = check;
 
-    public void Quality(int index) => QualitySettings.SetQualityLevel(index);
+    public void Quality(int index)
+    {
+        QualitySettings.SetQualityLevel(index);
+        PlayerDatabase.Instance.qualitySetting = index;
+    }
 
-    public void SetVolume(float vol) => soundSystem.SetFloat("volume", vol);
+    public void SetVolume(float vol)
+    {
+        PlayerDatabase.Instance.soundLevel = vol;
+        soundSystem.SetFloat("volume", vol);
+        // soundSystem.SetFloat("volume", Mathf.Pow(10,PlayerDatabase.Instance.soundLevel/10));
+    }
 
     public void SetResolution(int index) =>
         Screen.SetResolution(Screen.resolutions[index * 2].width, Screen.resolutions[index * 2].height, Screen.fullScreen);
