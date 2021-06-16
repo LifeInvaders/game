@@ -16,12 +16,14 @@ namespace Objects
         public void Start()
         {
             // translateVector3 = transform.parent.TransformDirection(_lineRenderer.GetPosition(1)) -  transform.parent.TransformDirection(_lineRenderer.GetPosition(0));
-            translateVector3 = endPos.transform.position - startPos.transform.position;
+            translateVector3 = (_lineRenderer.GetPosition(1) - _lineRenderer.GetPosition(0)).normalized;
+            Debug.Log(translateVector3);
         }
 
         public void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.CompareTag("MyPlayer") && other.GetComponent<PlayerEvent>().humanTask != HumanTasks.Zipline) // si collision avec autre joueur
+            if (other.gameObject.CompareTag("MyPlayer") &&
+                other.GetComponent<PlayerEvent>().humanTask == HumanTasks.Nothing) // si collision avec autre joueur
             {
                 // change all the player's parameters
                 PlayerControler player = other.gameObject.GetComponent<PlayerControler>();
@@ -34,52 +36,61 @@ namespace Objects
                 player.CheckIfRunning();
                 player.transform.position =
                     new Vector3(transform.position.x, transform.position.y - 0.8f, transform.position.z);
-                player.transform.rotation = transform.rotation;
-                other.GetComponent<Animator>().SetTrigger("zipline");
+                other.transform.LookAt(_lineRenderer.GetPosition(1));
+                //player.transform.rotation = transform.rotation;
+                var animator = other.GetComponent<Animator>();
+                animator.SetTrigger("zipline");
 
                 // spawn a sword in the player's hand
-                var sword = other.transform.Find("Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_R/Shoulder_R/Elbow_R/Hand_R/sword");
+                var sword = other.transform.Find(
+                    "Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_R/Shoulder_R/Elbow_R/Hand_R/sword");
                 sword.gameObject.SetActive(true);
                 // var rotation = sword.transform.rotation;
                 // rotation = Quaternion.Euler(rotation.x, rotation.y, rotation.y-60);
                 // sword.transform.rotation = rotation;
 
                 // start to move
-                StartCoroutine(CheckforJump(other.gameObject));
                 StartCoroutine(MovingOn(other.gameObject));
             }
         }
 
-        private IEnumerator CheckforJump(GameObject player)
+        private IEnumerator Leave(GameObject player)
         {
-            var controler = player.GetComponent<PlayerControler>();
-            while (controler.GetAxis().y >= 0)
-            {
-                yield return new WaitForEndOfFrame();
-            }
+            var playerControler = player.GetComponent<PlayerControler>();
 
             var playerEvent = player.GetComponent<PlayerEvent>();
-            controler.enabled = true;
+            playerControler.enabled = true;
             Rigidbody rigidbody = player.gameObject.GetComponent<Rigidbody>();
             rigidbody.useGravity = true; // on réactive la gravité du joueur
-            controler.SetRotateBool(true);
-            controler.SetMoveBool(true); // on réactive les mouvements
-            // controler.CheckIfRunning();
+            playerControler.SetRotateBool(true);
+            playerControler.SetMoveBool(true); // on réactive les mouvements
             rigidbody.isKinematic = false;
-            player.GetComponent<Animator>().SetTrigger("Default");
+            var animator = player.GetComponent<Animator>();
+            animator.SetTrigger("jumping");
             playerEvent.humanTask = HumanTasks.Nothing;
             var sword = player.transform.Find(
                 "Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_R/Shoulder_R/Elbow_R/Hand_R/sword");
             sword.gameObject.SetActive(false);
+
+            yield return new WaitUntil(() => Physics.Raycast(player.transform.position, Vector3.down, 1.5f));
             
+            animator.SetTrigger("Default");
+
         }
 
         private IEnumerator MovingOn(GameObject player)
         {
             var playerEvent = player.GetComponent<PlayerEvent>();
+            var playerControler = player.GetComponent<PlayerControler>();
             while (playerEvent.humanTask == HumanTasks.Zipline)
             {
-                player.transform.Translate(translateVector3.normalized * Time.deltaTime * speed);
+                player.transform.position += translateVector3 * (Time.deltaTime * speed);
+                if (playerControler.IsJumping)
+                {
+                   StartCoroutine( Leave(player));
+                    break;
+                }
+
                 yield return new WaitForEndOfFrame();
             }
         }
