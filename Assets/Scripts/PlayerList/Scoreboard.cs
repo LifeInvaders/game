@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.IO;
 using UnityEditor;
 // ReSharper disable All
@@ -23,31 +24,10 @@ namespace Scoreboard
             SaveScores(savedScores);
         }
 
-        private void UpdateUI(ScoreboardSaveData savedScores)
-        {
-            
-            foreach (Transform child in highScoreHolderTransform)
-            {
-                if (PrefabUtility.IsPartOfPrefabInstance(transform))
-                {
-                    PrefabUtility.UnpackPrefabInstance(instanceRoot, PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);
-                    DestroyImmediate(child);
-                }
-                    
-            }
-
-            foreach (var highscore in savedScores.highscores)
-            {
-                Instantiate(scoreboardEntryObject, highScoreHolderTransform).GetComponent<ScoreboardEntryUI>().Init(highscore);
-            }
-        }
         
-        [ContextMenu("Add Test Entry !")]
-        public void AddTestEntry()
-        {
-            DeleteChild();
-            AddEntry(testEntrydata);
-        }
+        
+        
+        
 
         public void AddEntry(ScoreboardEntryData scoreboardEntryData)
         {
@@ -80,7 +60,36 @@ namespace Scoreboard
             
         }
         
-        [ContextMenu("Get Save Cores")]
+        
+        
+        [ContextMenu("update ui")] 
+        private void UpdateUI(ScoreboardSaveData savedScores)
+        {
+            //DeleteChild();
+            foreach (Transform child in highScoreHolderTransform)
+            {
+                if (PrefabUtility.IsPartOfPrefabInstance(transform))
+                {
+                    PrefabUtility.UnpackPrefabInstance(instanceRoot, PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);
+                    DestroyImmediate(child);
+                }
+                    
+            }
+
+            foreach (var highscore in savedScores.highscores)
+            {
+                Instantiate(scoreboardEntryObject, highScoreHolderTransform).GetComponent<ScoreboardEntryUI>().Init(highscore);
+            }
+        }
+        
+        [ContextMenu("Add Test Entry !")]
+        public void AddTestEntry()
+        {
+            DeleteChild();
+            AddEntry(testEntrydata);
+        }
+        
+        
         private ScoreboardSaveData GetSavedScores()
         {
             if (!File.Exists(Savepath))
@@ -92,7 +101,8 @@ namespace Scoreboard
             using (StreamReader stream = new StreamReader(Savepath))
             {
                 string json = stream.ReadToEnd();
-                return JsonUtility.FromJson<ScoreboardSaveData>(json);
+                ScoreboardSaveData s = JsonUtility.FromJson<ScoreboardSaveData>(json);
+                return s;
             }
         }
 
@@ -108,21 +118,25 @@ namespace Scoreboard
         [ContextMenu("Delete Child")]
         private void DeleteChild()
         {
-            if (Application.isEditor)
-            {
-                foreach (Transform child in highScoreHolderTransform)
+            foreach (Transform obj in highScoreHolderTransform)
                 {
-                    DestroyImmediate(child.gameObject);
+                    Destroy(obj.gameObject);
+                    int debug = highScoreHolderTransform.childCount;  
                 }
-            }
-            else
-            {
-                foreach (Transform child in highScoreHolderTransform)
-                {
-                    Destroy(child.gameObject);
-                }
-            }
         }
+
+        
+        /*
+        [ContextMenu("ClearData")]
+        private void ClearData()
+        {
+            ScoreboardEntryData s = new ScoreboardEntryData("Cleared", 0, 0, 0);
+            ScoreboardSaveData s2 = new ScoreboardSaveData();
+            s2.highscores.Add(s);
+            string json = JsonUtility.ToJson(s, true);
+            StreamWriter streamWriter = new StreamWriter(Savepath);
+            streamWriter.Write(json);
+        }*/
     }
 }
 
