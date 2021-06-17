@@ -46,7 +46,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Aim",
+                    "name": "Aiming",
                     "type": "Button",
                     "id": "7cc398f3-d250-49b3-9e4f-2b9a84e96c85",
                     "expectedControlType": "Button",
@@ -89,23 +89,23 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "2f3105b5-25e2-414f-9eae-a7982dcc78fb",
-                    "path": "<Keyboard>/alt",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard and Mouse",
-                    "action": "Aim",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "f6ff6d28-85a8-4ca1-95bf-28a5f4ba0098",
                     "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "Manettes",
-                    "action": "Aim",
+                    "action": "Aiming",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6cecf019-8949-452f-b2b0-1c453768c4ba",
+                    "path": "<Mouse>/middleButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard and Mouse",
+                    "action": "Aiming",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

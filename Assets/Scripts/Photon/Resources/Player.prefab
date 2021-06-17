@@ -586,7 +586,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4096
+    m_Bits: 6144
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1843,7 +1843,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb5ed4a8595a2044cab321185c819038, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  humanTask: 1
   dissolveShader: {fileID: 2100000, guid: ac133a4892f7ca693a4532e6f006cf09, type: 2}
+  poisonFinisher: {fileID: 0}
+  _volume: {fileID: 0}
 --- !u!114 &5019423821364432386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1856,7 +1859,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb5ed4a8595a2044cab321185c819038, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  humanTask: 0
   dissolveShader: {fileID: 2100000, guid: ac133a4892f7ca693a4532e6f006cf09, type: 2}
+  poisonFinisher: {fileID: 5711785541323808145, guid: 9b8038b8c9c2e1646bf05fb81fec9a2a,
+    type: 3}
+  _volume: {fileID: 0}
 --- !u!1 &4441482292251406877
 GameObject:
   m_ObjectHideFlags: 0
