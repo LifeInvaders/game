@@ -7,7 +7,9 @@ namespace Scoreboard
     {
         public string entryName;
         public int entryScore;
-        
+        public int entryDead;
+        public int entryRatio;
+
     }
     
 }

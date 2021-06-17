@@ -201,9 +201,12 @@ MonoBehaviour:
   highScoreHolderTransform: {fileID: 8472586190491025643}
   scoreboardEntryObject: {fileID: 5633975175235059342, guid: c17615bc836c0184eb27d8a8acf28d2f,
     type: 3}
+  instanceRoot: {fileID: 6630764896513099899}
   testEntrydata:
-    entryName: ;ht;mlht
-    entryScore: 940
+    entryName: TestGuy
+    entryScore: 666
+    entryDead: 0
+    entryRatio: 0
 --- !u!1 &5227967549818361345
 GameObject:
   m_ObjectHideFlags: 0

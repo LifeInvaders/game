@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using System.IO;
-using System.Security.Cryptography;
-using Scoreboard;
 using UnityEditor;
+// ReSharper disable All
 
 namespace Scoreboard
 {
     public class Scoreboard : MonoBehaviour
     {
         [SerializeField] private int maxScoreboardEntries = 5;
-        [SerializeField] private Transform highScoreHolderTransform = null;
-        [SerializeField] private GameObject scoreboardEntryObject = null;
-        [SerializeField] private GameObject instanceRoot = null;
+        [SerializeField] private Transform highScoreHolderTransform;
+        [SerializeField] private GameObject scoreboardEntryObject;
+        [SerializeField] private GameObject instanceRoot;
         
-        [Header("Test")] [SerializeField] ScoreboardEntryData testEntrydata = new ScoreboardEntryData();
+        [Header("Test")] [SerializeField] ScoreboardEntryData testEntrydata;
 
         private string Savepath => $"{Application.persistentDataPath}/highers.json";
 
@@ -32,9 +28,9 @@ namespace Scoreboard
             
             foreach (Transform child in highScoreHolderTransform)
             {
-                if (UnityEditor.PrefabUtility.IsPartOfPrefabInstance(transform))
+                if (PrefabUtility.IsPartOfPrefabInstance(transform))
                 {
-                    UnityEditor.PrefabUtility.UnpackPrefabInstance(instanceRoot, PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);
+                    PrefabUtility.UnpackPrefabInstance(instanceRoot, PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);
                     DestroyImmediate(child);
                 }
                     
@@ -73,6 +69,8 @@ namespace Scoreboard
                 savedScores.highscores.Add(scoreboardEntryData);
             }
 
+            
+            
             if (savedScores.highscores.Count > maxScoreboardEntries)
             {
                 savedScores.highscores.RemoveRange(maxScoreboardEntries, savedScores.highscores.Count - maxScoreboardEntries);
@@ -110,12 +108,21 @@ namespace Scoreboard
         [ContextMenu("Delete Child")]
         private void DeleteChild()
         {
-            foreach (Transform child in highScoreHolderTransform)
+            if (Application.isEditor)
             {
-                Destroy(child.gameObject);
-            } 
+                foreach (Transform child in highScoreHolderTransform)
+                {
+                    DestroyImmediate(child.gameObject);
+                }
+            }
+            else
+            {
+                foreach (Transform child in highScoreHolderTransform)
+                {
+                    Destroy(child.gameObject);
+                }
+            }
         }
-        
     }
 }
 

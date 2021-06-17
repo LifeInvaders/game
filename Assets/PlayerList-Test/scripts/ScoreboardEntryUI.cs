@@ -10,11 +10,15 @@ namespace Scoreboard
     {
         [SerializeField] private TextMeshProUGUI entryNameText = null;
         [SerializeField] private TextMeshProUGUI entryScoreText = null;
+        [SerializeField] private TextMeshProUGUI entryDeadText = null;
+        [SerializeField] private TextMeshProUGUI entryRatioText = null;
         
         public void Init(ScoreboardEntryData scoreboardEntryData)
         {
             entryNameText.text = scoreboardEntryData.entryName;
             entryScoreText.text = scoreboardEntryData.entryScore.ToString();
+            entryDeadText.text = scoreboardEntryData.entryDead.ToString();
+            entryRatioText.text = scoreboardEntryData.entryRatio.ToString();
         }
     }   
 }
