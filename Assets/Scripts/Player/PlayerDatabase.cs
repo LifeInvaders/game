@@ -38,6 +38,7 @@ namespace Player
         public bool finishedTutorial = false;
 
         public int qualitySetting;
+        public int fpsSettings = 30;
         #endregion
         
         //Keeping track of player statistics
