@@ -9,6 +9,7 @@ namespace People
         SmokeBomb,
         SpeedRunning,
         Bleeding,
-        Poisoned
+        Poisoned,
+        Zipline,
     }
 }

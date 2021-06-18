@@ -635,6 +635,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Cuba_Arch_03
       objectReference: {fileID: 0}
+    - target: {fileID: 156466, guid: e10330cd20753a243bc0950bdfe1921c, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 156466, guid: e10330cd20753a243bc0950bdfe1921c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 405526, guid: e10330cd20753a243bc0950bdfe1921c, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -737,6 +745,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Cuba_Arch_02
       objectReference: {fileID: 0}
+    - target: {fileID: 156466, guid: e10330cd20753a243bc0950bdfe1921c, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 156466, guid: e10330cd20753a243bc0950bdfe1921c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 405526, guid: e10330cd20753a243bc0950bdfe1921c, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -784,6 +800,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6019314857004270142}
     m_Modifications:
+    - target: {fileID: 156466, guid: e10330cd20753a243bc0950bdfe1921c, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 156466, guid: e10330cd20753a243bc0950bdfe1921c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 405526, guid: e10330cd20753a243bc0950bdfe1921c, type: 3}
       propertyPath: m_RootOrder
       value: 0
