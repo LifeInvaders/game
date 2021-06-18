@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
+<<<<<<< HEAD
+<<<<<<< HEAD
+    <e p="C:\Users\julie\AppData\local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\julie\AppData\local\JetBrains\Rider2020.2\resharper-host\local\Transient\Rider\v202\SolutionCaches\_game.130886729.00" t="ExcludeRecursive" />
+    <e p="C:\Users\julie\Desktop\Projets\game" t="IncludeRecursive">
+=======
+    <e p="C:\Users\pauld\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\pauld\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_game.-2136944164.00" t="ExcludeRecursive" />
+    <e p="C:\Users\pauld\AppData\Roaming\JetBrains\Rider2020.3\scratches" t="IncludeRecursive" />
+    <e p="C:\Users\pauld\Documents\GamePirate\game" t="IncludeRecursive">
+>>>>>>> dev
+=======
     <e p="C:\Users\dovde\AppData\local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
     <e p="C:\Users\dovde\AppData\local\JetBrains\Rider2020.3\resharper-host\local\Transient\Rider\v203\SolutionCaches\_game.-1182146299.00" t="ExcludeRecursive" />
     <e p="C:\Users\dovde\RiderProjects\game" t="IncludeRecursive">
+>>>>>>> dev
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -672,6 +685,12 @@
             <e p="Outline.cs" t="Include" />
           </e>
         </e>
+<<<<<<< HEAD
+<<<<<<< HEAD
+        <e p="ResetDemoScene.cs" t="Include" />
+=======
+>>>>>>> dev
+=======
         <e p="Samples" t="Include">
           <e p="Cinemachine" t="Include">
             <e p="2.6.3" t="Include">
@@ -727,6 +746,7 @@
             </e>
           </e>
         </e>
+>>>>>>> dev
         <e p="Scripts" t="Include">
           <e p="Editor" t="Include">
             <e p="NightModeEditor.cs" t="Include" />

@@ -385,6 +385,14 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""PlayerList"",
+                    ""type"": ""Button"",
+                    ""id"": ""f2940418-884c-4144-9922-2ba59a5147ec"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -418,6 +426,17 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard and Mouse"",
                     ""action"": ""Dev"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3b6904d5-2bcb-466e-9c1f-c4239ce4f111"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and Mouse"",
+                    ""action"": ""PlayerList"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -486,6 +505,7 @@ public class @Controler : IInputActionCollection, IDisposable
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Pause = m_Menu.FindAction("Pause", throwIfNotFound: true);
         m_Menu_Dev = m_Menu.FindAction("Dev", throwIfNotFound: true);
+        m_Menu_PlayerList = m_Menu.FindAction("PlayerList", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -642,12 +662,14 @@ public class @Controler : IInputActionCollection, IDisposable
     private IMenuActions m_MenuActionsCallbackInterface;
     private readonly InputAction m_Menu_Pause;
     private readonly InputAction m_Menu_Dev;
+    private readonly InputAction m_Menu_PlayerList;
     public struct MenuActions
     {
         private @Controler m_Wrapper;
         public MenuActions(@Controler wrapper) { m_Wrapper = wrapper; }
         public InputAction @Pause => m_Wrapper.m_Menu_Pause;
         public InputAction @Dev => m_Wrapper.m_Menu_Dev;
+        public InputAction @PlayerList => m_Wrapper.m_Menu_PlayerList;
         public InputActionMap Get() { return m_Wrapper.m_Menu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -663,6 +685,9 @@ public class @Controler : IInputActionCollection, IDisposable
                 @Dev.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnDev;
                 @Dev.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnDev;
                 @Dev.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnDev;
+                @PlayerList.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnPlayerList;
+                @PlayerList.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnPlayerList;
+                @PlayerList.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnPlayerList;
             }
             m_Wrapper.m_MenuActionsCallbackInterface = instance;
             if (instance != null)
@@ -673,6 +698,9 @@ public class @Controler : IInputActionCollection, IDisposable
                 @Dev.started += instance.OnDev;
                 @Dev.performed += instance.OnDev;
                 @Dev.canceled += instance.OnDev;
+                @PlayerList.started += instance.OnPlayerList;
+                @PlayerList.performed += instance.OnPlayerList;
+                @PlayerList.canceled += instance.OnPlayerList;
             }
         }
     }
@@ -721,5 +749,6 @@ public class @Controler : IInputActionCollection, IDisposable
     {
         void OnPause(InputAction.CallbackContext context);
         void OnDev(InputAction.CallbackContext context);
+        void OnPlayerList(InputAction.CallbackContext context);
     }
 }
