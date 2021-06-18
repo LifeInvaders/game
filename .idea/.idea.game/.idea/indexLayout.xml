@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
   <component name="ContentModelUserStore">
     <attachedFolders>
       <Path>../../../Users/mrhar/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.cinemachine@2.6.3</Path>
@@ -35,5 +36,11 @@
       <Path>UIElementsSchema</Path>
       <Path>obj</Path>
     </explicitExcludes>
+=======
+  <component name="UserContentModel">
+    <attachedFolders />
+    <explicitIncludes />
+    <explicitExcludes />
+>>>>>>> dev
   </component>
 </project>
