@@ -33,7 +33,12 @@ namespace Player
         #region Settings
 
         public Dictionary<Guid, string> controls = new Dictionary<Guid, string>();
-        
+
+        public float soundLevel = 0;
+        public bool finishedTutorial = false;
+
+        public int qualitySetting;
+        public int fpsSettings = 30;
         #endregion
         
         //Keeping track of player statistics

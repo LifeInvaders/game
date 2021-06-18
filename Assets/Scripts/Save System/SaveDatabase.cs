@@ -6,7 +6,7 @@ public class SaveDatabase : MonoBehaviour
 {
     public int startMethod; //0 = save on Start, 1 = load on Start, default = no Start method
 
-    readonly int versionHash = 26156;
+    readonly int versionHash = 26160;
 
 
     void Start()

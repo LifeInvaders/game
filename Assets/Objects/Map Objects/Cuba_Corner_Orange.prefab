@@ -45,6 +45,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4285599738156316743}
     m_Modifications:
+    - target: {fileID: 135272, guid: b8a4b4e03a5b66e4fb89066aaa4d2d18, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 135272, guid: b8a4b4e03a5b66e4fb89066aaa4d2d18, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 449838, guid: b8a4b4e03a5b66e4fb89066aaa4d2d18, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -241,6 +249,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4285599738156316743}
     m_Modifications:
+    - target: {fileID: 142450, guid: 74e2774195e6ca54daf6f19e8679c214, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 142450, guid: 74e2774195e6ca54daf6f19e8679c214, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 455398, guid: 74e2774195e6ca54daf6f19e8679c214, type: 3}
       propertyPath: m_RootOrder
       value: 0

@@ -474,6 +474,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8096861245113881709}
     m_Modifications:
+    - target: {fileID: 135608, guid: 3cb0fc753a489e345a25de2acbfd875a, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 135608, guid: 3cb0fc753a489e345a25de2acbfd875a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 452498, guid: 3cb0fc753a489e345a25de2acbfd875a, type: 3}
       propertyPath: m_RootOrder
       value: 4
