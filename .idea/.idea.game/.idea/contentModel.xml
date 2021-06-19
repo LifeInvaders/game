@@ -672,6 +672,18 @@
             <e p="Outline.cs" t="Include" />
           </e>
         </e>
+        <e p="Real-Time Procedural Cable Simple" t="Include">
+          <e p="ReadmeCurveCable.txt" t="Include" />
+          <e p="ReadmeMultiPointCable.txt" t="Include" />
+          <e p="ReadmeSimpleCable.txt" t="Include" />
+          <e p="ReadmeStaticCable.txt" t="Include" />
+          <e p="Scripts" t="Include">
+            <e p="CableProceduralCurve.cs" t="Include" />
+            <e p="CableProceduralMultipoint.cs" t="Include" />
+            <e p="CableProceduralSimple.cs" t="Include" />
+            <e p="CableProceduralStatic.cs" t="Include" />
+          </e>
+        </e>
         <e p="Samples" t="Include">
           <e p="Cinemachine" t="Include">
             <e p="2.6.3" t="Include">
@@ -778,6 +790,8 @@
               <e p="SmokeBombManager.cs" t="Include" />
               <e p="SpeedBoost.cs" t="Include" />
             </e>
+            <e p="ZiplineEnter.cs" t="Include" />
+            <e p="ZiplineExit.cs" t="Include" />
           </e>
           <e p="parkour" t="Include">
             <e p="EndParkour.cs" t="Include" />

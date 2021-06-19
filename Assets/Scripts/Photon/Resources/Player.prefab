@@ -28,10 +28,13 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 130397555890715869}
+<<<<<<< Updated upstream
   - {fileID: 1139174135423584439}
   - {fileID: 8566907112028988035}
   - {fileID: 2111669524176454979}
   - {fileID: 4104321117776655755}
+=======
+>>>>>>> Stashed changes
   m_Father: {fileID: 4441482292251185313}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -153,6 +156,7 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+<<<<<<< Updated upstream
 --- !u!114 &4769438857583993890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -676,6 +680,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+=======
+>>>>>>> Stashed changes
 --- !u!1 &4441482292251378287
 GameObject:
   m_ObjectHideFlags: 0
