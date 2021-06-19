@@ -15,7 +15,7 @@ namespace Objects.Powers
             _time = 5;
             _selectedTarget = GetComponent<SelectedTarget>();
             IsShortAction = false;
-            TimeToStayOnTheButton = 2;
+            TimeToStayOnTheButton = 3;
         }
 
         protected override bool IsValid()
