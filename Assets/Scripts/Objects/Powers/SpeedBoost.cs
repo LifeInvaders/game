@@ -19,7 +19,9 @@ namespace Objects.Powers
 
         [SerializeField] private GameObject smokeEffect;
 
-        private void Start()
+
+
+        protected override void SetValues()
         {
             _bodyMembersSmoke = new GameObject[2];
             _members =  new Transform[]
@@ -34,7 +36,7 @@ namespace Objects.Powers
             _playerEvent = GetComponent<PlayerEvent>();
         }
 
-        protected override bool IsValid() => _playerControler.CanRun() && _playerEvent.humanTask != HumanTasks.SmokeBomb &&  _playerEvent.humanTask != HumanTasks.Bleeding &&  _playerEvent.humanTask != HumanTasks.Poisoned;
+        protected override bool IsValid() => _playerControler.CanRun() && _playerEvent.humanTask != HumanTasks.SmokeBomb &&  _playerEvent.humanTask != HumanTasks.Bleeding &&  _playerEvent.humanTask != HumanTasks.Poisoned && _playerEvent.humanTask != HumanTasks.Zipline;
 
         protected override void Action()
         {
