@@ -71,9 +71,9 @@
                 },
                 {
                     "name": "Power",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "22dde526-8661-42b4-88a0-b48ac7a94853",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
                 },
