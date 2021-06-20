@@ -842,11 +842,21 @@
           <e p="Player" t="Include">
             <e p="PlayerDatabase.cs" t="Include" />
           </e>
+          <e p="PrivateRoom" t="Include">
+            <e p="PrivateRoomHandler.cs" t="Include" />
+          </e>
           <e p="RadarSystem" t="Include">
             <e p="Radar.cs" t="Include" />
           </e>
           <e p="Save System" t="Include">
             <e p="SaveDatabase.cs" t="Include" />
+          </e>
+          <e p="ScoreBoard" t="Include">
+            <e p="ListPlayers.cs" t="Include" />
+            <e p="Scoreboard.cs" t="Include" />
+            <e p="ScoreboardEntryData.cs" t="Include" />
+            <e p="ScoreboardEntryUI.cs" t="Include" />
+            <e p="ScoreboardSaveData.cs" t="Include" />
           </e>
           <e p="StagingRoom" t="Include">
             <e p="StagingRoom.cs" t="Include" />
