@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class HoldUI : MonoBehaviour
 {
-    [SerializeField] private Material material;
+    [SerializeField] private RectTransform rectTransform;
     [SerializeField] private TextMeshPro _textMeshPro;
     public float time;
     private float _startTime = 0;
@@ -20,8 +20,7 @@ public class HoldUI : MonoBehaviour
         // gameObject.transform.LookAt(player);
         _startTime += Time.deltaTime;
 
-        Debug.Log( Mathf.RoundToInt(time - _startTime));
         _textMeshPro.text = Mathf.RoundToInt(time - _startTime).ToString();
-        material.SetFloat("Vector1_A5BC52FF", _startTime * 57 / time);
+        rectTransform.localScale = new Vector3(1, 1 - _startTime / time, 1);
     }
 }
