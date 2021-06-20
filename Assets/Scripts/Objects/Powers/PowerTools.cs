@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using HUD;
 using TargetSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -12,6 +13,23 @@ namespace Objects.Powers
         protected float TimeBeforeUse;
         protected int _time;
         protected Random _random;
+        private PowerHud _powerHud;
+
+        private void Start()
+        {
+            SetValues();
+            _powerHud = GetComponentInChildren<PowerHud>();
+            Debug.Log("coucou");
+            _powerHud.SetIcon(this);
+            Debug.Log("coucou");
+            if (TimeBeforeUse > 0)
+            {
+                _powerHud.SetTime(TimeBeforeUse);
+                Debug.Log("coucou");
+            }
+        }
+
+        protected abstract void SetValues();
 
         /// <summary>
         /// Check if the player need to press for N seconds the key to use the power
@@ -21,7 +39,7 @@ namespace Objects.Powers
 
         protected float TimeToStayOnTheButton = 0;
         private Coroutine _coroutine;
-        private GameObject InstanceLoadingSelector;
+        private GameObject _instanceLoadingSelector;
         [SerializeField] private GameObject loadingSelector;
 
         /// <summary>
@@ -42,18 +60,21 @@ namespace Objects.Powers
                 TimeBeforeUse -= Time.deltaTime;
             }
             else if (TimeBeforeUse < 0)
+            {
                 TimeBeforeUse = 0;
+                _powerHud.HideTimer();
+            }
         }
 
         private IEnumerator WaitButtonPressed()
         {
             var target = GetComponent<SelectedTarget>().GetTarget();
-            InstanceLoadingSelector = Instantiate(loadingSelector, target.transform.position + Vector3.up * 2.4f,
+            _instanceLoadingSelector = Instantiate(loadingSelector, target.transform.position + Vector3.up * 2.4f,
                 target.transform.rotation, target.transform);
-            var holdUI = InstanceLoadingSelector.GetComponent<HoldUI>();
+            var holdUI = _instanceLoadingSelector.GetComponent<HoldUI>();
             holdUI.player = transform;
             holdUI.time = TimeToStayOnTheButton;
-            InstanceLoadingSelector.GetComponent<Canvas>().worldCamera = Camera.current;
+            _instanceLoadingSelector.GetComponent<Canvas>().worldCamera = Camera.current;
             float waitingTime = 0;
             while (waitingTime < TimeToStayOnTheButton)
             {
@@ -61,18 +82,16 @@ namespace Objects.Powers
                 yield return new WaitForEndOfFrame();
             }
 
-            TimeBeforeUse = _time;
-            Action();
+            ActivatePower();
         }
 
         public void OnPower(InputValue inputValue)
         {
             if (!enabled || TimeBeforeUse != 0 || !IsValid()) return;
-            
+
             if (IsShortAction && inputValue.isPressed)
             {
-                TimeBeforeUse = _time;
-                Action();
+                ActivatePower();
             }
             else
             {
@@ -83,9 +102,16 @@ namespace Objects.Powers
                 {
                     StopCoroutine(_coroutine);
                     _coroutine = null;
-                    Destroy(InstanceLoadingSelector);
+                    Destroy(_instanceLoadingSelector);
                 }
             }
+        }
+
+        private void ActivatePower()
+        {
+            TimeBeforeUse = _time;
+            _powerHud.SetTime(_time);
+            Action();
         }
     }
 }

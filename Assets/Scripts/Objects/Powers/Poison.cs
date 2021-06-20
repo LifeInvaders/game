@@ -9,10 +9,10 @@ namespace Objects.Powers
     public class Poison : PowerTools
     {
         private SelectedTarget _selectedTarget;
-        private void Start()
+        protected override void SetValues()
         {
-            TimeBeforeUse = 0;
-            _time = 5;
+            TimeBeforeUse = 15;
+            _time = 120;
             _selectedTarget = GetComponent<SelectedTarget>();
             IsShortAction = false;
             TimeToStayOnTheButton = 3;
