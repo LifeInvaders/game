@@ -15,6 +15,8 @@ namespace People.Player
 
         private Vector2 _axis;
         private bool _isRunning = false;
+        
+        public bool IsJumping { get; private set; }
 
         private Rigidbody _rig;
         private Animator _anim;
@@ -125,6 +127,7 @@ namespace People.Player
 
         private IEnumerator JumpAnim()
         {
+            
             yield return new WaitForSeconds(1);
             _anim.SetBool("jump", false);
             // float time = 0;
@@ -155,6 +158,14 @@ namespace People.Player
         {
             if (_isGrounded)
                 Jump();
+            StartCoroutine(PressingJumpMacro());
+        }
+
+        private IEnumerator PressingJumpMacro()
+        {
+            IsJumping = true;
+            yield return new WaitForEndOfFrame();
+            IsJumping = false;
         }
 
         public void OnRun(InputValue value)

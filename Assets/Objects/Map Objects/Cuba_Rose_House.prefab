@@ -13,7 +13,7 @@ GameObject:
   m_Name: Cuba_Rose_House
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &7609570549315776722
@@ -53,6 +53,10 @@ PrefabInstance:
     - target: {fileID: 178984, guid: fba205c40ba110a46a927545d22de348, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Chimney_15
+      objectReference: {fileID: 0}
+    - target: {fileID: 178984, guid: fba205c40ba110a46a927545d22de348, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 417874, guid: fba205c40ba110a46a927545d22de348, type: 3}
       propertyPath: m_RootOrder
@@ -105,6 +109,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Cuba_Balcony_12
       objectReference: {fileID: 0}
+    - target: {fileID: 164474, guid: f6a216ae219f8f344b44224758f4b9d6, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 467184, guid: f6a216ae219f8f344b44224758f4b9d6, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -156,6 +164,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7609570549315776722}
     m_Modifications:
+    - target: {fileID: 142450, guid: 74e2774195e6ca54daf6f19e8679c214, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 455398, guid: 74e2774195e6ca54daf6f19e8679c214, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -207,6 +219,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7609570549315776722}
     m_Modifications:
+    - target: {fileID: 107830, guid: c64710ec183cb53439b5bd642a6dfb1d, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 406580, guid: c64710ec183cb53439b5bd642a6dfb1d, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -257,6 +273,14 @@ PrefabInstance:
     - target: {fileID: 197218, guid: c685eec9c845a914f87adb082e8691fc, type: 3}
       propertyPath: m_Name
       value: SM_Bld_Cuba_Room_Long_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 197218, guid: c685eec9c845a914f87adb082e8691fc, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 197218, guid: c685eec9c845a914f87adb082e8691fc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 417226, guid: c685eec9c845a914f87adb082e8691fc, type: 3}
       propertyPath: m_RootOrder
@@ -309,6 +333,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7609570549315776722}
     m_Modifications:
+    - target: {fileID: 134278, guid: 88cbec60c5e072148b9a39c8484c8a34, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 489962, guid: 88cbec60c5e072148b9a39c8484c8a34, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -364,6 +392,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_ClothesLine_10
       objectReference: {fileID: 0}
+    - target: {fileID: 136400, guid: ee5f49d0f8acb304ba1261974e07f3c9, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 455646, guid: ee5f49d0f8acb304ba1261974e07f3c9, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -415,6 +447,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Window_Top_07
       objectReference: {fileID: 0}
+    - target: {fileID: 158508, guid: 181b4d6fcd827d14c8d70223b8e2c7a2, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 447104, guid: 181b4d6fcd827d14c8d70223b8e2c7a2, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -462,6 +498,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7609570549315776722}
     m_Modifications:
+    - target: {fileID: 134278, guid: 88cbec60c5e072148b9a39c8484c8a34, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 489962, guid: 88cbec60c5e072148b9a39c8484c8a34, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -516,6 +556,10 @@ PrefabInstance:
     - target: {fileID: 164474, guid: f6a216ae219f8f344b44224758f4b9d6, type: 3}
       propertyPath: m_Name
       value: SM_Bld_Cuba_Balcony_11
+      objectReference: {fileID: 0}
+    - target: {fileID: 164474, guid: f6a216ae219f8f344b44224758f4b9d6, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 467184, guid: f6a216ae219f8f344b44224758f4b9d6, type: 3}
       propertyPath: m_RootOrder
@@ -572,6 +616,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_FlowerHanging_34
       objectReference: {fileID: 0}
+    - target: {fileID: 118094, guid: 366500f45afe5254fa03c07da019e6b8, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 499884, guid: 366500f45afe5254fa03c07da019e6b8, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -623,6 +671,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Lantern_Attachment_08
       objectReference: {fileID: 0}
+    - target: {fileID: 145908, guid: bb677ec00087db84e9c3dcc9bb02a479, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 418664, guid: bb677ec00087db84e9c3dcc9bb02a479, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -673,6 +725,10 @@ PrefabInstance:
     - target: {fileID: 100224, guid: c0b95b1e260a33244acb7ff8cbe62862, type: 3}
       propertyPath: m_Name
       value: SM_Prop_FlowerHanging_50
+      objectReference: {fileID: 0}
+    - target: {fileID: 100224, guid: c0b95b1e260a33244acb7ff8cbe62862, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 493836, guid: c0b95b1e260a33244acb7ff8cbe62862, type: 3}
       propertyPath: m_RootOrder
