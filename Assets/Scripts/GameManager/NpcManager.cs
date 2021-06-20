@@ -29,7 +29,7 @@ public class NpcManager : MonoBehaviour
 
     void SetTimerForChainLoading()
     {
-        var timer = new Hashtable {{"npcDone", PhotonNetwork.Time + 20}};
+        var timer = new Hashtable {{"npcDone", PhotonNetwork.Time + 30}};
         PhotonNetwork.CurrentRoom.SetCustomProperties(timer);
     }
 

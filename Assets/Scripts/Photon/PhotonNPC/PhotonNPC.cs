@@ -17,7 +17,7 @@ using Vector3 = UnityEngine.Vector3;
 
 namespace People.NPC
 {
-    public class PhotonNPC : NPCdata
+    public class PhotonNPC : MonoBehaviourPunCallbacks
     {
         public bool start;
         private Animator _anim;
@@ -26,23 +26,23 @@ namespace People.NPC
         private Vector3 lastDest;
         private int activationTime;
         private double internalClock;
+        private GameObject EventZone;
+        public bool inZone;
 
         void Start()
         {
             points = new Queue<Vector3>();
             Random r = new Random(gameObject.GetPhotonView().ViewID);
-            activationTime = r.Next(5, 16);
-            StartCoroutine(WaitSync());
             _agent = GetComponent<NavMeshAgent>();
             _anim = GetComponent<Animator>();
-            if (Status == NpcStatus.Walking)
-                _anim.SetBool("walk", true);
             if (!_agent.isOnNavMesh)
             {
                 NavMesh.SamplePosition(transform.position,out var hit, 10.0f, NavMesh.AllAreas);
                 _agent.Warp(hit.position);
             }
             _agent.radius = 0.1f;
+            _agent.speed = 2;
+            StartCoroutine(BootUp(r.Next(25,31)));
         }
 
         [PunRPC]
@@ -50,9 +50,15 @@ namespace People.NPC
         {
             internalClock = activation;
         }
+
+        public void SetEventZone(GameObject go) => EventZone = go;
+
+        public GameObject GetEventZone() => EventZone;
         
-        IEnumerator WaitSync()
+
+        public IEnumerator BootUp(double time)
         {
+            _agent.ResetPath();
             start = false;
             internalClock = 0;
             lastDest = Vector3.zero;
@@ -60,7 +66,7 @@ namespace People.NPC
             points.Enqueue(Vector3.zero);
             if (PhotonNetwork.IsMasterClient)
             {
-                gameObject.GetPhotonView().RPC(nameof(SetClock),RpcTarget.All,PhotonNetwork.Time + activationTime);
+                gameObject.GetPhotonView().RPC(nameof(SetClock),RpcTarget.All,PhotonNetwork.Time + time);
                 CalculateNextPath(transform.position);
             } 
             yield return new WaitUntil(CheckNpcSyncTime);
@@ -68,6 +74,15 @@ namespace People.NPC
                 yield return new WaitForSeconds(2); 
             GotoNextPoint();
             start = true;
+            _anim.SetBool("walk", true);
+        }
+
+        public void ResetNpc()
+        {
+            _anim.SetBool("walk", false);
+            _agent.ResetPath();
+            start = false;
+            points.Clear();
         }
 
         bool CheckNpcSyncTime() => internalClock != 0 && PhotonNetwork.Time >= Convert.ToDouble(internalClock);
@@ -80,10 +95,7 @@ namespace People.NPC
                 Debug.Log("Going towards next point...");
                 GotoNextPoint();
             }
-            if (Physics.Raycast(transform.position + Vector3.up, transform.forward, 1f, 768))
-                _agent.speed = 1.2f;
-            else
-                _agent.speed = 2;
+            //_agent.speed = Physics.Raycast(transform.position + Vector3.up, transform.forward, 1f, 768) ? 1.2f : 2;
         }
         
         private void GotoNextPoint()

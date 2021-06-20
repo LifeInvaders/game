@@ -7,30 +7,37 @@ using Photon.Pun;
 using Photon.Pun.UtilityScripts;
 using Photon.Realtime;
 using TargetSystem;
+using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
+using Random = System.Random;
 
 public class PlayerManager : MonoBehaviourPunCallbacks
 {
-
+    
     [SerializeField] private TimerManager timer;
     [SerializeField] private Camera loadCamera;
-    [SerializeField] private GameObject loadScreen;
-	[SerializeField] private GameObject hud;
+    [SerializeField] private GameObject hud;
     [SerializeField] private List<Transform> spawnPoints;
     [SerializeField] private InGameStats igs;
     [NonSerialized] public Photon.Realtime.Player[] players;
     [NonSerialized] public List<Transform> playerTransforms;
-    private System.Random _rand;
+    private Random _rand;
     [SerializeField] private Volume volume;
+    [SerializeField] private GameObject classMenu;
+    [SerializeField] private string classChoice = "";
+    private bool latePick;
+    [SerializeField] public Button[] classChoiceButtons; 
+
 
     // Start is called before the first frame update
     IEnumerator Start()
     {
         players = PhotonNetwork.PlayerList;
-        _rand = new System.Random();
+        _rand = new Random();
         List<Transform> spawnPointsCopy = new List<Transform>(spawnPoints);
         if (PhotonNetwork.IsMasterClient)
         {
@@ -39,26 +46,40 @@ public class PlayerManager : MonoBehaviourPunCallbacks
                 int randIndex = _rand.Next(spawnPointsCopy.Count);
                 Transform randCopy = spawnPointsCopy[randIndex];
                 int randIndexOrig = spawnPoints.IndexOf(randCopy);
-                gameObject.GetPhotonView().RPC(nameof(Spawn), player, randIndexOrig);
+                gameObject.GetPhotonView().RPC(nameof(StartSpawnProcess), player, randIndexOrig);
                 spawnPointsCopy.RemoveAt(randIndex);
             }
         }
         yield return new WaitUntil(CheckAssignViewID);
         UpdatePlayerPrefabs();
     }
+
     [PunRPC]
-    void Spawn(int index)
+    void StartSpawnProcess(int index) => StartCoroutine(Spawn(index));
+    
+    IEnumerator Spawn(int index)
     {
         Transform spawnPoint = spawnPoints[index];
         loadCamera.gameObject.SetActive(false);
-        loadScreen.SetActive(false);
-		hud.SetActive(true);
-        var player = PhotonNetwork.Instantiate("RandomCharacter", spawnPoint.position, spawnPoint.rotation);
+        yield return new WaitUntil(() => classChoice.Length != 0);
+        classMenu.SetActive(false);
+        hud.SetActive(true);
+        var player = PhotonNetwork.Instantiate(classChoice, spawnPoint.position, spawnPoint.rotation);
         SetLayerRecursive(player);
         igs.localPlayer = player;
         player.GetComponent<CastTarget>().vignette = volume;
         Hashtable customProps = new Hashtable {{"viewID", player.GetPhotonView().ViewID}, {"dead", false}, {"deathCount", 0},{"killCount",0}};
         PhotonNetwork.LocalPlayer.SetCustomProperties(customProps);
+    }
+    
+    public void SetClass(string classChoice) => this.classChoice = classChoice;
+
+    public void RandomPickClass() => classChoiceButtons[_rand.Next(classChoiceButtons.Length)].onClick.Invoke();
+
+    public IEnumerator LatePick()
+    {
+        yield return new WaitForSeconds(10);
+        if (classChoice.Length == 0) RandomPickClass();
     }
 
     void SetLayerRecursive(GameObject go)

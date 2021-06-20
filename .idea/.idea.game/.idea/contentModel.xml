@@ -830,12 +830,29 @@
             <e p="InstantiateInLobby.cs" t="Include" />
             <e p="JoinRandomGame.cs" t="Include" />
             <e p="Launcher.cs" t="Include" />
+            <e p="PhotonHiding" t="Include">
+              <e p="PhotonHidingCircle.cs" t="Include" />
+              <e p="PhotonHidingPray.cs" t="Include" />
+              <e p="PhotonHidingZone.cs" t="Include" />
+              <e p="PhotonPlayerTalking.cs" t="Include" />
+            </e>
             <e p="PhotonNPC" t="Include">
               <e p="PhotonNPC.cs" t="Include" />
+              <e p="PhotonNPCEvent.cs" t="Include" />
+            </e>
+            <e p="PhotonPowers" t="Include">
+              <e p="PhotonChangeAppearance.cs" t="Include" />
+              <e p="PhotonGun.cs" t="Include" />
+              <e p="PhotonKnifeThrowing.cs" t="Include" />
+              <e p="PhotonPoison.cs" t="Include" />
+              <e p="PhotonSmokeBomb.cs" t="Include" />
+              <e p="PhotonSmokeBombManager.cs" t="Include" />
+              <e p="PhotonSpeedBoost.cs" t="Include" />
             </e>
             <e p="PhotonSkin.cs" t="Include" />
             <e p="Player" t="Include">
               <e p="KillTargetPhoton.cs" t="Include" />
+              <e p="PhotonPlayerEvent.cs" t="Include" />
             </e>
             <e p="PlayerInputFields.cs" t="Include" />
           </e>

@@ -3,8 +3,11 @@ using GameManager;
 using UnityEngine;
 using Photon.Pun;
 using ExitGames.Client.Photon;
+using ExitGames.Client.Photon.StructWrapping;
+using Objects.Powers;
 using Photon.Realtime;
 using RadarSystem;
+using TargetSystem;
 using UnityEngine.UI;
 
 
@@ -54,6 +57,8 @@ public class TimerManager : MonoBehaviourPunCallbacks
     {
         _index = 1;
         ChangeTimer();
+        igs.localPlayer.GetComponent<CastTarget>().enabled = true;
+        igs.localPlayer.GetComponent<PowerTools>().gracePeriod = false;
         if (PhotonNetwork.IsMasterClient)
             targetSystem.TargetAssigner();
     }
@@ -63,6 +68,10 @@ public class TimerManager : MonoBehaviourPunCallbacks
         _index = 0;
         ChangeTimer();
         if (PhotonNetwork.IsMasterClient) EventManager.RaiseEndRoundEvent();
+        igs.localPlayer.GetComponent<CastTarget>().enabled = false;
+        igs.localPlayer.GetComponent<PowerTools>().gracePeriod = true;
+        var targetSelect = igs.localPlayer.GetComponent<SelectedTarget>();
+        targetSelect.UpdateSelectedTarget(targetSelect.GetTarget(),null);
         //TODO: Disable power usage
         //TODO: Disable hunt-related UI elements
         //TODO: Disable ability to kill

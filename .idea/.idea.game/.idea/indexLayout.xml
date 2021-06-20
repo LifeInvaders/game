@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ContentModelUserStore">
     <attachedFolders>
-      <Path>../../../Users/mrhar/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.cinemachine@2.6.3</Path>
       <Path>../../AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.textmeshpro@2.1.4</Path>
+      <Path>../../../Users/mrhar/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.cinemachine@2.6.3</Path>
     </attachedFolders>
     <explicitIncludes>
       <Path>Library/PackageCache/com.unity.cinemachine@2.6.3</Path>

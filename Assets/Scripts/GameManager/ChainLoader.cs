@@ -27,6 +27,7 @@ namespace GameManager
             Debug.Log("Waiting for npc activation...");
             yield return new WaitUntil(CheckNpcSyncTime);
             playerManager.enabled = true;
+            playerManager.StartCoroutine(playerManager.LatePick());
             Debug.Log("Waiting for player spawning...");
             yield return new WaitUntil(CheckAssignViewID);
             if (PhotonNetwork.IsMasterClient)

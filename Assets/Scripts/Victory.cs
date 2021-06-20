@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
+using GameManager;
+using Photon.Pun;
 using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -17,6 +19,8 @@ public class Victory : MonoBehaviour
     [SerializeField] private TextMeshPro[] countDeath;
     // Start is called before the first frame update
 
+    public ScoreManager scoreManager;
+
     [Header("Camera")] [SerializeField] private CinemachineVirtualCamera _camera2;
     private int[] anims = new int[3];
 
@@ -26,8 +30,12 @@ public class Victory : MonoBehaviour
         winners[index].GetComponent<Animator>().SetTrigger((anims[index] + 1).ToString());
     }
 
-    public void InitWinner(int index, SkinnedMeshRenderer skinnedMeshRenderer, string namePlayer, int animId)
+    public void InitWinner(Photon.Realtime.Player player, int index)
     {
+        var namePlayer = player.NickName;
+        var skinnedMeshRenderer = PhotonNetwork.GetPhotonView((int) player.CustomProperties["viewID"]).gameObject
+            .GetComponent<SkinnedMeshRenderer>();
+        var animId = (int) player.CustomProperties["winAnim"];
         var meshRenderer = winners[index].GetComponentInChildren<SkinnedMeshRenderer>();
         meshRenderer.sharedMesh = skinnedMeshRenderer.sharedMesh;
         meshRenderer.sharedMaterial = skinnedMeshRenderer.sharedMaterial;
@@ -54,29 +62,25 @@ public class Victory : MonoBehaviour
         _camera2.Priority = 400;
     }
 
-    public void InitLoser(int index, SkinnedMeshRenderer skinnedMeshRenderer, string namePlayer, int deathCount)
+    public void InitLoser(Photon.Realtime.Player player, int index)
     {
+        var namePlayer = player.NickName;
+        var skinnedMeshRenderer = PhotonNetwork.GetPhotonView((int) player.CustomProperties["viewID"]).gameObject
+            .GetComponent<SkinnedMeshRenderer>();
+        var deathCount = (int) player.CustomProperties["deathCount"];
         var meshRenderer = winners[index].GetComponentInChildren<SkinnedMeshRenderer>();
         meshRenderer.sharedMesh = skinnedMeshRenderer.sharedMesh;
         meshRenderer.sharedMaterial = skinnedMeshRenderer.sharedMaterial;
         textlosers[index].text = namePlayer;
-
         countDeath[index].text = $"{deathCount}\nDeath{(deathCount > 1 ? 's' : ' ')}";
     }
 
     public void Start()
     {
-        // var nightMode = FindObjectOfType<NightMode>();
-        // var isDay = nightMode.IsDay();
-        // foreach (var light in GetComponentsInChildren<Light>())
-        //     light.enabled = !isDay;
-
-        string[] name = new[] {"toto", "paul", "julien", "harrys", "dov"};
         for (int i = 0; i < 3; i++)
-        {
-            var random = new System.Random();
-            InitWinner(i, winners[i].GetComponentInChildren<SkinnedMeshRenderer>(), name[random.Next(name.Length)], i);
-            InitLoser(i, GetComponentInChildren<SkinnedMeshRenderer>(), name[random.Next(name.Length)], i + 1);
-        }
+            InitWinner(scoreManager.scoreBoard[i],i);
+        scoreManager.DeathSortFunc();
+        for (int i = 0; i < 3; i++)
+            InitLoser(scoreManager.scoreBoard[i],i);
     }
 }

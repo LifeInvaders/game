@@ -8,12 +8,12 @@ namespace People.NPC
 {
     public class NPCEvent : HumanEvent
     {
-        private NavMeshAgent _navMeshAgent;
+        private UnityEngine.AI.NavMeshAgent _navMeshAgent;
         private WalkingNPC _walkingNpc;
         private Animator _animator;
         private void Start()
         {
-            _navMeshAgent = GetComponent<NavMeshAgent>();
+            _navMeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
             _animator = GetComponent<Animator>();
             _walkingNpc = GetComponent<WalkingNPC>();
         }
@@ -86,7 +86,6 @@ namespace People.NPC
         }
         IEnumerator WaitSmokeBomb(float endtime)
         {
-            
             yield return new WaitForSeconds(endtime);
             _navMeshAgent.isStopped = false;
             humanTask = HumanTasks.Nothing;

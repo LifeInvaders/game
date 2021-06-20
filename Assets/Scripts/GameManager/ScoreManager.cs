@@ -86,6 +86,17 @@ namespace GameManager
             return -1;
         }
 
+        public void DeathSortFunc() => scoreBoard.Sort(DeathSort);
+
+        private int DeathSort(Photon.Realtime.Player p1, Photon.Realtime.Player p2)
+        {
+            int p1D = (int)p1.CustomProperties["deathCount"];
+            int p2D = (int) p2.CustomProperties["deathCount"];
+            if (p1D == p2D) return 0;
+            if (p1D < p2D) return 1;
+            return -1;
+        }
+
         public int GetRank(Photon.Realtime.Player player = null)
         {
             if (player == null) player = PhotonNetwork.LocalPlayer;

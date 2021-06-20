@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Cinemachine;
 using People.Player;
 using TargetSystem;
@@ -10,7 +11,7 @@ public class Finisher : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] private SkinnedMeshRenderer killer;
     [SerializeField] private SkinnedMeshRenderer dead;
-    [SerializeField] private CinemachineVirtualCamera camera;
+    public CinemachineVirtualCamera camera;
     
     public GameObject player;
     public GameObject victim;
@@ -19,39 +20,25 @@ public class Finisher : MonoBehaviour
 
     [SerializeField] private Material _material;
     public CinemachineBrain cinemachineBrain;
+
+    public bool animFinished;
     public void LeaveCamera()
     {
+        animFinished = true;
         camera.Priority = 1;
-        if (player != null)
-        {
-            player.GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
-            player.GetComponent<PlayerControler>().SetMoveBool(true);
-            player.GetComponent<PlayerControler>().SetRotateBool(true);
-            player.GetComponent<CastTarget>().enabled = true;
-            player.transform.position = killer.transform.parent.position;
-            player.transform.rotation = transform.rotation;
-            killer.enabled = false;
-        }
+        player.GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
+        player.GetComponent<PlayerControler>().SetMoveBool(true);
+        player.GetComponent<PlayerControler>().SetRotateBool(true);
+        player.GetComponent<CastTarget>().enabled = true;
+        player.transform.position = killer.transform.parent.position;
+        player.transform.rotation = transform.rotation;
+        killer.enabled = false;
         StartCoroutine(WaitForDeathAnim());
         foreach (var toolObject in objectsToDisapear)
         {
             Destroy(toolObject,0.2f);
         }
-    }
-
-    public void SetKiller(SkinnedMeshRenderer killerSkin)
-    {
-        killer.sharedMesh = killerSkin.sharedMesh;
-        killer.sharedMaterial = killerSkin.sharedMaterial;
-
-    }
-    public void SetDead(SkinnedMeshRenderer deadSkin)
-    {
-        dead.sharedMesh = deadSkin.sharedMesh;
-        dead.sharedMaterial = deadSkin.sharedMaterial;
-
-    }
-
+    }   
     public void SetHumans(SkinnedMeshRenderer killerSkin, SkinnedMeshRenderer deadSkin)
     {
         // killer = killerSkin;
@@ -101,7 +88,6 @@ public class Finisher : MonoBehaviour
     public void SetCameraBlendDuration(int duration)
     {
         cinemachineBrain.m_DefaultBlend.m_Time = duration;
-
     }
 
     public void SetCameraBlendToCut()
@@ -114,4 +100,6 @@ public class Finisher : MonoBehaviour
         cinemachineBrain.m_DefaultBlend.m_Time = 2;
         cinemachineBrain.m_DefaultBlend.m_Style  = CinemachineBlendDefinition.Style.EaseInOut;
     }
+
+    public void SetDead(SkinnedMeshRenderer m) => throw new NotImplementedException();
 }

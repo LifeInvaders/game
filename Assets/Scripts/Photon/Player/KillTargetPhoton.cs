@@ -34,7 +34,7 @@ namespace TargetSystem
         /// Méthode appelée quand un joueur tue la cible verouillée 
         /// </summary>
         /// <param name="target"></param>
-        void Kill(GameObject target)
+        public void Kill(GameObject target, bool poison = false)
         {
             if (target.CompareTag("Player"))
                 EventManager.RaisePlayerKilled(target);

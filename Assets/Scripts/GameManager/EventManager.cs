@@ -26,10 +26,10 @@ public static class EventManager
     public const byte EndRoundEventCode = 3;
     //You can also implement template RaiseEvent methods for specific Events here.
 
-    public static void RaisePlayerKilled(GameObject playerKilled)
+    public static void RaisePlayerKilled(GameObject playerKilled,bool poison = false)
     {
         Debug.Log("Raising player killed event.");
-        RaiseEventOptions raiseEventOptions = new RaiseEventOptions { Receivers = ReceiverGroup.All };
+        RaiseEventOptions raiseEventOptions = new RaiseEventOptions { Receivers = ReceiverGroup.All }; 
         PhotonNetwork.RaiseEvent(KilledPlayerEventCode,playerKilled.GetPhotonView().ViewID,raiseEventOptions,SendOptions.SendReliable);
     }
 

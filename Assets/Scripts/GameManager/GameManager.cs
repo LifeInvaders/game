@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using ExitGames.Client.Photon;
+using People.NPC;
 using People.Player;
 using Photon.Compression;
 using Photon.Pun;
@@ -65,6 +66,9 @@ namespace GameManager
         }
         public void OnEvent(EventData photonEvent)
         {
+            if (photonEvent.Code != EventManager.EndRoundEventCode &&
+                photonEvent.Code != EventManager.KilledPlayerEventCode &&
+                photonEvent.Code != EventManager.KilledNpcEventCode) return;
             if (photonEvent.Code == EventManager.EndRoundEventCode)
             {
                 Debug.Log("Round ended!");
@@ -83,6 +87,7 @@ namespace GameManager
             }
             var killedPhotonView = PhotonView.Find(Convert.ToInt32(photonEvent.CustomData));
             var killer = PhotonNetwork.CurrentRoom.GetPlayer(photonEvent.Sender);
+            var killerGo = PhotonView.Find(Convert.ToInt32(killer.CustomProperties["viewID"])).gameObject;
             var amKiller = killer.Equals(PhotonNetwork.LocalPlayer);
             if (photonEvent.Code == EventManager.KilledPlayerEventCode)
             {
@@ -91,14 +96,11 @@ namespace GameManager
                 template.GetComponent<KillFeed>().CreateKillFeedEntry(killer.NickName,killed.NickName);
                 Debug.Log("Player died: " + killed.NickName);
                 var killedGo = killedPhotonView.gameObject;
-                killedGo.SetActive(false);
+                StartCoroutine(PlayerFinisher(killerGo,killedGo));
                 if (killed.Equals(PhotonNetwork.LocalPlayer))
                 {
                     igs.deathCount++;
                     SetDeadCustomProp();
-                    SpectatorMode();
-                    StartCoroutine(EnableDeathHud(killer.NickName));
-                    //TODO: Implement spectator system
                 }
                 timerManager.AccTimer();
                 var isTarget = igs.target != null && killed.Equals(igs.target.GetPhotonView().Owner);
@@ -115,9 +117,9 @@ namespace GameManager
             else if (photonEvent.Code == EventManager.KilledNpcEventCode)
             {
                 var killedNPCGo = killedPhotonView.gameObject;
+                NpcFinisher(killerGo,killedNPCGo);
                 Debug.Log("NPC died: " + killedNPCGo);
-                if (PhotonNetwork.IsMasterClient)
-                    PhotonNetwork.Destroy(killedNPCGo);
+                killedNPCGo.GetComponent<PhotonNPCEvent>().Death();
                 npcManager.dead++;
                 var template = Instantiate(killFeedTemplate, killFeed.transform);
                 template.GetComponent<KillFeed>().CreateKillFeedEntry(killer.NickName);
@@ -129,16 +131,22 @@ namespace GameManager
             }
         }
 
-        public void PlayerFinisher(int randFinisher,GameObject killer, GameObject killed)
+        IEnumerator PlayerFinisher(GameObject killer, GameObject killed,int randFinisher = 0)
         {
-            var g = Instantiate(finishers[randFinisher], transform.position, transform.rotation);
+            var g = Instantiate(finishers[randFinisher], killer.transform.position, killer.transform.rotation);
             Finisher finisher = g.GetComponent<Finisher>();
             finisher.SetHumans(killer.GetComponentInChildren<SkinnedMeshRenderer>(),
                 killed.GetComponentInChildren<SkinnedMeshRenderer>());
             g.GetComponent<Finisher>().player = killer;
             g.GetComponent<Finisher>().victim = killed;
+            finisher.camera.enabled = igs.localPlayer.Equals(killer) || igs.localPlayer.Equals(killed);
             killer.GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
+            killed.GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
             killer.GetComponent<PlayerControler>().SetMoveBool(false);
+            yield return new WaitUntil(() => finisher.animFinished);
+            killed.SetActive(false);
+            killed.GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
+            if (killed.Equals(igs.localPlayer)) SpectatorMode();
         }
 
         IEnumerator TextIndicator(string text)
@@ -150,14 +158,15 @@ namespace GameManager
             textIndicator.text = "";
         }
 
-        public void NpcFinisher(int randFinisher, GameObject killer, GameObject killed)
+        public void NpcFinisher(GameObject killer, GameObject killed,int randFinisher = 0)
         {
-            var g = Instantiate(finishers[randFinisher], transform.position, transform.rotation);
+            var g = Instantiate(finishers[randFinisher], killer.transform.position, killer.transform.rotation);
             Finisher finisher = g.GetComponent<Finisher>();
             finisher.SetHumans(killer.GetComponentInChildren<SkinnedMeshRenderer>(),
                 killed.GetComponentInChildren<SkinnedMeshRenderer>());
-            g.GetComponent<Finisher>().player = killer;
-            g.GetComponent<Finisher>().victim = killed;
+            finisher.player = killer;
+            finisher.victim = killed;
+            finisher.camera.enabled = igs.localPlayer.Equals(killer);
             killer.GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
             killer.GetComponent<PlayerControler>().SetMoveBool(false);
         }

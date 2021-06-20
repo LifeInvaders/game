@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Photon.Pun;
 using UnityEngine;
 using Random = System.Random;
 
@@ -9,6 +9,7 @@ namespace Objects.Powers
         protected float TimeBeforeUse;
         protected int _time;
         protected Random _random;
+        public bool gracePeriod;
         
         
         /// <summary>
@@ -31,9 +32,14 @@ namespace Objects.Powers
                 TimeBeforeUse = 0;
         }
 
+        void Awake()
+        {
+            if (!gameObject.GetPhotonView().IsMine) enabled = false;
+        }
+
         public void OnPower()
         {
-            if (enabled &&TimeBeforeUse == 0 && IsValid())
+            if ( !gracePeriod && enabled && TimeBeforeUse == 0 && IsValid())
             {
                 TimeBeforeUse = _time;
                 Action();
