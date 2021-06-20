@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using GameManager;
 using UnityEngine;
 using Photon.Pun;
 using ExitGames.Client.Photon;
 using ExitGames.Client.Photon.StructWrapping;
 using Objects.Powers;
+using People;
 using Photon.Realtime;
 using RadarSystem;
 using TargetSystem;
@@ -70,11 +72,9 @@ public class TimerManager : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsMasterClient) EventManager.RaiseEndRoundEvent();
         igs.localPlayer.GetComponent<CastTarget>().enabled = false;
         igs.localPlayer.GetComponent<PowerTools>().gracePeriod = true;
+        igs.localPlayer.GetComponentInChildren<RandomSkin>().gameObject.SetActive(false);
         var targetSelect = igs.localPlayer.GetComponent<SelectedTarget>();
         targetSelect.UpdateSelectedTarget(targetSelect.GetTarget(),null);
-        //TODO: Disable power usage
-        //TODO: Disable hunt-related UI elements
-        //TODO: Disable ability to kill
     }
 
     void ChangeTimer()

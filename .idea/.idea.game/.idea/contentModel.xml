@@ -38,6 +38,7 @@
             </e>
           </e>
         </e>
+        <e p="leave.cs" t="Include" />
         <e p="LoadingTextAnim.cs" t="Include" />
         <e p="Photon" t="Include">
           <e p="PhotonChat" t="Include">

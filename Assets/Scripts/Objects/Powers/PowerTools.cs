@@ -54,32 +54,9 @@ namespace Objects.Powers
             if (!gameObject.GetPhotonView().IsMine) enabled = false;
         }
 
-        public void OnPower()
-        private IEnumerator WaitButtonPressed()
-        {
-            if ( !gracePeriod && enabled && TimeBeforeUse == 0 && IsValid())
-            var target = GetComponent<SelectedTarget>().GetTarget();
-            InstanceLoadingSelector = Instantiate(loadingSelector, target.transform.position + Vector3.up * 2.4f,
-                target.transform.rotation, target.transform);
-            var holdUI = InstanceLoadingSelector.GetComponent<HoldUI>();
-            holdUI.player = transform;
-            holdUI.time = TimeToStayOnTheButton;
-            InstanceLoadingSelector.GetComponent<Canvas>().worldCamera = Camera.current;
-            float waitingTime = 0;
-            while (waitingTime < TimeToStayOnTheButton)
-            {
-                waitingTime += Time.deltaTime;
-                yield return new WaitForEndOfFrame();
-            }
-
-            TimeBeforeUse = _time;
-            Action();
-        }
-
         public void OnPower(InputValue inputValue)
         {
-            if (!enabled || TimeBeforeUse != 0 || !IsValid()) return;
-            
+            if (gracePeriod || !enabled || TimeBeforeUse != 0 || !IsValid()) return;
             if (IsShortAction && inputValue.isPressed)
             {
                 TimeBeforeUse = _time;
@@ -97,6 +74,25 @@ namespace Objects.Powers
                     Destroy(InstanceLoadingSelector);
                 }
             }
+        }
+        
+        private IEnumerator WaitButtonPressed()
+        {
+            var target = GetComponent<SelectedTarget>().GetTarget();
+            InstanceLoadingSelector = Instantiate(loadingSelector, target.transform.position + Vector3.up * 2.4f,
+                target.transform.rotation, target.transform);
+            var holdUI = InstanceLoadingSelector.GetComponent<HoldUI>();
+            holdUI.player = transform;
+            holdUI.time = TimeToStayOnTheButton;
+            InstanceLoadingSelector.GetComponent<Canvas>().worldCamera = Camera.current;
+            float waitingTime = 0;
+            while (waitingTime < TimeToStayOnTheButton)
+            {
+                waitingTime += Time.deltaTime;
+                yield return new WaitForEndOfFrame();
+            }
+            TimeBeforeUse = _time;
+            Action();
         }
     }
 }

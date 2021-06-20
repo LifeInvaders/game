@@ -17,6 +17,8 @@ namespace Objects.Powers
         {
             TimeBeforeUse = 0;
             _time = 5;
+            IsShortAction = false;
+            TimeToStayOnTheButton = 3;
             _selectedTarget = GetComponent<SelectedTarget>();
             _killTargetPhoton = GetComponent<KillTargetPhoton>();
         }
@@ -34,8 +36,9 @@ namespace Objects.Powers
 
         IEnumerator WaitForKill()
         {
+            GameObject target = _selectedTarget.GetTarget();
             yield return new WaitForSeconds(killTime);
-            _killTargetPhoton.Kill(_selectedTarget.GetTarget(),true);
+            _killTargetPhoton.Kill(target,true);
         }
     }
 }

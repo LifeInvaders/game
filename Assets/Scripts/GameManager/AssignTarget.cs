@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using People;
 using Photon.Pun;
 using RadarSystem;
 using TMPro;
@@ -16,17 +17,22 @@ public class AssignTarget : MonoBehaviourPunCallbacks
     private Random _random = new Random();
     private Radar _radar;
     [SerializeField] private Text targetName;
+    private RandomSkin uiSkin; 
     
 
 
     [PunRPC]
-    private void ChangeTarget(Photon.Realtime.Player target)    
+    private void ChangeTarget(Photon.Realtime.Player target)
     {
+        if (uiSkin == null) uiSkin = igs.localPlayer.GetComponentInChildren<RandomSkin>();
         igs.target = PhotonView.Find((int) target.CustomProperties["viewID"]).gameObject;
         if (_radar == null) _radar = igs.localPlayer.GetComponentInChildren<Radar>();
         _radar.gameObject.SetActive(true);
         _radar.SetTarget(igs.target.transform);
         StartCoroutine(SetTargetText(target.NickName));
+        var targetSkin = igs.target.GetComponent<PhotonSkin>().GetSkinNpc();
+        uiSkin.SetSkinNPC(targetSkin.mesh,targetSkin.material);
+        uiSkin.gameObject.SetActive(true);
     }
 
     IEnumerator SetTargetText(string name)
