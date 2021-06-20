@@ -15,7 +15,9 @@ namespace Objects.Powers
     {
         [SerializeField] private GameObject smoke;
         
-        public void Start()
+ 
+
+        protected override void SetValues()
         {
             _time = 45;
             TimeBeforeUse = 3;
