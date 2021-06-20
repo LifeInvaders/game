@@ -1,44 +1,93 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using People;
+using People.Player;
 using Photon.Pun;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 namespace TargetSystem
 {
     public class CastTarget : MonoBehaviour
     {
-        public RaycastHit raycastHit;
+        private RaycastHit _raycastHit;
         [SerializeField] private Camera _camera;
 
-        private Outline _outlinecam;
-        private GameObject _target;
+        private Outline _outlineCam;
+        public GameObject _target;
 
-        private bool _isOutlinecamNotNull;
         private SelectedTarget _selectedTarget;
 
-        private bool _aiming;
+        public bool _aiming;
         private bool _selected;
+
+        public bool _isTargetNull;
+
+        public Volume vignette;
+        [SerializeField] private Camera[] _cameras;
+
+        private PlayerControler _playerControler;
+        private PlayerEvent _playerEvent;
 
         /// <summary>
         /// Set Aiming bool
         /// </summary>
         /// <param name="value"></param>
-        public void SetAiming(bool value)
+        public void SetAiming(bool value, bool playFade = false)
         {
             _aiming = value;
+            if (playFade)
+            {
+                if (value)
+                    StartCoroutine(FadeIn());
+                else
+                    StartCoroutine(FadeOut());
+            }
         }
 
         private void Start()
         {
+            _playerEvent = GetComponent<PlayerEvent>();
             if (PhotonNetwork.IsConnected && !gameObject.GetPhotonView().IsMine)
                 enabled = false;
             _selectedTarget = GetComponent<SelectedTarget>();
-
+            _playerControler = GetComponent<PlayerControler>();
             _aiming = false;
             _selected = false;
         }
+
+        IEnumerator FadeIn()
+        {
+            foreach (var cam in _cameras) cam.enabled = true;
+            float time = 0;
+            // _vignette.isGlobal = true;
+            while (time <= 0.5f)
+            {
+                vignette.weight = time * 2;
+                time += Time.deltaTime;
+                yield return new WaitForEndOfFrame();
+            }
+
+            vignette.weight = 1;
+        }
+
+        IEnumerator FadeOut()
+        {
+            float time = 0.5f;
+            while (time >= 0)
+            {
+                vignette.weight = time * 2;
+                time -= Time.deltaTime;
+                yield return new WaitForEndOfFrame();
+            }
+
+            vignette.weight = 0;
+            // _vignette.isGlobal = false;
+            foreach (var cam in _cameras) cam.enabled = false;
+        }
+
 
         /// <summary>
         /// Surligne le joueur et désactive la surbrillance de l'autre joueur s'il a changé
@@ -46,76 +95,70 @@ namespace TargetSystem
         /// <param name="playerOutline"></param>
         private void Outlining(Outline playerOutline)
         {
-            if (_target != null && _target.name != raycastHit.transform.gameObject.name)
-            {
-                // Not the same player
-                _outlinecam.enabled = false;
-                _target = raycastHit.transform.gameObject;
-                _outlinecam = playerOutline;
-                _outlinecam.enabled = true;
-            }
-            else
-            {
-                _outlinecam = playerOutline;
-                _target = raycastHit.transform.gameObject;
-                _outlinecam.enabled = true;
-            }
+            _outlineCam = playerOutline;
+            _target = _raycastHit.transform.gameObject;
+            _outlineCam.enabled = true;
         }
 
         private void RemoveCamTarget()
         {
-            _outlinecam.enabled = false;
-            _outlinecam = null;
-            _target = null;
+            if (!_isTargetNull)
+            {
+                _outlineCam.enabled = false;
+                _outlineCam = null;
+                _target = null;
+            }
         }
 
-        private bool IsCharacter(GameObject gameObject) =>
-            gameObject.CompareTag("NPC") || gameObject.CompareTag("Player");
-
-        private void Update()
+        private void FixedUpdate()  
         {
-            Debug.Log($"aiming : {_aiming} | {_selectedTarget.IsTarget()}");
-            if (!_aiming)
+            _isTargetNull = _target == null;
+            Debug.DrawRay(_camera.transform.position, _camera.transform.forward, Color.blue);
+            if (_aiming )
             {
-                if (_target != null && !_selectedTarget.IsSelectedTarget(_target))
-                    RemoveCamTarget();
-            }
-            else
-            {
-                // bool tata = Physics.Raycast(_camera.transform.position,
-                //     _camera.transform.TransformDirection(Vector3.forward),
-                //     out raycastHit, 30f);
-                // bool test = tata && IsCharacter(raycastHit.transform.gameObject);
-          
+                if (_playerControler.Running())
+                {
+                    SetAiming(false, true);
+                    return;
+                }
                 if (Physics.Raycast(_camera.transform.position,
                     _camera.transform.TransformDirection(Vector3.forward),
-                    out raycastHit, 30f) && IsCharacter(raycastHit.transform.gameObject))
+                    out _raycastHit, 30f,768))  // si on vise un personnage 768
                 {
-                    if (!_selectedTarget.IsTarget())
+                    if (_isTargetNull || (_selectedTarget.IsSelectedTarget(_raycastHit.transform.gameObject) &&
+                                          _raycastHit.transform.gameObject.GetInstanceID() != _target.GetInstanceID()))
                     {
-                        Outlining(raycastHit.transform.Find("Character").GetComponent<Outline>());
+                        RemoveCamTarget();
+                        Outlining(_raycastHit.transform.GetComponentInChildren<Outline>());
                     }
 
                     if (_selected)
                     {
-                        Debug.Log($"select {_target.name}");
-                        _selectedTarget.UpdateSelectedTarget(_target, _outlinecam);
+                        _selectedTarget.UpdateSelectedTarget(_target, _outlineCam);
                         _selected = false;
+                        SetAiming(false, true);
                     }
                 }
-                else if (_target != null && !_selectedTarget.IsSelectedTarget(_target))
+                else if (!_isTargetNull && !_selectedTarget.IsSelectedTarget(_target))
+                {
                     RemoveCamTarget();
+                }
+            }
+            else if (!_isTargetNull && !_selectedTarget.IsSelectedTarget(_target))
+            {
+                RemoveCamTarget();
             }
         }
 
-        public void OnAim(InputValue value)
+        public void OnAiming(InputValue value)
         {
-            _aiming = !_aiming;
+            if (_playerEvent.humanTask == HumanTasks.SpeedRunning)
+                return;
+            SetAiming(!_aiming, true);
+            if (_aiming && _selectedTarget.IsTarget())
+                _selectedTarget.UpdateSelectedTarget(_target, _outlineCam);
         }
 
-        public void OnSelect(InputValue value)
-        {
-            _selected = value.isPressed && _aiming;
-        }
+        public void OnSelect(InputValue value) => _selected = value.isPressed && _aiming && !_isTargetNull;
     }
 }

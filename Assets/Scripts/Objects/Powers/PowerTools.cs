@@ -1,5 +1,10 @@
 ﻿using System;
+using System.Collections;
+using HUD;
+using TargetSystem;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using Random = System.Random;
 
 namespace Objects.Powers
 {
@@ -7,31 +12,106 @@ namespace Objects.Powers
     {
         protected float TimeBeforeUse;
         protected int _time;
+        protected Random _random;
+        private PowerHud _powerHud;
 
-        /*public int GetTime()
+        private void Start()
         {
-            return _time;
+            SetValues();
+            _powerHud = GetComponentInChildren<PowerHud>();
+            Debug.Log("coucou");
+            _powerHud.SetIcon(this);
+            Debug.Log("coucou");
+            if (TimeBeforeUse > 0)
+            {
+                _powerHud.SetTime(TimeBeforeUse);
+                Debug.Log("coucou");
+            }
         }
-    
-        public int GetTimeLeft()
-        {
-            return TimeBeforeUse;
-        }*/
 
+        protected abstract void SetValues();
+
+        /// <summary>
+        /// Check if the player need to press for N seconds the key to use the power
+        /// </summary>
+        /// <returns></returns>
+        protected bool IsShortAction = true;
+
+        protected float TimeToStayOnTheButton = 0;
+        private Coroutine _coroutine;
+        private GameObject _instanceLoadingSelector;
+        [SerializeField] private GameObject loadingSelector;
+
+        /// <summary>
+        /// Use this function if the player needs to validate certain parameters in order to use the Power
+        /// </summary>
+        /// <returns></returns>
+        protected abstract bool IsValid();
+
+        /// <summary>
+        ///  Method called when the power is used
+        /// </summary>
         protected abstract void Action();
 
-        public void Update()
+        public void FixedUpdate()
         {
-            if (Input.GetButtonDown("Action") && TimeBeforeUse == 0)
-            {
-                TimeBeforeUse = _time;
-                Action();
-            }
-            else if (TimeBeforeUse > 0)
+            if (TimeBeforeUse > 0)
             {
                 TimeBeforeUse -= Time.deltaTime;
             }
+            else if (TimeBeforeUse < 0)
+            {
+                TimeBeforeUse = 0;
+                _powerHud.HideTimer();
+            }
+        }
+
+        private IEnumerator WaitButtonPressed()
+        {
+            var target = GetComponent<SelectedTarget>().GetTarget();
+            _instanceLoadingSelector = Instantiate(loadingSelector, target.transform.position + Vector3.up * 2.4f,
+                target.transform.rotation, target.transform);
+            var holdUI = _instanceLoadingSelector.GetComponent<HoldUI>();
+            holdUI.player = transform;
+            holdUI.time = TimeToStayOnTheButton;
+            _instanceLoadingSelector.GetComponent<Canvas>().worldCamera = Camera.current;
+            float waitingTime = 0;
+            while (waitingTime < TimeToStayOnTheButton)
+            {
+                waitingTime += Time.deltaTime;
+                yield return new WaitForEndOfFrame();
+            }
+
+            ActivatePower();
+        }
+
+        public void OnPower(InputValue inputValue)
+        {
+            if (!enabled || TimeBeforeUse != 0 || !IsValid()) return;
+
+            if (IsShortAction && inputValue.isPressed)
+            {
+                ActivatePower();
+            }
+            else
+            {
+                bool coroutineIsNull = _coroutine == null;
+                if (inputValue.isPressed && coroutineIsNull)
+                    _coroutine = StartCoroutine(WaitButtonPressed());
+                else if (!coroutineIsNull && !inputValue.isPressed)
+                {
+                    StopCoroutine(_coroutine);
+                    _coroutine = null;
+                    Destroy(_instanceLoadingSelector);
+                }
+            }
+        }
+
+        private void ActivatePower()
+        {
+            TimeBeforeUse = _time;
+            _powerHud.SetTime(_time);
+            Action();
         }
     }
-    
 }

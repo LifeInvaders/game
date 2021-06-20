@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using TMPro;
+using UnityEngine;
 
 namespace RadarSystem
 {
@@ -9,33 +11,51 @@ namespace RadarSystem
 
         // Update is called once per frame
         // TODO : REMOVE SerializeField for target Transform
-        [SerializeField] private Transform target;
-        [SerializeField] private RectTransform radar;
+        [SerializeField] private Transform _target;
+        [SerializeField]private RectTransform _radar;
         [SerializeField] private SpriteRenderer _spriteRenderer;
+        [SerializeField] private TextMeshPro text;
+        [SerializeField] private Transform origin;
+        
 
-        public void SetTarget(Transform targeTransform)
+        public void SetTarget(Transform targetTransform)
         {
-            target = targeTransform;
+            _target = targetTransform;
         }
         // Update is called once per frame
         private void FixedUpdate()
         {
-            if (target == null)
+            if (_target == null)
             {
                 _spriteRenderer.material.SetFloat("Vector1_A5BC52FF",0);
+                text.text = "";
                 return;
             }
-            float distance = Vector3.Distance(transform.position, target.position);
+            float distance = Vector3.Distance(origin.position, _target.position);
 
-            Quaternion quaternion = Quaternion.LookRotation(transform.position - target.position);
+            Quaternion quaternion = Quaternion.LookRotation(transform.position - _target.position);
             quaternion.z = -quaternion.y;
             quaternion.y = 0;
             quaternion.x = 0;
 
             _spriteRenderer.material.SetFloat("Vector1_A5BC52FF",distance);
-            
-            
-            radar.localRotation = quaternion * Quaternion.Euler(0,0,transform.eulerAngles.y);
+
+            if (distance < 20)
+            {
+                float ydist = origin.position.y - _target.position.y;
+                Debug.Log(ydist);
+                if (ydist <= -3)
+                    text.text = "UP";
+                else if (ydist >= 3)
+                    text.text = "DOWN";
+                else
+                    text.text = "";
+            }
+            else
+                text.text = "";
+
+
+            _radar.localRotation = quaternion * Quaternion.Euler(0,0,transform.eulerAngles.y);
 
         }
     }

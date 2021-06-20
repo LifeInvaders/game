@@ -20,8 +20,8 @@ public class MenuManager : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsConnected)
             SwitchMenu(4);
         else SwitchMenu(0);
-        foreach (Button button in FindObjectsOfType<Button>())
-            RandomRotate(button.gameObject, r.Next(4));
+        // foreach (Button button in FindObjectsOfType<Button>())
+        //     RandomRotate(button.gameObject, r.Next(4));
     }
     
     private void RandomRotate(GameObject button,int rotate)
@@ -54,6 +54,25 @@ public class MenuManager : MonoBehaviourPunCallbacks
     {
         for (int i = 0; i < menus.Count; i++)
             menus[i].SetActive(i==index);
+    }
+
+    public void Play()
+    {
+        Debug.Log(PlayerDatabase.Instance.finishedTutorial);
+        if (!PlayerDatabase.Instance.finishedTutorial)
+            menus[8].SetActive(true);
+
+        else
+        {
+            SwitchMenu(5);
+            GetComponent<ServerManager>().Connect();
+        }
+    }
+
+    public void FinishedTutorial()
+    {
+        PlayerDatabase.Instance.finishedTutorial = true;
+        GetComponent<SaveDatabase>().Save();
     }
 
     public void Quit() => Application.Quit();

@@ -46,7 +46,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Aim",
+                    "name": "Aiming",
                     "type": "Button",
                     "id": "7cc398f3-d250-49b3-9e4f-2b9a84e96c85",
                     "expectedControlType": "Button",
@@ -70,25 +70,17 @@
                     "interactions": ""
                 },
                 {
-                    "name": "BoostDev",
-                    "type": "Button",
-                    "id": "067e7fe4-ec54-4a23-a952-34d2955ba51e",
-                    "expectedControlType": "Button",
+                    "name": "Power",
+                    "type": "Value",
+                    "id": "22dde526-8661-42b4-88a0-b48ac7a94853",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
                 },
                 {
-                    "name": "GravityDev",
+                    "name": "ChangePOV",
                     "type": "Button",
-                    "id": "f49c49af-90df-4ba7-a621-5a9e78138fda",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "Leave",
-                    "type": "Button",
-                    "id": "62f2ce3b-a597-49fb-be80-4a4d2e8f59a9",
+                    "id": "08748a5f-4281-4c66-8675-95ada0e17a0f",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -97,23 +89,23 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "2f3105b5-25e2-414f-9eae-a7982dcc78fb",
-                    "path": "<Keyboard>/alt",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard and Mouse",
-                    "action": "Aim",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "f6ff6d28-85a8-4ca1-95bf-28a5f4ba0098",
                     "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "Manettes",
-                    "action": "Aim",
+                    "action": "Aiming",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6cecf019-8949-452f-b2b0-1c453768c4ba",
+                    "path": "<Mouse>/middleButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard and Mouse",
+                    "action": "Aiming",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -339,56 +331,23 @@
                 },
                 {
                     "name": "",
-                    "id": "1eb8a5cc-43c9-46c0-bd91-6ab952ac057d",
+                    "id": "9efabd9f-fce6-49bc-8d95-499c4b56612d",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard and Mouse",
+                    "action": "Power",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "26085453-90b2-4048-a1cb-50f20a61e352",
                     "path": "<Keyboard>/v",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard and Mouse",
-                    "action": "BoostDev",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "9d70618a-e09d-423d-bf8c-f1c6f055d8a3",
-                    "path": "<Gamepad>/dpad/up",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Manettes",
-                    "action": "BoostDev",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b5584819-fc02-4586-a091-6046fa59870f",
-                    "path": "<Keyboard>/b",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard and Mouse",
-                    "action": "GravityDev",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "7774f64f-cefc-41cc-84e1-b3f377600183",
-                    "path": "<Gamepad>/dpad/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Manettes",
-                    "action": "GravityDev",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "77832b29-120d-4bf4-b563-2295deda947c",
-                    "path": "<Gamepad>/start",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Manettes",
-                    "action": "Leave",
+                    "action": "ChangePOV",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

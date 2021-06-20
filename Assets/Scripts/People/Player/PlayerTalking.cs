@@ -1,19 +1,40 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using People.Player;
+using People.NPC.Hiding;
 using UnityEngine;
 
-public class PlayerTalking : MonoBehaviour
+namespace People.Player
 {
-    private void OnTriggerStay(Collider other)
+    public class PlayerTalking : MonoBehaviour
     {
-        if (other.gameObject.CompareTag("Player"))
+        [SerializeField] private GameObject triggerGameObject;
+        private HidingZone _hidingZone;
+
+        public void Start()
         {
-            Vector2 axis = other.gameObject.GetComponent<PlayerControler>().GetAxis();
-            other.gameObject.GetComponent<Animator>()
-                .SetBool("talking", axis.Equals(Vector2.zero));
+            _hidingZone = triggerGameObject.GetComponent<HidingZone>();
+        }
+
+        private void OnTriggerStay(Collider other)
+        {
+            if (other.gameObject.CompareTag("MyPlayer"))
+            {
+                Vector2 axis = other.GetComponent<PlayerControler>().GetAxis();
+                var animator = other.GetComponent<Animator>();
+                var playerEvent = other.GetComponent<PlayerEvent>();
+                if (axis != Vector2.zero)
+                {
+                    if (playerEvent.humanTask == HumanTasks.Talking)
+                    {
+                        animator.SetTrigger("Default");
+                        playerEvent.humanTask = HumanTasks.Nothing;
+                    }
+                }
+                else if (playerEvent.humanTask == HumanTasks.Nothing)
+                {
+                    animator.SetTrigger(_hidingZone.GetStatus());
+                    playerEvent.humanTask = HumanTasks.Talking;
+                }
+            }
         }
     }
-
 }

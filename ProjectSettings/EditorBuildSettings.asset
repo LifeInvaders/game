@@ -9,21 +9,20 @@ EditorBuildSettings:
     path: Assets/Scenes/StagingRoom.unity
     guid: df9354fc0f84683408e813a3b4548428
   - enabled: 1
-    path: Assets/Scenes/PhotonScene.unity
+    path: Assets/Scenes/MainMenu.unity
     guid: 17f6974d5b87a0e4292cd15b266120f9
-<<<<<<< Updated upstream
   - enabled: 1
     path: Assets/Resources/Lobby.unity
     guid: 0e73f8b14e4b2bf44a02ef4622a6eaa1
   - enabled: 1
-    path: Assets/Scenes/soutenance.unity
-    guid: c01ddd9391a5c9c44bf271ff8ca5dcd2
-  - enabled: 1
-    path: Assets/Scenes/Map.unity
-    guid: 2b9589924ce062940b01e0a13c7bed20
+    path: Assets/Resources/Map.unity
+    guid: cae11f61f3cdc884aa97acefa459efe7
   - enabled: 1
     path: Assets/Scenes/test3.unity
     guid: af457390512305e41add456e22c971df
+  - enabled: 1
+    path: Assets/Scenes/discussion.unity
+    guid: 9a9e18e312bddfa4ba514d04bab329d2
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 7714b2c5061c2174980b3d6662894dc1,
       type: 2}

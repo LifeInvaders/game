@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Photon.Pun;
+using RadarSystem;
 using TMPro;
 using UnityEngine;
 using Random = System.Random;
@@ -10,35 +11,32 @@ using Random = System.Random;
 public class AssignTarget : MonoBehaviourPunCallbacks
 {
     [SerializeField] private InGameStats igs;
-    
-    
-    [PunRPC]
-    private void ChangeTarget(Photon.Realtime.Player target)
-    {
-        foreach (TextMeshPro tmp in FindObjectsOfType<TextMeshPro>())
-            tmp.color = Color.white;
-        foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))  //Test every Player character for correct target
-        {
-            if (player.GetPhotonView().Owner.Equals(target))  //Test if character belongs to target
-            {
-                Debug.Log("Player found!");
-                igs.target = player;  //Set target in InGameStats
-                Debug.Log("Target successfully set!");
-                Debug.Log("Changing name color...");
-                player.GetComponentInChildren<TextMeshPro>().color = Color.red; //For testing
-                //Display a UI message!!!
-                return;
-            }
-        }
-    }
-    
     private Random _random = new Random();
+    private Radar _radar;
 
-    private void TargetAssigner()
+
+    [PunRPC]
+    private void ChangeTarget(Photon.Realtime.Player target)    
+    {
+        igs.target = PhotonView.Find((int) target.CustomProperties["viewID"]).gameObject;
+        if (_radar == null) _radar = igs.localPlayer.GetComponentInChildren<Radar>();
+        _radar.gameObject.SetActive(true);
+        _radar.SetTarget(igs.target.transform);
+    }
+
+    public void KilledTarget()
+    {
+        igs.target = null;
+        _radar.SetTarget(null);
+        _radar.gameObject.SetActive(false);
+    }
+
+    public void TargetAssigner()
     {
         var targetList = new Dictionary<Photon.Realtime.Player, Photon.Realtime.Player>();
-        while (targetList.Count == 0)
+        for (int tries = 0;targetList.Count == 0 && tries < 20;tries++)
         {
+            Debug.Log("TargetAssigner: Attempt number " + tries);
             foreach (var player in PhotonNetwork.PlayerList)
             {
                 //This is a filter for the valid targets
@@ -57,31 +55,13 @@ public class AssignTarget : MonoBehaviourPunCallbacks
                 targetList.Add(player, target); //Add the hunter/target combo to the dictionary
             }
         }
-
         foreach (KeyValuePair<Photon.Realtime.Player, Photon.Realtime.Player> kvp in targetList)
             photonView.RPC("ChangeTarget", kvp.Key, kvp.Value);
-        WriteDictToFile(targetList); //For testing
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.T) && PhotonNetwork.LocalPlayer.NickName.Equals("TestClient"))
             TargetAssigner();
-    }
-    
-    
-
-    private void WriteDictToFile(Dictionary<Photon.Realtime.Player,Photon.Realtime.Player> dict)
-    {
-        string folderPath = Application.persistentDataPath + "/test/assign_target/";
-        string timeStamp = DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss");
-        if (!Directory.Exists(folderPath))
-            Directory.CreateDirectory(folderPath);
-        StreamWriter file = File.CreateText(folderPath + "assign_target" + timeStamp + ".txt");
-        file.WriteLine("Test " + timeStamp);
-        file.WriteLine();
-        foreach (KeyValuePair<Photon.Realtime.Player, Photon.Realtime.Player> kvp in dict)
-            file.WriteLine(kvp.Key.NickName + "  ->  " + kvp.Value.NickName);
-        file.Close();
     }
 }
