@@ -2,6 +2,7 @@
 using UnityEngine;
 using System.IO;
 using UnityEditor;
+
 // ReSharper disable All
 
 namespace Scoreboard
@@ -12,7 +13,7 @@ namespace Scoreboard
         [SerializeField] private Transform highScoreHolderTransform;
         [SerializeField] private GameObject scoreboardEntryObject;
         [SerializeField] private GameObject instanceRoot;
-        
+
         [Header("Test")] [SerializeField] ScoreboardEntryData testEntrydata;
 
         private string Savepath => $"{Application.persistentDataPath}/highers.json";
@@ -24,10 +25,6 @@ namespace Scoreboard
             SaveScores(savedScores);
         }
 
-        
-        
-        
-        
 
         public void AddEntry(ScoreboardEntryData scoreboardEntryData)
         {
@@ -49,47 +46,46 @@ namespace Scoreboard
                 savedScores.highscores.Add(scoreboardEntryData);
             }
 
-            
-            
+
             if (savedScores.highscores.Count > maxScoreboardEntries)
             {
-                savedScores.highscores.RemoveRange(maxScoreboardEntries, savedScores.highscores.Count - maxScoreboardEntries);
+                savedScores.highscores.RemoveRange(maxScoreboardEntries,
+                    savedScores.highscores.Count - maxScoreboardEntries);
             }
+
             SaveScores(savedScores);
-            UpdateUI(savedScores);
-            
+            // UpdateUI(savedScores);
         }
-        
-        
-        
-        [ContextMenu("update ui")] 
+
+
+        // [ContextMenu("update ui")] 
         private void UpdateUI(ScoreboardSaveData savedScores)
         {
             //DeleteChild();
             foreach (Transform child in highScoreHolderTransform)
             {
-                if (PrefabUtility.IsPartOfPrefabInstance(transform))
-                {
-                    PrefabUtility.UnpackPrefabInstance(instanceRoot, PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);
-                    DestroyImmediate(child);
-                }
-                    
+                // if (PrefabUtility.IsPartOfPrefabInstance(transform))
+                // {
+                //     PrefabUtility.UnpackPrefabInstance(instanceRoot, PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);
+                Destroy(child);
+                // }
             }
 
             foreach (var highscore in savedScores.highscores)
             {
-                Instantiate(scoreboardEntryObject, highScoreHolderTransform).GetComponent<ScoreboardEntryUI>().Init(highscore);
+                Instantiate(scoreboardEntryObject, highScoreHolderTransform).GetComponent<ScoreboardEntryUI>()
+                    .Init(highscore);
             }
         }
-        
-        [ContextMenu("Add Test Entry !")]
-        public void AddTestEntry()
-        {
-            DeleteChild();
-            AddEntry(testEntrydata);
-        }
-        
-        
+        //
+        // [ContextMenu("Add Test Entry !")]
+        // public void AddTestEntry()
+        // {
+        //     DeleteChild();
+        //     AddEntry(testEntrydata);
+        // }
+
+
         private ScoreboardSaveData GetSavedScores()
         {
             if (!File.Exists(Savepath))
@@ -115,17 +111,18 @@ namespace Scoreboard
                 stream.Write(json);
             }
         }
+
         [ContextMenu("Delete Child")]
         private void DeleteChild()
         {
             foreach (Transform obj in highScoreHolderTransform)
-                {
-                    Destroy(obj.gameObject);
-                    int debug = highScoreHolderTransform.childCount;  
-                }
+            {
+                Destroy(obj.gameObject);
+                int debug = highScoreHolderTransform.childCount;
+            }
         }
 
-        
+
         /*
         [ContextMenu("ClearData")]
         private void ClearData()
@@ -139,4 +136,3 @@ namespace Scoreboard
         }*/
     }
 }
-
