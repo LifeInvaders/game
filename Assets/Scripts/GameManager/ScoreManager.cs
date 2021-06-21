@@ -59,23 +59,12 @@ namespace GameManager
 
         public override void OnPlayerPropertiesUpdate(Photon.Realtime.Player targetPlayer, Hashtable changedProps)
         {
-            if (!changedProps.ContainsKey(PunPlayerScores.PlayerScoreProp)
-            && !changedProps.ContainsKey("deathCount")) return;
-            if (targetPlayer.IsLocal) UpdateHud();
-            UpdateScoreboard();
+            if (changedProps.ContainsKey(PunPlayerScores.PlayerScoreProp) && targetPlayer.IsLocal)
+                UpdateHud();
         }
+        
 
-        public void UpdateScoreboard()
-        {
-            scoreBoard.Sort(ScoreSort);
-            listPlayers.UpdateList(scoreBoard);
-        }
 
-        public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer)
-        {
-            scoreBoard = PhotonNetwork.PlayerList.ToList();
-            UpdateScoreboard();
-        }
 
         private int ScoreSort(Photon.Realtime.Player p1, Photon.Realtime.Player p2)
         {

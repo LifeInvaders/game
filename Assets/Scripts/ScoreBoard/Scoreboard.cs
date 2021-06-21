@@ -1,12 +1,15 @@
 ﻿using UnityEngine;
 using System.IO;
+using ExitGames.Client.Photon;
+using Photon.Pun;
+using Photon.Pun.UtilityScripts;
 
 
 namespace Scoreboard
 {
-    public class Scoreboard : MonoBehaviour
+    public class Scoreboard : MonoBehaviourPunCallbacks
     {
-        [SerializeField] private int maxScoreboardEntries = 5;
+        [SerializeField] private int maxScoreboardEntries = 8;
         [SerializeField] private Transform highScoreHolderTransform;
         [SerializeField] private GameObject scoreboardEntryObject;
         [SerializeField] private GameObject instanceRoot;
@@ -18,47 +21,29 @@ namespace Scoreboard
         private void Start()
         {
             ScoreboardSaveData savedScores = GetSavedScores();
+            foreach (Photon.Realtime.Player player in PhotonNetwork.PlayerList)
+                AddEntry(new ScoreboardEntryData(player.NickName,0,0,0));
             UpdateUI(savedScores);
             SaveScores(savedScores);
             SortList();
         }
 
-        
-        /*private void Update()
+        public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer)
         {
-            if (PhotonNetwork.IsConnected)
-            {
-                try
-                {
-                    foreach (var player in PhotonNetwork.PlayerList)
-                    {
-                        ScoreboardEntryData NewPlayer = new ScoreboardEntryData(player.NickName, 0, 0, 0);
-                        AddEntry(NewPlayer);
-                    }
-
-                    
-                        foreach (var entry in GetSavedScores().highscores)
-                        {
-                            foreach (var VARIABLE in COLLECTION)
-                            {
-                                
-                            }
-                        }
-                    
-                    
-                    
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e);
-                    throw;
-                }
-                
-                
-            }
+            RemoveEntry(otherPlayer.NickName);
         }
-        */
         
+        public override void OnPlayerPropertiesUpdate(Photon.Realtime.Player targetPlayer, Hashtable changedProps)
+        {
+            if (!changedProps.ContainsKey(PunPlayerScores.PlayerScoreProp)
+                && !changedProps.ContainsKey("deathCount")) return;
+            var nickName = targetPlayer.NickName;
+            var score = targetPlayer.GetScore();
+            var death = (int)targetPlayer.CustomProperties["deathCount"];
+            var ratio = (int)targetPlayer.CustomProperties["killCount"]/death;
+            AddEntry(new ScoreboardEntryData(nickName,score,death,ratio));
+        }
+
 
         public void AddEntry(ScoreboardEntryData EntryToAdd)
         {

@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000015258789, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.50000006, y: 0.5}
 --- !u!222 &1681241162124923157
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1de8956eed3175e4bb339937ffa740c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxScoreboardEntries: 4
+  maxScoreboardEntries: 8
   highScoreHolderTransform: {fileID: 8472586190491025643}
   scoreboardEntryObject: {fileID: 5633975175235059342, guid: c17615bc836c0184eb27d8a8acf28d2f,
     type: 3}
@@ -369,7 +369,7 @@ Transform:
   m_LocalPosition: {x: 123.83411, y: 51.810303, z: -31.920637}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 814531861352908479}
+  - {fileID: 5087444037355964849}
   - {fileID: 4250501503597950422}
   m_Father: {fileID: 1681241162375674307}
   m_RootOrder: 1
@@ -626,9 +626,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d95bd262bb91c3439bd792992a0872e, type: 3}
---- !u!4 &814531861352908479 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5493706264892143626, guid: 8d95bd262bb91c3439bd792992a0872e,
+--- !u!224 &5087444037355964849 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 138036752662034180, guid: 8d95bd262bb91c3439bd792992a0872e,
     type: 3}
   m_PrefabInstance: {fileID: 5147716440712183477}
   m_PrefabAsset: {fileID: 0}
