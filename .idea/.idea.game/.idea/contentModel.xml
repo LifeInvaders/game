@@ -16,7 +16,6 @@
         <e p="cinematiqueController.cs" t="Include" />
         <e p="Controler.cs" t="Include" />
         <e p="csc.rsp" t="Include" />
-        <e p="HoldUI.cs" t="Include" />
         <e p="Joystick Pack" t="Include">
           <e p="Examples" t="Include">
             <e p="JoystickPlayerExample.cs" t="Include" />
@@ -760,6 +759,10 @@
             <e p="TestManager.cs" t="Include" />
             <e p="TimerManager.cs" t="Include" />
           </e>
+          <e p="HUD" t="Include">
+            <e p="HoldUI.cs" t="Include" />
+            <e p="PowerHUD.cs" t="Include" />
+          </e>
           <e p="Lobby" t="Include">
             <e p="LobbyManager.cs" t="Include" />
             <e p="LobbySkinSelect.cs" t="Include" />
@@ -768,8 +771,10 @@
           </e>
           <e p="MainMenu" t="Include">
             <e p="CharacterCreation.cs" t="Include" />
+            <e p="CreatePrivateRoom.cs" t="Include" />
             <e p="EmoteMenu.cs" t="Include" />
             <e p="ExperienceBar.cs" t="Include" />
+            <e p="JoinPrivateRoom.cs" t="Include" />
             <e p="MenuManager.cs" t="Include" />
             <e p="Options.cs" t="Include" />
             <e p="RebindButton.cs" t="Include" />
@@ -842,9 +847,6 @@
           <e p="Player" t="Include">
             <e p="PlayerDatabase.cs" t="Include" />
           </e>
-          <e p="PrivateRoom" t="Include">
-            <e p="PrivateRoomHandler.cs" t="Include" />
-          </e>
           <e p="RadarSystem" t="Include">
             <e p="Radar.cs" t="Include" />
           </e>
@@ -869,6 +871,7 @@
           </e>
           <e p="TestScript.cs" t="Include" />
           <e p="UI Scripts" t="Include">
+            <e p="PauseMenu.cs" t="Include" />
             <e p="SceneLoader.cs" t="Include" />
           </e>
           <e p="Utils" t="Include">
