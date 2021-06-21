@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ContentModelUserStore">
+  <component name="UserContentModel">
     <attachedFolders />
     <explicitIncludes>
       <Path>Library/PackageCache/com.unity.cinemachine@2.6.3</Path>
@@ -27,6 +27,7 @@
       <Path>.github</Path>
       <Path>.idea</Path>
       <Path>Library</Path>
+      <Path>Recordings</Path>
       <Path>Temp</Path>
       <Path>UIElementsSchema</Path>
       <Path>obj</Path>
