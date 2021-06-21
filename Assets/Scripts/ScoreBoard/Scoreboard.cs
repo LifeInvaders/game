@@ -1,8 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using System.IO;
-using UnityEditor;
-// ReSharper disable All
+
 
 namespace Scoreboard
 {
@@ -22,60 +20,154 @@ namespace Scoreboard
             ScoreboardSaveData savedScores = GetSavedScores();
             UpdateUI(savedScores);
             SaveScores(savedScores);
+            SortList();
         }
 
         
-        
-        
+        /*private void Update()
+        {
+            if (PhotonNetwork.IsConnected)
+            {
+                try
+                {
+                    foreach (var player in PhotonNetwork.PlayerList)
+                    {
+                        ScoreboardEntryData NewPlayer = new ScoreboardEntryData(player.NickName, 0, 0, 0);
+                        AddEntry(NewPlayer);
+                    }
+
+                    
+                        foreach (var entry in GetSavedScores().highscores)
+                        {
+                            foreach (var VARIABLE in COLLECTION)
+                            {
+                                
+                            }
+                        }
+                    
+                    
+                    
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    throw;
+                }
+                
+                
+            }
+        }
+        */
         
 
-        public void AddEntry(ScoreboardEntryData scoreboardEntryData)
+        public void AddEntry(ScoreboardEntryData EntryToAdd)
         {
             ScoreboardSaveData savedScores = GetSavedScores();
-
+            ScoreboardEntryData FoundEntry = null;
+            bool exists = false;
             bool scoreAdded = false;
-            for (int i = 0; i < savedScores.highscores.Count; i++)
+            foreach (var entry in savedScores.highscores)
             {
-                if (scoreboardEntryData.entryScore > savedScores.highscores[i].entryScore)
+                if (entry.entryName == EntryToAdd.entryName)
                 {
-                    savedScores.highscores.Insert(i, scoreboardEntryData);
-                    scoreAdded = true;
+                    entry.entryScore = EntryToAdd.entryScore;
+                    entry.entryDead = EntryToAdd.entryDead;
+                    entry.entryRatio = EntryToAdd.entryRatio;
+                    FoundEntry = entry;
+                    exists = true;
                     break;
                 }
             }
-
-            if (!scoreAdded && savedScores.highscores.Count < maxScoreboardEntries)
+            if (!exists)
             {
-                savedScores.highscores.Add(scoreboardEntryData);
+                for (int i = 0; i < savedScores.highscores.Count; i++)
+                {
+                    if (EntryToAdd.entryScore > savedScores.highscores[i].entryScore)
+                    {
+                        savedScores.highscores.Insert(i, EntryToAdd);
+                        scoreAdded = true;
+                        break;
+                    }
+                }
             }
-
-            
-            
+            else
+            {
+                for (int i = 0; i < savedScores.highscores.Count; i++)
+                {
+                    if (FoundEntry.entryScore > savedScores.highscores[i].entryScore && FoundEntry.entryName != savedScores.highscores[i].entryName)
+                    {
+                        ScoreboardEntryData temp = FoundEntry;
+                        savedScores.highscores.Insert(i, temp);
+                        savedScores.highscores.Remove(FoundEntry);
+                        
+                       
+                        break;
+                    }
+                }
+            }
+            if (!scoreAdded && !exists && savedScores.highscores.Count < maxScoreboardEntries)
+            {
+                savedScores.highscores.Add(EntryToAdd);
+            }
             if (savedScores.highscores.Count > maxScoreboardEntries)
             {
                 savedScores.highscores.RemoveRange(maxScoreboardEntries, savedScores.highscores.Count - maxScoreboardEntries);
             }
+            SortList();
             SaveScores(savedScores);
             UpdateUI(savedScores);
-            
+        }
+
+
+        public void RemoveEntry(string name)
+        {
+            ScoreboardSaveData saveData = GetSavedScores();
+            foreach (var VARIABLE in saveData.highscores)
+            {
+                if (VARIABLE.entryName == name)
+                {
+                    saveData.highscores.Remove(VARIABLE);
+                    break;
+                }
+            }
+        }
+        
+        public void RemoveEntry(ScoreboardEntryData EntryToRemove)
+        {
+            ScoreboardSaveData saveData = GetSavedScores();
+            foreach (var VARIABLE in saveData.highscores)
+            {
+                if (VARIABLE.entryName == EntryToRemove.entryName)
+                {
+                    saveData.highscores.Remove(VARIABLE);
+                    break;
+                }
+            }
         }
         
         
+
+        public static int Compare(ScoreboardEntryData data1, ScoreboardEntryData data2)
+        {
+            int res = data1.entryScore.CompareTo(data2.entryScore);
+            return res;
+        }
+        
+        void SortList()
+        {
+            ScoreboardSaveData savedScores = GetSavedScores();
+            savedScores.highscores.Sort(Compare);
+            savedScores.highscores.Reverse();
+
+        }
         
         [ContextMenu("update ui")] 
         private void UpdateUI(ScoreboardSaveData savedScores)
         {
-            //DeleteChild();
             foreach (Transform child in highScoreHolderTransform)
             {
-                //if (PrefabUtility.IsPartOfPrefabInstance(transform))
-                {
-                  //  PrefabUtility.UnpackPrefabInstance(instanceRoot, PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);
-                    DestroyImmediate(child);
-                }
-                    
+               Destroy(child);
             }
-
             foreach (var highscore in savedScores.highscores)
             {
                 Instantiate(scoreboardEntryObject, highScoreHolderTransform).GetComponent<ScoreboardEntryUI>().Init(highscore);
@@ -88,8 +180,7 @@ namespace Scoreboard
             DeleteChild();
             AddEntry(testEntrydata);
         }
-        
-        
+
         private ScoreboardSaveData GetSavedScores()
         {
             if (!File.Exists(Savepath))
@@ -105,8 +196,7 @@ namespace Scoreboard
                 return s;
             }
         }
-
-        [ContextMenu("Save Scores")]
+        
         private void SaveScores(ScoreboardSaveData scoreboardSaveData)
         {
             using (StreamWriter stream = new StreamWriter(Savepath))
@@ -116,6 +206,7 @@ namespace Scoreboard
             }
         }
         [ContextMenu("Delete Child")]
+        
         private void DeleteChild()
         {
             foreach (Transform obj in highScoreHolderTransform)
@@ -126,17 +217,10 @@ namespace Scoreboard
         }
 
         
-        /*
         [ContextMenu("ClearData")]
         private void ClearData()
         {
-            ScoreboardEntryData s = new ScoreboardEntryData("Cleared", 0, 0, 0);
-            ScoreboardSaveData s2 = new ScoreboardSaveData();
-            s2.highscores.Add(s);
-            string json = JsonUtility.ToJson(s, true);
-            StreamWriter streamWriter = new StreamWriter(Savepath);
-            streamWriter.Write(json);
-        }*/
+            File.WriteAllText(Savepath,"{\"highscores\": []}");
+        }
     }
 }
-

@@ -32,7 +32,6 @@ public class PrivateRoomHandler : MonoBehaviour
         DisclaimerBlock.gameObject.SetActive(false);
         ErrorLog.gameObject.SetActive(false);
         LogBlock.SetActive(false);
-
     }
 
 
@@ -53,19 +52,19 @@ public class PrivateRoomHandler : MonoBehaviour
         if (codeField.text == "")
         {
             ShowError("Code Field can't be Empty");
-            goto END;
-            
+            return;
+
         }
         if (codeField.text == null)
         {
             ShowError("Code Field can't be null");
-            goto END;
+            return;
         }
 
         if (codeField.text.Contains(" "))
         {
             ShowError("No Space Allowed In Code");
-            goto END;
+            return;
         }
         try
         {
@@ -77,7 +76,7 @@ public class PrivateRoomHandler : MonoBehaviour
         catch (Exception e)
         {
             Debug.Log(e);
-        }END: ;
+        }
         
     }
 
@@ -92,18 +91,18 @@ public class PrivateRoomHandler : MonoBehaviour
         if (nameField.text == "" && !IsPrivate.isOn)
         {
              ShowError("Name Field can't be Empty");
-             goto END;
+             return;
         }
         if (nameField.text == null && !IsPrivate.isOn)
         {
             ShowError("Name Field can't be null");
-            goto END;
+            return;
         }
 
         if (nameField.text.Contains(" ") && !IsPrivate.isOn)
         {
             ShowError("No Space Allowed In Names");
-            goto END;
+            return;
         }
         
         try
@@ -132,7 +131,6 @@ public class PrivateRoomHandler : MonoBehaviour
             Console.WriteLine(e);
             throw;
         }
-        END: ;
     }
     
 
