@@ -24,7 +24,10 @@ namespace Objects.Powers
             SetValues();
             _powerHud = GetComponentInChildren<PowerHud>();
             _powerHud.SetIcon(this);
-            if (TimeBeforeUse > 0) _powerHud.SetTime(TimeBeforeUse);
+            if (TimeBeforeUse > 0)
+            {
+                _powerHud.SetTime(TimeBeforeUse);
+            }
         }
 
         protected abstract void SetValues();
