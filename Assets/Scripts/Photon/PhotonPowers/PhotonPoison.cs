@@ -13,14 +13,15 @@ namespace Objects.Powers
         private KillTargetPhoton _killTargetPhoton;
         [SerializeField] private int killTime = 5;
 
-        private void Start()
+        
+        protected override void SetValues()
         {
-            TimeBeforeUse = 0;
-            _time = 5;
-            IsShortAction = false;
-            TimeToStayOnTheButton = 3;
+            TimeBeforeUse = 15;
+            _time = 120;
             _selectedTarget = GetComponent<SelectedTarget>();
             _killTargetPhoton = GetComponent<KillTargetPhoton>();
+            IsShortAction = false;
+            TimeToStayOnTheButton = 3;
         }
 
         protected override bool IsValid()

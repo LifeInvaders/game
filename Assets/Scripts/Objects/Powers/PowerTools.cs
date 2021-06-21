@@ -14,7 +14,7 @@ namespace Objects.Powers
         protected float TimeBeforeUse;
         protected int _time;
         protected Random _random;
-        public bool gracePeriod;
+        public bool gracePeriod = true;
         
         
         private PowerHud _powerHud;
@@ -23,14 +23,8 @@ namespace Objects.Powers
         {
             SetValues();
             _powerHud = GetComponentInChildren<PowerHud>();
-            Debug.Log("coucou");
             _powerHud.SetIcon(this);
-            Debug.Log("coucou");
-            if (TimeBeforeUse > 0)
-            {
-                _powerHud.SetTime(TimeBeforeUse);
-                Debug.Log("coucou");
-            }
+            if (TimeBeforeUse > 0) _powerHud.SetTime(TimeBeforeUse);
         }
 
         protected abstract void SetValues();
@@ -78,10 +72,7 @@ namespace Objects.Powers
         public void OnPower(InputValue inputValue)
         {
             if (gracePeriod || !enabled || TimeBeforeUse != 0 || !IsValid()) return;
-            if (IsShortAction && inputValue.isPressed)
-            {
-                ActivatePower();
-            }
+            if (IsShortAction && inputValue.isPressed) ActivatePower();
             else
             {
                 bool coroutineIsNull = _coroutine == null;
@@ -99,7 +90,7 @@ namespace Objects.Powers
         private IEnumerator WaitButtonPressed()
         {
             var target = GetComponent<SelectedTarget>().GetTarget();
-            InstanceLoadingSelector = Instantiate(loadingSelector, target.transform.position + Vector3.up * 2.4f,
+            var InstanceLoadingSelector = Instantiate(loadingSelector, target.transform.position + Vector3.up * 2.4f,
                 target.transform.rotation, target.transform);
             var holdUI = InstanceLoadingSelector.GetComponent<HoldUI>();
             holdUI.player = transform;
@@ -112,7 +103,7 @@ namespace Objects.Powers
                 yield return new WaitForEndOfFrame();
             }
             TimeBeforeUse = _time;
-            Action();
+            ActivatePower();
         }
 
         private void ActivatePower()

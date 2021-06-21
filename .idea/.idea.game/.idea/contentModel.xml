@@ -14,7 +14,6 @@
         <e p="cinematiqueController.cs" t="Include" />
         <e p="Controler.cs" t="Include" />
         <e p="csc.rsp" t="Include" />
-        <e p="HoldUI.cs" t="Include" />
         <e p="Joystick Pack" t="Include">
           <e p="Examples" t="Include">
             <e p="JoystickPlayerExample.cs" t="Include" />
@@ -765,6 +764,7 @@
             <e p="ChainLoader.cs" t="Include" />
             <e p="EndGameManager.cs" t="Include" />
             <e p="EventManager.cs" t="Include" />
+            <e p="ExpBar.cs" t="Include" />
             <e p="GameManager.cs" t="Include" />
             <e p="InGameStats.cs" t="Include" />
             <e p="KillFeed.cs" t="Include" />
@@ -776,6 +776,10 @@
             <e p="TestManager.cs" t="Include" />
             <e p="TimerManager.cs" t="Include" />
           </e>
+          <e p="HUD" t="Include">
+            <e p="HoldUI.cs" t="Include" />
+            <e p="PowerHud.cs" t="Include" />
+          </e>
           <e p="Lobby" t="Include">
             <e p="LobbyManager.cs" t="Include" />
             <e p="LobbySkinSelect.cs" t="Include" />
@@ -786,6 +790,7 @@
             <e p="CharacterCreation.cs" t="Include" />
             <e p="EmoteMenu.cs" t="Include" />
             <e p="ExperienceBar.cs" t="Include" />
+            <e p="LevelUnlocks.cs" t="Include" />
             <e p="MenuManager.cs" t="Include" />
             <e p="Options.cs" t="Include" />
             <e p="RebindButton.cs" t="Include" />

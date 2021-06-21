@@ -28,9 +28,9 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     private Random _rand;
     [SerializeField] private Volume volume;
     [SerializeField] private GameObject classMenu;
-    [SerializeField] private string classChoice = "";
-    private bool latePick;
-    [SerializeField] public Button[] classChoiceButtons; 
+    private int classChoice = -1;
+    [SerializeField] private Text classText;
+    private string[] classes = {"Athlete", "Disguise Master", "Alchemist", "Blade Master"};
 
 
     // Start is called before the first frame update
@@ -61,10 +61,10 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     {
         Transform spawnPoint = spawnPoints[index];
         loadCamera.gameObject.SetActive(false);
-        yield return new WaitUntil(() => classChoice.Length != 0);
+        yield return new WaitUntil(() => classChoice != -1);
         classMenu.SetActive(false);
         hud.SetActive(true);
-        var player = PhotonNetwork.Instantiate(classChoice, spawnPoint.position, spawnPoint.rotation);
+        var player = PhotonNetwork.Instantiate(classes[classChoice], spawnPoint.position, spawnPoint.rotation);
         SetLayerRecursive(player);
         igs.localPlayer = player;
         player.GetComponent<CastTarget>().vignette = volume;
@@ -72,14 +72,18 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         PhotonNetwork.LocalPlayer.SetCustomProperties(customProps);
     }
     
-    public void SetClass(string classChoice) => this.classChoice = classChoice;
+    public void SetClass(int classChoice)
+    {
+        classText.text = "Class: " + classes[classChoice];
+        this.classChoice = classChoice;
+    }
 
-    public void RandomPickClass() => classChoiceButtons[_rand.Next(classChoiceButtons.Length)].onClick.Invoke();
+    public void RandomPickClass() => SetClass(UnityEngine.Random.Range(0,4));
 
     public IEnumerator LatePick()
     {
         yield return new WaitForSeconds(10);
-        if (classChoice.Length == 0) RandomPickClass();
+        if (classChoice == -1) RandomPickClass();
     }
 
     void SetLayerRecursive(GameObject go)

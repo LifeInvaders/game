@@ -11,7 +11,6 @@ namespace RadarSystem
         
 
         // Update is called once per frame
-        // TODO : REMOVE SerializeField for target Transform
         [SerializeField] private Transform _target;
         [SerializeField]private RectTransform _radar;
         [SerializeField] private SpriteRenderer _spriteRenderer;
@@ -22,12 +21,7 @@ namespace RadarSystem
         public void Start()
         {
             if (PhotonNetwork.IsConnected && !gameObject.GetComponentInParent<PhotonView>().IsMine)
-            {
                 gameObject.SetActive(false);
-                return;
-            }
-            _radar = GetComponent<RectTransform>();
-            _spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
         public void SetTarget(Transform targetTransform)

@@ -53,7 +53,9 @@ public class LobbyTimer : MonoBehaviourPunCallbacks
     {
         Debug.Log("Timer ended. Loading map...");
         PhotonNetwork.CurrentRoom.IsOpen = false;
-        PhotonNetwork.LoadLevel("Map");
+        PhotonNetwork.LoadLevel(new System.Random().Next(9) >= PhotonNetwork.CurrentRoom.PlayerCount
+            ? "Map"
+            : "Map2");
     }
 
     public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer)
@@ -93,7 +95,7 @@ public class LobbyTimer : MonoBehaviourPunCallbacks
     {
         notEnoughPlayers.gameObject.SetActive(!_startTimer);
         timerText.gameObject.SetActive(_startTimer);
-        playerCount.text = PhotonNetwork.CurrentRoom.PlayerCount.ToString() + '/' + PhotonNetwork.CurrentRoom.MaxPlayers.ToString();
+        playerCount.text = PhotonNetwork.CurrentRoom.PlayerCount.ToString() + '/' + PhotonNetwork.CurrentRoom.MaxPlayers;
     }
 
     private void UpdateTimer()

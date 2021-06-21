@@ -61,8 +61,7 @@ public class TimerManager : MonoBehaviourPunCallbacks
         ChangeTimer();
         igs.localPlayer.GetComponent<CastTarget>().enabled = true;
         igs.localPlayer.GetComponent<PowerTools>().gracePeriod = false;
-        if (PhotonNetwork.IsMasterClient)
-            targetSystem.TargetAssigner();
+        if (PhotonNetwork.IsMasterClient) targetSystem.TargetAssigner();
     }
 
     void EndRound()
@@ -72,9 +71,9 @@ public class TimerManager : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsMasterClient) EventManager.RaiseEndRoundEvent();
         igs.localPlayer.GetComponent<CastTarget>().enabled = false;
         igs.localPlayer.GetComponent<PowerTools>().gracePeriod = true;
-        igs.localPlayer.GetComponentInChildren<RandomSkin>().gameObject.SetActive(false);
+        igs.localPlayer.GetComponentInChildren<RandomSkin>(true).gameObject.SetActive(false);
         var targetSelect = igs.localPlayer.GetComponent<SelectedTarget>();
-        targetSelect.UpdateSelectedTarget(targetSelect.GetTarget(),null);
+        targetSelect.UpdateSelectedTarget(null,null);
     }
 
     void ChangeTimer()

@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 104fb4832b5c4ebe846579d9f9feb97a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gracePeriod: 0
+  loadingSelector: {fileID: 0}
   killTime: 5
 --- !u!1001 &6773269001375457254
 PrefabInstance:

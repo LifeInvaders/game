@@ -20,7 +20,7 @@ public class NightMode : MonoBehaviour
     {
         var rand = new System.Random();
         FindLights();
-        if (PhotonNetwork.IsMasterClient && rand.NextDouble() < 0.01) gameObject.GetPhotonView().RPC("ChangeMode",RpcTarget.All);
+        if (PhotonNetwork.IsMasterClient && rand.NextDouble() < 0.2) gameObject.GetPhotonView().RPC("ChangeMode",RpcTarget.All);
     }
 
     public void FindLights() =>  _lights = FindObjectsOfType<Light>().Where(l => l.type != LightType.Directional).ToArray();

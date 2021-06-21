@@ -17,7 +17,7 @@ namespace Objects.Powers
 
         private Transform Right_Hand;
 
-        private void Start()
+        protected override void SetValues()
         {
             Right_Hand = gameObject.transform
                 .Find("Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_L/Shoulder_L/Elbow_L/Hand_L").transform;

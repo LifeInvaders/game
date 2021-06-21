@@ -98,7 +98,7 @@ namespace People.NPC.Hiding
             if (!other.gameObject.CompareTag("NPC")) return;
             Debug.Log("NPC entered zone. Checking if npc is in this zone...");
             var npc = other.GetComponent<PhotonNPC>();
-            if (!npc.GetEventZone().Equals(gameObject) || npc.inZone) return;
+            if (!npc.GetEventZone() == gameObject || npc.inZone) return;
             npc.inZone = true;
             Debug.Log("Changing animation and rotation");
             NPCs.Add(other.gameObject);

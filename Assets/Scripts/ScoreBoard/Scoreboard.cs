@@ -68,9 +68,9 @@ namespace Scoreboard
             //DeleteChild();
             foreach (Transform child in highScoreHolderTransform)
             {
-                if (PrefabUtility.IsPartOfPrefabInstance(transform))
+                //if (PrefabUtility.IsPartOfPrefabInstance(transform))
                 {
-                    PrefabUtility.UnpackPrefabInstance(instanceRoot, PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);
+                  //  PrefabUtility.UnpackPrefabInstance(instanceRoot, PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);
                     DestroyImmediate(child);
                 }
                     

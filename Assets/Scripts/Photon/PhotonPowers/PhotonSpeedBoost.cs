@@ -20,12 +20,14 @@ namespace Objects.Powers
 
         [SerializeField] private GameObject smokeEffect;
 
-        private void Start()
+
+        protected override void SetValues()
         {
             _bodyMembersSmoke = new GameObject[2];
             _members =  new Transform[]
                 {gameObject.transform.Find("Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_L/Shoulder_L/Elbow_L/Hand_L").transform, gameObject.transform.Find("Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_R/Shoulder_R/Elbow_R/Hand_R").transform};
             
+
             _animator = GetComponent<Animator>();
             _time = 45;
             TimeBeforeUse = 10;
@@ -73,7 +75,7 @@ namespace Objects.Powers
             float time = 0.5f;
             for (int i = 0; i < 2; i++)
             {
-                gameObject.GetPhotonView().RPC(nameof(StopParticles),RpcTarget.All,_bodyMembersSmoke[i].GetPhotonView());
+                gameObject.GetPhotonView().RPC(nameof(StopParticles),RpcTarget.All,_bodyMembersSmoke[i].GetPhotonView().ViewID);
                 yield return new WaitForSeconds(5);
                 PhotonNetwork.Destroy(_bodyMembersSmoke[i]);
             }

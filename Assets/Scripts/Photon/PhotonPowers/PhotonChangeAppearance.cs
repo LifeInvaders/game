@@ -15,7 +15,7 @@ namespace Objects.Powers
 
         private int _resetTime;
 
-        public void Start()
+        protected override void SetValues()
         {
             _time = 60;
             TimeBeforeUse = 3;

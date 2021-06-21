@@ -1,5 +1,6 @@
 using System.Collections;
 using People.Player;
+using Photon.Compression;
 using Photon.Pun;
 using Photon.Pun.UtilityScripts;
 using Photon.Realtime;
@@ -63,11 +64,12 @@ namespace GameManager
 
         void EndSceneTransition()
         {
-            Mathf.MoveTowards(fadeToBlack.color.a, 1,0.1f); 
+            fadeToBlack.gameObject.SetActive(true);
+            Mathf.MoveTowards(fadeToBlack.color.a, 255,20); 
             statsDisplay.SetActive(false);
             victoryScene.GetComponent<Victory>().scoreManager = scoreManager;
             Instantiate(victoryScene, transform.position,transform.rotation);
-            Mathf.MoveTowards(fadeToBlack.color.a, 0,0.1f);
+            Mathf.MoveTowards(fadeToBlack.color.a, 0,20);
         }
 
         IEnumerator EndRound()

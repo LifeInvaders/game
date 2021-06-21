@@ -24,9 +24,9 @@ public class AssignTarget : MonoBehaviourPunCallbacks
     [PunRPC]
     private void ChangeTarget(Photon.Realtime.Player target)
     {
-        if (uiSkin == null) uiSkin = igs.localPlayer.GetComponentInChildren<RandomSkin>();
+        if (uiSkin == null) uiSkin = igs.localPlayer.GetComponentInChildren<RandomSkin>(true);
         igs.target = PhotonView.Find((int) target.CustomProperties["viewID"]).gameObject;
-        if (_radar == null) _radar = igs.localPlayer.GetComponentInChildren<Radar>();
+        if (_radar == null) _radar = igs.localPlayer.GetComponentInChildren<Radar>(true);
         _radar.gameObject.SetActive(true);
         _radar.SetTarget(igs.target.transform);
         StartCoroutine(SetTargetText(target.NickName));

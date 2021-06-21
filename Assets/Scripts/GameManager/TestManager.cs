@@ -13,7 +13,7 @@ namespace GameManager
         void Suicide()
         {
             if (Input.GetKeyDown(KeyCode.K))
-                EventManager.RaisePlayerKilled(GetComponent<InGameStats>().localPlayer);
+                EventManager.RaisePlayerKilled(GetComponent<InGameStats>().localPlayer,0);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Objects.Powers
         private SelectedTarget _selectedTarget;
         private float _maxDistance = 30;
 
-        private void Start()
+        protected override void SetValues()
         {
             _selectedTarget = GetComponent<SelectedTarget>();
         }
