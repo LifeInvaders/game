@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\dovde\AppData\local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\dovde\AppData\local\JetBrains\Rider2020.3\resharper-host\local\Transient\Rider\v203\SolutionCaches\_game.-1182146299.00" t="ExcludeRecursive" />
-    <e p="C:\Users\dovde\RiderProjects\game" t="IncludeRecursive">
+    <e p="C:\Users\Saturne\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Saturne\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_game.-1268387804.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Saturne\Desktop\Projets\School\game\game" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -16,7 +16,6 @@
         <e p="cinematiqueController.cs" t="Include" />
         <e p="Controler.cs" t="Include" />
         <e p="csc.rsp" t="Include" />
-        <e p="HoldUI.cs" t="Include" />
         <e p="Joystick Pack" t="Include">
           <e p="Examples" t="Include">
             <e p="JoystickPlayerExample.cs" t="Include" />
@@ -684,66 +683,11 @@
             <e p="CableProceduralStatic.cs" t="Include" />
           </e>
         </e>
-        <e p="Samples" t="Include">
-          <e p="Cinemachine" t="Include">
-            <e p="2.6.3" t="Include">
-              <e p="Cinemachine Example Scenes" t="Include">
-                <e p="Scenes" t="Include">
-                  <e p="3rdPersonWithAimMode" t="Include">
-                    <e p="ActivateOnKeypress.cs" t="Include" />
-                  </e>
-                  <e p="Anywhere Door" t="Include">
-                    <e p="PlayerLookAt.cs" t="Include" />
-                    <e p="PlayerMovement.cs" t="Include" />
-                    <e p="ScreenCutoutShader.shader" t="Include" />
-                    <e p="TagChanger.cs" t="Include" />
-                  </e>
-                  <e p="CameraMagnets" t="Include">
-                    <e p="CameraMagnetProperty.cs" t="Include" />
-                    <e p="CameraMagnetTargetController.cs" t="Include" />
-                  </e>
-                  <e p="DualTarget" t="Include">
-                    <e p="MoveAimTarget.cs" t="Include" />
-                    <e p="PointAtAimTarget.cs" t="Include" />
-                  </e>
-                  <e p="Scripting" t="Include">
-                    <e p="ScriptingExample.cs" t="Include" />
-                  </e>
-                  <e p="Trigger volumes" t="Include">
-                    <e p="GenericTrigger.cs" t="Include" />
-                  </e>
-                </e>
-                <e p="Shared" t="Include">
-                  <e p="Models" t="Include">
-                    <e p="UnityCharacter" t="Include">
-                      <e p="Scripts" t="Include">
-                        <e p="CharacterMovement.cs" t="Include" />
-                        <e p="CharacterMovement2D.cs" t="Include" />
-                        <e p="CharacterMovementNoCamera.cs" t="Include" />
-                      </e>
-                    </e>
-                  </e>
-                  <e p="Scripts" t="Include">
-                    <e p="ActivateCameraWithDistance.cs" t="Include" />
-                    <e p="ActivateCamOnPlay.cs" t="Include" />
-                    <e p="ExampleHelpWindow.cs" t="Include" />
-                    <e p="InvokeEventFromInspector.cs" t="Include" />
-                    <e p="MixingCameraBlend.cs" t="Include" />
-                    <e p="PlayerMove.cs" t="Include" />
-                    <e p="PlayerMoveOnSphere.cs" t="Include" />
-                    <e p="PlayerMovePhysics.cs" t="Include" />
-                    <e p="SpawnInCircle.cs" t="Include" />
-                  </e>
-                </e>
-              </e>
-            </e>
-          </e>
-        </e>
         <e p="Scripts" t="Include">
           <e p="Editor" t="Include">
             <e p="NightModeEditor.cs" t="Include" />
           </e>
-          <e p="finisher.cs" t="Include" />
+          <e p="Finisher.cs" t="Include" />
           <e p="GameManager" t="Include">
             <e p="AssignTarget.cs" t="Include" />
             <e p="ChainLoader.cs" t="Include" />
@@ -759,6 +703,10 @@
             <e p="ScoreManager.cs" t="Include" />
             <e p="TestManager.cs" t="Include" />
             <e p="TimerManager.cs" t="Include" />
+          </e>
+          <e p="HUD" t="Include">
+            <e p="HoldUI.cs" t="Include" />
+            <e p="PowerHud.cs" t="Include" />
           </e>
           <e p="Lobby" t="Include">
             <e p="LobbyManager.cs" t="Include" />
@@ -852,7 +800,7 @@
             <e p="SaveDatabase.cs" t="Include" />
           </e>
           <e p="ScoreBoard" t="Include">
-            <e p="ListPlayers.cs" t="Include" />
+            <e p="ManageUI.cs" t="Include" />
             <e p="Scoreboard.cs" t="Include" />
             <e p="ScoreboardEntryData.cs" t="Include" />
             <e p="ScoreboardEntryUI.cs" t="Include" />
@@ -865,7 +813,7 @@
             <e p="CastTarget.cs" t="Include" />
             <e p="KillEvents.cs" t="Include" />
             <e p="KillTarget.cs" t="Include" />
-            <e p="selectedTarget.cs" t="Include" />
+            <e p="SelectedTarget.cs" t="Include" />
           </e>
           <e p="TestScript.cs" t="Include" />
           <e p="UI Scripts" t="Include">
@@ -977,7 +925,7 @@
       <e p="game.sln" t="IncludeFlat" />
       <e p="HalfFloatASMDEF.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
-      <e p="packages" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
       <e p="PhotonChat.csproj" t="IncludeRecursive" />
       <e p="PhotonRealtime.csproj" t="IncludeRecursive" />
       <e p="PhotonUnityNetworking.csproj" t="IncludeRecursive" />
