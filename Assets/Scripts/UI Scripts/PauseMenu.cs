@@ -29,7 +29,7 @@ namespace UI
             
             public void Resume()
             {
-                gameObject.SetActive(false);
+                transform.GetChild(0).gameObject.SetActive(false);
                 playerinput.SwitchCurrentActionMap("Player");
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
@@ -37,9 +37,9 @@ namespace UI
 
             public void OnPause()
             {
-                if (gameObject.activeSelf) return;
+                // if (gameObject.activeSelf) return;
                 Debug.Log("cc");
-                gameObject.SetActive(true);
+                transform.GetChild(0).gameObject.SetActive(true);
                 playerinput.SwitchCurrentActionMap("Menu");
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;

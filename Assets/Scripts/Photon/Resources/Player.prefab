@@ -5621,6 +5621,11 @@ PrefabInstance:
       propertyPath: playerinput
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 296336028324399253, guid: 6106e32dfdaaf4442bf69873eda2c6ec,
+        type: 3}
+      propertyPath: playerinput
+      value: 
+      objectReference: {fileID: 7178693715806526083}
     - target: {fileID: 2266213566259402786, guid: 6106e32dfdaaf4442bf69873eda2c6ec,
         type: 3}
       propertyPath: m_RootOrder
