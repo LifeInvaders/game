@@ -14,36 +14,15 @@ public class MenuManager : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
-        Random r = new Random();
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         if (PhotonNetwork.IsConnected)
             SwitchMenu(4);
         else SwitchMenu(0);
-        // foreach (Button button in FindObjectsOfType<Button>())
-        //     RandomRotate(button.gameObject, r.Next(4));
     }
     
-    private void RandomRotate(GameObject button,int rotate)
-    {
-        RectTransform rectTransform = button.GetComponent<RectTransform>();
-        Transform text = button.GetComponentInChildren<Text>().transform;
-        Quaternion textRot = text.rotation;
-        rectTransform.Rotate(new Vector3(0,0,rotate*90));
-        if (rotate % 2 != 0)
-        {
-            Vector2 sizeDelta = rectTransform.sizeDelta;
-            rectTransform.sizeDelta = new Vector2(sizeDelta.y, sizeDelta.x);
-        }
-        text.rotation = textRot;
-    }
 
-    public void RotateTest()
-    {
-        Random r = new Random();
-        foreach (Button button in FindObjectsOfType<Button>())
-            RandomRotate(button.gameObject, r.Next(4));
-    }
+ 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))

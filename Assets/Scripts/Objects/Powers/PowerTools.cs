@@ -19,13 +19,10 @@ namespace Objects.Powers
         {
             SetValues();
             _powerHud = GetComponentInChildren<PowerHud>();
-            Debug.Log("coucou");
             _powerHud.SetIcon(this);
-            Debug.Log("coucou");
             if (TimeBeforeUse > 0)
             {
                 _powerHud.SetTime(TimeBeforeUse);
-                Debug.Log("coucou");
             }
         }
 
