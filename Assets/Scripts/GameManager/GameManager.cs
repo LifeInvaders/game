@@ -117,7 +117,7 @@ namespace GameManager
                 killed.GetComponentInChildren<SkinnedMeshRenderer>());
             g.GetComponent<Finisher>().player = killer;
             g.GetComponent<Finisher>().victim = killed;
-            killer.GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
+            killer.transform.Find("PlayerCharacter").GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
             killer.GetComponent<PlayerControler>().SetMoveBool(false);
         }
 
@@ -129,7 +129,7 @@ namespace GameManager
                 killed.GetComponentInChildren<SkinnedMeshRenderer>());
             g.GetComponent<Finisher>().player = killer;
             g.GetComponent<Finisher>().victim = killed;
-            killer.GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
+            killer.transform.Find("PlayerCharacter").GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
             killer.GetComponent<PlayerControler>().SetMoveBool(false);
         }
     }

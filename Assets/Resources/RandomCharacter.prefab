@@ -414,15 +414,6 @@ MonoBehaviour:
     Name: sitting
   - Type: 4
     SynchronizeType: 1
-    Name: dead
-  - Type: 4
-    SynchronizeType: 1
-    Name: kill
-  - Type: 4
-    SynchronizeType: 1
-    Name: talking
-  - Type: 4
-    SynchronizeType: 1
     Name: injured
   - Type: 4
     SynchronizeType: 0
@@ -5313,7 +5304,7 @@ GameObject:
   - component: {fileID: 4282157318548853971}
   - component: {fileID: 4065653961603276657}
   m_Layer: 8
-  m_Name: Character
+  m_Name: PlayerCharacter
   m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
