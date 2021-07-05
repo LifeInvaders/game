@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 999a60aa7d1e49db90bd5cb77da00f77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gracePeriod: 1
+  loadingSelector: {fileID: 8911041771258501210, guid: 61e572e7f082c904194b4f79a8774166,
+    type: 3}
   _volume: {fileID: 7139650350231416774, guid: 9add6cc00e270d34786e72018ff7151d, type: 3}
   smokeEffect: {fileID: 113990, guid: fa9176762befa1f4a8ee4b0aeacac390, type: 3}
 --- !u!1001 &271318149893172828
@@ -85,6 +88,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.00000011920929
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174603416320235843, guid: 6ce7ce89eeeb8f74eaee2a60b36ebc99,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8679204423169714313, guid: 6ce7ce89eeeb8f74eaee2a60b36ebc99,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ce7ce89eeeb8f74eaee2a60b36ebc99, type: 3}

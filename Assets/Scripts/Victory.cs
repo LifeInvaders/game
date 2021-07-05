@@ -33,8 +33,7 @@ public class Victory : MonoBehaviour
     public void InitWinner(Photon.Realtime.Player player, int index)
     {
         var namePlayer = player.NickName;
-        var skinnedMeshRenderer = PhotonNetwork.GetPhotonView((int) player.CustomProperties["viewID"]).gameObject
-            .GetComponent<SkinnedMeshRenderer>();
+        var skinnedMeshRenderer = PhotonNetwork.GetPhotonView((int) player.CustomProperties["viewID"]).GetComponentInChildren<SkinnedMeshRenderer>();
         var animId = (int) player.CustomProperties["winAnim"];
         var meshRenderer = winners[index].GetComponentInChildren<SkinnedMeshRenderer>();
         meshRenderer.sharedMesh = skinnedMeshRenderer.sharedMesh;
@@ -65,8 +64,7 @@ public class Victory : MonoBehaviour
     public void InitLoser(Photon.Realtime.Player player, int index)
     {
         var namePlayer = player.NickName;
-        var skinnedMeshRenderer = PhotonNetwork.GetPhotonView((int) player.CustomProperties["viewID"]).gameObject
-            .GetComponent<SkinnedMeshRenderer>();
+        var skinnedMeshRenderer = PhotonNetwork.GetPhotonView((int) player.CustomProperties["viewID"]).GetComponentInChildren<SkinnedMeshRenderer>();
         var deathCount = (int) player.CustomProperties["deathCount"];
         var meshRenderer = winners[index].GetComponentInChildren<SkinnedMeshRenderer>();
         meshRenderer.sharedMesh = skinnedMeshRenderer.sharedMesh;
@@ -75,12 +73,13 @@ public class Victory : MonoBehaviour
         countDeath[index].text = $"{deathCount}\nDeath{(deathCount > 1 ? 's' : ' ')}";
     }
 
-    public void Start()
+    IEnumerator Start()
     {
-        for (int i = 0; i < 3; i++)
+        yield return new WaitUntil(() => scoreManager != null);
+        for (int i = 0; i < 3 && i <= PhotonNetwork.CurrentRoom.PlayerCount; i++)
             InitWinner(scoreManager.scoreBoard[i],i);
         scoreManager.DeathSortFunc();
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 3 && i <= PhotonNetwork.CurrentRoom.PlayerCount; i++)
             InitLoser(scoreManager.scoreBoard[i],i);
     }
 }

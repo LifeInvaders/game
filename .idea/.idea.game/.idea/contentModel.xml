@@ -14,6 +14,7 @@
         <e p="cinematiqueController.cs" t="Include" />
         <e p="Controler.cs" t="Include" />
         <e p="csc.rsp" t="Include" />
+        <e p="DisableForOthers.cs" t="Include" />
         <e p="Joystick Pack" t="Include">
           <e p="Examples" t="Include">
             <e p="JoystickPlayerExample.cs" t="Include" />
@@ -788,8 +789,10 @@
           </e>
           <e p="MainMenu" t="Include">
             <e p="CharacterCreation.cs" t="Include" />
+            <e p="CreatePrivateRoom.cs" t="Include" />
             <e p="EmoteMenu.cs" t="Include" />
             <e p="ExperienceBar.cs" t="Include" />
+            <e p="JoinPrivateRoom.cs" t="Include" />
             <e p="LevelUnlocks.cs" t="Include" />
             <e p="MenuManager.cs" t="Include" />
             <e p="Options.cs" t="Include" />
@@ -907,6 +910,7 @@
           </e>
           <e p="TestScript.cs" t="Include" />
           <e p="UI Scripts" t="Include">
+            <e p="PauseMenu.cs" t="Include" />
             <e p="SceneLoader.cs" t="Include" />
           </e>
           <e p="Utils" t="Include">

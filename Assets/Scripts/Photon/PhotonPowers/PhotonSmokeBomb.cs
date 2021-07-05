@@ -6,11 +6,10 @@ namespace Objects.Powers
 {
     public class PhotonSmokeBomb : PowerTools
     {
-        [SerializeField] private GameObject smoke;
-        
+
         protected override void SetValues()
         {
-            _time = 45;
+            _time = 120;
             TimeBeforeUse = 3;
         }
 

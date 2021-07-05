@@ -14,7 +14,7 @@ namespace People.Player
     {
         private Animator _animator;
         private CastTarget _castTarget;
-        private KillTarget _killTarget;
+        private KillTargetPhoton _killTarget;
         private PlayerControler _playerControler;
 
         [SerializeField] private Volume _volume;
@@ -23,7 +23,7 @@ namespace People.Player
         private void Start()
         {
             _playerControler = GetComponent<PlayerControler>();
-            _killTarget = GetComponent<KillTarget>();
+            _killTarget = GetComponent<KillTargetPhoton>();
             _castTarget = GetComponent<CastTarget>();
             _animator = GetComponent<Animator>();
         }
@@ -35,13 +35,13 @@ namespace People.Player
 
         public override void TriggeredBySmokeBomb(float endtime)
         {
-            _playerControler.SetMoveBool(false);
-            _castTarget.enabled = false;
-            _castTarget.SetAiming(false, true);
-            _killTarget.enabled = false;
-            humanTask = HumanTasks.SmokeBomb;
-            _animator.SetTrigger("smoked");
             StartCoroutine(WaitSmokeBomb(endtime));
+            humanTask = HumanTasks.SmokeBomb;
+            _playerControler.enabled = false;
+            _castTarget.enabled = false;
+            _animator.SetTrigger("smoked");
+            _killTarget.enabled = false;
+            _castTarget.SetAiming(false, true);
         }
 
         public override void KilledByPoison()
@@ -51,16 +51,16 @@ namespace People.Player
 
         public override void HarmedByKnife()
         {
+            if (!gameObject.GetPhotonView().IsMine) return;
             var value = _playerControler.GetWalkSpeed();
             _playerControler.SetWalkSpeed(1.2f);
             _playerControler.SetCanRun(false);
             _playerControler.CheckIfRunning();
             _animator.SetTrigger("injured");
-
             humanTask = HumanTasks.Bleeding;
-
             StartCoroutine(WaitKnife(value));
         }
+        
 
         public override IEnumerator DeathByGun()
         {
@@ -70,7 +70,6 @@ namespace People.Player
         private IEnumerator WaitKnife(float value)
         {
             yield return new WaitForSeconds(8);
-
             _playerControler.SetCanRun(true);
             _playerControler.SetWalkSpeed(value);
             _playerControler.CheckIfRunning();
@@ -86,11 +85,11 @@ namespace People.Player
         IEnumerator WaitSmokeBomb(float endtime)
         {
             yield return new WaitForSeconds(endtime);
-            _playerControler.SetMoveBool(true);
-            _animator.SetTrigger("Default");
+            _playerControler.enabled = true;
             _castTarget.enabled = true;
             _killTarget.enabled = true;
             humanTask = HumanTasks.Nothing;
+            _animator.SetTrigger("Default");
         }
 
         private void Update()

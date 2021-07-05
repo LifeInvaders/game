@@ -20,7 +20,7 @@ public class LobbyTimer : MonoBehaviourPunCallbacks
         {
             _endTime = PhotonNetwork.Time + halfTime;
             _startTimer = false;
-            Hashtable customTimer = new Hashtable {{"endTime", _endTime},{"startTimer",_startTimer}};
+            Hashtable customTimer = new Hashtable {{"endTimeLobby", _endTime},{"startTimerLobby",_startTimer}};
             PhotonNetwork.CurrentRoom.SetCustomProperties(customTimer);
             if (PhotonNetwork.CurrentRoom.CustomProperties.ContainsKey("restart"))
             {
@@ -30,8 +30,8 @@ public class LobbyTimer : MonoBehaviourPunCallbacks
         }
         else
         {
-            if (PhotonNetwork.CurrentRoom.CustomProperties.TryGetValue("endTime", out var time)) _endTime = Convert.ToDouble(time);
-            if (PhotonNetwork.CurrentRoom.CustomProperties.TryGetValue("startTimer", out var start)) _startTimer = (bool) start;
+            if (PhotonNetwork.CurrentRoom.CustomProperties.TryGetValue("endTimeLobby", out var time)) _endTime = Convert.ToDouble(time);
+            if (PhotonNetwork.CurrentRoom.CustomProperties.TryGetValue("startTimerLobby", out var start)) _startTimer = (bool) start;
             UpdateTimer();
         }
     }
@@ -53,16 +53,14 @@ public class LobbyTimer : MonoBehaviourPunCallbacks
     {
         Debug.Log("Timer ended. Loading map...");
         PhotonNetwork.CurrentRoom.IsOpen = false;
-        PhotonNetwork.LoadLevel(new System.Random().Next(9) >= PhotonNetwork.CurrentRoom.PlayerCount
-            ? "Map"
-            : "Map2");
+        PhotonNetwork.LoadLevel("Map");
     }
 
     public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer)
     {
         if (PhotonNetwork.IsMasterClient && _endTime > 0 && PhotonNetwork.CurrentRoom.PlayerCount < PhotonNetwork.CurrentRoom.MaxPlayers / 2)
         {
-            Hashtable customTimer = new Hashtable {{"endTime", PhotonNetwork.Time + halfTime},{"startTimer",false}};
+            Hashtable customTimer = new Hashtable {{"endTimeLobby", PhotonNetwork.Time + halfTime},{"startTimerLobby",false}};
             PhotonNetwork.CurrentRoom.SetCustomProperties(customTimer);
         }
     }
@@ -72,13 +70,13 @@ public class LobbyTimer : MonoBehaviourPunCallbacks
         if (!PhotonNetwork.IsMasterClient) return;
         if (!_startTimer && PhotonNetwork.CurrentRoom.PlayerCount >= PhotonNetwork.CurrentRoom.MaxPlayers / 2)
         {
-            Hashtable customTimer = new Hashtable() {{"endTime", PhotonNetwork.Time + halfTime}, {"startTimer", true}};
+            Hashtable customTimer = new Hashtable() {{"endTimeLobby", PhotonNetwork.Time + halfTime}, {"startTimerLobby", true}};
             PhotonNetwork.CurrentRoom.SetCustomProperties(customTimer);
         }
         else if (PhotonNetwork.CurrentRoom.PlayerCount == PhotonNetwork.CurrentRoom.MaxPlayers &&
                  _endTime - PhotonNetwork.Time > fullTime)
         {
-            Hashtable customTimer = new Hashtable() {{"endTime", PhotonNetwork.Time + fullTime}, {"startTimer", true}};
+            Hashtable customTimer = new Hashtable() {{"endTimeLobby", PhotonNetwork.Time + fullTime}, {"startTimerLobby", true}};
             PhotonNetwork.CurrentRoom.SetCustomProperties(customTimer);
         }
     }
@@ -86,8 +84,8 @@ public class LobbyTimer : MonoBehaviourPunCallbacks
     public override void OnRoomPropertiesUpdate(Hashtable propertiesThatChanged)
     {
         Debug.Log("Custom properties changed. Updating timer...");
-        if (propertiesThatChanged.TryGetValue("endTime",out var time)) _endTime = Convert.ToDouble(time);
-        if (propertiesThatChanged.TryGetValue("startTimer", out var start)) _startTimer = (bool) start;
+        if (propertiesThatChanged.TryGetValue("endTimeLobby",out var time)) _endTime = Convert.ToDouble(time);
+        if (propertiesThatChanged.TryGetValue("startTimerLobby", out var start)) _startTimer = (bool) start;
         UpdateUI();
     }
 

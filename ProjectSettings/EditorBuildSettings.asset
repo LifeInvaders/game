@@ -16,14 +16,14 @@ EditorBuildSettings:
     guid: 0e73f8b14e4b2bf44a02ef4622a6eaa1
   - enabled: 1
     path: Assets/Resources/Map.unity
-    guid: b12053758ba413c4e8bfd80eeb624db1
+    guid: 1baafe83682280e4292968cc88138b0b
   - enabled: 1
     path: Assets/Scenes/test3.unity
     guid: af457390512305e41add456e22c971df
   - enabled: 1
     path: Assets/Scenes/discussion.unity
     guid: 9a9e18e312bddfa4ba514d04bab329d2
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Map.unity
     guid: 2b9589924ce062940b01e0a13c7bed20
   m_configObjects:

@@ -27,9 +27,10 @@ namespace People.NPC
 
         public override void TriggeredBySmokeBomb(float endtime)
         {
+            humanTask = HumanTasks.SmokeBomb;
+            _npc.StartBootUp(endtime);
+            _animator.ResetTrigger("Default");
             _animator.SetTrigger("smoked");
-            _npc.BootUp(11);
-            humanTask = HumanTasks.Poisoned;
         }
 
         public override void KilledByPoison()
@@ -42,6 +43,7 @@ namespace People.NPC
         {
             var value = _navMeshAgent.speed;
             _navMeshAgent.speed = 1.2f;
+            _animator.ResetTrigger("Default");
             _animator.SetTrigger("injured");
             humanTask = HumanTasks.Bleeding;
             StartCoroutine(WaitKnife(value));

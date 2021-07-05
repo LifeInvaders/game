@@ -38,6 +38,7 @@ namespace Objects.Powers
         IEnumerator WaitForKill()
         {
             GameObject target = _selectedTarget.GetTarget();
+            _selectedTarget.UpdateSelectedTarget(target,null);
             yield return new WaitForSeconds(killTime);
             _killTargetPhoton.Kill(target,true);
         }

@@ -18,11 +18,7 @@ namespace People
 
         void Start()
         {
-            _meshNb = Random.Range(0, meshes.Length - 1);
-            _materialNb = Random.Range(0, materials.Length - 1);
-            
             _renderer = GetComponent<SkinnedMeshRenderer>();
-            StartCoroutine(FadeIn());
         }
 
         IEnumerator FadeIn()

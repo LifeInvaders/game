@@ -51,6 +51,12 @@ namespace UI
             Cursor.visible = false;
         }
 
+        void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+                OnPause();
+        }
+
         public void OnPause()
         {
             if (pauseMenuHUD.activeSelf)

@@ -12,14 +12,14 @@ namespace Scoreboard
         [SerializeField] private int maxScoreboardEntries = 8;
         [SerializeField] private Transform highScoreHolderTransform;
         [SerializeField] private GameObject scoreboardEntryObject;
-        [SerializeField] private GameObject instanceRoot;
-        
+
         [Header("Test")] [SerializeField] ScoreboardEntryData testEntrydata;
 
         private string Savepath => $"{Application.persistentDataPath}/highers.json";
 
         private void Start()
         {
+            ClearData();
             ScoreboardSaveData savedScores = GetSavedScores();
             foreach (Photon.Realtime.Player player in PhotonNetwork.PlayerList)
                 AddEntry(new ScoreboardEntryData(player.NickName,0,0,0));
@@ -39,9 +39,9 @@ namespace Scoreboard
                 && !changedProps.ContainsKey("deathCount")) return;
             var nickName = targetPlayer.NickName;
             var score = targetPlayer.GetScore();
-            var death = (int)targetPlayer.CustomProperties["deathCount"];
-            var ratio = (int)targetPlayer.CustomProperties["killCount"]/death;
-            AddEntry(new ScoreboardEntryData(nickName,score,death,ratio));
+            var deaths = (int)targetPlayer.CustomProperties["deathCount"];
+            var kills = (int)targetPlayer.CustomProperties["killCount"];
+            AddEntry(new ScoreboardEntryData(nickName,score,kills,deaths));
         }
 
 
@@ -151,7 +151,7 @@ namespace Scoreboard
         {
             foreach (Transform child in highScoreHolderTransform)
             {
-               Destroy(child);
+               Destroy(child.gameObject);
             }
             foreach (var highscore in savedScores.highscores)
             {
@@ -170,10 +170,9 @@ namespace Scoreboard
         {
             if (!File.Exists(Savepath))
             {
-                File.Create(Savepath).Dispose();
+                File.Create(Savepath);
                 return new ScoreboardSaveData();
             }
-
             using (StreamReader stream = new StreamReader(Savepath))
             {
                 string json = stream.ReadToEnd();
@@ -195,10 +194,10 @@ namespace Scoreboard
         private void DeleteChild()
         {
             foreach (Transform obj in highScoreHolderTransform)
-                {
-                    Destroy(obj.gameObject);
-                    int debug = highScoreHolderTransform.childCount;  
-                }
+            {
+                Destroy(obj.gameObject);
+                int debug = highScoreHolderTransform.childCount;  
+            }
         }
 
         

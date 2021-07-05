@@ -67,8 +67,8 @@ namespace GameManager
             fadeToBlack.gameObject.SetActive(true);
             Mathf.MoveTowards(fadeToBlack.color.a, 255,20); 
             statsDisplay.SetActive(false);
-            victoryScene.GetComponent<Victory>().scoreManager = scoreManager;
-            Instantiate(victoryScene, transform.position,transform.rotation);
+            var vict = Instantiate(victoryScene, transform.position,transform.rotation);
+            vict.GetComponent<Victory>().scoreManager = scoreManager;
             Mathf.MoveTowards(fadeToBlack.color.a, 0,20);
         }
 
@@ -79,12 +79,14 @@ namespace GameManager
             igs.localPlayer.GetComponent<PlayerControler>().enabled = false;
             igs.localPlayer.GetComponent<CameraControler>().enabled = false;
             int exp = GetExp();
+            DisplayStats(exp);
             statsDisplay.SetActive(true);
             UpdateDatabase(exp);
             yield return new WaitForSeconds(5);
             EndSceneTransition();
-            yield return new WaitForSeconds(5);
-            _leaveCountdown = StartCoroutine(PromptRestart());
+            yield return new WaitForSeconds(15);
+            Quit();
+            //_leaveCountdown = StartCoroutine(PromptRestart());
         }
 
         private void UpdateDatabase(int exp)

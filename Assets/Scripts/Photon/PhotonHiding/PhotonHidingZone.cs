@@ -154,14 +154,13 @@ namespace People.NPC.Hiding
                     NPCs.RemoveAt(i);
                     break;
                 }
-
                 if (NpcInTheZone[i] == NPCs[index])
                 {
                     nextPlace = i;
                     NpcInTheZone[i] = null;
                     NPCs[index].GetComponent<TalkingNPC>().enabled = false;
                     var walkingNpc = NPCs[index].GetComponent<PhotonNPC>();
-                    walkingNpc.StartCoroutine(walkingNpc.BootUp(5));
+                    walkingNpc.StartBootUp(5);
                     walkingNpc.SetEventZone(null);
                     walkingNpc.inZone = false;
                     NPCs.RemoveAt(index);

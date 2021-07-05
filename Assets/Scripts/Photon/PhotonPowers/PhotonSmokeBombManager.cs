@@ -18,8 +18,12 @@ namespace Objects.Powers
         private float _endtime = 11;
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("MyPlayer") && !gameObject.GetPhotonView().IsMine || other.CompareTag("NPC") && PhotonNetwork.IsMasterClient)
-                other.GetComponentInChildren<HumanEvent>().TriggeredBySmokeBomb(_endtime);
+            if (other.CompareTag("MyPlayer") && !gameObject.GetPhotonView().IsMine ||
+                other.CompareTag("NPC") && PhotonNetwork.IsMasterClient)
+            {
+                var humanEvent = other.GetComponentInChildren<HumanEvent>();
+                if (humanEvent.humanTask != HumanTasks.Poisoned) humanEvent.TriggeredBySmokeBomb(_endtime);
+            }
         }
         
         IEnumerator EndTimer()

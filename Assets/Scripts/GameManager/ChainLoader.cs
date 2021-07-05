@@ -13,10 +13,11 @@ namespace GameManager
         [SerializeField] private NpcManager npcManager;
         [SerializeField] private PlayerManager playerManager;
         [SerializeField] private TimerManager timerManager;
-        [SerializeField] private ListPlayers listPlayers;
-        
+
         IEnumerator Start()
         {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             players = PhotonNetwork.PlayerList;
             Debug.Log("Settings status as ready");
             Hashtable ready = new Hashtable {{"ready", true}};
@@ -32,8 +33,7 @@ namespace GameManager
             yield return new WaitUntil(CheckAssignViewID);
             if (PhotonNetwork.IsMasterClient)
                 yield return new WaitForSeconds(1);
-            timerManager.enabled = true;
-            listPlayers.enabled = true;
+            timerManager.StartGame();
         }
         
         bool CheckNpcSyncTime()

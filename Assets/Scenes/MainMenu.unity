@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -7310,7 +7310,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 324849146}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 618f928dfd92389428befb5ee5602905, type: 3}
+  m_Script: {fileID: 11500000, guid: 9030d7e470663bb4ca451fd3907604fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   codeField: {fileID: 2037919378}
@@ -18325,7 +18325,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &871888943
 RectTransform:
   m_ObjectHideFlags: 0
@@ -28269,7 +28269,7 @@ MonoBehaviour:
   qualityDropdown: {fileID: 1174874841}
   fullscreenToggle: {fileID: 1167447102}
   resolutionDropdown: {fileID: 1846299137}
-  fpsDropdown: {fileID: 0}
+  fpsDropdown: {fileID: 1412492704}
 --- !u!114 &1286285301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29784,7 +29784,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 324849148}
         m_MethodName: JoinRoom
         m_Mode: 1
         m_Arguments:
@@ -30692,6 +30692,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1410781642}
   m_CullTransparentMesh: 0
+--- !u!114 &1412492704 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2193464996373382616, guid: 121ced0e74a8b324b951e04a4945efd7,
+    type: 3}
+  m_PrefabInstance: {fileID: 2193464995821993619}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d0b652f32a2cc243917e4028fa0f046, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1413428220
 GameObject:
   m_ObjectHideFlags: 0
@@ -37945,7 +37957,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 4.6977e-41, z: 0, w: -1}
+  m_BoundingSphereOverride: {x: 0, y: 2.2964e-41, z: 0, w: -0.000000051921234}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -41778,7 +41790,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -280, y: -18}
+  m_AnchoredPosition: {x: -280, y: -17.999939}
   m_SizeDelta: {x: -667.2442, y: -179.23407}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1947886102
@@ -58379,17 +58391,17 @@ PrefabInstance:
     - target: {fileID: 2193464995112016369, guid: 121ced0e74a8b324b951e04a4945efd7,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2193464995112016369, guid: 121ced0e74a8b324b951e04a4945efd7,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2193464995112016369, guid: 121ced0e74a8b324b951e04a4945efd7,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2193464995575718065, guid: 121ced0e74a8b324b951e04a4945efd7,
         type: 3}
@@ -58506,6 +58518,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: OptionMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 2193464995743802287, guid: 121ced0e74a8b324b951e04a4945efd7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2193464995773395728, guid: 121ced0e74a8b324b951e04a4945efd7,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -58534,12 +58551,12 @@ PrefabInstance:
     - target: {fileID: 2193464996286972018, guid: 121ced0e74a8b324b951e04a4945efd7,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2193464996286972018, guid: 121ced0e74a8b324b951e04a4945efd7,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2193464996373382616, guid: 121ced0e74a8b324b951e04a4945efd7,
         type: 3}

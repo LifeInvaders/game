@@ -20,7 +20,6 @@ namespace GameManager
         [SerializeField] private int alivePoints;
         [SerializeField] private GameObject scoreHud;
         [NonSerialized]public List<Photon.Realtime.Player> scoreBoard;
-        [SerializeField] private ListPlayers listPlayers;
         private int _roundKills;
 
         void Start()
@@ -36,11 +35,11 @@ namespace GameManager
         }
 
         public void ResetKills() => _roundKills = 0;
-        public void KilledPlayer(bool amKiller, bool isTarget)
+        public void KilledPlayer(bool amKiller, bool isTarget,bool poison = false)
         {
             if (isTarget)
             {
-                if (amKiller) PhotonNetwork.LocalPlayer.AddScore(baseKillPoints - _roundKills * killDowngradePoints);
+                if (amKiller) PhotonNetwork.LocalPlayer.AddScore((poison ? 2 : 0) + baseKillPoints - _roundKills * killDowngradePoints);
                 else PhotonNetwork.LocalPlayer.AddScore(killStealPoints);
             }
             _roundKills++;

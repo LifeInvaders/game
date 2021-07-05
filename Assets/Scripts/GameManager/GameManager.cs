@@ -30,6 +30,7 @@ namespace GameManager
         [SerializeField] private GameObject killFeed;
         [SerializeField] private GameObject killFeedTemplate;
         [SerializeField] private Text textIndicator;
+        [SerializeField] private GameObject poisonKill;
         private int _roundCount;
 
 
@@ -71,7 +72,6 @@ namespace GameManager
                 photonEvent.Code != EventManager.KilledNpcEventCode) return;
             if (photonEvent.Code == EventManager.EndRoundEventCode)
             {
-                Debug.Log("Round ended!");
                 _roundCount++;
                 scoreManager.AlivePoints();
                 if (_spectator != null) Destroy(_spectator);
@@ -85,18 +85,20 @@ namespace GameManager
                 }
                 return; 
             }
-            var killedPhotonView = PhotonView.Find(Convert.ToInt32(photonEvent.CustomData));
+            var killedPhotonView = PhotonView.Find(Convert.ToInt32(((object[])photonEvent.CustomData)[0]));
+            var anim = Convert.ToInt32(((object[]) photonEvent.CustomData)[1]);
             var killer = PhotonNetwork.CurrentRoom.GetPlayer(photonEvent.Sender);
             var killerGo = PhotonView.Find(Convert.ToInt32(killer.CustomProperties["viewID"])).gameObject;
             var amKiller = killer.Equals(PhotonNetwork.LocalPlayer);
             if (photonEvent.Code == EventManager.KilledPlayerEventCode)
             {
                 var killed = killedPhotonView.Owner;
+                if ((bool) killed.CustomProperties["dead"]) return;
                 var template = Instantiate(killFeedTemplate, killFeed.transform);
                 template.GetComponent<KillFeed>().CreateKillFeedEntry(killer.NickName,killed.NickName);
                 Debug.Log("Player died: " + killed.NickName);
                 var killedGo = killedPhotonView.gameObject;
-                StartCoroutine(PlayerFinisher(killerGo,killedGo));
+                StartCoroutine(PlayerFinisher(killerGo,killedGo,anim));
                 if (killed.Equals(PhotonNetwork.LocalPlayer))
                 {
                     igs.deathCount++;
@@ -112,12 +114,12 @@ namespace GameManager
                     assignTarget.KilledTarget();
                 }
                 if (amKiller && !isTarget) StartCoroutine(TextIndicator("You killed the wrong player!"));
-                scoreManager.KilledPlayer(amKiller, isTarget);
+                scoreManager.KilledPlayer(amKiller, isTarget,anim == -1);
             }
             else if (photonEvent.Code == EventManager.KilledNpcEventCode)
             {
                 var killedNPCGo = killedPhotonView.gameObject;
-                NpcFinisher(killerGo,killedNPCGo);
+                NpcFinisher(killerGo,killedNPCGo,anim);
                 Debug.Log("NPC died: " + killedNPCGo);
                 killedNPCGo.GetComponent<PhotonNPCEvent>().Death();
                 npcManager.dead++;
@@ -133,19 +135,24 @@ namespace GameManager
 
         IEnumerator PlayerFinisher(GameObject killer, GameObject killed,int randFinisher = 0)
         {
-            var g = Instantiate(finishers[randFinisher], killer.transform.position, killer.transform.rotation);
+            var killerMesh = killer.GetComponentInChildren<SkinnedMeshRenderer>();
+            var killedMesh = killed.GetComponentInChildren<SkinnedMeshRenderer>();
+            var poison = randFinisher == -1;
+            GameObject g;
+            if (poison) g = Instantiate(poisonKill, killed.transform.position, killed.transform.rotation);
+            else g = Instantiate(finishers[randFinisher], killer.transform.position, killer.transform.rotation);
             Finisher finisher = g.GetComponent<Finisher>();
-            finisher.SetHumans(killer.GetComponentInChildren<SkinnedMeshRenderer>(),
-                killed.GetComponentInChildren<SkinnedMeshRenderer>());
-            g.GetComponent<Finisher>().player = killer;
+            finisher.SetHumans(killerMesh,
+                killedMesh);
+            g.GetComponent<Finisher>().player = poison ? killed : killer;
             g.GetComponent<Finisher>().victim = killed;
-            finisher.camera.enabled = igs.localPlayer.Equals(killer) || igs.localPlayer.Equals(killed);
-            killer.GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
-            killed.GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
+            finisher.camera.enabled = !poison && igs.localPlayer.Equals(killer) || igs.localPlayer.Equals(killed);
+            if (!poison) killerMesh.enabled = false;
+            killedMesh.enabled = false;
             killer.GetComponent<PlayerControler>().SetMoveBool(false);
             yield return new WaitUntil(() => finisher.animFinished);
             killed.SetActive(false);
-            killed.GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
+            killedMesh.enabled = true;
             if (killed.Equals(igs.localPlayer)) SpectatorMode();
         }
 
@@ -160,14 +167,19 @@ namespace GameManager
 
         public void NpcFinisher(GameObject killer, GameObject killed,int randFinisher = 0)
         {
-            var g = Instantiate(finishers[randFinisher], killer.transform.position, killer.transform.rotation);
+            var killerMesh = killer.GetComponentInChildren<SkinnedMeshRenderer>();
+            var poison = randFinisher == -1;
+            GameObject g;
+            if (poison) g = Instantiate(poisonKill, killed.transform.position, killed.transform.rotation);
+            else g = Instantiate(finishers[randFinisher], killer.transform.position, killer.transform.rotation);
             Finisher finisher = g.GetComponent<Finisher>();
-            finisher.SetHumans(killer.GetComponentInChildren<SkinnedMeshRenderer>(),
+            finisher.SetHumans(killerMesh,
                 killed.GetComponentInChildren<SkinnedMeshRenderer>());
-            finisher.player = killer;
+            finisher.player = poison ? killed : killer;
             finisher.victim = killed;
-            finisher.camera.enabled = igs.localPlayer.Equals(killer);
-            killer.GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
+            finisher.camera.enabled = !poison && igs.localPlayer.Equals(killer);
+            if (poison) return;
+           killerMesh.enabled = false;
             killer.GetComponent<PlayerControler>().SetMoveBool(false);
         }
     }

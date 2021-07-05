@@ -37,8 +37,8 @@ namespace TargetSystem
         public void Kill(GameObject target, bool poison = false)
         {
             if (target.CompareTag("Player"))
-                EventManager.RaisePlayerKilled(target,0);
-            else EventManager.RaiseNpcKilled(target,0);
+                EventManager.RaisePlayerKilled(target, poison ? -1 : UnityEngine.Random.Range(0,7));
+            else EventManager.RaiseNpcKilled(target, poison ? -1 : UnityEngine.Random.Range(0,7));
             _casttarget.SetAiming(false);
             Debug.Log($"killed {target.name}");
             _selectedTarget.UpdateSelectedTarget(target, target.GetComponentInChildren<Outline>());

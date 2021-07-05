@@ -24,20 +24,20 @@ public class Finisher : MonoBehaviour
     public bool animFinished;
     public void LeaveCamera()
     {
+        StartCoroutine(WaitForDeathAnim());
+        foreach (var toolObject in objectsToDisapear)
+        {
+            Destroy(toolObject,0.2f);
+        }
         animFinished = true;
         camera.Priority = 1;
-        player.GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
+        player.transform.Find("PlayerCharacter").GetComponent<SkinnedMeshRenderer>().enabled = true;
         player.GetComponent<PlayerControler>().SetMoveBool(true);
         player.GetComponent<PlayerControler>().SetRotateBool(true);
         player.GetComponent<CastTarget>().enabled = true;
         player.transform.position = killer.transform.parent.position;
         player.transform.rotation = transform.rotation;
         killer.enabled = false;
-        StartCoroutine(WaitForDeathAnim());
-        foreach (var toolObject in objectsToDisapear)
-        {
-            Destroy(toolObject,0.2f);
-        }
     }   
     public void SetHumans(SkinnedMeshRenderer killerSkin, SkinnedMeshRenderer deadSkin)
     {

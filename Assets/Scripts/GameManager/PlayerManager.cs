@@ -30,7 +30,8 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     [SerializeField] private GameObject classMenu;
     private int classChoice = -1;
     [SerializeField] private Text classText;
-    private string[] classes = {"Athlete", "Disguise Master", "Alchemist", "Blade Master"};
+    private string[] classes = {"Athlete", "Disguise Master", "Alchemist", "Blade Master", "Ninja"};
+    private GameObject[] classesPhoto;
 
 
     // Start is called before the first frame update
@@ -78,7 +79,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         this.classChoice = classChoice;
     }
 
-    public void RandomPickClass() => SetClass(UnityEngine.Random.Range(0,4));
+    public void RandomPickClass() => SetClass(UnityEngine.Random.Range(0,classes.Length));
 
     public IEnumerator LatePick()
     {

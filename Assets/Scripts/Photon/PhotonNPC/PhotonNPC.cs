@@ -54,8 +54,9 @@ namespace People.NPC
         public void SetEventZone(GameObject go) => EventZone = go;
 
         public GameObject GetEventZone() => EventZone;
-        
 
+        public void StartBootUp(double time) => StartCoroutine(BootUp(time));
+        
         public IEnumerator BootUp(double time)
         {
             _agent.ResetPath();
@@ -74,12 +75,12 @@ namespace People.NPC
                 yield return new WaitForSeconds(2); 
             GotoNextPoint();
             start = true;
+            _anim.SetTrigger("Default");
             _anim.SetBool("walk", true);
         }
 
         public void ResetNpc()
         {
-            _anim.SetBool("walk", false);
             _agent.ResetPath();
             start = false;
             points.Clear();

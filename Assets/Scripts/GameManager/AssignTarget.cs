@@ -32,7 +32,7 @@ public class AssignTarget : MonoBehaviourPunCallbacks
         StartCoroutine(SetTargetText(target.NickName));
         var targetSkin = igs.target.GetComponent<PhotonSkin>().GetSkinNpc();
         uiSkin.SetSkinNPC(targetSkin.mesh,targetSkin.material);
-        uiSkin.gameObject.SetActive(true);
+        uiSkin.transform.parent.gameObject.SetActive(true);
     }
 
     IEnumerator SetTargetText(string name)
@@ -83,7 +83,7 @@ public class AssignTarget : MonoBehaviourPunCallbacks
             }
         }
         foreach (KeyValuePair<Photon.Realtime.Player, Photon.Realtime.Player> kvp in targetList)
-            photonView.RPC("ChangeTarget", kvp.Key, kvp.Value);
+            photonView.RPC(nameof(ChangeTarget), kvp.Key, kvp.Value);
     }
 
     private void Update()

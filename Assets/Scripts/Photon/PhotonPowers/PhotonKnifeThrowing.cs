@@ -21,7 +21,7 @@ namespace Objects.Powers
         {
             Right_Hand = gameObject.transform
                 .Find("Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_L/Shoulder_L/Elbow_L/Hand_L").transform;
-            _time = 3;
+            _time = 90;
             TimeBeforeUse = 0;
             _selectedTarget = GetComponent<SelectedTarget>();
             _maxDistance = 15;
@@ -51,9 +51,7 @@ namespace Objects.Powers
             
             var target = _selectedTarget.GetTarget();
             var humanEvent = target.GetComponent<HumanEvent>();
-            if (target.CompareTag("NPC"))
-                target.GetPhotonView().RPC(nameof(humanEvent.HarmedByKnife),RpcTarget.All);
-            else target.GetPhotonView().RPC(nameof(humanEvent.HarmedByKnife),target.GetPhotonView().Owner);
+            target.GetPhotonView().RPC(nameof(humanEvent.HarmedByKnife),RpcTarget.All);
             PhotonNetwork.Instantiate("knife fx", Right_Hand.position + 0.2f * Vector3.up, Quaternion.LookRotation(Right_Hand.position - target.transform.position));
         }
     }
