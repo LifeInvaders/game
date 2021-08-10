@@ -27,7 +27,7 @@ namespace Objects
             {
                 // change all the player's parameters
                 PlayerControler player = other.gameObject.GetComponent<PlayerControler>();
-                player.GetComponent<PlayerEvent>().humanTask = HumanTasks.Zipline;
+                player.GetComponent<HumanEvent>().humanTask = HumanTasks.Zipline;
                 var rigidbody = other.gameObject.GetComponent<Rigidbody>();
                 rigidbody.useGravity = false; // on désactive la gravité du joueur
                 rigidbody.isKinematic = true;
@@ -58,7 +58,7 @@ namespace Objects
         {
             var playerControler = player.GetComponent<PlayerControler>();
 
-            var playerEvent = player.GetComponent<PlayerEvent>();
+            var playerEvent = player.GetComponent<HumanEvent>();
             playerControler.enabled = true;
             Rigidbody rigidbody = player.gameObject.GetComponent<Rigidbody>();
             rigidbody.useGravity = true; // on réactive la gravité du joueur
@@ -80,7 +80,7 @@ namespace Objects
 
         private IEnumerator MovingOn(GameObject player)
         {
-            var playerEvent = player.GetComponent<PlayerEvent>();
+            var playerEvent = player.GetComponent<HumanEvent>();
             var playerControler = player.GetComponent<PlayerControler>();
             while (playerEvent.humanTask == HumanTasks.Zipline)
             {

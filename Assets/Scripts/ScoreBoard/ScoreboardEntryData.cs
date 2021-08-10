@@ -12,10 +12,10 @@ namespace Scoreboard
 
         public ScoreboardEntryData(string entryName, int entryScore,int entryDead, int entryRatio  )
         {
-            entryName = this.entryName;
-            entryScore = this.entryScore;
-            entryDead = this.entryDead;
-            entryRatio = this.entryRatio;
+            this.entryName = entryName;
+            this.entryScore = entryScore;
+            this.entryDead = entryDead;
+            this.entryRatio = entryRatio;
         }
         
     }

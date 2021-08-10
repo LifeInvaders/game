@@ -10,6 +10,7 @@ TagManager:
   - Skin
   - MyPlayer
   - GameManager
+  - Spectator
   layers:
   - Default
   - TransparentFX
@@ -26,6 +27,7 @@ TagManager:
   - Light
   - Post Process
   - discussion
+  - Spectator
   - 
   - 
   - 

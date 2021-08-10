@@ -43,14 +43,19 @@ namespace HUD
             switch (powerTools)
             {
                 case SmokeBomb _:
+                case PhotonSmokeBomb _:
                     return 0;
-                case ChangeAppearance _:
+                case ChangeAppearance _:                
+                case PhotonChangeAppearance _:
                     return 1;
                 case Poison _:
+                case PhotonPoison _:
                     return 2;
                 case SpeedBoost _:
+                case PhotonSpeedBoost _:
                     return 3;
                 case KnifeThrowing _:
+                case PhotonKnifeThrowing _:
                     return 4;
                 default:
                     return -1;

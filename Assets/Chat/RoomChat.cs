@@ -48,6 +48,7 @@ namespace Chat
 
 		private static string[] CreateBanned()
 		{
+			return new string[0];
 			string all = File.ReadAllText("banned.csv");
 			return all.Split(',');
 

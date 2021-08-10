@@ -35,11 +35,11 @@ namespace GameManager
         }
 
         public void ResetKills() => _roundKills = 0;
-        public void KilledPlayer(bool amKiller, bool isTarget)
+        public void KilledPlayer(bool amKiller, bool isTarget,bool poison = false)
         {
             if (isTarget)
             {
-                if (amKiller) PhotonNetwork.LocalPlayer.AddScore(baseKillPoints - _roundKills * killDowngradePoints);
+                if (amKiller) PhotonNetwork.LocalPlayer.AddScore((poison ? 2 : 0) + baseKillPoints - _roundKills * killDowngradePoints);
                 else PhotonNetwork.LocalPlayer.AddScore(killStealPoints);
             }
             _roundKills++;
@@ -58,23 +58,30 @@ namespace GameManager
 
         public override void OnPlayerPropertiesUpdate(Photon.Realtime.Player targetPlayer, Hashtable changedProps)
         {
-            if (!changedProps.TryGetValue(PunPlayerScores.PlayerScoreProp, out _)) return;
-            if (targetPlayer.IsLocal) UpdateHud();
-            scoreBoard.Sort(ScoreSort);
+            if (changedProps.ContainsKey(PunPlayerScores.PlayerScoreProp) && targetPlayer.IsLocal)
+                UpdateHud();
         }
+        
 
-        public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer)
-        {
-            scoreBoard = PhotonNetwork.PlayerList.ToList();
-            scoreBoard.Sort(ScoreSort);
-        }
+
 
         private int ScoreSort(Photon.Realtime.Player p1, Photon.Realtime.Player p2)
         {
             int p1S = p1.GetScore();
             int p2S = p2.GetScore();
             if (p1S == p2S) return 0;
-            if (p1S > p2S) return 1;
+            if (p1S < p2S) return 1;
+            return -1;
+        }
+
+        public void DeathSortFunc() => scoreBoard.Sort(DeathSort);
+
+        private int DeathSort(Photon.Realtime.Player p1, Photon.Realtime.Player p2)
+        {
+            int p1D = (int)p1.CustomProperties["deathCount"];
+            int p2D = (int) p2.CustomProperties["deathCount"];
+            if (p1D == p2D) return 0;
+            if (p1D < p2D) return 1;
             return -1;
         }
 

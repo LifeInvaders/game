@@ -1,5 +1,6 @@
 ﻿using ExitGames.Client.Photon;
 using Photon.Pun;
+using Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,16 +11,13 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     [SerializeField] private ParticleSystem cannon;
     private void Start()
     {
+        var player = PhotonNetwork.Instantiate("CustomCharacter",gameObject.transform.position,gameObject.transform.rotation);
         if (PhotonNetwork.IsMasterClient)
             GenerateRoomSeed();
-        if (PhotonNetwork.LocalPlayer.CustomProperties.ContainsKey("restart"))
-        {
-            Hashtable hash = new Hashtable {{"restart", false}};
-            PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
-        }
+        Hashtable winAnim = new Hashtable() {{"winAnim", PlayerDatabase.Instance.SelectedEmote}};
+        PhotonNetwork.LocalPlayer.SetCustomProperties(winAnim);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        PhotonNetwork.Instantiate("CustomCharacter",gameObject.transform.position,gameObject.transform.rotation);
     }
 
     private void GenerateRoomSeed()

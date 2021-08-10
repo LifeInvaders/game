@@ -1,4 +1,5 @@
 ﻿using System;
+using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
 using UnityEngine;
@@ -65,16 +66,16 @@ namespace MainMenu
                 if (_isPrivate)
                 {
                     RoomOptions roomOptions = new RoomOptions();
+                    roomOptions.MaxPlayers = 4;
                     roomOptions.IsVisible = false;
-                    //PhotonNetwork.CreateRoom(GlobalCode.ToString(), roomOptions);
-
-
-                    // DisclaimerCodeField.text = _globalCode.ToString();
+                    PhotonNetwork.CreateRoom(_globalCode.ToString(), roomOptions);
+                    
+                    //DisclaimerCodeField.text = _globalCode.ToString();
                     Debug.Log("Room Private Created");
                 }
                 else
                 {
-                    //PhotonNetwork.CreateRoom(nameField.text);
+                    PhotonNetwork.CreateRoom(nameField.text);
                     Debug.Log("Room Created !!");
                 }
             }
