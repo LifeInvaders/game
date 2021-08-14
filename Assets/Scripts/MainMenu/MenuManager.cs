@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Discord_RPC;
 using ExitGames.Client.Photon.StructWrapping;
 using Photon.Pun;
 using Player;
@@ -18,7 +19,7 @@ public class MenuManager : MonoBehaviourPunCallbacks
         Cursor.visible = true;
         if (PhotonNetwork.IsConnected)
             SwitchMenu(4);
-        else SwitchMenu(0);
+        else SwitchMenu(11);
     }
     
 
@@ -57,4 +58,24 @@ public class MenuManager : MonoBehaviourPunCallbacks
     public void Quit() => Application.Quit();
 
     public override void OnConnectedToMaster() => SwitchMenu(4);
+
+    public void EditDiscordDetails(string detail) => PresenceManager.UpdateDetails(detail);
+
+    public void ShowMainMenu(int oldMenu)
+    {
+        menus[0].SetActive(true);
+        StartCoroutine(ShowMainMenuCoroutine(oldMenu));
+    }
+
+    private IEnumerator ShowMainMenuCoroutine(int oldMenu)
+    {
+        
+        yield return new WaitForSeconds(2);
+        menus[oldMenu].SetActive(false);
+    }
+
+    public void VisitWebsite()
+    {
+        Application.OpenURL("https://lifeinvaders.github.io/website/");
+    }
 }

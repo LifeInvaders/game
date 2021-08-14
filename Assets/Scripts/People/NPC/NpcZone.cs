@@ -46,10 +46,10 @@ namespace People.NPC
 
         private void OnDrawGizmosSelected()
         {
-#if DEBUG
-            Handles.color = new Color(1, 0, 0, 0.2f);
-            Handles.DrawSolidDisc(transform.position, transform.up, searchRadius);
-#endif
+// #if DEBUG
+//             Handles.color = new Color(1, 0, 0, 0.2f);
+//             Handles.DrawSolidDisc(transform.position, transform.up, searchRadius);
+// #endif
         }
     }
 }

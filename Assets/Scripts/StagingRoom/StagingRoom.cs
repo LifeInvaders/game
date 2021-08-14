@@ -1,22 +1,33 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
-public class StagingRoom : MonoBehaviour
+namespace StagingRoom
 {
-    // Start is called before the first frame update
-    void Start()
+    public class StagingRoom : MonoBehaviour
     {
-        gameObject.GetComponent<SaveDatabase>().Load();
-        SetFPS();
-        SceneManager.LoadScene("MainMenu");
-    }
+        // Start is called before the first frame update
+        [SerializeField] private VideoPlayer videoPlayer;
+        void Start()
+        {
+            gameObject.GetComponent<SaveDatabase>().Load();
+            SetFPS();
+            StartCoroutine(VideoCoroutine());
+        }
 
-    private void SetFPS()
-    {
-        QualitySettings.vSyncCount = 0; // VSync must be disabled
-        Application.targetFrameRate = PlayerDatabase.Instance.fpsSettings;
+        private IEnumerator VideoCoroutine()
+        {
+            yield return new WaitForSeconds(2);
+            yield return new WaitUntil(() => videoPlayer.isPaused || Input.anyKey);
+            SceneManager.LoadScene("MainMenu");
+        }
+
+        private void SetFPS()
+        {
+            QualitySettings.vSyncCount = 0; // VSync must be disabled
+            Application.targetFrameRate = PlayerDatabase.Instance.fpsSettings;
+        }
     }
 }

@@ -49,7 +49,6 @@ namespace RadarSystem
             if (distance < 20)
             {
                 float ydist = origin.position.y - _target.position.y;
-                Debug.Log(ydist);
                 if (ydist <= -3)
                     text.text = "UP";
                 else if (ydist >= 3)

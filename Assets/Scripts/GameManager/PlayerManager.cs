@@ -29,9 +29,10 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     [SerializeField] private Volume volume;
     [SerializeField] private GameObject classMenu;
     private int classChoice = -1;
-    [SerializeField] private Text classText;
     private string[] classes = {"Athlete", "Disguise Master", "Alchemist", "Blade Master", "Ninja"};
     private GameObject[] classesPhoto;
+    [SerializeField] private GameObject classesDescriptionParent;
+    [SerializeField] private GameObject[] classesDescription;
 
 
     // Start is called before the first frame update
@@ -75,9 +76,14 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     
     public void SetClass(int classChoice)
     {
-        classText.text = "Class: " + classes[classChoice];
         this.classChoice = classChoice;
+        
+        classesDescriptionParent.SetActive(true);
+        for (int i = 0; i < classesDescription.Length; i++) 
+            classesDescription[i].SetActive(i == classChoice);
     }
+    
+    
 
     public void RandomPickClass() => SetClass(UnityEngine.Random.Range(0,classes.Length));
 
