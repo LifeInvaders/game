@@ -68,7 +68,7 @@ namespace Player
         #region Progress
 
         public int LevelExpReqMult = 100;
-        public  int Level = 1;
+        public  int Level = 6;
         public int Exp = 0;
 
         #endregion

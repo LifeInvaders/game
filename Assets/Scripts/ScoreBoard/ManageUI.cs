@@ -12,7 +12,10 @@ namespace ScoreBoard
 
         [SerializeField] public GameObject playerBoard;
 
-        
+        void Update()
+        {
+            playerBoard.SetActive(Input.GetKey(KeyCode.Tab));
+        }
 
         void OnTab(InputValue inputValue)
         {

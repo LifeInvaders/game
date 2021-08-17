@@ -1,10 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 using GameManager;
 using UnityEngine;
 using Photon.Pun;
 using ExitGames.Client.Photon;
+using ExitGames.Client.Photon.StructWrapping;
+using Objects.Powers;
+using People;
 using Photon.Realtime;
 using RadarSystem;
+using TargetSystem;
 using UnityEngine.UI;
 
 
@@ -17,26 +22,25 @@ public class TimerManager : MonoBehaviourPunCallbacks
     [SerializeField] private AssignTarget targetSystem;
     [SerializeField] private Text timerText;
     [SerializeField] private InGameStats igs;
-    private bool ended;
+    public bool ended = true;
 
-    // Start is called before the first frame update
-    void Awake()
-    {
-        _currentEndTime = Double.PositiveInfinity;
-        PhotonNetwork.AddCallbackTarget(this);
-        ChangeTimer();
-    }
+
+    public void StartGame() => ChangeTimer();
 
     void Update()
     {
         if (!ended && PhotonNetwork.Time >= _currentEndTime)
+        {
+            ended = true;
             TimerEnded();
+        }
         UpdateTimer();
     }
 
     public override void OnRoomPropertiesUpdate(Hashtable propertiesThatChanged)
     {
         if (!propertiesThatChanged.TryGetValue("endTime", out var endTime)) return;
+        Debug.Log("Changing timer");
         _currentEndTime = Convert.ToDouble(endTime);
         if (!timerText.gameObject.activeInHierarchy) timerText.gameObject.SetActive(true);
         if (ended) ended = false;
@@ -47,31 +51,35 @@ public class TimerManager : MonoBehaviourPunCallbacks
         if (_index == 0)
             StartHunt();
         else EndRound();
-        ended = true;
     }
 
     void StartHunt()
     {
         _index = 1;
         ChangeTimer();
-        if (PhotonNetwork.IsMasterClient)
-            targetSystem.TargetAssigner();
+        igs.localPlayer.GetComponent<CastTarget>().enabled = true;
+        igs.localPlayer.GetComponent<PowerTools>().gracePeriod = false;
+        if (PhotonNetwork.IsMasterClient) targetSystem.TargetAssigner();
     }
 
     void EndRound()
     {
         _index = 0;
         ChangeTimer();
-        if (PhotonNetwork.IsMasterClient) EventManager.RaiseEndRoundEvent();
-        //TODO: Disable power usage
-        //TODO: Disable hunt-related UI elements
-        //TODO: Disable ability to kill
+        if (PhotonNetwork.IsMasterClient) 
+            EventManager.RaiseEndRoundEvent();
+        igs.localPlayer.GetComponent<CastTarget>().enabled = false;
+        igs.localPlayer.GetComponent<PowerTools>().gracePeriod = true;
+        igs.localPlayer.GetComponentInChildren<RandomSkin>(true).transform.parent.gameObject.SetActive(false);
+        var targetSelect = igs.localPlayer.GetComponent<SelectedTarget>();
+        targetSelect.UpdateSelectedTarget(null,null);
     }
 
     void ChangeTimer()
     {
         if (PhotonNetwork.IsMasterClient)
         {
+            Debug.Log("Changing timer");
             Hashtable timer = new Hashtable {{"endTime", PhotonNetwork.Time + timerPhase[_index]}};
             PhotonNetwork.CurrentRoom.SetCustomProperties(timer);
         }
@@ -84,9 +92,6 @@ public class TimerManager : MonoBehaviourPunCallbacks
         if (_currentEndTime > PhotonNetwork.Time + timerPhase[_index])
             ChangeTimer();
     }
-
-    [PunRPC]
-    public void EnableTimer() => timerText.gameObject.SetActive(true);
 
     void UpdateTimer()
     {

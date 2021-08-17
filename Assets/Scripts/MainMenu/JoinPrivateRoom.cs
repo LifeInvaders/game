@@ -1,4 +1,5 @@
 ﻿using System;
+using Photon.Pun;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -40,8 +41,8 @@ namespace MainMenu
                 return;
             }
             try
-            {
-                //PhotonNetwork.JoinRoom(codeField.text);
+            {  
+                PhotonNetwork.JoinRoom(codeField.text);
                 Debug.Log("Room Joined !!");
             }
             catch (Exception e)

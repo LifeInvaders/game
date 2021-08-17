@@ -29,7 +29,7 @@ namespace Objects
 
         private void OnTriggerExit(Collider other)
         {
-            if (_opened && other.gameObject.CompareTag("Player") && other.gameObject.GetComponent<PlayerControler>().Running())
+            if (_opened && (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("MyPlayer")) && other.gameObject.GetComponent<Animator>().GetBool("running"))
             {
                 _opened = false;
                 _anim.Play("doors_animation");

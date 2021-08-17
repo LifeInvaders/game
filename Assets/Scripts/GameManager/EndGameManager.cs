@@ -1,5 +1,6 @@
 using System.Collections;
 using People.Player;
+using Photon.Compression;
 using Photon.Pun;
 using Photon.Pun.UtilityScripts;
 using Photon.Realtime;
@@ -21,8 +22,10 @@ namespace GameManager
         [SerializeField] private InGameStats igs;
         [SerializeField] private ScoreManager scoreManager;
         [SerializeField] private GameObject timer;
+        [SerializeField] private GameObject victoryScene;
         private PlayerDatabase _playerDatabase;
         private Coroutine _leaveCountdown;
+        [SerializeField] private Image fadeToBlack;
 
         void Start()
         {
@@ -55,8 +58,18 @@ namespace GameManager
 
         public void StartEndRoundCoroutine()
         {
-            Debug.Log("Starting EndRound Coroutine");
+            Debug.Log("Game End!");
             StartCoroutine(EndRound());
+        }
+
+        void EndSceneTransition()
+        {
+            fadeToBlack.gameObject.SetActive(true);
+            Mathf.MoveTowards(fadeToBlack.color.a, 255,20); 
+            statsDisplay.SetActive(false);
+            var vict = Instantiate(victoryScene, transform.position,transform.rotation);
+            vict.GetComponent<Victory>().scoreManager = scoreManager;
+            Mathf.MoveTowards(fadeToBlack.color.a, 0,20);
         }
 
         IEnumerator EndRound()
@@ -66,29 +79,34 @@ namespace GameManager
             igs.localPlayer.GetComponent<PlayerControler>().enabled = false;
             igs.localPlayer.GetComponent<CameraControler>().enabled = false;
             int exp = GetExp();
-            UpdateDatabase(exp);
-            statsDisplay.SetActive(true);
             DisplayStats(exp);
+            statsDisplay.SetActive(true);
+            UpdateDatabase(exp);
             yield return new WaitForSeconds(5);
-            statsDisplay.SetActive(false);
-            _leaveCountdown = StartCoroutine(PromptRestart());
+            EndSceneTransition();
+            yield return new WaitForSeconds(15);
+            Quit();
+            //_leaveCountdown = StartCoroutine(PromptRestart());
         }
 
         private void UpdateDatabase(int exp)
         {
-            _playerDatabase.Exp += exp;
-            if (_playerDatabase.Exp >= _playerDatabase.Level * _playerDatabase.LevelExpReqMult)
-                AddLevel();
+            Levelling(exp);
             _playerDatabase.Deaths += igs.deathCount;
             _playerDatabase.TargetKills += igs.killCount;
             _playerDatabase.Games++;
             _playerDatabase.FirstPlace += scoreManager.GetRank() == 1 ? 1 : 0;
         }
 
-        private void AddLevel()
+        private void Levelling(int exp)
         {
-            _playerDatabase.Exp %= _playerDatabase.Level * _playerDatabase.LevelExpReqMult;
+            int beforeAdd = _playerDatabase.Exp;
+            Mathf.MoveTowards(_playerDatabase.Exp,
+                Mathf.Min(_playerDatabase.Exp + exp, _playerDatabase.Level * _playerDatabase.LevelExpReqMult), 1);
+            if (_playerDatabase.Exp != _playerDatabase.Level * _playerDatabase.LevelExpReqMult) return;
+            _playerDatabase.Exp = 0;
             _playerDatabase.Level++;
+            Levelling(_playerDatabase.Level * _playerDatabase.LevelExpReqMult - beforeAdd);
         }
         public override void OnLeftRoom()
         {
@@ -111,7 +129,7 @@ namespace GameManager
                     return;
                 }
             }
-            Restart();
+            StartCoroutine(Restart());
         }
 
         IEnumerator PromptRestart()
@@ -132,16 +150,16 @@ namespace GameManager
             StopCoroutine(_leaveCountdown);
             choiceDisplay.SetActive(false);
             restartDisplay.SetActive(true);
-            Hashtable hash = new Hashtable {{"restart", true}};
-            PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
             InvokeRepeating(nameof(CheckChoiceAndRestart), 0, 5);
         }
 
-        private void Restart()
+        IEnumerator Restart()
         {
+            CancelInvoke(nameof(CheckChoiceAndRestart));
+            yield return new WaitForSeconds(5);
+            if (!PhotonNetwork.IsMasterClient) yield break;
             PhotonNetwork.CurrentRoom.IsOpen = true;
             PhotonNetwork.LoadLevel("Lobby");
-            CancelInvoke(nameof(CheckChoiceAndRestart));
         }
     }
 }

@@ -20,9 +20,5 @@ public class ExperienceBar : MonoBehaviour
         level.text = "Level " + _instance.Level;
     }
 
-    public void Test()
-    {
-        _instance.Exp += 10;
-        Start();
-    }
+
 }

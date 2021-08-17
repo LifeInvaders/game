@@ -34,11 +34,11 @@ namespace TargetSystem
         /// Méthode appelée quand un joueur tue la cible verouillée 
         /// </summary>
         /// <param name="target"></param>
-        void Kill(GameObject target)
+        public void Kill(GameObject target, bool poison = false)
         {
             if (target.CompareTag("Player"))
-                EventManager.RaisePlayerKilled(target);
-            else EventManager.RaiseNpcKilled(target);
+                EventManager.RaisePlayerKilled(target, poison ? -1 : UnityEngine.Random.Range(0,7));
+            else EventManager.RaiseNpcKilled(target, poison ? -1 : UnityEngine.Random.Range(0,7));
             _casttarget.SetAiming(false);
             Debug.Log($"killed {target.name}");
             _selectedTarget.UpdateSelectedTarget(target, target.GetComponentInChildren<Outline>());

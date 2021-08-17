@@ -2,7 +2,6 @@
 using People.Player;
 using TargetSystem;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class demoEvent : MonoBehaviour

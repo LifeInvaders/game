@@ -47,7 +47,7 @@ namespace People
         /// Return mesh and material number
         /// </summary>
         /// <returns></returns>
-        public (int, int) GetSkinNpc()
+        public (int mesh, int material) GetSkinNpc()
         {
             return (_meshNb, _materialNb);
         }
