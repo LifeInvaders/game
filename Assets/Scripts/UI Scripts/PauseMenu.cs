@@ -1,4 +1,5 @@
 using System;
+using Discord_RPC;
 using Photon.Pun;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -37,6 +38,8 @@ namespace UI
 
         public void LeaveGame()
         {
+            PresenceManager.ClearParty();
+            PresenceManager.UpdateDetails("Menu Principal");
             if (PhotonNetwork.IsConnected)
                 PhotonNetwork.LeaveRoom();
             else
@@ -50,7 +53,7 @@ namespace UI
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
-
+        
         public void OnPause()
         {
             if (pauseMenuHUD.activeSelf)
@@ -59,7 +62,6 @@ namespace UI
             }
             else
             {
-                Debug.Log(pauseMenuHUD.activeSelf);
                 pauseMenuHUD.SetActive(true);
                 playerinput.SwitchCurrentActionMap("Menu");
                 Cursor.lockState = CursorLockMode.None;

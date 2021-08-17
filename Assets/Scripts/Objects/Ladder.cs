@@ -24,7 +24,7 @@ namespace Objects
         {
             if (other.gameObject.CompareTag("MyPlayer"))
             {
-                var playerEvent = other.GetComponent<PlayerEvent>();
+                var playerEvent = other.GetComponent<HumanEvent>();
                 if (IsNotValid(playerEvent)) return;
                 cam.Follow = other.transform;
                 cam.LookAt = other.transform;
@@ -57,14 +57,14 @@ namespace Objects
             }
         }
 
-        private static bool IsNotValid(PlayerEvent playerEvent) =>
+        private static bool IsNotValid(HumanEvent playerEvent) =>
             playerEvent.humanTask == HumanTasks.SpeedRunning || playerEvent.humanTask == HumanTasks.Bleeding;
 
         private void OnTriggerExit(Collider other)
         {
             if (other.gameObject.CompareTag("MyPlayer"))
             {
-                var playerEvent = other.GetComponent<PlayerEvent>();
+                var playerEvent = other.GetComponent<HumanEvent>();
                 switch (playerEvent.humanTask)
                 {
                     case HumanTasks.Bleeding:
@@ -159,7 +159,7 @@ namespace Objects
         {
             if (other.gameObject.CompareTag("MyPlayer"))
             {
-                var playerEvent = other.GetComponent<PlayerEvent>();
+                var playerEvent = other.GetComponent<HumanEvent>();
                 switch (playerEvent.humanTask)
                 {
                     case HumanTasks.SpeedRunning:

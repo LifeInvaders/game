@@ -13,9 +13,11 @@ namespace GameManager
         [SerializeField] private NpcManager npcManager;
         [SerializeField] private PlayerManager playerManager;
         [SerializeField] private TimerManager timerManager;
-        
+
         IEnumerator Start()
         {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             players = PhotonNetwork.PlayerList;
             Debug.Log("Settings status as ready");
             Hashtable ready = new Hashtable {{"ready", true}};
@@ -26,18 +28,17 @@ namespace GameManager
             Debug.Log("Waiting for npc activation...");
             yield return new WaitUntil(CheckNpcSyncTime);
             playerManager.enabled = true;
+            playerManager.StartCoroutine(playerManager.LatePick());
             Debug.Log("Waiting for player spawning...");
             yield return new WaitUntil(CheckAssignViewID);
             if (PhotonNetwork.IsMasterClient)
                 yield return new WaitForSeconds(1);
-            timerManager.enabled = true;
+            timerManager.StartGame();
         }
         
         bool CheckNpcSyncTime()
         {
-            if (!PhotonNetwork.CurrentRoom.CustomProperties.TryGetValue("syncNpcStart", out var time))
-                return false;
-            return PhotonNetwork.Time >= Convert.ToDouble(time);
+            return PhotonNetwork.CurrentRoom.CustomProperties.TryGetValue("npcDone", out var time) && PhotonNetwork.Time >= Convert.ToDouble(time);
         }
 
         bool CheckAssignViewID()

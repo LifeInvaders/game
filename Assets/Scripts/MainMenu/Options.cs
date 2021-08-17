@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Player;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -13,10 +14,13 @@ namespace MainMenu
             // Debug.Log($"{PlayerDatabase.Instance.soundLevel},{Mathf.Pow(10,PlayerDatabase.Instance.soundLevel/10)}");
             // soundSystem.SetFloat("volume", Mathf.Pow(10,PlayerDatabase.Instance.soundLevel/10));
             // volumeSlider.value = PlayerDatabase.Instance.soundLevel;
-            QualitySettings.SetQualityLevel(PlayerDatabase.Instance.qualitySetting);
-            qualityDropdown.value = QualitySettings.GetQualityLevel();
-            fullscreenToggle.isOn = Screen.fullScreen;
-            soundSystem.FindMatchingGroups("Master");
+            if (loadSettings)
+            {
+                QualitySettings.SetQualityLevel(PlayerDatabase.Instance.qualitySetting);
+                qualityDropdown.value = QualitySettings.GetQualityLevel();
+                fullscreenToggle.isOn = Screen.fullScreen;
+                soundSystem.FindMatchingGroups("Master");
+            }
             SetDefinitionValues();
             SetFPSValues();
         }
@@ -45,12 +49,13 @@ namespace MainMenu
             resolutionDropdown.value = currentRes;
         }
 
+        [SerializeField] private bool loadSettings = false;
         [SerializeField] private AudioMixer soundSystem;
         [SerializeField] private Slider volumeSlider;
-        [SerializeField] private Dropdown qualityDropdown;
+        [SerializeField] private TMP_Dropdown qualityDropdown;
         [SerializeField] private Toggle fullscreenToggle;
-        [SerializeField] private Dropdown resolutionDropdown;
-        [SerializeField] private Dropdown fpsDropdown;
+        [SerializeField] private TMP_Dropdown resolutionDropdown;
+        [SerializeField] private TMP_Dropdown fpsDropdown;
 
         private static int[] _fpsValues = {30, 60, 120, -1};
 

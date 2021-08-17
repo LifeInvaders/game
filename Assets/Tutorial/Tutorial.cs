@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections;
 using Cinemachine;
+using Discord_RPC;
 using People.NPC;
 using People.Player;
 using TargetSystem;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 namespace Tutorial
@@ -71,7 +73,8 @@ namespace Tutorial
             _castTarget.enabled = false;
             _selectedTarget.enabled = false;
             _killTarget.enabled = false;
-
+            
+            PresenceManager.UpdateState("Joue au tutoriel");
             SetLevel();
         }
 
@@ -106,6 +109,7 @@ namespace Tutorial
         {
             arrivedToTrigger = false;
             _level++;
+            PresenceManager.UpdatePresence(detail:$"Niveau {_level}");
             switch (_level)
             {
                 case 1:
@@ -148,6 +152,7 @@ namespace Tutorial
             playerController.SetRotateBool(false);
             yield return new WaitForSeconds(1);
             Debug.Log("finish turorial");
+            SceneManager.LoadScene("Scenes/MainMenu");
         }
 
         private IEnumerator Level5()

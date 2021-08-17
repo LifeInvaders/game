@@ -29,7 +29,7 @@ namespace TargetSystem
         [SerializeField] private Camera[] _cameras;
 
         private PlayerControler _playerControler;
-        private PlayerEvent _playerEvent;
+        private HumanEvent _playerEvent;
 
         /// <summary>
         /// Set Aiming bool
@@ -49,7 +49,7 @@ namespace TargetSystem
 
         private void Start()
         {
-            _playerEvent = GetComponent<PlayerEvent>();
+            _playerEvent = GetComponent<HumanEvent>();
             if (PhotonNetwork.IsConnected && !gameObject.GetPhotonView().IsMine)
                 enabled = false;
             _selectedTarget = GetComponent<SelectedTarget>();

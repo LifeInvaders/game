@@ -23,5 +23,5 @@ public class NicknameAbovePlayer : MonoBehaviour
         }
     }
 
-    void Update() => floatingText.rotation = Quaternion.LookRotation(  floatingText.position - Camera.main.transform.position);
+    void Update() => floatingText.rotation = Quaternion.LookRotation(  floatingText.position - Camera.current.transform.position);
 }

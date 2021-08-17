@@ -20,7 +20,7 @@ namespace People.Player
             {
                 Vector2 axis = other.GetComponent<PlayerControler>().GetAxis();
                 var animator = other.GetComponent<Animator>();
-                var playerEvent = other.GetComponent<PlayerEvent>();
+                var playerEvent = other.GetComponent<HumanEvent>();
                 if (axis != Vector2.zero)
                 {
                     if (playerEvent.humanTask == HumanTasks.Talking)

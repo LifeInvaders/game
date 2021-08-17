@@ -44,7 +44,7 @@ namespace TargetSystem
         /// <returns></returns>
         public bool IsSelectedTarget(GameObject target)
         {
-            return _selectedTarget != null && target.GetInstanceID() == _selectedTarget.GetInstanceID();
+            return _selectedTarget != null  && target.GetInstanceID() == _selectedTarget.GetInstanceID();
         }
         /// <summary>
         /// Met à jour la surbrillance du joueur sélectionné.

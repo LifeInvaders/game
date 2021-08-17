@@ -10,7 +10,7 @@ namespace Objects
         {
             if (other.gameObject.CompareTag("MyPlayer")) // si collision avec autre joueur
             {
-                var playerEvent = other.GetComponent<PlayerEvent>();
+                var playerEvent = other.GetComponent<HumanEvent>();
                 if (playerEvent.humanTask == HumanTasks.Zipline)
                 {
                     PlayerControler controler = other.GetComponent<PlayerControler>();

@@ -1,3 +1,4 @@
+﻿using Photon.Pun;
 ﻿using System;
 using System.Collections;
 using HUD;
@@ -13,13 +14,16 @@ namespace Objects.Powers
         protected float TimeBeforeUse;
         protected int _time;
         protected Random _random;
+        public bool gracePeriod = true;
+        
+        
         private PowerHud _powerHud;
 
         private void Start()
         {
             SetValues();
             _powerHud = GetComponentInChildren<PowerHud>();
-            _powerHud.SetIcon(this);
+            //_powerHud.SetIcon(this);
             if (TimeBeforeUse > 0)
             {
                 _powerHud.SetTime(TimeBeforeUse);
@@ -63,33 +67,15 @@ namespace Objects.Powers
             }
         }
 
-        private IEnumerator WaitButtonPressed()
+        void Awake()
         {
-            var target = GetComponent<SelectedTarget>().GetTarget();
-            _instanceLoadingSelector = Instantiate(loadingSelector, target.transform.position + Vector3.up * 2.4f,
-                target.transform.rotation, target.transform);
-            var holdUI = _instanceLoadingSelector.GetComponent<HoldUI>();
-            holdUI.player = transform;
-            holdUI.time = TimeToStayOnTheButton;
-            _instanceLoadingSelector.GetComponent<Canvas>().worldCamera = Camera.current;
-            float waitingTime = 0;
-            while (waitingTime < TimeToStayOnTheButton)
-            {
-                waitingTime += Time.deltaTime;
-                yield return new WaitForEndOfFrame();
-            }
-
-            ActivatePower();
+            if (!gameObject.GetPhotonView().IsMine) enabled = false;
         }
 
         public void OnPower(InputValue inputValue)
         {
-            if (!enabled || TimeBeforeUse != 0 || !IsValid()) return;
-
-            if (IsShortAction && inputValue.isPressed)
-            {
-                ActivatePower();
-            }
+            if (gracePeriod || !enabled || TimeBeforeUse != 0 || !IsValid()) return;
+            if (IsShortAction && inputValue.isPressed) ActivatePower();
             else
             {
                 bool coroutineIsNull = _coroutine == null;
@@ -102,6 +88,25 @@ namespace Objects.Powers
                     Destroy(_instanceLoadingSelector);
                 }
             }
+        }
+        
+        private IEnumerator WaitButtonPressed()
+        {
+            var target = GetComponent<SelectedTarget>().GetTarget();
+            var InstanceLoadingSelector = Instantiate(loadingSelector, target.transform.position + Vector3.up * 2.4f,
+                target.transform.rotation, target.transform);
+            var holdUI = InstanceLoadingSelector.GetComponent<HoldUI>();
+            holdUI.player = transform;
+            holdUI.time = TimeToStayOnTheButton;
+            InstanceLoadingSelector.GetComponent<Canvas>().worldCamera = Camera.current;
+            float waitingTime = 0;
+            while (waitingTime < TimeToStayOnTheButton)
+            {
+                waitingTime += Time.deltaTime;
+                yield return new WaitForEndOfFrame();
+            }
+            TimeBeforeUse = _time;
+            ActivatePower();
         }
 
         private void ActivatePower()

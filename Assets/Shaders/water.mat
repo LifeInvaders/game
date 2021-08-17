@@ -14,7 +14,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
@@ -60,7 +60,7 @@ Material:
     - Vector1_39047021: 0.5
     - Vector1_39222957: 0.774
     - Vector1_3D495A1F: 0.9
-    - Vector1_489F9EEF: 8
+    - Vector1_489F9EEF: 7.67
     - Vector1_4B305923: 7.16
     - Vector1_4F92311A: 1
     - Vector1_51075417: 0.71
@@ -71,12 +71,12 @@ Material:
     - Vector1_6DA97D7: 35
     - Vector1_722CB011: 0.083
     - Vector1_7E38F72D: 1
-    - Vector1_7FB5584F: 0.522
+    - Vector1_7FB5584F: 0.757
     - Vector1_865AA6F6: 0.8
     - Vector1_8BF7F1BF: 1
     - Vector1_905986FC: 1
     - Vector1_986CF1D2: 0.62
-    - Vector1_9E5F763C: 0.752
+    - Vector1_9E5F763C: 0.721
     - Vector1_A38692A6: 0.656
     - Vector1_A5221F15: 1
     - Vector1_A796D450: 1
@@ -93,7 +93,7 @@ Material:
     - Vector1_F0FA9185: 0.3
     - Vector1_F2029A8E: 0.887
     - Vector1_F4A73BA: 0.77
-    - Vector1_F976D8BD: 0.076
+    - Vector1_F976D8BD: 0.601
     - Vector1_FABC47E4: 0.5
     - _AlphaClip: 0
     - _Blend: 0
@@ -123,7 +123,7 @@ Material:
     - Color_936A8730: {r: 0.1450979, g: 0.9490196, b: 1, a: 0.15686275}
     - Color_D70B9788: {r: 0.145098, g: 0.9490197, b: 1, a: 0.15686275}
     - Color_E63B4CEF: {r: 0.145098, g: 0.9490197, b: 1, a: 0.16862746}
-    - Vector2_B86025B3: {r: 0.5, g: 1, b: 0, a: 0}
+    - Vector2_B86025B3: {r: 1, g: 1, b: 2.3, a: 0}
     - Vector2_D494475D: {r: 0.2, g: 0.2, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}

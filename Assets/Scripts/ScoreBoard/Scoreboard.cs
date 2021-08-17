@@ -1,64 +1,49 @@
 ﻿using UnityEngine;
 using System.IO;
+using ExitGames.Client.Photon;
+using Photon.Pun;
+using Photon.Pun.UtilityScripts;
 
 
 namespace Scoreboard
 {
-    public class Scoreboard : MonoBehaviour
+    public class Scoreboard : MonoBehaviourPunCallbacks
     {
-        [SerializeField] private int maxScoreboardEntries = 5;
+        [SerializeField] private int maxScoreboardEntries = 8;
         [SerializeField] private Transform highScoreHolderTransform;
         [SerializeField] private GameObject scoreboardEntryObject;
-        [SerializeField] private GameObject instanceRoot;
-        
+
         [Header("Test")] [SerializeField] ScoreboardEntryData testEntrydata;
 
         private string Savepath => $"{Application.persistentDataPath}/highers.json";
 
         private void Start()
         {
+            ClearData();
             ScoreboardSaveData savedScores = GetSavedScores();
+            foreach (Photon.Realtime.Player player in PhotonNetwork.PlayerList)
+                AddEntry(new ScoreboardEntryData(player.NickName,0,0,0));
             UpdateUI(savedScores);
             SaveScores(savedScores);
             SortList();
         }
 
-        
-        /*private void Update()
+        public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer)
         {
-            if (PhotonNetwork.IsConnected)
-            {
-                try
-                {
-                    foreach (var player in PhotonNetwork.PlayerList)
-                    {
-                        ScoreboardEntryData NewPlayer = new ScoreboardEntryData(player.NickName, 0, 0, 0);
-                        AddEntry(NewPlayer);
-                    }
-
-                    
-                        foreach (var entry in GetSavedScores().highscores)
-                        {
-                            foreach (var VARIABLE in COLLECTION)
-                            {
-                                
-                            }
-                        }
-                    
-                    
-                    
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e);
-                    throw;
-                }
-                
-                
-            }
+            RemoveEntry(otherPlayer.NickName);
         }
-        */
         
+        public override void OnPlayerPropertiesUpdate(Photon.Realtime.Player targetPlayer, Hashtable changedProps)
+        {
+            if (!changedProps.ContainsKey(PunPlayerScores.PlayerScoreProp)
+                && !changedProps.ContainsKey("deathCount")) return;
+            var nickName = targetPlayer.NickName;
+            var score = targetPlayer.GetScore();
+            var deaths = (int)targetPlayer.CustomProperties["deathCount"];
+            var kills = (int)targetPlayer.CustomProperties["killCount"];
+            AddEntry(new ScoreboardEntryData(nickName,score,kills,deaths));
+        }
+
 
         public void AddEntry(ScoreboardEntryData EntryToAdd)
         {
@@ -166,7 +151,7 @@ namespace Scoreboard
         {
             foreach (Transform child in highScoreHolderTransform)
             {
-               Destroy(child);
+               Destroy(child.gameObject);
             }
             foreach (var highscore in savedScores.highscores)
             {
@@ -185,10 +170,9 @@ namespace Scoreboard
         {
             if (!File.Exists(Savepath))
             {
-                File.Create(Savepath).Dispose();
+                File.Create(Savepath);
                 return new ScoreboardSaveData();
             }
-
             using (StreamReader stream = new StreamReader(Savepath))
             {
                 string json = stream.ReadToEnd();
@@ -210,10 +194,10 @@ namespace Scoreboard
         private void DeleteChild()
         {
             foreach (Transform obj in highScoreHolderTransform)
-                {
-                    Destroy(obj.gameObject);
-                    int debug = highScoreHolderTransform.childCount;  
-                }
+            {
+                Destroy(obj.gameObject);
+                int debug = highScoreHolderTransform.childCount;  
+            }
         }
 
         
